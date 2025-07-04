@@ -1,3 +1,5 @@
+
+const fs = require('fs');
 const endpoint = 'https://catalog-service.adobe.io/graphql';
 
 const query = `
@@ -24,9 +26,28 @@ query productSearch(
         sku
         canonical_url
         image { url }
-        short_description { html }
-        price_range { minimum_price { final_price { value currency } regular_price { value currency } fixed_product_taxes { amount { value currency } label } discount { percent_off amount_off } } maximum_price { final_price { value currency } regular_price { value currency } fixed_product_taxes { amount { value currency } label } discount { percent_off amount_off } } } 
-        
+        description { html }
+        price_range {
+          minimum_price {
+            final_price { value currency }
+            regular_price { value currency }
+            fixed_product_taxes { amount { value currency } label }
+            discount { percent_off amount_off }
+          }
+          maximum_price {
+            final_price { value currency }
+            regular_price { value currency }
+            fixed_product_taxes { amount { value currency } label }
+            discount { percent_off amount_off }
+          }
+        }
+      }
+      productView {
+        attributes {
+          label
+          name
+          value
+        }
       }
     }
     page_info {
@@ -74,7 +95,49 @@ async function fetchProducts() {
     });
 
     const json = await response.json();
-    console.log(JSON.stringify(json, null, 2));
+
+    // Print entire response for debugging
+    // console.log('Full response:', JSON.stringify(json, null, 2));
+
+
+    // fs.writeFileSync('products.json', JSON.stringify(json, null, 2), 'utf-8');
+    // console.log('Raw JSON saved to products.json');
+
+
+    if (!json.data || !json.data.productSearch) {
+      console.error('No productSearch data found. Check query and API response.');
+      return;
+    }
+
+    const products = json.data.productSearch.items.map((item) => {
+      const product = item.product;
+      const attributes = item.productView?.attributes || [];
+
+      const getAttribute = (name) =>
+        attributes.find((attr) => attr.name === name)?.value || null;
+
+      return {
+        name: product.name,
+        // sku: product.sku,
+        // url: product.canonical_url,
+        image: product.image?.url,
+        // description: product.description,
+        price: product.price_range?.minimum_price?.final_price.value,
+        // color: getAttribute('couleur'),
+        // grape_variety: getAttribute('cepage'),
+        // flavor: getAttribute('aromate'),
+        // designation: getAttribute('appellation'),
+        size: getAttribute('format_contenant_ml'),
+        identity: getAttribute('identite_produit'),
+        vintage: getAttribute('millesime_produit'),
+        country: getAttribute('pays_origine'),
+      };
+    });
+
+    fs.writeFileSync('processed_products.json', JSON.stringify(products, null, 2), 'utf-8');
+    console.log('Processed JSON saved to processed_products.json');
+
+    console.log(JSON.stringify(products, null, 2));
   } catch (error) {
     console.error('Error fetching products:', error);
   }
