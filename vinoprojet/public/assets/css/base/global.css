@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: var(--font-heading);
+    font-weight: bold;
+}
+h1{
+    font-size: var(--Heading-H1);
+}
+h2{
+    font-size: var(--Heading-H2);
+}
+h3{
+    font-size: var(--Heading-H3);
+}
+h4{
+    font-size: var(--Heading-H4);
+}
+h5{
+    font-size: var(--Heading-H5);
+}
+h6{
+    font-size: var(--Heading-H6);
+}
+
+p,a{
+    font-family: var(--font-content);
+}
