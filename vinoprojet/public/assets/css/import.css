@@ -1,2 +1,12 @@
+/* base */ 
 @import url("./base/root.css");
+@import url("./base/global.css");
+
+/* components */ 
+
 @import url("./layouts/header.css");
+@import url("./components/footer-main.css");
+
+
+/* layout */ 
+
