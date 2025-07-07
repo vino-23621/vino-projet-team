@@ -5,32 +5,152 @@ Définition des styles de couleur et de rythme
     /* --- Palette de couleur ---*/
     --Primary-Purple-400: #783197;
     --Primary-Purple-300: #b67dc4;
+    --Primary-Purple-200: #b67dc4;
+    --Primary-Purple-100: #e3cff0;
+
+    --Accent-Wine-400: #5E3233;
+    --Accent-Wine-300: #874C4C;
+    --Accent-Wine-200: #ad6e6f;
+    --Accent-Wine-100: #E4C3C3;
+
+    --Secondary-Amber-400: #efaf67;
+    --Secondary-Amber-300: #F4C384;
+    --Secondary-Amber-200: #F8D7A8;
+    --Secondary-Amber-100: #FFF1E2;
+
+    --Secondary-Rose-400: #90647F;
+    --Secondary-Rose-300: #A87b96;
+    --Secondary-Rose-200: #CBA7BE;
+    --Secondary-Rose-100: #F2E8F0;
+
+    --Secondary-Mauve-400: #EBE1EA;
+    --Secondary-Mauve-300: #F2ECF1;
+    --Secondary-Mauve-200: #F8F4F7;
+    --Secondary-Mauve-100: #FBF9FA;
+
+    /* --- Neutral Colors ---*/
+
+    --Headings-Black: #191931;
+    --Text-Gray: #2a2a44;
+    --Color-800: #12121f;
+    --Color700: #4D4D67;
+    --Color-600: #63637A;
+    --Color-500: #7D7D92;
+    --Color-400: #A3A3B3;
+    --Color-300: #C8C8D4;
+    --Color-200: #E5E5EF;
+    --Color-100: #F5F5FA;
+
+    /* --- Status Colors ---*/
+
+    --Success-Green: #3DA773;
+    --Success-Green-300: #6AC293;
+    --Success-Green-200: #9ADBB3;
+    --Success-Green-100: #d2f3e3;
+
+    --Warning-Yellow: #F2C94C;
+    --Warning-Yellow-300: #F5D66E;
+    --Warning-Yellow-200: #F9E79E;
+    --Warning-Yellow-100: #FFF8DC;
+
+    --Error-Red: #D94C4C;
+    --Error-Red-300: #E57575;
+    --Error-Red-200: #F2AAAA;
+    --Error-Red-100: #FDE5E5;
+
+    --Yellow-400: #FFC700;
+    --Yellow-300: #FFF69D;
+    --Yellow-200: #FFFCDD;
+    --Yellow-100: #FFFDEC;
+
+    /* --- Gradients ---*/
+
+    --Grape-Sunset: #783197, #EFAF67;
+    --Rose-Fusion: #783197, #90647F;
+
 
     /* --- Liens ---*/
-    --color-lien-fond-clair: #26428b;
-    --color-lien-fond-fonce: #f8f7f5;
+    --color-lien-fond-clair: #e3cff0;
+    --color-lien-fond-fonce: #9458af;
 
-    /* --- Navigation ---*/
-    --color-nav-clair: #4c6378;
-    --color-nav-plus-clair: #85a0b9;
-    --color-nav-background: #f1f4ff;
-    --color-button-bleu: #26428b;
-    --color-border-line: #bfd0db;
-    --color-texte-gris: #3c5873;
 
     /* --- Font family ---*/
-    --font-base: "Montserrat", sans-serif;
-    --font-accent: "Merriweather", serif;
+    --font-heading: "Noto Serif", serif;
+    --font-content: "Poppins", sans-serif;
+    --font-heading-special: "Rotunda", sans-serif;
 
-    /* --- Typographie ---*/
-    --font-miniature: 10px;
-    --font-shortest: 12px;
-    --font-shorter: 14px;
-    --font-short: 15px;
-    --font-current: 16px;
-    --font-tall: 21px;
-    --font-taller: 32px;
-    --font-tallest: 38px;
+    /* --- TYPOGRAPHIE ---*/
+
+
+
+    /* --- Typographie rich text ---*/
+
+    --Numbered-List: normal 18px/30px var(--font-content);
+    --Bullet-List: normal 18px/30px var(--font-content);
+    --Text-Link: normal 18px/30px var(--font-content);
+    --Text-Bold: bold 18px/30px var(--font-content);
+
+    /* --- Typographie Text Single Uppercase---*/
+
+    --Single-Uppercase-400-normal: normal 24px/26px var(--font-content);
+    --Single-Uppercase-400-medium: medium 24px/26px var(--font-content);
+    --Single-Uppercase-400-bold: bold 24px/26px var(--font-content);
+
+    --Single-Uppercase-300-normal: normal 20px/22px var(--font-content);
+    --Single-Uppercase-300-medium: medium 20px/22px var(--font-content);
+    --Single-Uppercase-300-bold: bold 20px/22px var(--font-content);
+
+    --Single-Uppercase-200-normal: normal 18px/20px var(--font-content);
+    --Single-Uppercase-200-medium: medium 18px/20px var(--font-content);
+    --Single-Uppercase-200-bold: bold 18px/20px var(--font-content);
+
+    --Single-Uppercase-100-normal: normal 16px/18px var(--font-content);
+    --Single-Uppercase-100-medium: medium 16px/18px var(--font-content);
+    --Single-Uppercase-100-bold: bold 16px/18px var(--font-content);
+
+    /* --- Typographie Text Single---*/
+
+    --Text-Single-400-normal: normal 22px/22px var(--font-content);
+    --Text-Single-400-medium: medium 22px/22px var(--font-content);
+    --Text-Single-400-bold: bold 22px/22px var(--font-content);
+
+    --Text-Single-300-normal: normal 20px/20px var(--font-content);
+    --Text-Single-300-medium: medium 20px/20px var(--font-content);
+    --Text-Single-300-bold: bold 20px/20px var(--font-content);
+
+    --Text-Single-200-normal: normal 18px/18px var(--font-content);
+    --Text-Single-200-medium: medium 18px/18px var(--font-content);
+    --Text-Single-200-bold: bold 18px/18px var(--font-content);
+
+    --Text-Single-100-normal: normal 16px/18px var(--font-content);
+    --Text-Single-100-medium: medium 16px/18px var(--font-content);
+    --Text-Single-100-bold: bold 16px/18px var(--font-content);
+
+
+    /* --- Typographie Body---*/
+
+    --Body-Large: normal 22px/36px var(--font-content);
+    --Body-default: normal 18px/30px var(--font-content);
+    --Body-small: normal 16px/28px var(--font-content);
+    --Body-smaller: normal 12px/24px var(--font-content);
+
+
+    /* ---Typographie Headings---*/
+    --Heading-H1: bold 56px/66px var(--font-heading);
+    --Heading-H2: bold 36px/46px var(--font-heading);
+    --Heading-H3: bold 24px/34px var(--font-heading);
+    --Heading-H4: bold 22px/28px var(--font-heading);
+    --Heading-H5: bold 18px/24px var(--font-heading);
+    --Heading-H6: bold 16px/22px var(--font-heading);
+
+
+    /* ---Typographie Special Headings---*/
+
+    --Display1: bold 90px/90px var(--font-heading-special);
+    --Display2: bold 72px/80px var(--font-heading-special);
+    --Display3: bold 44px/50px var(--font-heading-special);
+    --Display4: bold 28px/38px var(--font-heading-special);
+
 
     /* --- Line-Height ---*/
     --line-height-perfect: 1em;
