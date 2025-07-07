@@ -81,7 +81,7 @@ L’application Vino adopte un ton **convivial, raffiné et accessible**. Elle �
   [Consulter sur Jira](https://mledeurpro.atlassian.net/jira/software/projects/VC/boards/35/backlog?selectedIssue=VC-81)
 
 - **Figma (wireframes et UI Kit)** :  
-  [Accéder aux maquettes Figma](https://www.figma.com/design/HHrsRRWO9t79pcInTcjRyU/Website-Wireframes-UI-Kit-%7C-BRIX-Templates--Community-?node-id=1-127&t=cvS6Xi03X1L7HAkS-1)
+  [Accéder aux maquettes Figma](https://www.figma.com/design/zI2qs2UFT3FLhqtUoLZk1p/UI-Kit-%7C-Vino?node-id=40-168&t=Eytj6EWv4emeOA8p-1)
 
 ---
 
