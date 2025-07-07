@@ -74,49 +74,65 @@
 
 
     <footer id="footer-main">
-        <section>
-            <h2>Produit</h2>
-            <ul>
-                <li><a href="">Mon cellier</a></li>
-                <li><a href="">Liste d’achats</a></li>
-                <li><a href="">Notes de dégustation</a></li>
-                <li><a href="">S’enregistrer</a></li>
-                <li><a href="">Se connecter</a></li>
-            </ul>
-        </section>
-        <section>
-            <h2>Entreprise</h2>
-            <ul>
-                <li><a href="">À propos de Vino</a></li>
-                <li><a href="">Nous contacter</a></li>
-                <li><a href="">Rejoindre l’équipe</a></li>
-                <li><a href="">Notre culture</a></li>
-                <li><a href="">Infolettre</a></li>
-            </ul>
-        </section>
-        <section>
-            <h2>Support</h2>
-            <ul>
-                <li><a href="">Commencer avec Vino</a></li>
-                <li><a href="">Centre d’aide</a></li>
-                <li><a href="">Signaler un problème</a></li>
-                <li><a href="">Assistance par chat</a></li>
-                <li><a href="">Questions fréquentes</a></li>
-            </ul>
-        </section>
-        <div class="socialNetwork">
-            <a href="">Facebook</a>
-            <a href="">Twitter</a>
-            <a href="">Youtube</a>
-            <a href="">Instagram</a>
+
+        <div class="flex-row footer-gap justify-spacebetween">
+            <section>
+                <h2>Produit</h2>
+                <ul class="footer-ul flex-column">
+                    <li><a href="">Mon cellier</a></li>
+                    <li><a href="">Liste d’achats</a></li>
+                    <li><a href="">Notes de dégustation</a></li>
+                    <li><a href="">S’enregistrer</a></li>
+                    <li><a href="">Se connecter</a></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Entreprise</h2>
+                <ul class="footer-ul flex-column">
+                    <li><a href="">À propos de Vino</a></li>
+                    <li><a href="">Nous contacter</a></li>
+                    <li><a href="">Rejoindre l’équipe</a></li>
+                    <li><a href="">Notre culture</a></li>
+                    <li><a href="">Infolettre</a></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Support</h2>
+                <ul class="footer-ul flex-column">
+                    <li><a href="#">Commencer avec Vino</a></li>
+                    <li><a href="">Centre d’aide</a></li>
+                    <li><a href="">Signaler un problème</a></li>
+                    <li><a href="">Assistance par chat</a></li>
+                    <li><a href="">Questions fréquentes</a></li>
+                </ul>
+            </section>
+
         </div>
-        <aside>
+
+
+        <div class="socialNetwork footer-gap flex-row justify-center">
+            <a href="https://www.facebook.com">
+                <img class="icon" src="{{ asset('assets/images/facebook.png') }}" alt="Facebook" />
+            </a>
+            <a href="https://www.twitter.com">
+                <img class="icon" src="{{ asset('assets/images/twitter.png') }}" alt="Twitter" />
+            </a>
+            <a href="https://www.instagram.com">
+                <img class="icon" src="{{ asset('assets/images/insta.png') }}" alt="Instagram" />
+            </a>
+            <a href="https://www.youtube.com">
+                <img class="icon" src="{{ asset('assets/images/youtube.png') }}" alt="YouTube" />
+            </a>
+        </div>
+
+        <div class="flex-row footer-space justify-spacebetween ">
             <div>
-                <img src="" alt="icon glass of vine">
-                <a href="#">Vino</a>
+                <img class="logo" src="{{ asset('assets/images/vinologo2.png') }}" alt="logo">
+
             </div>
             <span>© 2025 Vino Tous droits réservés</span>
-        </aside>
+        </div>
+
     </footer>
 
 
