@@ -1,10 +1,24 @@
 .header-connexion {
     background-color: var(--White);
+    padding: 15px;
+
 }
 
 .header-nav {
     background-color: var(--Secondary-Mauve-400);
+    border-top: 2px solid var(--Color-600);
+    padding: 15px;
 
+}
+
+.gap-nav {
+    gap: 50px;
+    align-items: center;
+}
+
+.gap-nav2 {
+    gap: 30px;
+    align-items: center;
 }
 
 .header-p {
