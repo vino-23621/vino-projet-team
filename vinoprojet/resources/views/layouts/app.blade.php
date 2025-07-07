@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ config('app.name') }} - @yield('title')</title>
     <link rel="stylesheet" href="{{ asset('assets/css/import.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 
 <body class="header">
@@ -13,7 +16,7 @@
     <header>
 
         <div class="header-connexion">
-            <div class="flex-row">
+            <div class="flex-row justify-left gap-nav2">
 
                 <button class="bouton-white" href="">Mon compte</button>
                 <button class="bouton-mauve" href="">Déconnexion</button>
@@ -25,22 +28,23 @@
         </div>
 
 
-        <nav class="header-nav">
+        <nav class="header-nav flex-row justify-spacebetween ">
+
+            <div class="flex-row gap-nav">
+                <img
+                    class="logo"
+                    src="{{ asset('assets/images/vinologo.png') }}"
+                    alt="logovino" />
+                <ul class="flex-row gap-nav2">
+                    <li><a href="">Mon cellier</a></li>
+                    <li><a href="">Liste d'achats</a></li>
+                    <li><a href="">Notes de dégustation</a></li>
+                </ul>
+            </div>
 
             <img
-                class=""
-                src=""
-                alt="logovino" />
-
-            <ul class="flex-row">
-                <li><a href="">Mon cellier</a></li>
-                <li><a href="">Liste d'achats</a></li>
-                <li><a href="">Notes de dégustation</a></li>
-            </ul>
-
-            <img
-                class=""
-                src=""
+                class="icon"
+                src="{{ asset('assets/images/searchicon.png') }}"
                 alt="search" />
 
 

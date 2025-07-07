@@ -4,15 +4,13 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    gap: 5px;
+
 }
 
 .flex-row {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    gap: 5px;
-    align-items: center;
 }
 
 .bouton-mauve {
@@ -39,4 +37,31 @@
     font-family: var(--font-content);
     width: fit-content;
     text-decoration: none;
+}
+
+.logo {
+    width: 90px;
+    height: auto;
+}
+
+.icon {
+    width: 40px;
+    height: auto;
+}
+
+.justify-left {
+    justify-content: end;
+}
+
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-right {
+    justify-content: start;
+}
+
+.justify-spacebetween {
+    justify-content: space-between;
 }
