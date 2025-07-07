@@ -1,3 +1,30 @@
-[id="footer-main"]{
-    background-color: var(--Color-200);
+[id="footer-main"] {
+    background-color: var(--White);
+}
+
+footer {
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-top: 70px;
+
+
+}
+
+.footer-ul {
+    gap: 12px;
+}
+
+.footer-gap {
+    margin-top: 30px;
+    gap: 30px;
+    align-items: center;
+}
+
+.footer-space {
+    gap: 30px;
+    align-items: center;
+    border-top: 2px solid var(--Color-600);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
 }
