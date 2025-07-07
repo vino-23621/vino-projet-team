@@ -1,0 +1,71 @@
+/* ----------------------------------------------
+Définition des styles de couleur et de rythme
+----------------------------------------------- */
+:root {
+    /* --- Palette de couleur ---*/
+    --Primary-Purple-400: #783197;
+    --Primary-Purple-300: #b67dc4;
+
+    /* --- Liens ---*/
+    --color-lien-fond-clair: #26428b;
+    --color-lien-fond-fonce: #f8f7f5;
+
+    /* --- Navigation ---*/
+    --color-nav-clair: #4c6378;
+    --color-nav-plus-clair: #85a0b9;
+    --color-nav-background: #f1f4ff;
+    --color-button-bleu: #26428b;
+    --color-border-line: #bfd0db;
+    --color-texte-gris: #3c5873;
+
+    /* --- Font family ---*/
+    --font-base: "Montserrat", sans-serif;
+    --font-accent: "Merriweather", serif;
+
+    /* --- Typographie ---*/
+    --font-miniature: 10px;
+    --font-shortest: 12px;
+    --font-shorter: 14px;
+    --font-short: 15px;
+    --font-current: 16px;
+    --font-tall: 21px;
+    --font-taller: 32px;
+    --font-tallest: 38px;
+
+    /* --- Line-Height ---*/
+    --line-height-perfect: 1em;
+    --line-height-compressed: 1em;
+    --line-height-tightest: 1.26875em;
+    --line-height-tighter: 1.62875em;
+    --line-height-tight: 1.74285em;
+    --line-height-normal: 2.375em;
+    --line-height-loose: 3.6em;
+    --line-height-looser: 4.2em;
+    --line-height-loosest: 5em;
+
+    /* --- Spacing ---*/
+    --spacing-pico: 0.1rem;
+    --spacing-nano: 0.3rem;
+    --spacing-micro: 0.5rem;
+    /*--- */
+    --spacing-thinnest: 1rem;
+    --spacing-thinner: 1.5rem;
+    --spacing-thin: 2rem;
+    --spacing-broad: 4rem;
+    --spacing-broader: 6rem;
+    --spacing-broadest: 8rem;
+    --spacing-large: 10rem;
+    --spacing-larger: 12rem;
+    --spacing-largest: 16rem;
+    /*--- */
+
+    /* -- Border size --*/
+    --border-slimmest: 1px;
+    --border-slimmer: 2px;
+    --border-slim: 3px;
+
+    /* -- Radius --*/
+    --radius-sharpest: 2px;
+    --radius-sharper: 3px;
+    --radius-sharp: 5px;
+}
