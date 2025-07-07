@@ -1,9 +1,12 @@
-.header {
-    background-color: aqua;
+.header-connexion {
+    background-color: var(--White);
+}
+
+.header-nav {
+    background-color: var(--Secondary-Mauve-400);
 
 }
 
-.header>h1 {
-    font-size: var(--Heading-H1);
-
+.header-p {
+    font: var(----Body-default);
 }
