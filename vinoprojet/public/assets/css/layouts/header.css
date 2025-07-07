@@ -1,0 +1,9 @@
+.header {
+    background-color: aqua;
+
+}
+
+.header>h1 {
+    font-size: var(--Heading-H1);
+
+}
