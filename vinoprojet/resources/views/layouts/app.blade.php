@@ -29,7 +29,7 @@
             <div class="flex-row justify-left gap-nav2">
                 @auth
                 <p>Bienvenu, {{ Auth::user()->name }}</p>
-                <a class="button__white" href="{{ route('login') }}">Mon compte</a>
+                <a class="button__white" href="{{ route('user.show') }}">Mon compte</a>
                 <a class="button" href="{{ route('logout') }}">Déconnexion</a>
                 @else
                 <button class="button" href="">Connexion</button>
