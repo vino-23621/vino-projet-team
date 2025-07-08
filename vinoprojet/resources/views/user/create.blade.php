@@ -1,36 +1,33 @@
 @extends('layouts.app')
-@section('title', 'Login')
+@section('title', 'Créer mon compte')
 @section('content')
-<main>
-    <img src="#" alt="#">
-    <div>
-       <h3>Se connecter</h3>
+<main class="form">
+    <img src="{{ asset('assets/images/img-wines.jpg') }}" alt="image bouteille vin">
+    <div class="form-content">
+       <h2>Se connecter</h2>
        <div>
-           <p>Pas encore de compte ?</p>
-           <a href="#">Je m'inscris</a>
+           <p>Déjà inscrit·e ?</p>
+           <a href="#">Connecte-toi</a>
        </div>
        <form action="POST">
         @csrf
          
-        <label for="name">Nom *</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" value="{{ old('name') }}" placeholder="Nom *">
+        <span class="form-content-error">Erreur de validation</span>
 
-        <label for="username">Username *</label>
-        <input type="text" id="username" name="username" required>
+        <input type="text" id="username" name="username" value="{{ old('username') }}" placeholder="Nom d’utilisateur *">
+        <span class="form-content-error">Erreur de validation</span>
 
-        <label for="email">Courriel *</label>
-        <input type="email" id="email" name="email" required >
+        <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Adresse courriel *">
+        <span class="form-content-error">Erreur de validation</span>
 
-        <label for="password">Mot de passe *</label>
-        <input type="password" id="password" name="password" required>
+        <input type="password" id="password" name="password" placeholder="Mot de passe">
+        <span class="form-content-error">Erreur de validation</span>
+
+        <input type="password" id="password" name="confirmed-password" placeholder="Retaper mot de passe">
+        <span class="form-content-error">Erreur de validation</span>
         
-        <label>
-            <input type="checkbox" name="terms">
-            J’accepte <a href="#">la politique de confidentialité</a> et les <a href="#">Conditions d’utilisation</a>
-        </label>
-
-
-         <button type="submit" class="button">Créer mon compte</button>
+        <button type="submit" class="button">Créer mon compte</button>
        </form>
     </div>
 </main>
