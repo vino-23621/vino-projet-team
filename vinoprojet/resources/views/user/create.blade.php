@@ -1,17 +1,37 @@
 @extends('layouts.app')
-
-@section('title', 'Créer mon compte')
-
+@section('title', 'Login')
 @section('content')
-<div class="profile-container">
-    <h1>Créer mon compte</h1>
+<main>
+    <img src="#" alt="#">
+    <div>
+       <h3>Se connecter</h3>
+       <div>
+           <p>Pas encore de compte ?</p>
+           <a href="#">Je m'inscris</a>
+       </div>
+       <form action="POST">
+        @csrf
+         
+        <label for="name">Nom *</label>
+        <input type="text" id="name" name="name" required>
 
-    <div class="profile-card">
-        <p><strong>Nom :</strong> {{ Auth::user()->name }}</p>
-        <p><strong>Email :</strong> {{ Auth::user()->email }}</p>
-        <p><strong>Date d'inscription :</strong> {{ Auth::user()->created_at->format('d/m/Y') }}</p>
+        <label for="username">Username *</label>
+        <input type="text" id="username" name="username" required>
 
-        <a href="{{ route('profile.edit') }}" class="btn">Modifier le profil</a>
+        <label for="email">Courriel *</label>
+        <input type="email" id="email" name="email" required >
+
+        <label for="password">Mot de passe *</label>
+        <input type="password" id="password" name="password" required>
+        
+        <label>
+            <input type="checkbox" name="terms">
+            J’accepte <a href="#">la politique de confidentialité</a> et les <a href="#">Conditions d’utilisation</a>
+        </label>
+
+
+         <button type="submit" class="button">Créer mon compte</button>
+       </form>
     </div>
-</div>
+</main>
 @endsection
