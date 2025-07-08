@@ -34,7 +34,7 @@ class AuthController extends Controller
                          ->withErrors(['email' => 'Les informations de connexion sont invalides.']);
         }
 
-        return redirect()->intended(route('index'));
+        return redirect()->intended(route('user.show'));
     }
 
     /**
