@@ -31,8 +31,12 @@
         width: 100%;
         padding-bottom: 8px;
     }
+
     input+input, input+button{
         margin-top: 32px;
+    }
+    input[type="hidden"]+input{
+        margin-top: 0px;
     }
     
     div+form{
