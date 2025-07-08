@@ -12,6 +12,12 @@
         <p><strong>Date d'inscription :</strong> {{ Auth::user()->created_at->format('d/m/Y') }}</p>
 
         <a href="#" class="btn">Modifier le profil</a>
+        <form action="{{ route('user.destroy', Auth::user()->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="button">Test delete</button>
+        </form>
+
     </div>
 </div>
 @endsection
