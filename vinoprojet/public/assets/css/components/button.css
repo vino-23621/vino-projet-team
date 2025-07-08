@@ -1,19 +1,4 @@
-/* --Universal --*/
-
-.flex-column {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-
-}
-
-.flex-row {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-}
-
-.bouton-mauve {
+.button{
     padding: 10px;
     display: inline-block;
     border-radius: var(--radius-super-sharp);
@@ -26,7 +11,7 @@
     text-decoration: none;
 }
 
-.bouton-white {
+.button__white {
     padding: 10px;
     display: inline-block;
     border: 1px solid var(--Color-600);
@@ -37,31 +22,4 @@
     font-family: var(--font-content);
     width: fit-content;
     text-decoration: none;
-}
-
-.logo {
-    width: 90px;
-    height: auto;
-}
-
-.icon {
-    width: 40px;
-    height: auto;
-}
-
-.justify-left {
-    justify-content: end;
-}
-
-
-.justify-center {
-    justify-content: center;
-}
-
-.justify-right {
-    justify-content: start;
-}
-
-.justify-spacebetween {
-    justify-content: space-between;
 }
