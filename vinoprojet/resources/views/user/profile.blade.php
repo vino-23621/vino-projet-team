@@ -11,7 +11,7 @@
         <p><strong>Email :</strong> {{ Auth::user()->email }}</p>
         <p><strong>Date d'inscription :</strong> {{ Auth::user()->created_at->format('d/m/Y') }}</p>
 
-        <a href="{{ route('profile.edit') }}" class="btn">Modifier le profil</a>
+        <a href="#" class="btn">Modifier le profil</a>
     </div>
 </div>
 @endsection
