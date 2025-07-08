@@ -32,12 +32,12 @@
                 <a class="button__white" href="{{ route('user.show') }}">Mon compte</a>
                 <a class="button" href="{{ route('logout') }}">Déconnexion</a>
                 @else
-                <button class="button" href="">Connexion</button>
+                <a class="button" href="{{ route('login') }}">Connexion</a>
                 @endauth
             </div>
 
         </div>
-
+ 
 
         <nav class="header-nav flex-row justify-spacebetween ">
 
