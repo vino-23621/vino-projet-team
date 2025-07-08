@@ -4,7 +4,7 @@
 <main class="form">
     <img src="{{ asset('assets/images/img-wines.jpg') }}" alt="image bouteille vin">
     <div class="form-content">
-       <h2>Se connecter</h2>
+       <h2>Créer mon compte</h2>
        <div>
            <p>Déjà inscrit·e ?</p>
            <a href="#">Connecte-toi</a>
