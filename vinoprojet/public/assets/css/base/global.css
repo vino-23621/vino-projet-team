@@ -22,28 +22,27 @@ h6 {
 }
 
 h1 {
-    font-size: var(--Heading-H1);
+    font: var(--Heading-H1);
 }
 
 h2 {
-    font-size: var(--Heading-H2);
-    margin-bottom: 20px;
+    font: var(--Heading-H2);
 }
 
 h3 {
-    font-size: var(--Heading-H3);
+    font: var(--Heading-H3);
 }
 
 h4 {
-    font-size: var(--Heading-H4);
+    font: var(--Heading-H4);
 }
 
 h5 {
-    font-size: var(--Heading-H5);
+    font: var(--Heading-H5);
 }
 
 h6 {
-    font-size: var(--Heading-H6);
+    font: var(--Heading-H6);
 }
 
 p,
