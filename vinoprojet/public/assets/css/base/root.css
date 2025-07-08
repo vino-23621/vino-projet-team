@@ -75,16 +75,12 @@ Définition des styles de couleur et de rythme
     --color-lien-fond-clair: #e3cff0;
     --color-lien-fond-fonce: #9458af;
 
+    /* --- TYPOGRAPHIE ---*/
 
     /* --- Font family ---*/
     --font-heading: "Noto Serif", serif;
-    --font-content: "Poppins", sans-serif;
-    --font-heading-special: "Rotunda", sans-serif;
-
-    /* --- TYPOGRAPHIE ---*/
-
-
-
+    --font-content: "Lexend", sans-serif;
+   
     /* --- Typographie rich text ---*/
 
     --Numbered-List: normal 18px/30px var(--font-content);
