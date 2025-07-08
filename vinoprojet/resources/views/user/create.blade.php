@@ -7,7 +7,7 @@
        <h2>Créer mon compte</h2>
        <div>
            <p>Déjà inscrit·e ?</p>
-           <a href="#">Connecte-toi</a>
+           <a href="{{ route('login') }}">Connecte-toi</a>
        </div>
        <form method="POST">
         @csrf

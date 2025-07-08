@@ -27,16 +27,17 @@
 
         <div class="header-connexion">
             <div class="flex-row justify-left gap-nav2">
-
-                <button class="bouton-white" href="">Mon compte</button>
-                <button class="bouton-mauve" href="">Déconnexion</button>
-                <div class="header-p">
-                    <p>langue</p>
-                </div>
+                @auth
+                <p>Bienvenu, {{ Auth::user()->name }}</p>
+                <a class="button__white" href="{{ route('user.show') }}">Mon compte</a>
+                <a class="button" href="{{ route('logout') }}">Déconnexion</a>
+                @else
+                <a class="button" href="{{ route('login') }}">Connexion</a>
+                @endauth
             </div>
 
         </div>
-
+ 
 
         <nav class="header-nav flex-row justify-spacebetween ">
 
