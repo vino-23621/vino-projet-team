@@ -27,6 +27,7 @@ Route::get('/catalog', [BottleController::class, 'index'])->name('index');
 // route user
 Route::get('/registration', [UserController::class, 'create'])->name('user.create');
 Route::post('/registration', [UserController::class, 'store'])->name('user.store');
+Route::get('/profil', [UserController::class, 'show'])->name('user.show');
 
 // route auth
 Route::get('/login', [AuthController::class, 'create'])->name('login');
