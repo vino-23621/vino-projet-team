@@ -28,6 +28,9 @@ Route::get('/catalog', [BottleController::class, 'index'])->name('index');
 Route::get('/registration', [UserController::class, 'create'])->name('user.create');
 Route::post('/registration', [UserController::class, 'store'])->name('user.store');
 Route::get('/profil', [UserController::class, 'show'])->name('user.show');
+Route::get('/user/edit/{user}', [UserController::class, 'edit'])->name('user.edit');
+Route::post('/user/edit/{user}', [UserController::class, 'update'])->name('user.update');
+Route::delete('/user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
 
 // route auth
 Route::get('/login', [AuthController::class, 'create'])->name('login');
