@@ -3,17 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
+   
     /**
      * Show the form for creating a new resource.
      */
@@ -27,38 +22,28 @@ class AuthController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'email' => 'required|email|exists:users,email',
+            'password' => 'required|min:2|max:20'
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+        $credentials = $request->only('email', 'password');
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+        if (!Auth::attempt($credentials)) {
+            return redirect()->route('login')->withInput($request->except('password'))
+                         ->withErrors(['email' => 'Les informations de connexion sont invalides.']);
+        }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
+        return redirect()->intended(route('index'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy()
     {
-        //
+        Session::flush();
+        Auth::logout();
+        return redirect(route('login'));
     }
 }
