@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BottleController;
+use App\Http\Controllers\AuthController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +22,5 @@ Route::get('/', function () {
 
 
 Route::get('/catalog', [BottleController::class, 'index'])->name('index');
+
+Route::get('/login', [AuthController::class, 'create'])->name('login');

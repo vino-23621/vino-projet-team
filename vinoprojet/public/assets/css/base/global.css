@@ -50,3 +50,45 @@ p,
 a {
     font-family: var(--font-content);
 }
+
+/* --Universal rules --*/
+
+.flex-column {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+}
+
+.flex-row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.logo {
+    width: 90px;
+    height: auto;
+}
+
+.icon {
+    width: 40px;
+    height: auto;
+}
+
+.justify-left {
+    justify-content: end;
+}
+
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-right {
+    justify-content: start;
+}
+
+.justify-spacebetween {
+    justify-content: space-between;
+}
