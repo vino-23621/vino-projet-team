@@ -1,0 +1,54 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+.form-content{
+    display: flex;
+    flex-direction: column;
+
+    & input{
+        display: block;
+    }
+
+    h2+div{
+        margin-top: var(--spacing-thin);
+    }
+
+    &>div{
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+
+        &>a {
+            color: var(--Success-Green);
+        }
+    }
+    & input {
+        border: none;
+        border-bottom: 2px var(--Color-200) solid;
+        width: 100%;
+        padding-bottom: 8px;
+    }
+    input+input, input+button{
+        margin-top: 32px;
+    }
+    
+    div+form{
+        margin-top: 32px;
+    }
+    & .button{
+        width: 100%;
+    }
+}
+
+.form-content-error{
+    display: block;
+    color: var(--Error-Red);
+    margin-top: 8px;
+
+    &+input{
+        margin-top: var(--spacing-thin);
+    }
+}
