@@ -21,7 +21,7 @@ use App\Http\Controllers\CellarController;
 
 Route::get('/', function () {
     return view('layouts/app');
-});
+})->name('home');
 
 
 Route::get('/catalog', [BottleController::class, 'index'])->name('index');

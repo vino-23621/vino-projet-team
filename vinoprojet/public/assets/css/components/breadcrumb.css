@@ -1,0 +1,15 @@
+.breadcrumb {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.breadcrumb-separator {
+    color: #6c757d;
+    /* margin: 0 0.5rem; */
+    font-weight: normal;
+    display: inline-block;
+}
+
