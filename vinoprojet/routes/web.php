@@ -19,7 +19,7 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('layouts/app');
-});
+})->name('home');
 
 
 Route::get('/catalog', [BottleController::class, 'index'])->name('index');
