@@ -9,7 +9,7 @@
            <p>Pas encore de compte ?</p>
            <a href="">Je m'inscris</a>
        </div>
-       <form action="POST" >
+       <form method="POST" >
         @csrf
         <input type="email" placeholder="Nom d’utilisateur ou adresse courriel" id="email" name="email" value="{{ old('email') }}">
         <span class="form-content-error">Erreur de validation</span>

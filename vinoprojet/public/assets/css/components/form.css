@@ -55,4 +55,7 @@
     &+input{
         margin-top: var(--spacing-thin);
     }
+    &+button{
+        margin-top: var(--spacing-thin);
+    }
 }
