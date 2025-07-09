@@ -69,7 +69,7 @@ class CellarController extends Controller
      */
     public function edit(Cellar $cellar)
     {
-        //
+        return view('cellars.edit', ['cellar'=>$cellar]);
     }
 
     /**
