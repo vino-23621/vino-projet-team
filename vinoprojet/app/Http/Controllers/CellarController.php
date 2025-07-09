@@ -69,7 +69,7 @@ class CellarController extends Controller
      */
     public function edit(Cellar $cellar)
     {
-        return view('cellars.edit', ['cellar'=>$cellar]);
+        return view('cellars.edit', ['cellar' => $cellar]);
     }
 
     /**
@@ -102,6 +102,8 @@ class CellarController extends Controller
      */
     public function destroy(Cellar $cellar)
     {
-        //
+        $target = $cellar->name;
+        $cellar->delete();
+        return redirect()->route('cellars.index')->with('success', 'Le Cellar: ' . $target . 'a été effacé!');
     }
 }

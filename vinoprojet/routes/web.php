@@ -49,3 +49,4 @@ Route::get('/cellars/create', [CellarController::class, 'create'])->name('cellar
 Route::post('/cellars/create', [CellarController::class, 'store'])->name('cellars.store');
 Route::get('/cellars/edit/{cellar}', [CellarController::class, 'edit'])->name('cellars.edit');
 Route::post('/cellars/edit/{cellar}', [CellarController::class, 'update'])->name('cellars.update');
+Route::delete('/cellars/{cellar}', [CellarController::class, 'destroy'])->name('cellars.destroy');
