@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ config('app.name') }} - @yield('title')</title>
     <link rel="stylesheet" href="{{ asset('assets/css/import.css') }}">
+    <script type="module" src="{{ asset('js/cellar-modal.js') }}"></script>
 
 
     <!-- Typographie -->
