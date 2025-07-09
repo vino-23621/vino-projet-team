@@ -9,15 +9,14 @@
 
 
     <!-- Typographie -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <!-- Icones -->
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
 </head>
 
@@ -37,7 +36,7 @@
             </div>
 
         </div>
- 
+
 
         <nav class="header-nav flex-row justify-spacebetween ">
 
@@ -47,7 +46,7 @@
                     src="{{ asset('assets/images/vinologo.png') }}"
                     alt="logovino" />
                 <ul class="flex-row gap-nav2">
-                    <li><a href="">Mon cellier</a></li>
+                    <li><a href="{{route('cellars.index')}}">Mon cellier</a></li>
                     <li><a href="">Liste d'achats</a></li>
                     <li><a href="">Notes de dégustation</a></li>
                 </ul>

@@ -17,7 +17,8 @@ class CellarController extends Controller
      */
     public function index()
     {
-        //
+        $cellar = Cellar::where('user_id', Auth::id())->get();
+        return view('cellar.index', compact('cellar'));
     }
 
     /**
@@ -34,13 +35,22 @@ class CellarController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|min:10|max:255',
-
+            'name' => 'required|string|max:100',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:1048',
         ]);
+
+        $imagePath = null;
+
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('cellar_images', 'public');
+            $filename = basename($path);
+        }
 
         Cellar::create([
             'name' => $request->name,
-            'user_id' => Auth::id()
+            'image' => $filename,
+            'user_id' => Auth::user()->id,
+
         ]);
 
         return redirect()->route('cellar.index')->with('success', 'Cellar créée avec succès');
