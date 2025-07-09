@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bottle;
+use App\Models\Identity;
+use App\Models\Country;
 use App\Models\Cellar;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
