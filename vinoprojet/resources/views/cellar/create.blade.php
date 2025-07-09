@@ -6,10 +6,10 @@
     <!-- <img src="{{ asset('assets/images/img-wines.jpg') }}" alt="image bouteille vin"> -->
 
     <div class="container-infocreate-cellar">
-        <h4>Celliers</h4>
+        <h4>Création des Celliers</h4>
         <p>Crée un ou plusieurs celliers pour organiser tes bouteilles selon tes goûts, ton espace ou tes occasions spéciales.</p>
     </div>
-    <div class="form-content">
+    <div class="form-content container-formcreate-cellar">
         <h3>Créer un cellier</h3>
 
         <form action="{{ route('cellars.store') }}" method="POST" enctype="multipart/form-data">

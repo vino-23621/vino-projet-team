@@ -5,7 +5,7 @@
 }
 
 .card-cellar {
-    background: #fff;
+    background: var(--White);
     border: 1px solid var(--Primary-Purple-100);
     border-radius: var(--radius-sharp);
     width: 180px;

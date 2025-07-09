@@ -10,3 +10,14 @@ label {
     margin-top: 20px;
     margin-bottom: 10px;
 }
+
+.container-formcreate-cellar {
+    background: var(--White);
+    border: 1px solid var(--Primary-Purple-100);
+    border-radius: var(--radius-sharp);
+    width: 380px;
+    box-shadow: 0 2px 6px var(--Color-100);
+    overflow: hidden;
+    text-align: left;
+    padding: 20px;
+}
