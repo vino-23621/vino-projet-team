@@ -47,15 +47,15 @@
                     alt="logovino" />
                 <ul class="flex-row gap-nav2">
                     <li><a href="{{route('cellars.index')}}">Mon cellier</a></li>
-                    <li><a href="">Liste d'achats</a></li>
-                    <li><a href="">Notes de dégustation</a></li>
+                    <!-- <li><a href="">Liste d'achats</a></li>
+                    <li><a href="">Notes de dégustation</a></li> -->
                 </ul>
             </div>
 
-            <img
+            <!-- <img
                 class="icon"
                 src="{{ asset('assets/images/searchicon.png') }}"
-                alt="search" />
+                alt="search" /> -->
 
 
         </nav>
@@ -63,52 +63,38 @@
 
 
     </header>
-@if(Breadcrumbs::has())
+    @if(Breadcrumbs::has())
     <nav aria-label="breadcrumb">
         <ul class="breadcrumb">
             @foreach (Breadcrumbs::current() as $crumbs)
-                @if ($crumbs->url() && !$loop->last)
-                    <li class="breadcrumb-item">
-                        <a href="{{ $crumbs->url() }}">
-                            {{ $crumbs->title() }}
-                        </a>
-                    </li>
-                @else
-                    <li class="breadcrumb-item active" aria-current="page">
-                        {{ $crumbs->title() }}
-                    </li>
-                @endif    
-                @if (!$loop->last)
-                    <span class="breadcrumb-separator">></span>
-                @endif
+            @if ($crumbs->url() && !$loop->last)
+            <li class="breadcrumb-item">
+                <a href="{{ $crumbs->url() }}">
+                    {{ $crumbs->title() }}
+                </a>
+            </li>
+            @else
+            <li class="breadcrumb-item active" aria-current="page">
+                {{ $crumbs->title() }}
+            </li>
+            @endif
+            @if (!$loop->last)
+            <span class="breadcrumb-separator">></span>
+            @endif
             @endforeach
         </ul>
     </nav>
-@endif
+    @endif
 
 
     @yield ('content')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     <footer id="footer-main">
 
         <div class="flex-row footer-gap justify-spacebetween">
             <section>
-                <h2>Produit</h2>
+                <h3>Produit</h3>
                 <ul class="footer-ul flex-column">
                     <li><a href="">Mon cellier</a></li>
                     <li><a href="">Liste d’achats</a></li>
@@ -118,7 +104,7 @@
                 </ul>
             </section>
             <section>
-                <h2>Entreprise</h2>
+                <h3>Entreprise</h3>
                 <ul class="footer-ul flex-column">
                     <li><a href="">À propos de Vino</a></li>
                     <li><a href="">Nous contacter</a></li>
@@ -128,9 +114,9 @@
                 </ul>
             </section>
             <section>
-                <h2>Support</h2>
+                <h3>Support</h3>
                 <ul class="footer-ul flex-column">
-                    <li><a href="#">Commencer avec Vino</a></li>
+                    <li><a href="">Commencer avec Vino</a></li>
                     <li><a href="">Centre d’aide</a></li>
                     <li><a href="">Signaler un problème</a></li>
                     <li><a href="">Assistance par chat</a></li>

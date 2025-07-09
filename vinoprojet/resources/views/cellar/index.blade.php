@@ -4,21 +4,21 @@
 
 @section('content')
 
-<div class="flex-row justify-center">
-    <div class="">
+
+<main class="cellar-main">
 
 
-        <div class="container-infocreate-cellar">
-            <h4>Mes Celliers</h4>
-            <p>C’est ici que tu retrouveras tous les celliers que tu as créés. Organise tes bouteilles à ta façon, selon tes envies, ton espace ou les moments que tu veux célébrer.</p>
-        </div>
-
+    <div class="info">
+        <h4>Mes Celliers</h4>
+        <p>C’est ici que tu retrouveras tous les celliers que tu as créés. Organise tes bouteilles à ta façon, selon tes envies, ton espace ou les moments que tu veux célébrer.</p>
         <a class="button" href="{{ route('cellars.create') }}">Créer un cellier</a>
-
     </div>
 
 
-    <div class="cards-cellar-container">
+
+
+    <div class="cards-cellar-container grille">
+
         @foreach($cellar as $cellier)
         <div class="card-cellar">
             <img src="{{ asset('storage/cellar_images/' . $cellier->image) }}" class="card-cellar-image">
@@ -30,10 +30,8 @@
             </div>
         </div>
         @endforeach
-    </div>
-
-</div>
 
 
 
+</main>
 @endsection
