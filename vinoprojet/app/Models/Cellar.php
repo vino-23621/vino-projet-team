@@ -13,8 +13,6 @@ class Cellar extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'user_id'];
-
     /**
      * Each Cellar belongs to a user.
      */
@@ -31,4 +29,9 @@ class Cellar extends Model
         return $this->belongsToMany(Bottle::class, 'cellar__has__bottles', 'cellar_id', 'bottle_id')
             ->withPivot('quantity');
     }
+    protected $fillable = [
+        'name',
+        'image',
+        'user_id'
+    ];
 }

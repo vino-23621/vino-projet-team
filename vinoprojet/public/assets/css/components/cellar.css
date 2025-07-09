@@ -1,0 +1,12 @@
+.container-infocreate-cellar {
+    width: 280px;
+}
+
+label {
+    font-family: 'Poppins', sans-serif;
+}
+
+.label-margin-bottom {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
