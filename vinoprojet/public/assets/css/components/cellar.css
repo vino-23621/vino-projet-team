@@ -1,7 +1,3 @@
-.container-infocreate-cellar {
-    width: 280px;
-}
-
 label {
     font-family: 'Poppins', sans-serif;
 }
@@ -35,4 +31,56 @@ label {
     overflow: hidden;
     text-align: left;
     padding: 20px;
+}
+
+.cellar-main {
+
+    margin: 0;
+    padding: 0;
+    max-width: 1920px;
+
+    display: grid;
+    grid-template-areas:
+        "info  info  info  info  info"
+        "grid grid grid grid grid";
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: auto auto;
+
+    >.info {
+        grid-area: info;
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-bottom: 60px;
+        text-align: center;
+    }
+
+    >.grille {
+        grid-area: grid;
+        margin-left: 60px;
+        margin-right: 60px;
+    }
+
+}
+
+.cellar-main>* {
+    margin-top: 40px;
+}
+
+.cellar-main> :first-child> :last-child {
+    margin-top: 20px;
+    display: block;
+    margin: 20px auto 0 auto;
+}
+
+.cellar-main>.grille {
+    grid-area: grid;
+
+
+    display: flex;
+    justify-content: center;
+
+    gap: 40px;
+
+    flex-wrap: wrap;
+
 }
