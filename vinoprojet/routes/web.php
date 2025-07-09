@@ -47,3 +47,5 @@ Route::get('/logout', [AuthController::class, 'destroy'])->name('logout');
 Route::get('/cellars', [CellarController::class, 'index'])->name('cellars.index');
 Route::get('/cellars/create', [CellarController::class, 'create'])->name('cellars.create');
 Route::post('/cellars/create', [CellarController::class, 'store'])->name('cellars.store');
+Route::get('/cellars/edit/{cellar}', [CellarController::class, 'edit'])->name('cellars.edit');
+Route::post('/cellars/edit/{cellar}', [CellarController::class, 'update'])->name('cellars.update');
