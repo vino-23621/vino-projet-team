@@ -3,21 +3,38 @@
 @section('title', 'Profil Utilisateur')
 
 @section('content')
-<div class="profile-container">
-    <h1>Profil Utilisateur</h1>
+<div class="container">
+    <div class="profile-container">
+        <div class="profile-wrapper">
+            <div class="profile-greeting">
+                <h2>Bonjour {{ Auth::user()->name ?? 'Utilisateur' }}</h2>
+                <p class="profile-subtitle">Bienvenue sur ton compte Vino.</p>
+            </div>
 
-    <div class="profile-card">
-        <p><strong>Nom :</strong> {{ Auth::user()->name }}</p>
-        <p><strong>Email :</strong> {{ Auth::user()->email }}</p>
-        <p><strong>Date d'inscription :</strong> {{ Auth::user()->created_at->format('d/m/Y') }}</p>
+            <div class="profile-info">
+                <h3>Mes infos</h3>
 
-        <a href="#" class="btn">Modifier le profil</a>
-        <form action="{{ route('user.destroy', Auth::user()->id) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="button">Test delete</button>
-        </form>
+                <div class="profile-info-line">
+                    <span class="profile-label">Nom</span>
+                    <span class="profile-value">{{ Auth::user()->name }}</span>
+                    <a href="{{ route('user.edit', Auth::id()) }}" class="profile-edit-link">Changer</a>
+                </div>
 
+                <div class="profile-info-line">
+                    <span class="profile-label">Courriel</span>
+                    <span class="profile-value">{{ Auth::user()->email }}</span>
+                    <a href="{{ route('user.edit', Auth::id()) }}" class="profile-edit-link">Changer</a>
+                </div>
+
+                <div class="profile-info-line">
+                    <span class="profile-label">Mot de passe</span>
+                    <span class="profile-value">••••••••</span>
+                    <a href="{{ route('user.edit', Auth::id()) }}" class="profile-edit-link">Changer</a>
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>
+
 @endsection
