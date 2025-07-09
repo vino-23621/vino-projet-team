@@ -36,7 +36,7 @@ class CellarController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:100',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:1048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,svg,webp|max:1048',
         ]);
 
         $imagePath = null;
@@ -53,7 +53,7 @@ class CellarController extends Controller
 
         ]);
 
-        return redirect()->route('cellar.index')->with('success', 'Cellar créée avec succès');
+        return redirect()->route('cellars.index')->with('success', 'Cellar créée avec succès');
     }
 
     /**
