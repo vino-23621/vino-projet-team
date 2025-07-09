@@ -51,7 +51,8 @@ h6 {
 }
 
 p,
-a {
+a,
+span {
     font-family: var(--font-content);
 }
 
