@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -29,7 +31,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-         $request->validate([
+        $request->validate([
             'name' => 'required|string||min:2|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:2|max:20|string|regex:/[a-z]/|regex:/[A-Z]/|regex:/[0-9]/',
@@ -49,9 +51,9 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show()
     {
-        //
+        return view('user.profile');
     }
 
     /**
@@ -75,6 +77,20 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        if ($id != Auth::id()) {
+            return redirect()->route('index');
+        }
+
+        $user = User::find($id);
+
+        if ($user) {
+            $user->delete();
+            Auth::logout();
+            Session::flush();
+
+            return redirect()->route('login');
+        } else {
+            return redirect()->route('profil');
+        }
     }
 }

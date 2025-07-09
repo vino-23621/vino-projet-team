@@ -9,6 +9,7 @@
     font-family: var(--font-content);
     width: fit-content;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .button__white {
@@ -22,4 +23,5 @@
     font-family: var(--font-content);
     width: fit-content;
     text-decoration: none;
+    cursor: pointer;
 }
