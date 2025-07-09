@@ -158,7 +158,7 @@
 
         <div class="flex-row footer-space justify-spacebetween ">
             <div>
-                <img class="logo" src="{{ asset('assets/images/vinologo2.png') }}" alt="logo">
+                <img class="logo" src="{{ asset('assets/images/vinologo-color.png') }}" alt="logo">
 
             </div>
             <span>© 2025 Vino Tous droits réservés</span>
