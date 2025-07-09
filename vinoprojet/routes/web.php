@@ -6,6 +6,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CellarController;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,5 +37,11 @@ Route::delete('/user/{user}', [UserController::class, 'destroy'])->name('user.de
 // route auth
 Route::get('/login', [AuthController::class, 'create'])->name('login');
 Route::post('/login', [AuthController::class, 'store'])->name('login.store');
+
+
+// route cellier
+Route::get('/cellar/create', [CellarController::class, 'create'])->name('cellars.create');
+Route::post('/cellar', [CellarController::class, 'store'])->name('cellars.store');
+
 Route::get('/logout', [AuthController::class, 'destroy'])->name('logout');
 Route::get('/cellars', [CellarController::class, 'index'])->name('index');
