@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BottleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CellarController;
 
 
 /*
@@ -31,3 +32,7 @@ Route::post('/registration', [UserController::class, 'store'])->name('user.store
 // route auth
 Route::get('/login', [AuthController::class, 'create'])->name('login');
 Route::post('/login', [AuthController::class, 'store'])->name('login.store');
+
+// route cellier
+Route::get('/cellar/create', [CellarController::class, 'create'])->name('cellars.create');
+Route::post('/cellar', [CellarController::class, 'store'])->name('cellars.store');
