@@ -13,8 +13,7 @@ class CellarController extends Controller
      */
     public function index()
     {
-        $cellars = Cellar::where('user_id', Auth::id())->get();
-        return view('cellars.index', compact('cellars'));
+        //
     }
 
     /**
@@ -22,7 +21,7 @@ class CellarController extends Controller
      */
     public function create()
     {
-        return view('cellars.create');
+        return view('cellar.create');
     }
 
     /**
@@ -31,7 +30,8 @@ class CellarController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|min:10|max:255',
+
         ]);
 
         Cellar::create([
@@ -39,7 +39,7 @@ class CellarController extends Controller
             'user_id' => Auth::id()
         ]);
 
-        return redirect()->route('cellars.index')->with('success', 'Cellar créée avec succès');
+        return redirect()->route('cellar.index')->with('success', 'Cellar créée avec succès');
     }
 
     /**
@@ -47,9 +47,7 @@ class CellarController extends Controller
      */
     public function show(Cellar $cellar)
     {
-        $this->authorize('view', $cellar);
-
-        return view('cellars.show', compact('cellar'));
+        //
     }
 
     /**
@@ -57,8 +55,7 @@ class CellarController extends Controller
      */
     public function edit(Cellar $cellar)
     {
-        $this->authorize('update', $cellar);
-        return view('cellars.edit', compact('cellar'));
+        //
     }
 
     /**
@@ -66,17 +63,7 @@ class CellarController extends Controller
      */
     public function update(Request $request, Cellar $cellar)
     {
-        $this->authorize('update', $cellar);
-
-        $request->validate([
-            'name' => 'required|string|max:255',
-        ]);
-
-        $cellar->update([
-            'name' => $request->name,
-        ]);
-
-        return redirect()->route('cellars.index')->with('success', 'Cellar modifiée avec succès');
+        //
     }
 
     /**
@@ -84,10 +71,6 @@ class CellarController extends Controller
      */
     public function destroy(Cellar $cellar)
     {
-        $this->authorize('delete', $cellar);
-
-        $cellar->delete();
-
-        return redirect()->route('cellars.index')->with('success', 'Cellar supprimée');
+        //
     }
 }
