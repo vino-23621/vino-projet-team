@@ -17,4 +17,13 @@ class Bottle extends Model
         'identity_id',
         'country_id'
     ];
+
+    /**
+     * A bottle can be present in several cellars.
+     */
+    public function cellars()
+    {
+        return $this->belongsToMany(Cellar::class, 'cellar__has__bottles', 'bottle_id', 'cellar_id')
+            ->withPivot('quantity');
+    }
 }
