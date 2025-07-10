@@ -27,6 +27,10 @@ Route::get('/404', function () {
     return response()->view('errors.404', [], 404);
 })->name('404.custom');
 
+Route::get('/403', function () {
+    return response()->view('errors.403', [], 403);
+})->name('403.custom');
+
 // route user
 Route::get('/registration', [UserController::class, 'create'])->name('user.create');
 Route::post('/registration', [UserController::class, 'store'])->name('user.store');

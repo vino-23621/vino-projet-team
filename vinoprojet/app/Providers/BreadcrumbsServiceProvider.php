@@ -46,10 +46,16 @@ class BreadcrumbsServiceProvider extends ServiceProvider
                 ->push('Mon Profil', route('user.show'))
         );
 
-        Breadcrumbs::for('user.edit', fn (Trail $trail, $user) =>
+        Breadcrumbs::for('user.edit-name', fn (Trail $trail, $user) =>
             $trail
                 ->parent('user.show')
-                ->push('Modifier le profil', route('user.edit', $user))
+                ->push('Modifier le nom', route('user.edit-name', $user))
+        );
+
+        Breadcrumbs::for('user.edit-password', fn (Trail $trail, $user) =>
+            $trail
+                ->parent('user.show')
+                ->push('Modifier le nom', route('user.edit-password', $user))
         );
     }
 }

@@ -1,0 +1,37 @@
+.error-page{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: clamp(2rem, 7vw, 4rem);
+    text-align: left;
+
+    @media (max-width:850px) {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    &>img{
+        max-width: 60%;
+        flex: 1;
+        border: 1px transparent;
+        border-radius: 5px;
+    }
+
+    &>div{
+        flex: 1;
+        max-width: 40%;
+        align-self: center;
+
+        &>h1{
+            font: var(--Heading-H2);
+        }
+        &>p{
+            margin-top: var(--spacing-thinnest);
+        }
+        &>a{
+            display: block;
+            margin-top: var(--spacing-thinner);
+        }
+    }
+}

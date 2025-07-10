@@ -62,7 +62,7 @@ class UserController extends Controller
     public function editName(string $id)
     {
         if ($id != Auth::id()) {
-            return redirect()->route('index');
+            return redirect()->route('403.custom')->with('message', 'Il vaut mieux prendre un verre de vin au lieu de modifier le compte de ses amis.');
         }
         return view('user.edit-name');
     }
@@ -73,7 +73,7 @@ class UserController extends Controller
     public function updateName(Request $request, string $id)
     {
         if ($id != Auth::id()) {
-            return redirect()->route('index');
+            return redirect()->route('403.custom')->with('message', 'Il vaut mieux prendre un verre de vin au lieu de modifier le compte de ses amis.');
         }
         $request->validate([
             'name' => 'required|string||min:2|max:255'
@@ -89,7 +89,7 @@ class UserController extends Controller
     public function editPassword(string $id)
     {
         if ($id != Auth::id()) {
-            return redirect()->route('404.custom')->with('message', 'Il vaut mieux prendre un verre de vin au lieu de modifier le compte de ses amis.');
+            return redirect()->route('403.custom')->with('message', 'Il vaut mieux prendre un verre de vin au lieu de modifier le compte de ses amis.');
         }
         return view('user.edit-password');
     }
@@ -100,7 +100,7 @@ class UserController extends Controller
     public function updatePassword(Request $request, string $id)
     {
         if ($id != Auth::id()) {
-            return redirect()->route('index');
+            return redirect()->route('403.custom')->with('message', 'Il vaut mieux prendre un verre de vin au lieu de modifier le compte de ses amis.');
         }
         $request->validate([
             'password' => 'required|min:6|max:255|string|regex:/[a-z]/|regex:/[A-Z]/|regex:/[0-9]/',
