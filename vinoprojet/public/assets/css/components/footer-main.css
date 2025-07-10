@@ -3,6 +3,7 @@
     color: var(--Secondary-Rose-400);
     grid-template-columns: subgrid;
     border-top: 1px solid var(--Primary-Purple-100);
+    margin-top: clamp(2rem, 7vw, 4rem);
 
     & > * {
         grid-column: main;

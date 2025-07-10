@@ -30,7 +30,7 @@
     <div class="nav-main-account">
     <div>
         @auth
-        <p>{{ Auth::user()->name }}</p>
+        <p>Bienvenue, {{ Auth::user()->name }}</p>
         <a class="button__white" href="{{ route('user.show') }}">Mon compte</a>
             <a class="button" href="{{ route('logout') }}">Déconnexion</a>
             @else
@@ -48,29 +48,7 @@
     </div>
 </nav>
 
-    @if(Breadcrumbs::has())
-    <div id="fil-ariane" aria-label="breadcrumb">
-        <ul class="breadcrumb">
-            @foreach (Breadcrumbs::current() as $crumbs)
-            @if ($crumbs->url() && !$loop->last)
-            <li class="breadcrumb-item">
-                <a href="{{ $crumbs->url() }}">
-                    {{ $crumbs->title() }}
-                </a>
-            </li>
-            @else
-            <li class="breadcrumb-item active" aria-current="page">
-                {{ $crumbs->title() }}
-            </li>
-            @endif
-            @if (!$loop->last)
-            <span class="breadcrumb-separator">></span>
-            @endif
-            @endforeach
-        </ul>
-    </div>
-    @endif
-
+    
     <main>
      @yield ('content')
     </main>

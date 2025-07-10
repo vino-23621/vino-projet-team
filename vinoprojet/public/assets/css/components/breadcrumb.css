@@ -5,6 +5,7 @@
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-top: 20px;
+    margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 .breadcrumb-separator {

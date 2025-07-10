@@ -4,6 +4,7 @@
 
     .profile-wrapper {
         display: flex;
+        flex-wrap: wrap;
         gap: var(--spacing-broad);
         align-items: flex-start;
 
@@ -83,6 +84,21 @@
                         margin-left: var(--spacing-thin);
                     }
                 }
+            }
+        }
+
+        .profile-info.profile-info__form{
+            & .profile-info-line{
+               border-bottom: 1px transparent; 
+            }
+            & button[type=submit]{
+                margin-top: 20px;
+            }
+            & form{
+                margin-top: var(--spacing-thinnest);
+            }
+            & input+input{
+                margin-top: var(--spacing-micro);
             }
         }
     }

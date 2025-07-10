@@ -7,13 +7,17 @@
     @media (min-width:820px) {
             flex-direction: row;
             justify-content: center;
-        }
+            align-items: flex-start;
 
-    & img {
-    @media (min-width:820px) {
-            max-width: 60ch;
+            &>img{
+                max-width: 60%;
+                flex: 1;
+            }
+            & .form-content{
+                flex: 1;
+                max-width: 40%;
+            }
         }
-    }
 }
 .form-content{
     display: flex;

@@ -1,7 +1,30 @@
 @extends('layouts.app')
 @section('title', 'Créer mon compte')
 @section('content')
-<main class="form">
+@if(Breadcrumbs::has())
+    <div id="fil-ariane" aria-label="breadcrumb">
+        <ul class="breadcrumb">
+            @foreach (Breadcrumbs::current() as $crumbs)
+            @if ($crumbs->url() && !$loop->last)
+            <li class="breadcrumb-item">
+                <a href="{{ $crumbs->url() }}">
+                    {{ $crumbs->title() }}
+                </a>
+            </li>
+            @else
+            <li class="breadcrumb-item active" aria-current="page">
+                {{ $crumbs->title() }}
+            </li>
+            @endif
+            @if (!$loop->last)
+            <span class="breadcrumb-separator">></span>
+            @endif
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
+<div class="form">
     <img src="{{ asset('assets/images/img-wines.jpg') }}" alt="image bouteille vin">
     <div class="form-content">
        <h2>Créer mon compte</h2>
@@ -35,5 +58,5 @@
         <button type="submit" class="button">Créer mon compte</button>
        </form>
     </div>
-</main>
+</div>
 @endsection
