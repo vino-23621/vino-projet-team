@@ -1,4 +1,6 @@
-.modal {
+/** Modal Edit **/
+
+.modal-edit {
     display: none;
     position: fixed;
     z-index: 999;
@@ -8,10 +10,10 @@
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.6);
+    font-family: var(--font-content);
 }
 
-
-.modal-content {
+.modal-content-edit {
     background-color: var(--White);
     margin: 10% auto;
     padding: 20px;
@@ -20,8 +22,17 @@
     position: relative;
 }
 
+.modal-content-edit>form>* {
+    margin: 15px 0 0 0;
+}
 
-.close-btn {
+.modal-content-edit>h5 {
+    margin: 10px 0 10px 0;
+    font-size: 20px;
+    font-family: var(--font-content);
+}
+
+.close-btn-edit {
     color: #aaa;
     position: absolute;
     top: 10px;
@@ -31,13 +42,24 @@
     cursor: pointer;
 }
 
-.close-btn:hover {
+.close-btn-edit:hover {
     color: #000;
 }
 
-.modal-buttons {
+.modal-buttons-edit {
     margin-top: 15px;
-    gap: 7px;
+    gap: 10px;
     justify-content: right;
 
+}
+
+.modal-input {
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+    border-color: var(--Secondary-Rose-300);
+}
+
+.modal-label {
+    font-size: 18px;
 }
