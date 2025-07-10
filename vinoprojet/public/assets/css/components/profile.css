@@ -1,6 +1,4 @@
 .profile {
-    max-width: 1000px;
-    margin: 0 auto;
     padding: var(--spacing-broad) var(--spacing-thin);
     font-family: var(--font-content);
 
@@ -79,7 +77,7 @@
                     .profile-edit-link {
                         font: var(--Text-Link);
                         font-weight: 500;
-                        color: var(--Primary-Purple-300);
+                        color: var(--Primary-Purple-400);
                         white-space: nowrap;
                         text-decoration: none;
                         margin-left: var(--spacing-thin);
