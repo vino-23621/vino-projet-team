@@ -1,0 +1,15 @@
+body{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns:
+            [full-start] minmax(16px, 1fr) 
+            [main-start] minmax(0, 104ch) 
+            [main-end] minmax(16px, 1fr) 
+            [full-end];
+    background-color: var(--White);
+    row-gap: clamp(2rem, 7vw, 5rem);
+}
+
+body>*{
+    grid-column: full;
+}
