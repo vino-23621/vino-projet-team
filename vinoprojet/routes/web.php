@@ -23,30 +23,37 @@ Route::get('/', function () {
     return view('layouts/app');
 })->name('home');
 
-
-Route::get('/catalog', [BottleController::class, 'index'])->name('index');
-
 // route user
 Route::get('/registration', [UserController::class, 'create'])->name('user.create');
 Route::post('/registration', [UserController::class, 'store'])->name('user.store');
-Route::get('/profil', [UserController::class, 'show'])->name('user.show');
-Route::get('/user/edit/{user}', [UserController::class, 'edit'])->name('user.edit');
-Route::post('/user/edit/{user}', [UserController::class, 'update'])->name('user.update');
-Route::delete('/user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
 
 // route auth
 Route::get('/login', [AuthController::class, 'create'])->name('login');
 Route::post('/login', [AuthController::class, 'store'])->name('login.store');
 
 
-// route cellier
-Route::get('/cellar/create', [CellarController::class, 'create'])->name('cellars.create');
-Route::post('/cellar', [CellarController::class, 'store'])->name('cellars.store');
+// authentified route
+Route::middleware('auth')->group(function () {
+    // route auth
+    Route::get('/logout', [AuthController::class, 'destroy'])->name('logout');
 
-Route::get('/logout', [AuthController::class, 'destroy'])->name('logout');
-Route::get('/cellars', [CellarController::class, 'index'])->name('cellars.index');
-Route::get('/cellars/create', [CellarController::class, 'create'])->name('cellars.create');
-Route::post('/cellars/create', [CellarController::class, 'store'])->name('cellars.store');
-Route::get('/cellars/edit/{cellar}', [CellarController::class, 'edit'])->name('cellars.edit');
-Route::post('/cellars/edit/{cellar}', [CellarController::class, 'update'])->name('cellars.update');
-Route::delete('/cellars/{cellar}', [CellarController::class, 'destroy'])->name('cellars.destroy');
+    // route user
+    Route::get('/profil', [UserController::class, 'show'])->name('user.show');
+    Route::get('/user/edit-name/{user}', [UserController::class, 'editName'])->name('user.edit-name');
+    Route::put('/user/edit-name/{user}', [UserController::class, 'updateName'])->name('user.update-name');
+    Route::get('/user/edit-password/{user}', [UserController::class, 'editPassword'])->name('user.edit-password');
+    Route::put('/user/edit-password/{user}', [UserController::class, 'updatePassword'])->name('user.update-password');
+    Route::delete('/user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
+
+    // route cellier
+    Route::get('/cellar/create', [CellarController::class, 'create'])->name('cellars.create');
+    Route::post('/cellar', [CellarController::class, 'store'])->name('cellars.store');
+    Route::get('/cellars', [CellarController::class, 'index'])->name('cellars.index');
+    Route::get('/cellars/create', [CellarController::class, 'create'])->name('cellars.create');
+    Route::post('/cellars/create', [CellarController::class, 'store'])->name('cellars.store');
+    Route::get('/cellars/edit/{cellar}', [CellarController::class, 'edit'])->name('cellars.edit');
+    Route::post('/cellars/edit/{cellar}', [CellarController::class, 'update'])->name('cellars.update');
+    Route::delete('/cellars/{cellar}', [CellarController::class, 'destroy'])->name('cellars.destroy');
+
+    Route::get('/catalog', [BottleController::class, 'index'])->name('index');
+});
