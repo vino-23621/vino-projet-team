@@ -1,4 +1,4 @@
-.button{
+.button {
     padding: 10px;
     display: inline-block;
     border-radius: var(--radius-super-sharp);
@@ -11,12 +11,19 @@
     text-decoration: none;
     cursor: pointer;
     font-size: 1rem;
+    transition: color, background-color, 300ms ease;
+
+    &:hover {
+        background-color: var(--Primary-Purple-100);
+        color: var(--Primary-Purple-400);
+        transition-duration: 300ms;
+    }
 }
 
 .button__white {
     padding: 10px;
     display: inline-block;
-    border: 1px solid var(--Color-600);
+    border: 1px solid var(--Primary-Purple-400);
     border-radius: var(--radius-super-sharp);
     background-color: var(--White);
     color: var(--Primary-Purple-400);
@@ -25,12 +32,36 @@
     width: fit-content;
     text-decoration: none;
     cursor: pointer;
+    transition: color, background-color, 300ms ease;
+
+    &:hover {
+        background-color: var(--Primary-Purple-100);
+        color: var(--Primary-Purple-400);
+        transition-duration: 300ms;
+    }
 }
 
-.button.button__danger{
-    background-color: var(--Error-Red-300);
+.button.button__danger {
+    color: var(--Error-Red);
+    background-color: var(--Error-Red-100);
+    border-radius: var(--radius-super-sharp);
+    border: 1px solid var(--Error-Red-200);
+    transition: color, background-color, 300ms ease;
+
+    &:hover {
+        background-color: var(--Error-Red);
+        color: var(--White);
+        transition-duration: 300ms;
+    }
 }
 
-.button.button__safe{
+.button.button__safe {
     background-color: var(--Success-Green-300);
+    transition: color, background-color, 300ms ease;
+
+    &:hover {
+        background-color: var(--Success-Green);
+        color: var(--White);
+        transition-duration: 300ms;
+    }
 }
