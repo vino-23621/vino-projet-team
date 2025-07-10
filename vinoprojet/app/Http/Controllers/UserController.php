@@ -59,17 +59,60 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function editName(string $id)
     {
-        //
+        if ($id != Auth::id()) {
+            return redirect()->route('index');
+        }
+        return view('user.edit-name');
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function updateName(Request $request, string $id)
     {
-        //
+        if ($id != Auth::id()) {
+            return redirect()->route('index');
+        }
+        $request->validate([
+            'name' => 'required|string||min:2|max:255'
+        ]);
+
+        $user = User::where('id', Auth::id())->first();
+        $user->name = $request->name;
+        $user->save();
+
+        return redirect()->route('user.show');
+    }
+
+    public function editPassword(string $id)
+    {
+        if ($id != Auth::id()) {
+            return redirect()->route('index');
+        }
+        return view('user.edit-password');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function updatePassword(Request $request, string $id)
+    {
+        if ($id != Auth::id()) {
+            return redirect()->route('index');
+        }
+        $request->validate([
+            'password' => 'required|min:6|max:255|string|regex:/[a-z]/|regex:/[A-Z]/|regex:/[0-9]/',
+            'password_confirmation' =>  'required|min:6|max:255|string|same:password'
+        ]);
+
+        $password_encrypted = Hash::make($request->password);
+        $user = User::where('id', Auth::id())->first();
+        $user->password = $password_encrypted;
+        $user->save();
+
+        return redirect()->route('user.show');
     }
 
     /**
