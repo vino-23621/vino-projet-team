@@ -87,3 +87,19 @@
         }
     }
 }
+
+.profile {
+    .profile-wrapper {
+        display: flex;
+        gap: var(--spacing-broad);
+        align-items: flex-start;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+
+            .profile-greeting {
+                order: -1;
+            }
+        }
+    }
+}
