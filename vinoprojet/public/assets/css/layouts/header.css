@@ -1,14 +1,21 @@
+.header {
+    display: grid;
+    grid-template-columns: subgrid;
+
+    & > * {
+        grid-column: full;
+    }
+}
+
 .header-connexion {
     background-color: var(--White);
     padding: 15px;
-
 }
 
 .header-nav {
     background-color: var(--Secondary-Mauve-400);
     border-top: 2px solid var(--Color-600);
     padding: 15px;
-
 }
 
 .gap-nav {

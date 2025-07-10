@@ -4,6 +4,7 @@
 
 /* components */
 
+@import url("./components/nav-main.css");
 @import url("./layouts/header.css");
 @import url("./components/footer-main.css");
 @import url("./components/button.css");
