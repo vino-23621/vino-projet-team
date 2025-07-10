@@ -1,15 +1,21 @@
-body{
+body {
     display: grid;
     grid-template-rows: auto 1fr auto;
     grid-template-columns:
-            [full-start] minmax(16px, 1fr) 
-            [main-start] minmax(0, 104ch) 
-            [main-end] minmax(16px, 1fr) 
-            [full-end];
+        [full-start] minmax(16px, 1fr)
+        [main-start] minmax(0, 1280px)
+        [main-end] minmax(16px, 1fr)
+        [full-end];
     background-color: var(--White);
-    row-gap: clamp(2rem, 7vw, 5rem);
+    min-height: 100vh;
 }
 
-body>*{
+body > * {
     grid-column: full;
+}
+body [id="fil-ariane"] {
+    grid-column: main;
+}
+body > main {
+    grid-column: main;
 }
