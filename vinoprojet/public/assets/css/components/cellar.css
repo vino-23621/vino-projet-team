@@ -10,17 +10,33 @@ label {
 .container-formcreate-cellar {
     background: var(--White);
     border: 1px solid var(--Primary-Purple-100);
-    border-radius: var(--radius-sharp);
+    border-radius: var(--radius-super-sharp);
     width: 380px;
     box-shadow: 0 2px 6px var(--Color-100);
     overflow: hidden;
     text-align: left;
     padding: 20px;
+
+
 }
 
-.container-infoedit-cellar {
-    width: 280px;
+.container-formcreate-cellar input:nth-of-type(1) {
+    border: none;
+    width: 100%;
+    padding-bottom: 5px;
+
 }
+
+.container-formcreate-cellar input:nth-of-type(2) {
+
+    padding-bottom: 20px;
+
+}
+
+.cellar-create-input2 {
+    margin-top: 20px;
+}
+
 
 .container-formedit-cellar {
     background: var(--White);
@@ -31,6 +47,14 @@ label {
     overflow: hidden;
     text-align: left;
     padding: 20px;
+}
+
+.cellar-container-info-edit {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    text-align: center;
 }
 
 .cellar-main {
@@ -83,4 +107,22 @@ label {
 
     flex-wrap: wrap;
 
+}
+
+.cellar-icon {
+    cursor: pointer;
+    color: var(--Primary-Purple-400);
+    font-size: 35px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+
+}
+
+.cellar-icons-gap {
+    gap: 16px;
+}
+
+.cellar-create-button {
+    gap: 10px;
+    text-align: left;
 }

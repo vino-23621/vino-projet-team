@@ -1,33 +1,40 @@
-.form{
+.form {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 40px;
 
     @media (min-width:820px) {
-            flex-direction: row;
-            justify-content: center;
-        }
+        flex-direction: row;
+        justify-content: center;
+    }
 
     & img {
-    @media (min-width:820px) {
+        @media (min-width:820px) {
             max-width: 60ch;
         }
     }
 }
-.form-content{
+
+.form-content {
     display: flex;
     flex-direction: column;
 
-    & input{
+    & input {
         display: block;
     }
 
-    h2+div{
+    h2,
+    +div {
         margin-top: var(--spacing-thin);
     }
 
-    &>div{
+    &>h3 {
+        margin-top: var(--spacing-thin);
+        margin-bottom: var(--spacing-thinner);
+    }
+
+    &>div {
         display: flex;
         flex-direction: row;
         gap: 5px;
@@ -36,37 +43,47 @@
             color: var(--Success-Green);
         }
     }
+
     & input {
         border: none;
-        border-bottom: 2px var(--Color-200) solid;
+        border-bottom: 3px var(--Color-200) solid;
         width: 100%;
-        padding-bottom: 8px;
+        padding-bottom: 12px;
     }
 
-    input+input, input+button{
+    input+input,
+    input+button {
         margin-top: 32px;
     }
-    input[type="hidden"]+input{
+
+    input[type="hidden"]+input {
         margin-top: 0px;
     }
-    
-    div+form{
+
+    div+form {
         margin-top: 32px;
     }
-    & .button{
-        width: 100%;
+
+    & .button {
+        width: fit-content;
     }
 }
 
-.form-content-error{
+form>div:last-child {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.form-content-error {
     display: block;
     color: var(--Error-Red);
     margin-top: 8px;
 
-    &+input{
+    &+input {
         margin-top: var(--spacing-thin);
     }
-    &+button{
+
+    &+button {
         margin-top: var(--spacing-thin);
     }
 }
