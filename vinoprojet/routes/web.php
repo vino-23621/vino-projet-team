@@ -39,8 +39,10 @@ Route::middleware('auth')->group(function () {
 
     // route user
     Route::get('/profil', [UserController::class, 'show'])->name('user.show');
-    Route::get('/user/edit/{user}', [UserController::class, 'edit'])->name('user.edit');
-    Route::post('/user/edit/{user}', [UserController::class, 'update'])->name('user.update');
+    Route::get('/user/edit-name/{user}', [UserController::class, 'editName'])->name('user.edit-name');
+    Route::put('/user/edit-name/{user}', [UserController::class, 'updateName'])->name('user.update-name');
+    Route::get('/user/edit-password/{user}', [UserController::class, 'editPassword'])->name('user.edit-password');
+    Route::put('/user/edit-password/{user}', [UserController::class, 'updatePassword'])->name('user.update-password');
     Route::delete('/user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
 
     // route cellier
