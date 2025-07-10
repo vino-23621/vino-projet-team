@@ -23,6 +23,10 @@ Route::get('/', function () {
     return view('layouts/app');
 })->name('home');
 
+Route::get('/404', function () {
+    return response()->view('errors.404', [], 404);
+})->name('404.custom');
+
 // route user
 Route::get('/registration', [UserController::class, 'create'])->name('user.create');
 Route::post('/registration', [UserController::class, 'store'])->name('user.store');
