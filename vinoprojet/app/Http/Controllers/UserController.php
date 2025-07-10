@@ -89,7 +89,7 @@ class UserController extends Controller
     public function editPassword(string $id)
     {
         if ($id != Auth::id()) {
-            return redirect()->route('index');
+            return redirect()->route('404.custom')->with('message', 'Il vaut mieux prendre un verre de vin au lieu de modifier le compte de ses amis.');
         }
         return view('user.edit-password');
     }
