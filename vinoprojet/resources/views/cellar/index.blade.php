@@ -40,20 +40,24 @@
         <div class="modal-content-edit">
             <span class="close-btn-edit">&times;</span>
             <h5>Éditer</h5>
-            <form action="{{ route('cellars.update', $cellier->id) }}" method="POST" id="editForm">
+            <form action="{{ route('cellars.update', $cellier->id) }}" method="POST" id="editForm" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+
                 <label for="cellar_name">Nom du cellier</label>
-                <input type="text" id="cellar_name" name="name" value="{{ old('name') }}">
+                <input type="text" id="cellar_name" name="name" value="{{ old('name', $cellier->name) }}">
                 @if($errors->has('name'))
-                <span class="form-content-error">{{ $errors->first('name') }}</span>
+                    <span class="form-content-error">{{ $errors->first('name') }}</span>
                 @endif
 
                 <div class="flex-row">
                     <label class="label-margin-bottom" for="cellar_image">L'image du cellier</label>
-                    <input type="file" id="cellar_image" name="image" value="{{ old('image') }}">
+                    <input type="file" id="cellar_image" name="image">
                 </div>
                 @if($errors->has('image'))
-                <span class="form-content-error">{{ $errors->first('image') }}</span>
+                    <span class="form-content-error">{{ $errors->first('image') }}</span>
                 @endif
+
                 <div class="flex-row">
                     <button type="button" class="button__white" id="closeModalBtnEdit">Fermer</button>
                     <button class="button" type="submit">Modifier</button>

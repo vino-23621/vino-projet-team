@@ -51,8 +51,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/cellars', [CellarController::class, 'index'])->name('cellars.index');
     Route::get('/cellars/create', [CellarController::class, 'create'])->name('cellars.create');
     Route::post('/cellars/create', [CellarController::class, 'store'])->name('cellars.store');
-    Route::get('/cellars/edit/{cellar}', [CellarController::class, 'edit'])->name('cellars.edit');
-    Route::post('/cellars/edit/{cellar}', [CellarController::class, 'update'])->name('cellars.update');
+    Route::get('/cellars/{cellar}/edit', [CellarController::class, 'edit'])->name('cellars.edit');
+    Route::put('/cellars/{cellar}', [CellarController::class, 'update'])->name('cellars.update');
     Route::delete('/cellars/{cellar}', [CellarController::class, 'destroy'])->name('cellars.destroy');
 
     Route::get('/catalog', [BottleController::class, 'index'])->name('index');
