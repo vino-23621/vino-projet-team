@@ -1,0 +1,39 @@
+.modalUser{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: opacity 0.5s ease;
+    opacity: 0;
+}
+
+.modalUser-toggle:checked ~ .modalUser {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+}
+
+.modalUser-box{
+    background-color: white;
+    padding: 2rem;
+    max-width: 500px;
+    border: 1px transparent solid;
+    border-radius: 5px;
+    transform: scale(0.95);
+    transition: transform 0.5s ease;
+
+    &>div{
+        margin-top: 2rem;
+        display: flex;
+        gap: 20px;
+
+        &>button{
+            font-size: 12px;
+        }
+    }
+    
+}
+.modalUser-toggle:checked ~ .modalUser .modalUser-box {
+    transform: scale(1);
+}

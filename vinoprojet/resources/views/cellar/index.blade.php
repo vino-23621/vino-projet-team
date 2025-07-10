@@ -25,11 +25,34 @@
             <div class="card-cellar-content">
                 <h3 class="card-cellar-title">{{ $cellier->name }}</h3>
                 <p class="card-cellar-date">Créé le: {{ $cellier->created_at->format('Y-m-d') }}</p>
-                <a class="button" href="">Voir</a>
-                <a class="button" href="">Supprimer</a>
+                <button class="button">Voir</button>
+                <button class="openModalBtn button" data-id="{{$cellier->id}}">Supprimer</button>
             </div>
         </div>
         @endforeach
+
+    </div>
+
+    <!-- Modal -->
+
+    <div id="customModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h5>Effacer</h5>
+            <p>Voulez vous effacer le cellier?</p>
+            <div class="flex-row modal-buttons">
+                <button type="button" class="button__white" id="closeModalBtn">Fermer</button>
+                <form method="post" action="" id="deleteForm">
+                    @method('delete')
+                    @csrf
+                    <button class="button" type="submit">Supprimer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
 
 
 

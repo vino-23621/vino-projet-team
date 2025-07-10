@@ -15,25 +15,30 @@
                 <h3>Mes infos</h3>
                 <div class="profile-info-line">
                     <span class="profile-label">Nom</span>
+
                     <div class="profile-content-line">
                         <span class="profile-value">{{ Auth::user()->name }}</span>
-                        <a href="{{ route('user.edit', Auth::id()) }}" class="profile-edit-link">Changer</a>
+                    <a href="{{ route('user.edit-name', Auth::id()) }}" class="profile-edit-link">Changer</a>
                     </div>
+
                 </div>
 
                 <div class="profile-info-line">
                     <span class="profile-label">Courriel</span>
+
                     <div class="profile-content-line">
                         <span class="profile-value">{{ Auth::user()->email }}</span>
-                        <a href="{{ route('user.edit', Auth::id()) }}" class="profile-edit-link">Changer</a>
+        
                     </div>
+
                 </div>
 
                 <div class="profile-info-line">
                     <span class="profile-label">Mot de passe</span>
+
                     <div class="profile-content-line">
                         <span class="profile-value">••••••••</span>
-                        <a href="{{ route('user.edit', Auth::id()) }}" class="profile-edit-link">Changer</a>
+                       <a href="{{ route('user.edit-password', Auth::id()) }}" class="profile-edit-link">Changer</a>
                     </div>
                 </div>
 
@@ -58,3 +63,4 @@
         </div>
 
         @endsection
+
