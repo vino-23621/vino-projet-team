@@ -16,19 +16,18 @@
                 <div class="profile-info-line">
                     <span class="profile-label">Nom</span>
                     <span class="profile-value">{{ Auth::user()->name }}</span>
-                    <a href="{{ route('user.edit', Auth::id()) }}" class="profile-edit-link">Changer</a>
+                    <a href="{{ route('user.edit-name', Auth::id()) }}" class="profile-edit-link">Changer</a>
                 </div>
 
                 <div class="profile-info-line">
                     <span class="profile-label">Courriel</span>
                     <span class="profile-value">{{ Auth::user()->email }}</span>
-                    <a href="{{ route('user.edit', Auth::id()) }}" class="profile-edit-link">Changer</a>
                 </div>
 
                 <div class="profile-info-line">
                     <span class="profile-label">Mot de passe</span>
                     <span class="profile-value">••••••••</span>
-                    <a href="{{ route('user.edit', Auth::id()) }}" class="profile-edit-link">Changer</a>
+                    <a href="{{ route('user.edit-password', Auth::id()) }}" class="profile-edit-link">Changer</a>
                 </div>
                  <input type="checkbox" id="modalUser-toggle" class="modalUser-toggle" hidden>
 
@@ -50,4 +49,4 @@
         </div>
 </div>
 
-@endsection
+@endsection 
