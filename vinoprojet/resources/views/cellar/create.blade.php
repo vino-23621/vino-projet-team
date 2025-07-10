@@ -2,12 +2,13 @@
 @section('title', 'Create Cellar')
 
 @section('content')
-<main class="form">
+<main class=" flex-column form">
     <!-- <img src="{{ asset('assets/images/img-wines.jpg') }}" alt="image bouteille vin"> -->
 
-    <div class="container-infocreate-cellar">
+    <div class="cellar-container-info-edit">
         <h4>Création des Celliers</h4>
         <p>Crée un ou plusieurs celliers pour organiser tes bouteilles selon tes goûts, ton espace ou tes occasions spéciales.</p>
+
     </div>
     <div class="form-content container-formcreate-cellar">
         <h3>Créer un cellier</h3>
@@ -16,22 +17,23 @@
             @csrf
 
 
-            <label for="cellar_name">Nom du cellier</label>
+            <label for="cellar_name">Nom du cellier:</label>
             <input type="text" id="cellar_name" name="name" value="{{ old('name') }}">
             @if($errors->has('name'))
             <span class="form-content-error">{{ $errors->first('name') }}</span>
             @endif
 
-            <div class="flex-row">
-                <label class="label-margin-bottom" for="cellar_image">L'image du cellier</label>
+            <div class="flex-row cellar-create-input2">
+                <label class="label-margin-bottom" for="cellar_image">Téléversez l'image du cellier.</label>
                 <input type="file" id="cellar_image" name="image">
             </div>
             @if($errors->has('image'))
             <span class="form-content-error">{{ $errors->first('image') }}</span>
             @endif
-
-            <button class="button" type="submit">Créer mon cellier</button>
-            <a class="" href="">← Retour à la liste des celliers</a>
+            <div class="flex-column cellar-create-button justify-right ">
+                <button class="button" type="submit">Créer mon cellier</button>
+                <a class="" href="">← Retour à la liste des celliers</a>
+            </div>
         </form>
 
     </div>
