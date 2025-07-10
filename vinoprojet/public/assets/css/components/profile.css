@@ -1,4 +1,4 @@
-.profile-container {
+.profile {
     max-width: 1000px;
     margin: 0 auto;
     padding: var(--spacing-broad) var(--spacing-thin);
@@ -54,31 +54,36 @@
 
             .profile-info-line {
                 display: flex;
-                align-items: center;
-                gap: var(--spacing-micro);
+                flex-direction: column;
+                gap: var(--spacing-nano);
                 padding: var(--spacing-micro) 0;
                 border-bottom: var(--border-slimmest) solid var(--Color-200);
 
                 .profile-label {
                     font: var(--Text-Single-200-bold);
                     color: var(--Color-700);
-                    flex-shrink: 0;
-                    margin-right: var(--spacing-nano);
                 }
 
-                .profile-value {
-                    font: var(--Text-Single-200-normal);
-                    color: var(--Color-800);
-                    overflow-wrap: break-word;
-                }
+                .profile-content-line {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100%;
 
-                .profile-edit-link {
-                    margin-left: auto;
-                    font: var(--Text-Link);
-                    font-weight: 500;
-                    color: var(--Primary-Purple-300);
-                    white-space: nowrap;
-                    text-decoration: none;
+                    .profile-value {
+                        font: var(--Text-Single-200-normal);
+                        color: var(--Color-800);
+                        overflow-wrap: break-word;
+                    }
+
+                    .profile-edit-link {
+                        font: var(--Text-Link);
+                        font-weight: 500;
+                        color: var(--Primary-Purple-300);
+                        white-space: nowrap;
+                        text-decoration: none;
+                        margin-left: var(--spacing-thin);
+                    }
                 }
             }
         }
