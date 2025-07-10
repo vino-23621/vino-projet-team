@@ -82,7 +82,7 @@ span {
 }
 
 .justify-left {
-    justify-content: end;
+    justify-content: start;
 }
 
 
@@ -91,7 +91,7 @@ span {
 }
 
 .justify-right {
-    justify-content: start;
+    justify-content: end;
 }
 
 .justify-spacebetween {

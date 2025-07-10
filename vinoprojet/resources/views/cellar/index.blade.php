@@ -14,9 +14,6 @@
         <a class="button" href="{{ route('cellars.create') }}">Créer un cellier</a>
     </div>
 
-
-
-
     <div class="cards-cellar-container grille">
 
         @foreach($cellar as $cellier)
@@ -25,9 +22,14 @@
             <div class="card-cellar-content">
                 <h3 class="card-cellar-title">{{ $cellier->name }}</h3>
                 <p class="card-cellar-date">Créé le: {{ $cellier->created_at->format('Y-m-d') }}</p>
-                <button class="button">Voir</button>
-                <button class="openModalBtnEdit button" data-id="{{$cellier->id}}">Éditer</button>
-                <button class="openModalBtn button" data-id="{{$cellier->id}}">Supprimer</button>
+
+                <div class="flex-row justify-center cellar-icons-gap ">
+                    <i class="fa-solid fa-wine-bottle cellar-icon" title="voir""></i>
+                    <i class=" fa-solid fa-pen-to-square openModalBtnEdit cellar-icon" data-id="{{$cellier->id}}" title="Éditer"></i>
+                    <i class="fa-solid fa-trash openModalBtn cellar-icon" data-id="{{$cellier->id}}" title="Supprimer"></i>
+                </div>
+
+
             </div>
         </div>
         @endforeach
@@ -47,7 +49,7 @@
                 <label for="cellar_name">Nom du cellier</label>
                 <input type="text" id="cellar_name" name="name" value="{{ old('name', $cellier->name) }}">
                 @if($errors->has('name'))
-                    <span class="form-content-error">{{ $errors->first('name') }}</span>
+                <span class="form-content-error">{{ $errors->first('name') }}</span>
                 @endif
 
                 <div class="flex-row">
@@ -55,7 +57,7 @@
                     <input type="file" id="cellar_image" name="image">
                 </div>
                 @if($errors->has('image'))
-                    <span class="form-content-error">{{ $errors->first('image') }}</span>
+                <span class="form-content-error">{{ $errors->first('image') }}</span>
                 @endif
 
                 <div class="flex-row">
