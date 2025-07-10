@@ -1,3 +1,4 @@
+// Modale Supprimer
 const modal = document.getElementById("customModal");
 const openBtns = document.querySelectorAll(".openModalBtn");
 const closeBtn = document.querySelector(".close-btn");
@@ -28,5 +29,3 @@ window.addEventListener("click", (e) => {
         modal.style.display = "none";
     }
 });
-
-

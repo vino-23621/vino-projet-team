@@ -94,7 +94,7 @@ class CellarController extends Controller
             'image' => $filename,
         ]);
 
-        return redirect()->route('cellars.show', $cellar->id)->with('success', 'Cellier modifié avec succès!');
+        return redirect()->route('cellars.index', $cellar->id)->with('success', 'Cellier modifié avec succès!');
     }
 
     /**
