@@ -78,23 +78,32 @@ class CellarController extends Controller
     public function update(Request $request, Cellar $cellar)
     {
         $request->validate([
-            'name' => 'required|string|max:100',
+            'name' => 'nullable|string|max:100',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,svg,webp|max:1048',
         ]);
 
-        $imagePath = $cellar->image;
+        $data = [];
 
-        if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('cellar_images', 'public');
-            $filename = basename($path);
+        if($request->filled('name')) {
+            $data['name'] = $request->name;
         }
 
-        $cellar->update([
-            'name' => $request->name,
-            'image' => $filename,
-        ]);
+        if ($request->hasFile('image')) {
 
-        return redirect()->route('cellars.show', $cellar->id)->with('success', 'Cellier modifié avec succès!');
+            if ($cellar->image) {
+                \Storage::disk('public')->delete('cellar_images/' . $cellar->image);
+            }
+
+            $path = $request->file('image')->store('cellar_images', 'public');
+            $filename = basename($path);
+            $data['image'] = $filename;
+        }
+
+        if(!empty($data)) {
+            $cellar->update($data);
+        }
+
+        return redirect()->route('cellars.index')->with('success', 'Cellier modifié avec succès!');
     }
 
     /**
