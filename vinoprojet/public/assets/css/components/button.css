@@ -10,6 +10,7 @@
     width: fit-content;
     text-decoration: none;
     cursor: pointer;
+    font-size: 1rem;
 }
 
 .button__white {
@@ -24,4 +25,12 @@
     width: fit-content;
     text-decoration: none;
     cursor: pointer;
+}
+
+.button.button__danger{
+    background-color: var(--Error-Red-300);
+}
+
+.button.button__safe{
+    background-color: var(--Success-Green-300);
 }
