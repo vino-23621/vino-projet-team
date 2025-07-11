@@ -47,12 +47,13 @@ L’application adopte un ton **convivial, raffiné et accessible**. Elle évoqu
 
 Projet réalisé en équipe de 5 personnes selon la méthode Agile/SCRUM.
 
-| Sprint        | Dates                        | Phase de travail                                                                 | Statut      |
-|---------------|------------------------------|----------------------------------------------------------------------------------|-------------|
-| **Sprint 0**  | 2 au 4 juillet                | Idéation, modélisation de la base de données, UI Kit, structure du projet       | ✅ Finalisé  |
-| **Sprint 1**  | 7 au 8 août               | US1: Création et authentification d’utilisateurs, US2: Ajout d’un ou plusieurs celliers   | 🚧 En cours |
-| **Sprint 2**  | 11 au 22 août                  | Développement Front-End, logique Laravel (CRUD), liaison base de données, Tests, validations, accessibilité, corrections et optimisations finales        | ⏳ À venir   |
-| **Présentation finale** | 22 août à 13h         | Livraison, démo fonctionnelle et documentation complète                          | ⏳ À venir   |
+| Sprint                | Dates                        | Phase de travail                                                                                                                  | Statut      |
+|-----------------------|------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|-------------|
+| **Sprint 0**          | 2 au 4 juillet                | Idéation, modélisation de la base de données, UI Kit, structure du projet, logique Laravel (CRUD), liaison avec la base de données | ✅ Finalisé  |
+| **Sprint 1**          | 7 juillet au 8 août          | US1 : Création et authentification des utilisateurs<br>US2 : Ajout d’un ou plusieurs celliers                                     | 🚧 En cours |
+| _Pause estivale_      | 15 juillet au 4 août         | Sprint 1 suspendu pendant 3 semaines de vacances                                                                                  | ☀️ Pause     |
+| **Sprint 2**          | 11 au 22 août                | Définition des User Stories à développer, tests, validations, accessibilité, corrections et optimisations finales                | ⏳ À venir   |
+| **Présentation finale** | 22 août à 13h                | Livraison, démonstration fonctionnelle et documentation complète                                                                  | 🎯 À venir   |
 
 ### 📌 Détail des phases
 
