@@ -22,6 +22,7 @@ class BottleSeeder extends Seeder
             $country = Country::firstOrCreate(['name' => $item['country']]);
 
             Bottle::create([
+                'id' => $item['id'],
                 'name' => $item['name'],
                 'image' => $item['image'],
                 'price' => $item['price'],

@@ -25,10 +25,9 @@
 
                 <div class="flex-row justify-center cellar-icons-gap ">
                     <i class="fa-solid fa-wine-bottle cellar-icon" title="voir""></i>
-                    <i class=" fa-solid fa-pen-to-square openModalBtnEdit cellar-icon" data-id="{{$cellier->id}}" title="Éditer"></i>
+                    <i class=" fa-solid fa-pen-to-square openModalBtnEdit cellar-icon" data-name="{{$cellier->name}}" data-id="{{$cellier->id}}" title="Éditer"></i>
                     <i class="fa-solid fa-trash openModalBtn cellar-icon" data-id="{{$cellier->id}}" title="Supprimer"></i>
                 </div>
-
 
             </div>
         </div>
@@ -42,12 +41,14 @@
         <div class="modal-content-edit">
             <span class="close-btn-edit">&times;</span>
             <h5>Éditer</h5>
-            <form action="{{ route('cellars.update', $cellier->id) }}" method="POST" id="editForm" enctype="multipart/form-data">
+
+            <form action="" method="POST" id="editForm" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
-                <label class="modal-label label-margin-bottom" for="cellar_name">Nom du cellier</label>
-                <input class="modal-input" type="text" id="cellar_name" name="name" value="{{ old('name', $cellier->name) }}">
+
+                <label for="cellar_name">Nom du cellier</label>
+                <input type="text" id="cellar_name" name="name" value="">
                 @if($errors->has('name'))
                 <span class="form-content-error">{{ $errors->first('name') }}</span>
                 @endif
@@ -59,11 +60,15 @@
                 @if($errors->has('image'))
                 <span class="form-content-error">{{ $errors->first('image') }}</span>
                 @endif
+                <<<<<<< HEAD
 
-                <div class="flex-row modal-buttons">
-                    <button type="button" class="button__white" id="closeModalBtnEdit">Fermer</button>
-                    <button class="button" type="submit">Modifier</button>
-                </div>
+                    <div class="flex-row modal-buttons">
+                    =======
+                    <div class="flex-row">
+                        >>>>>>> 4ff95aa (Fixing edit Modal variable outsite of loop, fixing seeder, adding id to json, new jason file updated, adding css to page catalogue also adding link to it to nav)
+                        <button type="button" class="button__white" id="closeModalBtnEdit">Fermer</button>
+                        <button class="button" type="submit">Modifier</button>
+                    </div>
             </form>
         </div>
     </div>

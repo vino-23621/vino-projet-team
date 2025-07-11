@@ -2,7 +2,7 @@
 @section('title', 'Cellar Content')
 @section('content')
 <main class="form">
-        <!-- <img src="{{ asset('assets/images/img-wines.jpg') }}" alt="image bouteille vin"> -->
+    <!-- <img src="{{ asset('assets/images/img-wines.jpg') }}" alt="image bouteille vin"> -->
 
     <div class="container-infoedit-cellar">
         <h4>Modifier vos Celliers</h4>

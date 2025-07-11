@@ -1,16 +1,19 @@
-// Modale Supprimer
+// Modale edit
 const editModal = document.getElementById("editModal");
 const openBtns = document.querySelectorAll(".openModalBtnEdit");
 const closeBtn = document.querySelector(".close-btn-edit");
 const closeModalBtn = document.getElementById("closeModalBtnEdit");
 const editForm = document.getElementById('editForm');
+const nameInput = document.getElementById('cellar_name');
 
 openBtns.forEach(btn => {
     btn.addEventListener("click", (e) => {
         e.preventDefault();
 
         const cellarId = btn.getAttribute('data-id');
+        const cellarName = btn.getAttribute('data-name');
         editForm.action = `/cellars/${cellarId}`;
+        nameInput.value = cellarName;
 
         editModal.style.display = "block";
     });

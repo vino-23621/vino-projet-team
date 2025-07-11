@@ -1,0 +1,44 @@
+.card-bottle-container {
+    gap: 16px;
+    justify-content: center;
+    width: 100%;
+}
+
+.card-bottle {
+    background: var(--White);
+    border: 1px solid var(--Color-200);
+    border-radius: var(--radius-super-sharp);
+    width: 250px;
+    box-shadow: 0 2px 6px var(--Primary-Purple-300);
+    overflow: hidden;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.card-bottle-image {
+    max-width: 90%;
+    height: auto;
+
+}
+
+.card-bottle-content {
+    padding: 10px;
+    text-align: center;
+
+}
+
+.card-bottle-title {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: var(--Primary-Purple-400);
+    text-align: center;
+}
+
+
+.card-bottle-date {
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+    color: var(--Accent-Wine-200);
+}
