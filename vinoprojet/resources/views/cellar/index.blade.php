@@ -60,15 +60,13 @@
                 @if($errors->has('image'))
                 <span class="form-content-error">{{ $errors->first('image') }}</span>
                 @endif
-                <<<<<<< HEAD
 
-                    <div class="flex-row modal-buttons">
-                    =======
-                    <div class="flex-row">
-                        >>>>>>> 4ff95aa (Fixing edit Modal variable outsite of loop, fixing seeder, adding id to json, new jason file updated, adding css to page catalogue also adding link to it to nav)
-                        <button type="button" class="button__white" id="closeModalBtnEdit">Fermer</button>
-                        <button class="button" type="submit">Modifier</button>
-                    </div>
+                <div class="flex-row modal-buttons">
+
+
+                    <button type="button" class="button__white" id="closeModalBtnEdit">Fermer</button>
+                    <button class="button" type="submit">Modifier</button>
+                </div>
             </form>
         </div>
     </div>
