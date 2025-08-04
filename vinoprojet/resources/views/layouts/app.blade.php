@@ -25,34 +25,35 @@
 
 <body>
 
-<nav id="nav-main">
+    <nav id="nav-main">
 
-    <div class="nav-main-account">
-    <div>
-        @auth
-        <p>Bienvenue, {{ Auth::user()->name }}</p>
-        <a class="button__white" href="{{ route('user.show') }}">Mon compte</a>
-            <a class="button" href="{{ route('logout') }}">Déconnexion</a>
-            @else
-            <a class="button" href="{{ route('login') }}">Connexion</a>
-            @endauth
-    </div>
-</div>
-    <div class="nav-main-links">
-        <div>
-            <a href="#"><img class="logo"
+        <div class="nav-main-account">
+            <div>
+                @auth
+                <p>Bienvenue, {{ Auth::user()->name }}</p>
+                <a class="button__white" href="{{ route('user.show') }}">Mon compte</a>
+                <a class="button" href="{{ route('logout') }}">Déconnexion</a>
+                @else
+                <a class="button" href="{{ route('login') }}">Connexion</a>
+                @endauth
+            </div>
+        </div>
+        <div class="nav-main-links">
+            <div>
+                <a href="#"><img class="logo"
                         src="{{ asset('assets/images/vinologo.png') }}"
                         alt="logovino" /></a>
-            <a href="{{route('cellars.index')}}">Mes celliers</a>
+                <a href="{{route('cellars.index')}}">Mes celliers</a>
+                <a href="{{route('catalog.index')}}">le Catalogue</a>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-    
+
     <main>
-     @yield ('content')
+        @yield ('content')
     </main>
-   
+
 
     <footer id="footer-main">
         <div>
@@ -61,4 +62,5 @@
         </div>
     </footer>
 </body>
+
 </html>

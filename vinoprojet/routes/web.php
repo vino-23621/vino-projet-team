@@ -63,5 +63,5 @@ Route::middleware('auth')->group(function () {
     Route::put('/cellars/{cellar}', [CellarController::class, 'update'])->name('cellars.update');
     Route::delete('/cellars/{cellar}', [CellarController::class, 'destroy'])->name('cellars.destroy');
 
-    Route::get('/catalog', [BottleController::class, 'index'])->name('index');
+    Route::get('/catalog', [BottleController::class, 'index'])->name('catalog.index');
 });
