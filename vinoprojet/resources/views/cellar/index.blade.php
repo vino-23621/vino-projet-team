@@ -24,7 +24,9 @@
                 <p class="card-cellar-date">Créé le: {{ $cellier->created_at->format('Y-m-d') }}</p>
 
                 <div class="flex-row justify-center cellar-icons-gap ">
-                    <i class="fa-solid fa-wine-bottle cellar-icon" title="voir""></i>
+                    <a href="{{ route('cellars.show', $cellier->id) }}" title="Voir">
+                        <i class="fa-solid fa-wine-bottle cellar-icon"></i>
+                    </a>
                     <i class=" fa-solid fa-pen-to-square openModalBtnEdit cellar-icon" data-name="{{$cellier->name}}" data-id="{{$cellier->id}}" title="Éditer"></i>
                     <i class="fa-solid fa-trash openModalBtn cellar-icon" data-id="{{$cellier->id}}" title="Supprimer"></i>
                 </div>

@@ -63,5 +63,10 @@ Route::middleware('auth')->group(function () {
     Route::put('/cellars/{cellar}', [CellarController::class, 'update'])->name('cellars.update');
     Route::delete('/cellars/{cellar}', [CellarController::class, 'destroy'])->name('cellars.destroy');
 
+    Route::get('/cellars/{cellar}/show', [CellarController::class, 'show'])->name('cellars.show');
+    Route::post('/cellars/{cellar}/add-bottle', [CellarController::class, 'addBottle'])->name('cellars.addBottle');
+
+
+    // route catalog
     Route::get('/catalog', [BottleController::class, 'index'])->name('catalog.index');
 });

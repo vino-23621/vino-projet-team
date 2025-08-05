@@ -6,6 +6,7 @@
 
 <main class="catalog-main">
 
+
     <div class="infos">
         <h3>Le Catalogue</h3>
 
@@ -32,7 +33,16 @@
                 <div>
                     <h3>Prix</h3>
                     <p>{{ $bottle->price }} CAD</p>
-                    <i class="fa-solid fa-wine-bottle cellar-icon" title="add""></i>
+                    <form action="{{ route('cellars.addBottle', ['cellar' => $cellar->id]) }}" method="POST" class="inline-form">
+                        @csrf
+                        <input type="hidden" name="bottle_id" value="{{ $bottle->id }}">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" title="Ajouter au cellier" class="cellar-icon-btn">
+                            <i class="fa-solid fa-wine-bottle cellar-icon"></i>
+                        </button>
+                    </form>
+
+
                 </div>
             </div>
         </div>

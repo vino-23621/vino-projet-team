@@ -16,6 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('bottle_id');
             $table->integer('quantity')->default(0);
 
+            $table->timestamps();
+
             $table->primary(['cellar_id', 'bottle_id']);
 
             $table->foreign('cellar_id')->references('id')->on('cellars');
