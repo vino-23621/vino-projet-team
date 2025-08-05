@@ -52,7 +52,8 @@
         border: none;
         border-bottom: 3px var(--Color-200) solid;
         width: 100%;
-        padding-bottom: 12px;
+        padding: 8px 0;
+        padding-left: 8px;
     }
 
     input+input,
