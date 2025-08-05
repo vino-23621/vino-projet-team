@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Cellar;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -33,6 +34,7 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required|string||min:2|max:255',
+            'cellar_name' => 'required|string||min:2|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6|max:255|string|regex:/[a-z]/|regex:/[A-Z]/|regex:/[0-9]/',
             'password_confirmation' =>  'required|min:6|max:255|string|same:password'
@@ -44,6 +46,13 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+        $cellar = Cellar::create([
+            'name' => $request->cellar_name,
+            'user_id' => $user->id,
+        ]);
+
+        $user->update(['cellar_id' => $cellar->id]);
 
         return redirect()->route('login');
     }
