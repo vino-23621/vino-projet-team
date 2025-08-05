@@ -13,11 +13,12 @@ class BottleController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $bottles = Bottle::all();
-        $cellar = Cellar::where('user_id', auth()->id())->first();
-        return view('catalog.index', compact('bottles', 'cellar'));
+        $cellar = Cellar::where('user_id', auth()->id())->get();
+        $cellarId = $request->query('cellar_id');
+        return view('catalog.index', compact('bottles', 'cellar', 'cellarId'));
     }
 
     /**

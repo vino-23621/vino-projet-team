@@ -33,10 +33,12 @@
                 <div>
                     <h3>Prix</h3>
                     <p>{{ $bottle->price }} CAD</p>
-                    <form action="{{ route('cellars.addBottle', ['cellar' => $cellar->id]) }}" method="POST" class="inline-form">
+                    <form action="{{ route('cellars.addBottle') }}" method="POST" class="inline-form">
                         @csrf
                         <input type="hidden" name="bottle_id" value="{{ $bottle->id }}">
                         <input type="hidden" name="quantity" value="1">
+                        <input type="hidden" name="cellar_id" value="{{ $cellarId }}">
+
                         <button type="submit" title="Ajouter au cellier" class="cellar-icon-btn">
                             <i class="fa-solid fa-wine-bottle cellar-icon"></i>
                         </button>

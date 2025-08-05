@@ -20,6 +20,12 @@ class User extends Authenticatable
         return $this->hasMany(Cellar::class);
     }
 
+    public function defaultCellar()
+    {
+        return $this->belongsTo(Cellar::class, 'cellar_id');
+    }
+
+
 
     /**
      * The attributes that are mass assignable.
