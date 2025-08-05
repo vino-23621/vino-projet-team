@@ -1,86 +1,41 @@
-label {
-    font-family: 'Poppins', sans-serif;
-}
+.cellar {
+    background-color: var(--Primary-Purple-100);
+    padding: var(--spacing-thinner) var(--spacing-thin);
+    border-radius: var(--radius-super-sharp);
+    box-shadow: 0 4px 10px rgba(120, 49, 151, 0.1);
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto var(--spacing-broad);
 
-.label-margin-bottom {
-    margin-top: 20px;
-    margin-bottom: 10px;
+    h1 {
+        font: var(--Heading-H2);
+        color: var(--Primary-Purple-400);
+        margin-bottom: var(--spacing-thinnest);
+    }
+
+    p {
+        font: var(--Body-default);
+        color: var(--Color-600);
+        line-height: var(--line-height-normal);
+        margin-top: var(--spacing-nano);
+    }
 }
 
 .container-formcreate-cellar {
-    background: var(--White);
-    border: 1px solid var(--Primary-Purple-100);
-    border-radius: var(--radius-sharp);
-    width: 380px;
-    box-shadow: 0 2px 6px var(--Color-100);
-    overflow: hidden;
-    text-align: left;
-    padding: 20px;
-}
-
-.container-infoedit-cellar {
-    width: 280px;
-}
-
-.container-formedit-cellar {
-    background: var(--White);
-    border: 1px solid var(--Primary-Purple-100);
-    border-radius: var(--radius-sharp);
-    width: 380px;
-    box-shadow: 0 2px 6px var(--Color-100);
-    overflow: hidden;
-    text-align: left;
-    padding: 20px;
-}
-
-.cellar-main {
-
-    margin: 0;
-    padding: 0;
-    max-width: 1920px;
-
-    display: grid;
-    grid-template-areas:
-        "info  info  info  info  info"
-        "grid grid grid grid grid";
-    grid-template-columns: 20% 20% 20% 20% 20%;
-    grid-template-rows: auto auto;
-
-    >.info {
-        grid-area: info;
-        margin-left: 50px;
-        margin-right: 50px;
-        margin-bottom: 60px;
-        text-align: center;
+    input,
+    a,
+    .form-content-error {
+        display: block;
+        margin-top: 32px;
     }
 
-    >.grille {
-        grid-area: grid;
-        margin-left: 60px;
-        margin-right: 60px;
+    form {
+        > *:first-child {
+            margin-top: 0;
+        }
     }
 
-}
-
-.cellar-main>* {
-    margin-top: 40px;
-}
-
-.cellar-main> :first-child> :last-child {
-    margin-top: 20px;
-    display: block;
-    margin: 20px auto 0 auto;
-}
-
-.cellar-main>.grille {
-    grid-area: grid;
-
-
-    display: flex;
-    justify-content: center;
-
-    gap: 40px;
-
-    flex-wrap: wrap;
-
+    h2 + form {
+        margin-top: var(--spacing-thin);
+    }
 }
