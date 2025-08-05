@@ -35,12 +35,17 @@
        <form method="POST">
         @csrf
          
-        <input type="text" id="name" name="name" value="{{ old('name') }}" placeholder="Nom *">
+        <input type="text" id="name" name="name" value="{{ old('name') }}" placeholder="Nom">
         @if ($errors->has('name'))
         <span class="form-content-error">{{ $errors->first('name')}}</span>
+        @endif
+
+        <input type="text" id="cellar_name" name="cellar_name" value="{{ old('cellar_name') }}" placeholder="Donner un nom de cellier">
+        @if ($errors->has('cellar_name'))
+        <span class="form-content-error">{{ $errors->first('cellar_name')}}</span>
         @endif  
 
-        <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Adresse courriel *">
+        <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Adresse courriel">
         @if ($errors->has('email'))
         <span class="form-content-error">{{ $errors->first('email')}}</span>
         @endif 
@@ -53,9 +58,9 @@
         <input type="password" id="password" name="password_confirmation" placeholder="Retaper mot de passe">
         @if ($errors->has('password_confirmation'))
         <span class="form-content-error">{{ $errors->first('password_confirmation')}}</span>
-        @endif 
+        @endif
 
-        <button type="submit" class="button">Créer mon compte</button>
+        <button type="submit" class="button">Soumettre</button>
        </form>
     </div>
 </div>
