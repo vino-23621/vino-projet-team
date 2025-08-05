@@ -114,7 +114,18 @@ class CellarController extends Controller
      */
     public function destroy(Cellar $cellar)
     {
+
+        $user = auth()->user();
+
+        if ($user->cellar_id === $cellar->id) {
+            return redirect()->route('cellars.index')
+                ->with('error', 'Vous ne pouvez pas supprimer votre cellier par défaut.');
+        }
+
         $target = $cellar->name;
+
+        \DB::table('cellar__has__bottles')->where('cellar_id', $cellar->id)->delete();
+
         $cellar->delete();
         return redirect()->route('cellars.index')->with('success', 'Le Cellar: ' . $target . 'a été effacé!');
     }
