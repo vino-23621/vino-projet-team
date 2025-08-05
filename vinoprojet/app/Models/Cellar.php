@@ -30,9 +30,7 @@ class Cellar extends Model
             ->withPivot('quantity')->withTimestamps();
     }
     protected $fillable = [
-        'id',
         'name',
-        'image',
         'user_id'
     ];
 }
