@@ -27,9 +27,10 @@ class Cellar extends Model
     public function bottles()
     {
         return $this->belongsToMany(Bottle::class, 'cellar__has__bottles', 'cellar_id', 'bottle_id')
-            ->withPivot('quantity');
+            ->withPivot('quantity')->withTimestamps();
     }
     protected $fillable = [
+        'id',
         'name',
         'image',
         'user_id'
