@@ -16,7 +16,7 @@
         <h4>{{$cellar->name}}</h4>
         <div class="flex-row">
             <p>C’est ici que tu retrouveras tes bouteilles.</p>
-            <a class="button" href="{{ route('catalog.index') }}">Ajouter une bouteille</a>
+            <a class="button" href="{{ route('catalog.index', ['cellar_id' => $cellar->id]) }}">Ajouter une bouteille</a>
         </div>
     </div>
 
@@ -36,6 +36,7 @@
                 <p> Couleur: {{ $bottle->identity->name }}</p>
                 <p>Pays: {{ $bottle->country->name }}</p>
                 <p>volume: {{ $bottle->size }} ml</p>
+                <i class="fa-solid fa-trash openModalBtn cellar-icon" title="Supprimer"></i>
             </div>
         </div>
         @endforeach

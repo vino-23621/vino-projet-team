@@ -114,21 +114,34 @@ class CellarController extends Controller
      */
     public function destroy(Cellar $cellar)
     {
+
+        $user = auth()->user();
+
+        if ($user->cellar_id === $cellar->id) {
+            return redirect()->route('cellars.index')
+                ->with('error', 'Vous ne pouvez pas supprimer votre cellier par défaut.');
+        }
+
         $target = $cellar->name;
+
+        \DB::table('cellar__has__bottles')->where('cellar_id', $cellar->id)->delete();
+
         $cellar->delete();
         return redirect()->route('cellars.index')->with('success', 'Le Cellar: ' . $target . 'a été effacé!');
     }
 
 
-    public function addBottle(Request $request, Cellar $cellar)
+    public function addBottle(Request $request)
     {
         $validated = $request->validate([
             'bottle_id' => 'required|exists:bottles,id',
+            'cellar_id' => 'required|exists:cellars,id',
             'quantity' => 'required|integer|min:1',
-
-
-
         ]);
+
+
+        $cellar = Cellar::where('id', $validated['cellar_id'])
+            ->where('user_id', auth()->id())->firstOrFail();
 
         $bottleId = $validated['bottle_id'];
         $quantityInitial = $validated['quantity'];
@@ -141,7 +154,7 @@ class CellarController extends Controller
                 'quantity' => DB::raw('quantity +' . $quantityInitial)
             ]);
         } else {
-            $cellar->bottles()->attach('bottle_id', ['quantity' => $quantityInitial]);
+            $cellar->bottles()->attach($bottleId, ['quantity' => $quantityInitial]);
         }
 
         return redirect()->route('cellars.show', $cellar->id)->with('success', 'Bouteille ajoutée au cellier.');
