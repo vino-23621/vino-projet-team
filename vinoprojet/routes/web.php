@@ -65,6 +65,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/cellars/{cellar}/show', [CellarController::class, 'show'])->name('cellars.show');
     Route::post('/cellars/add-bottle', [CellarController::class, 'addBottle'])->name('cellars.addBottle');
+    Route::delete('/cellars/{cellar}/show/{bottle}', [CellarController::class, 'removeBottle'])->name('cellars.removeBottle');
 
 
     // route catalog

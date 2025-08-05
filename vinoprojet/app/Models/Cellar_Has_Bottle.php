@@ -15,6 +15,7 @@ class Cellar_Has_Bottle extends Model
     protected $fillable = [
         'cellar_id',
         'bottle_id',
+        'notes',
         'quantity',
     ];
 }
