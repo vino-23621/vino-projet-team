@@ -9,6 +9,7 @@ class Bottle extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'id',
         'name',
         'image',
         'price',
@@ -25,5 +26,15 @@ class Bottle extends Model
     {
         return $this->belongsToMany(Cellar::class, 'cellar__has__bottles', 'bottle_id', 'cellar_id')
             ->withPivot('quantity');
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+
+    public function identity()
+    {
+        return $this->belongsTo(identity::class);
     }
 }

@@ -27,6 +27,10 @@ Route::get('/404', function () {
     return response()->view('errors.404', [], 404);
 })->name('404.custom');
 
+Route::get('/403', function () {
+    return response()->view('errors.403', [], 403);
+})->name('403.custom');
+
 // route user
 Route::get('/registration', [UserController::class, 'create'])->name('user.create');
 Route::post('/registration', [UserController::class, 'store'])->name('user.store');
@@ -55,9 +59,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/cellars', [CellarController::class, 'index'])->name('cellars.index');
     Route::get('/cellars/create', [CellarController::class, 'create'])->name('cellars.create');
     Route::post('/cellars/create', [CellarController::class, 'store'])->name('cellars.store');
-    Route::get('/cellars/edit/{cellar}', [CellarController::class, 'edit'])->name('cellars.edit');
-    Route::post('/cellars/edit/{cellar}', [CellarController::class, 'update'])->name('cellars.update');
+    Route::get('/cellars/{cellar}/edit', [CellarController::class, 'edit'])->name('cellars.edit');
+    Route::put('/cellars/{cellar}', [CellarController::class, 'update'])->name('cellars.update');
     Route::delete('/cellars/{cellar}', [CellarController::class, 'destroy'])->name('cellars.destroy');
 
-    Route::get('/catalog', [BottleController::class, 'index'])->name('index');
+    Route::get('/cellars/{cellar}/show', [CellarController::class, 'show'])->name('cellars.show');
+    Route::post('/cellars/{cellar}/add-bottle', [CellarController::class, 'addBottle'])->name('cellars.addBottle');
+
+
+    // route catalog
+    Route::get('/catalog', [BottleController::class, 'index'])->name('catalog.index');
 });

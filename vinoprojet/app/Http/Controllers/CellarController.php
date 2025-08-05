@@ -6,6 +6,8 @@ use App\Models\Bottle;
 use App\Models\Identity;
 use App\Models\Country;
 use App\Models\Cellar;
+use Illuminate\Support\Facades\DB;
+
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -61,7 +63,8 @@ class CellarController extends Controller
      */
     public function show(Cellar $cellar)
     {
-        //
+        $cellar->load('bottles');
+        return view('cellar.show', compact('cellar'));
     }
 
     /**
@@ -78,23 +81,32 @@ class CellarController extends Controller
     public function update(Request $request, Cellar $cellar)
     {
         $request->validate([
-            'name' => 'required|string|max:100',
+            'name' => 'nullable|string|max:100',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,svg,webp|max:1048',
         ]);
 
-        $imagePath = $cellar->image;
+        $data = [];
 
-        if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('cellar_images', 'public');
-            $filename = basename($path);
+        if ($request->filled('name')) {
+            $data['name'] = $request->name;
         }
 
-        $cellar->update([
-            'name' => $request->name,
-            'image' => $filename,
-        ]);
+        if ($request->hasFile('image')) {
 
-        return redirect()->route('cellars.show', $cellar->id)->with('success', 'Cellier modifié avec succès!');
+            if ($cellar->image) {
+                \Storage::disk('public')->delete('cellar_images/' . $cellar->image);
+            }
+
+            $path = $request->file('image')->store('cellar_images', 'public');
+            $filename = basename($path);
+            $data['image'] = $filename;
+        }
+
+        if (!empty($data)) {
+            $cellar->update($data);
+        }
+
+        return redirect()->route('cellars.index')->with('success', 'Cellier modifié avec succès!');
     }
 
     /**
@@ -105,5 +117,33 @@ class CellarController extends Controller
         $target = $cellar->name;
         $cellar->delete();
         return redirect()->route('cellars.index')->with('success', 'Le Cellar: ' . $target . 'a été effacé!');
+    }
+
+
+    public function addBottle(Request $request, Cellar $cellar)
+    {
+        $validated = $request->validate([
+            'bottle_id' => 'required|exists:bottles,id',
+            'quantity' => 'required|integer|min:1',
+
+
+
+        ]);
+
+        $bottleId = $validated['bottle_id'];
+        $quantityInitial = $validated['quantity'];
+
+        $existingBottle = $cellar->bottles()->where('bottle_id', $bottleId)->exists();
+
+        if ($existingBottle) {
+
+            $cellar->bottles()->updateExistingPivot($bottleId, [
+                'quantity' => DB::raw('quantity +' . $quantityInitial)
+            ]);
+        } else {
+            $cellar->bottles()->attach('bottle_id', ['quantity' => $quantityInitial]);
+        }
+
+        return redirect()->route('cellars.show', $cellar->id)->with('success', 'Bouteille ajoutée au cellier.');
     }
 }

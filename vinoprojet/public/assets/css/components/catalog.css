@@ -1,0 +1,37 @@
+.catalog-main {
+
+    margin: 0;
+    padding: 0;
+    max-width: 1920px;
+
+    display: grid;
+    grid-template-areas:
+        "infos  infos  infos  infos  infos"
+        "grilles grilles grilles grilles grilles";
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: auto auto;
+
+    >.infos {
+        grid-area: infos;
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-bottom: 60px;
+        text-align: left;
+    }
+
+    >.grilles {
+        grid-area: grilles;
+        margin-left: 60px;
+        margin-right: 60px;
+    }
+
+}
+
+.catalog-main>.grilles {
+    grid-area: grilles;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+
+}

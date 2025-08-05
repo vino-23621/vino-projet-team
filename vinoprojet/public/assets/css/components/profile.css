@@ -1,11 +1,10 @@
 .profile {
-    max-width: 1000px;
-    margin: 0 auto;
     padding: var(--spacing-broad) var(--spacing-thin);
     font-family: var(--font-content);
 
     .profile-wrapper {
         display: flex;
+        flex-wrap: wrap;
         gap: var(--spacing-broad);
         align-items: flex-start;
 
@@ -79,12 +78,27 @@
                     .profile-edit-link {
                         font: var(--Text-Link);
                         font-weight: 500;
-                        color: var(--Primary-Purple-300);
+                        color: var(--Primary-Purple-400);
                         white-space: nowrap;
                         text-decoration: none;
                         margin-left: var(--spacing-thin);
                     }
                 }
+            }
+        }
+
+        .profile-info.profile-info__form{
+            & .profile-info-line{
+               border-bottom: 1px transparent; 
+            }
+            & button[type=submit]{
+                margin-top: 20px;
+            }
+            & form{
+                margin-top: var(--spacing-thinnest);
+            }
+            & input+input{
+                margin-top: var(--spacing-micro);
             }
         }
     }

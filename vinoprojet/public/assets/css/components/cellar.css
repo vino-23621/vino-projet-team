@@ -38,4 +38,8 @@
     h2 + form {
         margin-top: var(--spacing-thin);
     }
+
+    h3 + form {
+        margin-top: var(--spacing-thin);
+    }
 }

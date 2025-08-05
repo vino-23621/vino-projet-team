@@ -3,6 +3,28 @@
 @section('title', 'Profil Utilisateur')
 
 @section('content')
+@if(Breadcrumbs::has())
+    <div id="fil-ariane" aria-label="breadcrumb">
+        <ul class="breadcrumb">
+            @foreach (Breadcrumbs::current() as $crumbs)
+            @if ($crumbs->url() && !$loop->last)
+            <li class="breadcrumb-item">
+                <a href="{{ $crumbs->url() }}">
+                    {{ $crumbs->title() }}
+                </a>
+            </li>
+            @else
+            <li class="breadcrumb-item active" aria-current="page">
+                {{ $crumbs->title() }}
+            </li>
+            @endif
+            @if (!$loop->last)
+            <span class="breadcrumb-separator">></span>
+            @endif
+            @endforeach
+        </ul>
+    </div>
+    @endif
 <div class="container">
     <div class="profile">
         <div class="profile-wrapper">

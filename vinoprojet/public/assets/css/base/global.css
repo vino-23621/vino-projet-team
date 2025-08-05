@@ -5,8 +5,8 @@
 
 img {
     max-width: 100%;
-    height: auto;
 }
+
 
 a {
     text-decoration: none;
@@ -82,7 +82,7 @@ span {
 }
 
 .justify-left {
-    justify-content: end;
+    justify-content: start;
 }
 
 
@@ -91,7 +91,7 @@ span {
 }
 
 .justify-right {
-    justify-content: start;
+    justify-content: end;
 }
 
 .justify-spacebetween {
@@ -100,4 +100,14 @@ span {
 
 .text-align-center {
     text-align: center;
+}
+
+
+.success-message {
+    background-color: var(--Success-Green);
+    color: var(--Text-Gray);
+    border: 1px solid var(--Success-Green-100);
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 1em;
 }

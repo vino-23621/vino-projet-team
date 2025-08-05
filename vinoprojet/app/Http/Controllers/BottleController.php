@@ -16,7 +16,8 @@ class BottleController extends Controller
     public function index()
     {
         $bottles = Bottle::all();
-        return view('catalog.index', ['bottles' => $bottles]);
+        $cellar = Cellar::where('user_id', auth()->id())->first();
+        return view('catalog.index', compact('bottles', 'cellar'));
     }
 
     /**

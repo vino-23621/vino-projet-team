@@ -15,7 +15,7 @@
 <main class="form">
 
     {{-- Decorative image (optional) --}}
-    <img src="{{ asset('assets/images/cave.png') }}" alt="image bouteille vin">
+    <img src="{{ asset('assets/images/img-wines.jpg') }}" alt="image bouteille vin">
 
     {{-- Cellar creation form container --}}
     <div class="form-content container-formcreate-cellar">
