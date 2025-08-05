@@ -1,128 +1,44 @@
-label {
-    font-family: 'Poppins', sans-serif;
-}
-
-.label-margin-bottom {
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-
-.container-formcreate-cellar {
-    background: var(--White);
-    border: 1px solid var(--Primary-Purple-100);
+.cellar {
+    background-color: var(--Primary-Purple-100);
+    padding: var(--spacing-thinnest) var(--spacing-thin);
     border-radius: var(--radius-super-sharp);
-    width: 380px;
-    box-shadow: 0 2px 6px var(--Color-100);
-    overflow: hidden;
-    text-align: left;
-    padding: 20px;
+    box-shadow: 0 2px 8px rgba(120, 49, 151, 0.08);
+    text-align: center;
+    max-width: 600px;
+    margin: var(--spacing-thin) auto var(--spacing-broad);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 
-
-}
-
-.container-formcreate-cellar input:nth-of-type(1) {
-    border: none;
-    width: 100%;
-    padding-bottom: 5px;
-
-}
-
-.container-formcreate-cellar input:nth-of-type(2) {
-
-    padding-bottom: 20px;
-
-}
-
-.cellar-create-input2 {
-    margin-top: 20px;
-}
-
-
-.container-formedit-cellar {
-    background: var(--White);
-    border: 1px solid var(--Primary-Purple-100);
-    border-radius: var(--radius-sharp);
-    width: 380px;
-    box-shadow: 0 2px 6px var(--Color-100);
-    overflow: hidden;
-    text-align: left;
-    padding: 20px;
-}
-
-.cellar-container-info-edit {
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-bottom: 50px;
-    margin-top: 50px;
-    text-align: left;
-}
-
-.cellar-main {
-
-    margin: 0;
-    padding: 0;
-    max-width: 1920px;
-
-    display: grid;
-    grid-template-areas:
-        "info  info  info  info  info"
-        "grille grille grille grille grille";
-    grid-template-columns: 20% 20% 20% 20% 20%;
-    grid-template-rows: auto auto;
-
-    >.info {
-        grid-area: info;
-        margin-left: 50px;
-        margin-right: 50px;
-        margin-bottom: 60px;
-        text-align: left;
+    &:hover {
+        box-shadow: 0 4px 16px rgba(120, 49, 151, 0.12);
+        transform: translateY(-2px);
     }
-
-    >.grille {
-        grid-area: grille;
-        margin-left: 60px;
-        margin-right: 60px;
-    }
-
 }
 
-.cellar-main>* {
-    margin-top: 40px;
-}
-
-.cellar-main> :first-child> :last-child {
-    margin-top: 20px;
-    display: block;
-    margin: 20px auto 0 auto;
-}
-
-.cellar-main>.grille {
-    grid-area: grille;
-
-
-    display: flex;
-    justify-content: center;
-
-    gap: 40px;
-
-    flex-wrap: wrap;
-
-}
-
-.cellar-icon {
-    cursor: pointer;
+.cellar h1 {
+    font: var(--Heading-H2);
     color: var(--Primary-Purple-400);
-    font-size: 35px;
-    margin-bottom: 20px;
-    margin-top: 10px;
-
+    margin-bottom: var(--spacing-thinnest);
 }
 
-.cellar-icons-gap {
-    gap: 16px;
+.cellar p {
+    font: var(--Body-default);
+    color: var(--Color-600);
+    line-height: var(--line-height-normal);
+    margin-top: var(--spacing-nano);
 }
 
-.cellar-create-button {
-    gap: 10px;
-    text-align: left;
+.container-formcreate-cellar input,
+.container-formcreate-cellar a,
+.container-formcreate-cellar .form-content-error {
+    display: block;
+    margin-top: 32px;
+}
+
+.container-formcreate-cellar form > *:first-child {
+    margin-top: 0;
+}
+
+.container-formcreate-cellar h2 + form,
+.container-formcreate-cellar h3 + form {
+    margin-top: var(--spacing-thin);
 }

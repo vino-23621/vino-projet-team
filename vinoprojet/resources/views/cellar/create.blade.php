@@ -1,41 +1,49 @@
 @extends('layouts.app')
-@section('title', 'Create Cellar')
+@section('title', 'Créer un cellier')
 
 @section('content')
-<main class=" flex-column form">
-    <!-- <img src="{{ asset('assets/images/img-wines.jpg') }}" alt="image bouteille vin"> -->
 
-    <div class="cellar-container-info-edit">
-        <h4>Création des Celliers</h4>
-        <p>Crée un ou plusieurs celliers pour organiser tes bouteilles selon tes goûts, ton espace ou tes occasions spéciales.</p>
+{{-- Introduction section for cellar creation --}}
+<div class="cellar">
+    <h1>Création des Celliers</h1>
+    <p>
+        Crée un ou plusieurs celliers pour organiser tes bouteilles selon tes goûts,
+        ton espace ou tes occasions spéciales.
+    </p>
+</div>
 
-    </div>
+<main class="form">
+
+    {{-- Decorative image (optional) --}}
+    <img src="{{ asset('assets/images/img-wines.jpg') }}" alt="image bouteille vin">
+
+    {{-- Cellar creation form container --}}
     <div class="form-content container-formcreate-cellar">
-        <h3>Créer un cellier</h3>
+        <h2>Créer un cellier</h2>
 
+        {{-- Form to create a new cellar --}}
         <form action="{{ route('cellars.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
-
-            <label for="cellar_name">Nom du cellier:</label>
-            <input type="text" id="cellar_name" name="name" value="{{ old('name') }}">
+            {{-- Input: Name of the cellar --}}
+            <input type="text" id="cellar_name" name="name" value="{{ old('name') }}" placeholder="Nom du cellier *">
             @if($errors->has('name'))
             <span class="form-content-error">{{ $errors->first('name') }}</span>
             @endif
 
-            <div class="flex-row cellar-create-input2">
-                <label class="label-margin-bottom" for="cellar_image">Téléversez l'image du cellier.</label>
-                <input type="file" id="cellar_image" name="image">
-            </div>
+            {{-- Input: Image for the cellar --}}
+            <input type="file" id="cellar_image" name="image">
             @if($errors->has('image'))
             <span class="form-content-error">{{ $errors->first('image') }}</span>
             @endif
-            <div class="flex-column cellar-create-button justify-right ">
-                <button class="button" type="submit">Créer mon cellier</button>
-                <a class="" href="">← Retour à la liste des celliers</a>
-            </div>
-        </form>
 
+            {{-- Submit button --}}
+            <button class="button" type="submit">Créer mon cellier</button>
+
+            {{-- Return link to cellar list --}}
+            <a class="retour" href="{{ route('cellars.index') }}">← Retour à la liste des celliers</a>
+        </form>
     </div>
+
 </main>
 @endsection
