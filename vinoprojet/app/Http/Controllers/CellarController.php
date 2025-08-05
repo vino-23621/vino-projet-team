@@ -6,6 +6,7 @@ use App\Models\Bottle;
 use App\Models\Identity;
 use App\Models\Country;
 use App\Models\Cellar;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 
 
@@ -94,7 +95,7 @@ class CellarController extends Controller
         if ($request->hasFile('image')) {
 
             if ($cellar->image) {
-                \Storage::disk('public')->delete('cellar_images/' . $cellar->image);
+                Storage::disk('public')->delete('cellar_images/' . $cellar->image);
             }
 
             $path = $request->file('image')->store('cellar_images', 'public');

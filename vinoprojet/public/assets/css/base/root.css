@@ -3,10 +3,11 @@ Définition des styles de couleur et de rythme
 ----------------------------------------------- */
 :root {
     /* --- Palette de couleur ---*/
-    --Primary-Purple-400: #783197;
-    --Primary-Purple-300: #b67dc4;
-    --Primary-Purple-200: #b67dc4;
-    --Primary-Purple-100: #e3cff0;
+    --Primary-Purple-400: #783197; /* Main brand color – use for primary buttons, links, and active elements */
+    --Primary-Purple-300: #b67dc4; /* Lighter version for hover states and secondary buttons */
+    --Primary-Purple-200: #b67dc4; /* For secondary accents or section backgrounds */
+    --Primary-Purple-100: #e3cff0; /* Light background or UI elements like tags, badges */
+    --Primary-Purple-50: #f1e6f8; /* Very light background for sections or cards */
 
     --Accent-Wine-400: #5e3233;
     --Accent-Wine-300: #874c4c;

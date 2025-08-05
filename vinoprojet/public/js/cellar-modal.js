@@ -12,7 +12,7 @@ openBtns.forEach(btn => {
         const cellarId = btn.getAttribute('data-id');
         deleteForm.action = `/cellars/${cellarId}`;
 
-        modal.style.display = "block";
+        modal.style.display = "flex";
     });
 });
 
