@@ -120,15 +120,17 @@ class CellarController extends Controller
     }
 
 
-    public function addBottle(Request $request, Cellar $cellar)
+    public function addBottle(Request $request)
     {
         $validated = $request->validate([
             'bottle_id' => 'required|exists:bottles,id',
+            'cellar_id' => 'required|exists:cellars,id',
             'quantity' => 'required|integer|min:1',
-
-
-
         ]);
+
+
+        $cellar = Cellar::where('id', $validated['cellar_id'])
+            ->where('user_id', auth()->id())->firstOrFail();
 
         $bottleId = $validated['bottle_id'];
         $quantityInitial = $validated['quantity'];
@@ -141,7 +143,7 @@ class CellarController extends Controller
                 'quantity' => DB::raw('quantity +' . $quantityInitial)
             ]);
         } else {
-            $cellar->bottles()->attach('bottle_id', ['quantity' => $quantityInitial]);
+            $cellar->bottles()->attach($bottleId, ['quantity' => $quantityInitial]);
         }
 
         return redirect()->route('cellars.show', $cellar->id)->with('success', 'Bouteille ajoutée au cellier.');

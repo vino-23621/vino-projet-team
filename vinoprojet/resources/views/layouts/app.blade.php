@@ -31,6 +31,7 @@
             <div>
                 @auth
                 <p>Bienvenue, {{ Auth::user()->name }}</p>
+                <p>Cellier: {{ Auth::user()->cellar_id }}</p>
                 <a class="button__white" href="{{ route('user.show') }}">Mon compte</a>
                 <a class="button" href="{{ route('logout') }}">Déconnexion</a>
                 @else
