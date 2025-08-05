@@ -15,7 +15,7 @@ openBtns.forEach(btn => {
         editForm.action = `/cellars/${cellarId}`;
         nameInput.value = cellarName;
 
-        editModal.style.display = "block";
+        editModal.style.display = "flex";
     });
 });
 
