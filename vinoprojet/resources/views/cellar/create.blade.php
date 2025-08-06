@@ -5,17 +5,16 @@
 
 {{-- Introduction section for cellar creation --}}
 <div class="cellar">
-    <h1>Création des Celliers</h1>
-    <p>
-        Crée un ou plusieurs celliers pour organiser tes bouteilles selon tes goûts,
-        ton espace ou tes occasions spéciales.
-    </p>
+    <h1>Conçois ta cave à vin unique, à ton image</h1>
+    <p>Crée un espace élégant et personnalisé pour conserver tes vins favoris et
+        célébrer chaque moment avec raffinement.</p>
+
 </div>
 
 <main class="form">
 
     {{-- Decorative image (optional) --}}
-    <img src="{{ asset('assets/images/img-wines.jpg') }}" alt="image bouteille vin">
+    <img src="{{ asset('assets/images/cave.png') }}" alt="image bouteille vin">
 
     {{-- Cellar creation form container --}}
     <div class="form-content container-formcreate-cellar">
@@ -38,7 +37,7 @@
             @endif
 
             {{-- Submit button --}}
-            <button class="button" type="submit">Créer mon cellier</button>
+            <button class="button" type="submit">soumettre</button>
 
             {{-- Return link to cellar list --}}
             <a class="retour" href="{{ route('cellars.index') }}">← Retour à la liste des celliers</a>
