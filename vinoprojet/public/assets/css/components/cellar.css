@@ -4,9 +4,9 @@
     border-radius: var(--radius-super-sharp);
     box-shadow: 0 2px 8px rgba(120, 49, 151, 0.08);
     text-align: center;
-    max-width: 600px;
     margin: var(--spacing-thin) auto var(--spacing-broad);
     transition: box-shadow 0.3s ease, transform 0.3s ease;
+    max-width: 750px;
 
     &:hover {
         box-shadow: 0 4px 16px rgba(120, 49, 151, 0.12);
