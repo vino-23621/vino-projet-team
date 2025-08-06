@@ -43,6 +43,8 @@ Définition des styles de couleur et de rythme
     --Color-100: #f5f5fa;
     --White: #ffffff;
 
+    --light-text : #9586A8;
+
     /* --- Status Colors ---*/
 
     --Success-Green: #3da773;
@@ -164,7 +166,7 @@ Définition des styles de couleur et de rythme
     --spacing-thinnest: 1rem;
     --spacing-thinner: 1.5rem;
     --spacing-thin: 2rem;
-    
+    --spacing-medium: 2.5rem;
     --spacing-broad: 4rem;
     --spacing-broader: 6rem;
     --spacing-broadest: 8rem;

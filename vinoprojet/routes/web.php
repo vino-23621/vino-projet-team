@@ -52,6 +52,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/edit-password/{user}', [UserController::class, 'editPassword'])->name('user.edit-password');
     Route::put('/user/edit-password/{user}', [UserController::class, 'updatePassword'])->name('user.update-password');
     Route::delete('/user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
+    Route::put('/user/cellar-default/{cellar_id}', [UserController::class, 'setCellarDefault'])->name('user.cellar-default');
+
 
     // route cellier
     Route::get('/cellar/create', [CellarController::class, 'create'])->name('cellars.create');

@@ -1,38 +1,26 @@
-.cards-cellar-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-}
+.card-cellar{
+     border: 1px solid #DDD1EA;
+     border-radius: 20px;
+     padding: var(--spacing-medium) var(--spacing-thin);
 
-.card-cellar {
-    background: var(--White);
-    border: 1px solid var(--Primary-Purple-100);
-    border-radius: var(--radius-sharp);
-    width: 180px;
-    box-shadow: 0 2px 6px var(--Color-100);
-    overflow: hidden;
-    text-align: center;
-}
+     & .card-cellar-header+form{
+        margin-top: var(--spacing-thinner);
+     }
 
-.card-cellar-image {
-    max-width: 100%;
-    height: auto;
-}
+     & form+.card-cellar-content{
+        margin-top: var(--spacing-thin);
+        border-top: 2px solid var(--Color-200);
+        padding-top: var(--spacing-thinner);
+     }
 
-.card-cellar-content {
-    padding: 10px;
+     & .card-cellar-content>div{
+        margin-top: var(--spacing-thinner);
+        display: flex;
+        gap: 8px;
+        flex-direction: column;
 
-}
-
-.card-cellar-title {
-    font-size: 1.1rem;
-    margin-bottom: 5px;
-    color: var(--Primary-Purple-400);
-}
-
-
-.card-cellar-date {
-    font-size: 0.85rem;
-    margin-bottom: 10px;
-    color: var(--Accent-Wine-200);
+        & p,a{
+            padding: 8px 6px;
+        }
+     }
 }

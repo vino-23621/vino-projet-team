@@ -20,8 +20,8 @@ class CellarController extends Controller
      */
     public function index()
     {
-        $cellar = Cellar::where('user_id', Auth::id())->get();
-        return view('cellar.index', compact('cellar'));
+        $cellars = Cellar::where('user_id', Auth::id())->get();
+        return view('cellar.index', compact('cellars'));
     }
 
     /**
