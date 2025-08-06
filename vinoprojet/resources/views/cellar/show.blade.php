@@ -36,12 +36,39 @@
                 <p> Couleur: {{ $bottle->identity->name }}</p>
                 <p>Pays: {{ $bottle->country->name }}</p>
                 <p>volume: {{ $bottle->size }} ml</p>
-                <i class="fa-solid fa-trash openModalBtn cellar-icon" title="Supprimer"></i>
+
+
+                <label for="deleteModal-{{ $bottle->id }}" class="cellar-icon" title="Supprimer">
+                    <i class="fa-solid fa-trash"></i>
+                </label>
+
+                <input type="checkbox" id="deleteModal-{{ $bottle->id }}" class="modalUser-toggle" hidden>
+
+                <div class="modalUser">
+                    <div class="modalUser-box">
+                        <p>Voulez-vous supprimer cette bouteille du cellier ?</p>
+                        <div>
+                            <form action="{{ route('cellars.removeBottle', ['cellar' => $cellar->id, 'bottle' => $bottle->id]) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="button button__danger">Supprimer</button>
+                            </form>
+                            <label for="deleteModal-{{ $bottle->id }}" class="button button__safe">Annuler</label>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
         </div>
         @endforeach
     </div>
     @endif
+
+
+
+
+
 
 </main>
 

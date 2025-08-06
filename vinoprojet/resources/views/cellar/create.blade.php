@@ -30,12 +30,6 @@
             <span class="form-content-error">{{ $errors->first('name') }}</span>
             @endif
 
-            {{-- Input: Image for the cellar --}}
-            <input type="file" id="cellar_image" name="image">
-            @if($errors->has('image'))
-            <span class="form-content-error">{{ $errors->first('image') }}</span>
-            @endif
-
             {{-- Submit button --}}
             <button class="button" type="submit">soumettre</button>
 

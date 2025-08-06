@@ -39,21 +39,11 @@ class CellarController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:100',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,svg,webp|max:1048',
         ]);
-
-        $imagePath = null;
-
-        if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('cellar_images', 'public');
-            $filename = basename($path);
-        }
 
         Cellar::create([
             'name' => $request->name,
-            'image' => $filename,
             'user_id' => Auth::user()->id,
-
         ]);
 
         return redirect()->route('cellars.index')->with('success', 'Cellar créée avec succès');
@@ -159,5 +149,12 @@ class CellarController extends Controller
         }
 
         return redirect()->route('cellars.show', $cellar->id)->with('success', 'Bouteille ajoutée au cellier.');
+    }
+
+
+    public function removeBottle(Cellar $cellar, Bottle $bottle)
+    {
+        $cellar->bottles()->detach($bottle->id);
+        return redirect()->back()->with('success', 'Bouteille supprimée du cellier.');
     }
 }

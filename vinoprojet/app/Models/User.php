@@ -36,6 +36,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'cellar_id',
     ];
 
     /**
