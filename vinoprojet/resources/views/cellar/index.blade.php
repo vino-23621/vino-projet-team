@@ -42,7 +42,7 @@
                             <h5>Gère ton cellier</h4>
                             <p>Tu peux modifier son nom, voir son contenu ou le supprimer si besoin.</p>
                             <div>
-                                <button class="openModalBtnEdit modalBtn"><i class="fa-solid fa-pencil"></i> Édite le nom</button>
+                                <button class="openModalBtnEdit modalBtn"><i class="fa-solid fa-pencil"></i> Éditer le nom</button>
                                 <a href="{{ route('cellars.show', $cellar->id) }}"><i class="fa-regular fa-eye"></i> Consulte les bouteilles</a>
                                 <button class="openModalBtn modalBtn"><i class="fa-regular fa-trash-can"></i> Supprime ce cellier</button>
                             </div>
@@ -61,11 +61,11 @@
                         </form>
                         <div class="card-cellar-content">
                             <h5>Gère ton cellier</h4>
-                            <p>Bonjour</p>
+                            <p>Tu peux modifier son nom, voir son contenu ou le supprimer si besoin.</p>
                             <div>
-                                <button><i class="fa-solid fa-pencil"></i> Édite le nom</button>
+                                <button class="openModalBtnEdit modalBtn"><i class="fa-solid fa-pencil"></i> Éditer le nom</button>
                                 <a href="{{ route('cellars.show', $cellar->id) }}"><i class="fa-regular fa-eye"></i> Consulte les bouteilles</a>
-                                <p><i class="fa-regular fa-trash-can"></i> Supprime ce cellier</p>
+                                <button class="openModalBtn modalBtn" data-id="{{$cellier->id}}"><i class="fa-regular fa-trash-can"></i> Supprime ce cellier</button>
                             </div>
                         </div>
                     </div>
