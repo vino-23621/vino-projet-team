@@ -1,4 +1,5 @@
 .dualPanel{
+    margin-top: clamp(var(--spacing-medium), 5vw, var(--spacing-broader));
     display: flex;
         flex-wrap: wrap;
         gap: var(--spacing-broad);
@@ -11,4 +12,18 @@
     & .dual-panel-right-header+.dual-panel-right-content{
         margin-top: clamp(var(--spacing-thin), 2vw, var(--spacing-broad));
     }
+
+    & .dualPanel-left{
+        max-width: 45ch;
+    }
+
+    & .dualPanel-left h2{
+        font: var(--Heading-H3);
+        color: var(--Color-800);
+    }
+    & .dualPanel-left p{
+        font: var(--Text-Single-100-normal);
+        color: var(--Color-500);
+    }
+}
 }
