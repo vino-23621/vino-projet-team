@@ -45,7 +45,7 @@
                         src="{{ asset('assets/images/vinologo.png') }}"
                         alt="logovino" /></a>
                 <a href="{{route('cellars.index')}}">Mes celliers</a>
-                <a href="{{route('catalog.index')}}">le Catalogue</a>
+                <a href="{{route('catalog.index')}}">Catalogue des vins</a>
             </div>
         </div>
     </nav>
