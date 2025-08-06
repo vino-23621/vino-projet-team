@@ -25,7 +25,7 @@
             @csrf
 
             {{-- Input: Name of the cellar --}}
-            <input type="text" id="cellar_name" name="name" value="{{ old('name') }}" placeholder="Nom du cellier *">
+            <input type="text" id="cellar_name" name="name" value="{{ old('name') }}" placeholder="Nom du cellier ">
             @if($errors->has('name'))
             <span class="form-content-error">{{ $errors->first('name') }}</span>
             @endif
