@@ -35,12 +35,6 @@
 
 
 .close-btn {
-    color: #aaa;
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 28px;
-    font-weight: bold;
     cursor: pointer;
 }
 
@@ -51,8 +45,6 @@
 .modal-buttons {
     margin-top: 15px;
     gap: 7px;
-    justify-content: right;
-
 }
 
 .modalBtn {

@@ -77,7 +77,7 @@
 
                 <div id="editModal" class="modal-edit">
                     <div class="modal-content-edit">
-                        <span class="close-btn-edit">&times;</span>
+                        <!-- <span class="close-btn-edit">&times;</span> -->
                         <h5>Éditer</h5>
 
                         <form action="" method="POST" id="editForm" enctype="multipart/form-data">
@@ -85,25 +85,17 @@
                             @method('PUT')
 
 
-                            <label for="cellar_name">Nom du cellier</label>
-                            <input type="text" id="cellar_name" name="name" value="">
+                            <label for="cellar_name" class="modal-label">Nom du cellier</label>
+                            <input type="text" class="modal-input" id="cellar_name" name="name" value="{{$cellar->name}}">
                             @if($errors->has('name'))
                             <span class="form-content-error">{{ $errors->first('name') }}</span>
                             @endif
 
-                            <!-- <div class="flex-row">
-                                <label class="modal-label label-margin-bottom" for="cellar_image">L'image du cellier</label>
-                                <input type="file" id="cellar_image" name="image">
-                            </div>
-                            @if($errors->has('image'))
-                            <span class="form-content-error">{{ $errors->first('image') }}</span>
-                            @endif -->
-
                             <div class="flex-row modal-buttons">
 
 
-                                <button type="button" class="button__white" id="closeModalBtnEdit">Fermer</button>
-                                <button class="button" type="submit">Modifier</button>
+                                <button type="button" class="button button__safe close-btn-edit" id="closeModalBtnEdit">Fermer</button>
+                                <button class="button button__defaultCellar" type="submit">Modifier</button>
                             </div>
                         </form>
                     </div>
@@ -113,15 +105,15 @@
 
                 <div id="customModal" class="modal">
                     <div class="modal-content">
-                        <span class="close-btn">&times;</span>
+                        <!-- <span class="close-btn">&times;</span> -->
                         <h5>Effacer</h5>
                         <p>Voulez vous effacer le cellier?</p>
                         <div class="flex-row modal-buttons">
-                            <button type="button" class="button__white" id="closeModalBtn">Fermer</button>
+                            <button class="button button__safe close-btn" id="closeModalBtn">Fermer</button>
                             <form method="post" action="" id="deleteForm">
                                 @method('delete')
                                 @csrf
-                                <button class="button" type="submit">Supprimer</button>
+                                <button class="button button__danger" type="submit">Supprimer</button>
                             </form>
                         </div>
                     </div>
