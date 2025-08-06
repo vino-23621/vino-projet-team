@@ -54,8 +54,9 @@ class CellarController extends Controller
      */
     public function show(Cellar $cellar)
     {
-        $cellar->load('bottles');
-        return view('cellar.show', compact('cellar'));
+        $bottles = $cellar->bottles()->paginate(10);
+
+        return view('cellar.show', compact('cellar', 'bottles'));
     }
 
     /**
