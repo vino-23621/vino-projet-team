@@ -12,7 +12,7 @@ Créer une application web intuitive et responsive permettant aux utilisateurs d
 
 - Création d’un ou de plusieurs celliers
 - Ajouter, modifier et supprimer des bouteilles de vin
-- Suivre les quantités disponibles 
+- Suivre les quantités disponibles
 - Consulter leur inventaire à tout moment, sur mobile, tablette et desktop.
 
 ---
@@ -47,13 +47,14 @@ L’application adopte un ton **convivial, raffiné et accessible**. Elle évoqu
 
 Projet réalisé en équipe de 5 personnes selon la méthode Agile/SCRUM.
 
-| Sprint                | Dates                        | Phase de travail                                                                                                                  | Statut      |
-|-----------------------|------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|-------------|
-| **Sprint 0**          | 2 au 4 juillet                | Idéation, modélisation de la base de données, UI Kit, structure du projet, logique Laravel (CRUD), liaison avec la base de données | ✅ Finalisé  |
-| **Sprint 1**          | 7 juillet au 8 août          | US1 : Création et authentification des utilisateurs<br>US2 : Ajout d’un ou plusieurs celliers                                     | 🚧 En cours |
-| _Pause estivale_      | 15 juillet au 4 août         | Sprint 1 suspendu pendant 3 semaines de vacances                                                                                  | ☀️ Pause     |
-| **Sprint 2**          | 11 au 22 août                | Définition des User Stories à développer, tests, validations, accessibilité, corrections et optimisations finales                | ⏳ À venir   |
-| **Présentation finale** | 22 août à 13h                | Livraison, démonstration fonctionnelle et documentation complète                                                                  | 🎯 À venir   |
+| Sprint                  | Dates                | Phase de travail                                                                                                                   | Statut      |
+| ----------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| **Sprint 0**            | 2 au 4 juillet       | Idéation, modélisation de la base de données, UI Kit, structure du projet, logique Laravel (CRUD), liaison avec la base de données | ✅ Finalisé |
+| **Sprint 1**            | 7 juillet au 8 août  | US1 : Création et authentification des utilisateurs<br>US2 : Ajout d’un ou plusieurs celliers                                      | ✅ Finalisé |
+| _Pause estivale_        | 15 juillet au 4 août | Sprint 1 suspendu pendant 3 semaines de vacances                                                                                   | ☀️ Pause    |
+| **Sprint 1**            | 4 au 8 août          | US2 : Création de plusieurs celliers/utilisateur                                                                                   | 🚧 En cours |
+| **Sprint 2**            | 11 au 21 août        | Définition des User Stories à développer, tests, validations, accessibilité, corrections et optimisations finales                  | ⏳ À venir  |
+| **Présentation finale** | 22 août à 13h        | Livraison, démonstration fonctionnelle et documentation complète                                                                   | 🎯 À venir  |
 
 ### 📌 Détail des phases
 
@@ -65,10 +66,10 @@ Projet réalisé en équipe de 5 personnes selon la méthode Agile/SCRUM.
 
 ## 👩‍💻 Équipe de développement
 
-- [Patricia](https://github.com/patrihow)  
-- [Juan](https://github.com/juahzm)  
-- [Amir](https://github.com/Amir-nkn)  
-- [Marc-Olivier](https://github.com/marcbab01)  
+- [Patricia](https://github.com/patrihow)
+- [Juan](https://github.com/juahzm)
+- [Amir](https://github.com/Amir-nkn)
+- [Marc-Olivier](https://github.com/marcbab01)
 - [Mathieu](https://github.com/TekGeekdev)
 
 ---
@@ -87,8 +88,8 @@ Projet réalisé en équipe de 5 personnes selon la méthode Agile/SCRUM.
 
 ### 🔧 Prérequis
 
-- PHP ≥ 8.x  
-- Composer  
+- PHP ≥ 8.x
+- Composer
 - MySQL ou MariaDB
 
 ### ▶️ Étapes
