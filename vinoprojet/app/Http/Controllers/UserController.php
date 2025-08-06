@@ -124,6 +124,20 @@ class UserController extends Controller
         return redirect()->route('user.show');
     }
 
+    public function setCellarDefault(string $cellar_id)
+    {
+        $cellar = Cellar::where('id', $cellar_id)->where('user_id', Auth::id())->first();
+
+        if (!$cellar) {
+            return redirect()->route('403.custom')->with('message', 'Ce cellier ne vous appartient pas.');
+        }
+
+        $user = Auth::user();
+        $user->cellar_id = $cellar->id;
+        $user->save();
+
+        return redirect()->route('cellars.index');
+    }
     /**
      * Remove the specified resource from storage.
      */

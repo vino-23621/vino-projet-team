@@ -22,8 +22,11 @@
 @import url("./components/cellar-modal-edit.css");
 @import url("./components/card-bottle.css");
 @import url("./components/catalog.css");
-/* layout */
+@import url("./components/dualPanel.css");
+@import url("./components/cta-banner.css");
 
+/* layout */
+@import url("./layouts/body.css");
 @import url("./layouts/header.css");
 @import url("./base/universal.css");
-@import url("./layouts/body.css");
+@import url("./layouts/grid-cards.css");

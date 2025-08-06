@@ -65,3 +65,13 @@
         transition-duration: 300ms;
     }
 }
+
+.button.button__defaultCellar{
+    background-color: var(--Primary-Purple-100);
+    color: var(--Primary-Purple-400);
+}
+
+.button.button__chooseCellar{
+    background-color: var(--Primary-Purple-50);
+    color: var(--light-text);
+}
