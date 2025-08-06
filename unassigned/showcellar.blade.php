@@ -1,32 +1,31 @@
 @extends('layouts.app')
 
-@section('title', 'Mon Cellier')
+@section('title', 'Cellier Show')
 
 @section('content')
 
+<main>
 
-<div class="dualPanel">
-        <div class="dualPanel-left">
-            <div class="dual-panel-left-header">
-                <h2>{{$cellar->name}}</h2>
-                <p class="profile-subtitle">Crée un ou plusieurs celliers pour organiser tes bouteilles.</p>
-            </div>
+    @if (session('success'))
+    <div class="success-message">
+        {{ session('success') }}
+    </div>
+    @endif
+
+    <div class="info">
+        <h4>{{$cellar->name}}</h4>
+        <div class="flex-row">
+            <p>C’est ici que tu retrouveras tes bouteilles.</p>
+            <a class="button" href="{{ route('catalog.index', ['cellar_id' => $cellar->id]) }}">Ajouter une bouteille</a>
         </div>
+    </div>
 
-        <div class="dualPanel-right">
-            <div class="dual-panel-right-header">
-               <div class="cta-banner">
-                    <a href="{{ route('catalog.index', ['cellar_id' => $cellar->id]) }}" class="cta-banner-icon"><i class="fa-solid fa-plus"></i></a>
-                    <div class="cta-banner-content">
-                        <h3>Ajoute une nouvelle bouteille</h3>
-                        <p>Étoffe ton catalogue avec de nouveaux ajouts.</p>
-                    </div>
-                    <a href="{{ route('catalog.index', ['cellar_id' => $cellar->id]) }}" class="button button__safe">Ajouter</a>
-               </div>
-            </div>
-            <div class="dual-panel-right-content">
-                <div class="grid-card">
-                    @foreach($cellar->bottles as $bottle)
+
+    @if($cellar->bottles->isEmpty())
+    <p>Aucune bouteille dans ce cellier.</p>
+    @else
+    <div class="bottle-list">
+        @foreach($cellar->bottles as $bottle)
         <div class="flex-row">
             <img src="https://{{ $bottle->image }}" alt="{{ $bottle->name }}" style="max-width:100px;">
 
@@ -63,7 +62,15 @@
             </div>
         </div>
         @endforeach
-                </div>
-            </div>
-        </div>
+    </div>
+    @endif
+
+
+
+
+
+
+</main>
+
+
 @endsection
