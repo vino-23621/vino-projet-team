@@ -27,9 +27,6 @@
         display: flex;
         gap: 20px;
 
-        &>button{
-            font-size: 12px;
-        }
     }
 }
 
