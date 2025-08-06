@@ -1,0 +1,25 @@
+.wine-color-ico {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    border-radius: 50%;
+    border: 1px solid;
+    display: inline-block;
+    position: relative;
+}
+.wine-color-ico.red {
+    background-color: #e63946;
+    border-color: #b81d30;
+}
+.wine-color-ico.white {
+    background-color: #f1faee;
+    border-color: #a8dadc;
+}
+.wine-color-ico.rose {
+    background-color: #f5c6d0;
+    border-color: #ff6f61;
+}
+.wine-color-ico.orange {
+    background-color: #ffb74d;
+    border-color: #e98d02;
+}
