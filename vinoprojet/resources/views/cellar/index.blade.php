@@ -42,9 +42,9 @@
                             <h5>Gère ton cellier</h4>
                             <p>Tu peux modifier son nom, voir son contenu ou le supprimer si besoin.</p>
                             <div>
-                                <p><i class="fa-solid fa-pencil"></i> Édite le nom</p>
+                                <button class="openModalBtnEdit modalBtn"><i class="fa-solid fa-pencil"></i> Édite le nom</button>
                                 <a href="{{ route('cellars.show', $cellar->id) }}"><i class="fa-regular fa-eye"></i> Consulte les bouteilles</a>
-                                <p><i class="fa-regular fa-trash-can"></i> Supprime ce cellier</p>
+                                <button class="openModalBtn modalBtn"><i class="fa-regular fa-trash-can"></i> Supprime ce cellier</button>
                             </div>
                         </div>
                     </div>
@@ -61,9 +61,9 @@
                         </form>
                         <div class="card-cellar-content">
                             <h5>Gère ton cellier</h4>
-                            <p>Tu peux modifier son nom, voir son contenu ou le supprimer si besoin.</p>
+                            <p>Bonjour</p>
                             <div>
-                                <p><i class="fa-solid fa-pencil"></i> Édite le nom</p>
+                                <button><i class="fa-solid fa-pencil"></i> Édite le nom</button>
                                 <a href="{{ route('cellars.show', $cellar->id) }}"><i class="fa-regular fa-eye"></i> Consulte les bouteilles</a>
                                 <p><i class="fa-regular fa-trash-can"></i> Supprime ce cellier</p>
                             </div>
@@ -71,6 +71,60 @@
                     </div>
                     @endif
                     @endforeach
+                </div>
+
+                <!-- Modal Edit -->
+
+                <div id="editModal" class="modal-edit">
+                    <div class="modal-content-edit">
+                        <span class="close-btn-edit">&times;</span>
+                        <h5>Éditer</h5>
+
+                        <form action="" method="POST" id="editForm" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+
+
+                            <label for="cellar_name">Nom du cellier</label>
+                            <input type="text" id="cellar_name" name="name" value="">
+                            @if($errors->has('name'))
+                            <span class="form-content-error">{{ $errors->first('name') }}</span>
+                            @endif
+
+                            <!-- <div class="flex-row">
+                                <label class="modal-label label-margin-bottom" for="cellar_image">L'image du cellier</label>
+                                <input type="file" id="cellar_image" name="image">
+                            </div>
+                            @if($errors->has('image'))
+                            <span class="form-content-error">{{ $errors->first('image') }}</span>
+                            @endif -->
+
+                            <div class="flex-row modal-buttons">
+
+
+                                <button type="button" class="button__white" id="closeModalBtnEdit">Fermer</button>
+                                <button class="button" type="submit">Modifier</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Modal Supprimer -->
+
+                <div id="customModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-btn">&times;</span>
+                        <h5>Effacer</h5>
+                        <p>Voulez vous effacer le cellier?</p>
+                        <div class="flex-row modal-buttons">
+                            <button type="button" class="button__white" id="closeModalBtn">Fermer</button>
+                            <form method="post" action="" id="deleteForm">
+                                @method('delete')
+                                @csrf
+                                <button class="button" type="submit">Supprimer</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

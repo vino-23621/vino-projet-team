@@ -54,3 +54,13 @@
     justify-content: right;
 
 }
+
+.modalBtn {
+    display: block;
+    border: none;
+    width: fit-content;
+    background: none;
+    cursor: pointer;
+    font-family: var(--font-content);
+    font-size: medium;
+}
