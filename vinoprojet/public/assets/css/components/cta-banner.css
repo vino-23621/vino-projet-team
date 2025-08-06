@@ -1,0 +1,38 @@
+.cta-banner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    background-color: #FAFAFA;
+    padding: 20px 15px;
+    border: 1px solid #DDD1EA;
+    border-radius: 20px;
+
+    & > :last-child{
+        flex-grow: 1;
+    }
+    
+    & .cta-banner-content{
+        & > h3{
+            font: var(--Body-default);
+            font-weight: 600;
+        }
+        & > p{
+            color: var(--Color-400);
+        }
+    }
+
+    & .cta-banner-icon{
+        background-color: var(--Success-Green-100);
+        padding: 19px 22px;
+        border: 1px solid transparent;
+        border-radius: 3px;
+
+        & >i{
+            font-size: 30px;
+            color: var(--Success-Green);
+        }
+    }
+}
