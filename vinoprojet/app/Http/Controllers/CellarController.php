@@ -150,4 +150,11 @@ class CellarController extends Controller
 
         return redirect()->route('cellars.show', $cellar->id)->with('success', 'Bouteille ajoutée au cellier.');
     }
+
+
+    public function removeBottle(Cellar $cellar, Bottle $bottle)
+    {
+        $cellar->bottles()->detach($bottle->id);
+        return redirect()->back()->with('success', 'Bouteille supprimée du cellier.');
+    }
 }
