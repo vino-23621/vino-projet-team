@@ -1,0 +1,14 @@
+.dualPanel{
+    display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-broad);
+        align-items: flex-start;
+
+    & .dualPanel-right{
+        flex-grow: 1;
+    }
+
+    & .dual-panel-right-header+.dual-panel-right-content{
+        margin-top: clamp(var(--spacing-thin), 2vw, var(--spacing-broad));
+    }
+}
