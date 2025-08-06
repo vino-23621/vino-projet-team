@@ -33,7 +33,22 @@
                 <div>
                     <h3>Prix</h3>
                     <p>{{ $bottle->price }} CAD</p>
-                    <form action="{{ route('cellars.addBottle') }}" method="POST" class="inline-form">
+
+                    <form action="{{ isset($cellarId) ? route('cellars.addBottle') : route('catalog.addWineFromCatalog', ['bottle' => $bottle->id]) }}" method="POST" class="inline-form">
+                        @csrf
+                        <input type="hidden" name="bottle_id" value="{{ $bottle->id }}">
+                        <input type="hidden" name="quantity" value="1">
+
+                        @if(isset($cellarId))
+                        <input type="hidden" name="cellar_id" value="{{ $cellarId }}">
+                        @endif
+
+                        <button type="submit" title="Ajouter au cellier" class="cellar-icon-btn">
+                            <i class="fa-solid fa-wine-bottle cellar-icon"></i>
+                        </button>
+                    </form>
+
+                    <!-- <form action="{{ route('cellars.addBottle') }}" method="POST" class="inline-form">
                         @csrf
                         <input type="hidden" name="bottle_id" value="{{ $bottle->id }}">
                         <input type="hidden" name="quantity" value="1">
@@ -42,7 +57,7 @@
                         <button type="submit" title="Ajouter au cellier" class="cellar-icon-btn">
                             <i class="fa-solid fa-wine-bottle cellar-icon"></i>
                         </button>
-                    </form>
+                    </form> -->
 
 
                 </div>

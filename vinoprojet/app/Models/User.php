@@ -57,4 +57,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function getActiveCellar()
+    {
+        $cellarId = session('active_cellar_id') ?? $this->cellar_id;
+        return $cellarId ? \App\Models\Cellar::find($cellarId) : null;
+    }
 }
