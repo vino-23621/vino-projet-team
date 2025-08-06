@@ -42,9 +42,9 @@
                             <h5>Gère ton cellier</h4>
                             <p>Tu peux modifier son nom, voir son contenu ou le supprimer si besoin.</p>
                             <div>
-                                <p><i class="fa-solid fa-pencil"></i> Édite le nom</p>
+                                <button class="openModalBtnEdit modalBtn"><i class="fa-solid fa-pencil"></i> Éditer le nom</button>
                                 <a href="{{ route('cellars.show', $cellar->id) }}"><i class="fa-regular fa-eye"></i> Consulte les bouteilles</a>
-                                <p><i class="fa-regular fa-trash-can"></i> Supprime ce cellier</p>
+                                <button class="openModalBtn modalBtn"><i class="fa-regular fa-trash-can"></i> Supprime ce cellier</button>
                             </div>
                         </div>
                     </div>
@@ -63,14 +63,60 @@
                             <h5>Gère ton cellier</h4>
                             <p>Tu peux modifier son nom, voir son contenu ou le supprimer si besoin.</p>
                             <div>
-                                <p><i class="fa-solid fa-pencil"></i> Édite le nom</p>
-                                <a href="{{ route('cellars.show', $cellar->id) }}"><i class="fa-regular fa-eye"></i> Consulte les bouteilles</a>
-                                <p><i class="fa-regular fa-trash-can"></i> Supprime ce cellier</p>
+                                <button class="openModalBtnEdit modalBtn" data-name="{{$cellar->name}}" data-id="{{$cellar->id}}"><i class="fa-solid fa-pencil"></i> Éditer le nom</button>
+                                <a href="{{ route('cellars.show', $cellar->id) }}" ><i class="fa-regular fa-eye"></i> Consulte les bouteilles</a>
+                                <button class="openModalBtn modalBtn" data-id="{{$cellar->id}}"><i class="fa-regular fa-trash-can"></i> Supprime ce cellier</button>
                             </div>
                         </div>
                     </div>
                     @endif
                     @endforeach
+                </div>
+
+                <!-- Modal Edit -->
+
+                <div id="editModal" class="modal-edit">
+                    <div class="modal-content-edit">
+                        <!-- <span class="close-btn-edit">&times;</span> -->
+                        <h5>Éditer</h5>
+
+                        <form action="" method="POST" id="editForm" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+
+
+                            <label for="cellar_name" class="modal-label">Nom du cellier</label>
+                            <input type="text" class="modal-input" id="cellar_name" name="name" value="{{$cellar->name}}">
+                            @if($errors->has('name'))
+                            <span class="form-content-error">{{ $errors->first('name') }}</span>
+                            @endif
+
+                            <div class="flex-row modal-buttons">
+
+
+                                <button type="button" class="button button__safe close-btn-edit" id="closeModalBtnEdit">Fermer</button>
+                                <button class="button button__defaultCellar" type="submit">Modifier</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Modal Supprimer -->
+
+                <div id="customModal" class="modal">
+                    <div class="modal-content">
+                        <!-- <span class="close-btn">&times;</span> -->
+                        <h5>Effacer</h5>
+                        <p>Voulez vous effacer le cellier?</p>
+                        <div class="flex-row modal-buttons">
+                            <button class="button button__safe close-btn" id="closeModalBtn">Fermer</button>
+                            <form method="post" action="" id="deleteForm">
+                                @method('delete')
+                                @csrf
+                                <button class="button button__danger" type="submit">Supprimer</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

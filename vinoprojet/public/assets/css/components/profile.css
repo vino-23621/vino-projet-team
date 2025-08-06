@@ -1,17 +1,18 @@
 .profile {
-    padding: var(--spacing-broad) var(--spacing-thin);
     font-family: var(--font-content);
 
     .profile-wrapper {
         display: flex;
         flex-wrap: wrap;
-        gap: var(--spacing-broad);
+        gap: var(--spacing-thin);
         align-items: flex-start;
+        padding: var(--spacing-micro);
 
         .profile-greeting {
             display: flex;
             flex-direction: column;
             position: relative;
+            max-width: 45ch;
 
             &::before {
                 content: "";
@@ -22,7 +23,7 @@
                 height: 60%;
                 background-color: var(--Primary-Purple-400);
                 border-radius: var(--radius-sharp);
-                left: calc(-1 * var(--spacing-thinnest));
+                left: calc(-1 * var(--spacing-micro));
             }
 
             h2 {
@@ -87,17 +88,17 @@
             }
         }
 
-        .profile-info.profile-info__form{
-            & .profile-info-line{
-               border-bottom: 1px transparent; 
+        .profile-info.profile-info__form {
+            & .profile-info-line {
+                border-bottom: 1px transparent;
             }
-            & button[type=submit]{
+            & button[type="submit"] {
                 margin-top: 20px;
             }
-            & form{
+            & form {
                 margin-top: var(--spacing-thinnest);
             }
-            & input+input{
+            & input + input {
                 margin-top: var(--spacing-micro);
             }
         }
@@ -107,7 +108,7 @@
 .profile {
     .profile-wrapper {
         display: flex;
-        gap: var(--spacing-broad);
+        gap: var(--spacing-thin);
         align-items: flex-start;
 
         @media (max-width: 768px) {
