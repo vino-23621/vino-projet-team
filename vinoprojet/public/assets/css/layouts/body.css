@@ -3,7 +3,7 @@ body {
     grid-template-rows: auto 1fr auto;
     grid-template-columns:
         [full-start] minmax(16px, 1fr)
-        [main-start] minmax(0, 1280px)
+        [main-start] minmax(0, 1400px)
         [main-end] minmax(16px, 1fr)
         [full-end];
     background-color: var(--White);
