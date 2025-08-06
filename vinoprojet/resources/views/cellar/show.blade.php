@@ -26,7 +26,7 @@
         </div>
         <div class="dual-panel-right-content">
             <div class="grid-card">
-                @foreach($cellar->bottles as $bottle)
+                @foreach($bottles as $bottle)
                 <div class="flex-row">
                     <img src="https://{{ $bottle->image }}" alt="{{ $bottle->name }}" style="max-width:100px;">
 
