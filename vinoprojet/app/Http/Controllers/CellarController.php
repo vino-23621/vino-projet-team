@@ -179,12 +179,6 @@ class CellarController extends Controller
             'quantity' => 'required|integer|min:0'
         ]);
 
-        // dd([
-        //     'bottle_id' => $bottle->id,
-        //     'quantity' => $request->input('quantity'),
-        //     'exists' => $cellar->bottles()->where('bottle_id', $bottle->id)->exists(),
-        // ]);
-
         $cellar->bottles()->updateExistingPivot($bottle->id, [
             'quantity' => $request->quantity
         ]);
