@@ -2,9 +2,10 @@
     border: 1px solid #ddd1ea;
     border-radius: 20px;
     padding: var(--spacing-thinner);
-    max-width: 300px;
+    max-width: 400px;
 }
 .card-bottle-image {
+    margin-inline: auto;
     display: block;
     border-radius: 18px;
     background-color: #e3cff0;
