@@ -58,9 +58,19 @@
                             </div>
                         </section>
 
-                <label for="deleteModal-{{ $bottle->id }}" class="cellar-icon" title="Supprimer">
-                    <i class="fa-solid fa-trash"></i>
-                </label>
+                        <form action="{{ route('cellars.addBottle') }}" method="POST" class="inline-form">
+                            @csrf
+                            <input type="hidden" name="bottle_id" value="{{ $bottle->id }}">
+                            <label for="quantity"></label>
+                            
+                            <input type="number" name="quantity" id="quantity" value="{{ $bottle->pivot->quantity }}">
+
+                            <button type="submit" title="Ajouter au cellier" class="button addCellar">
+                                + Ajouter au cellier
+                            </button>
+                        </form>
+
+                <button class=" openModalBtn modalBtn"><i class="fa-regular fa-trash-can"></i>Retirer du cellier</button>
 
                 <input type="checkbox" id="deleteModal-{{ $bottle->id }}" class="modalUser-toggle" hidden>
 
