@@ -51,6 +51,12 @@
         </div>
     </nav>
 
+    @if (session('success'))
+        <div class="cta-banner">
+            <span class="close-btn">&times;</span>
+            {{ session('success') }}
+        </div>
+    @endif
 
     <main>
         @yield ('content')

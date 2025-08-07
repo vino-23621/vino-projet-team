@@ -71,7 +71,7 @@
                             </button>
                         </form>
 
-                        <button class="openModalBtn modalBtn" data-id="{{$bottle->id}}" data-cellar="{{$cellar->id}}"><i class="fa-regular fa-trash-can"></i> Retirer la bouteille</button>
+                        <button class="openModalBtnBottle modalBtn" data-id="{{$bottle->id}}" data-cellar="{{$cellar->id}}"><i class="fa-regular fa-trash-can"></i> Retirer la bouteille</button>
 
                         <div id="customModal" class="modal">
                             <div class="modal-content">

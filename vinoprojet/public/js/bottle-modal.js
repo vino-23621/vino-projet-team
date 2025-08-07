@@ -1,6 +1,6 @@
 // Modale Supprimer
 const modal = document.getElementById("customModal");
-const openBtns = document.querySelectorAll(".openModalBtn");
+const openBtns = document.querySelectorAll(".openModalBtnBottle");
 const closeBtn = document.querySelector(".close-btn");
 const closeModalBtn = document.getElementById("closeModalBtn");
 const deleteForm = document.getElementById('deleteForm');
