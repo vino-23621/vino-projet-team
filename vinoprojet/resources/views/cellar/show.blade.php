@@ -27,41 +27,70 @@
         <div class="dual-panel-right-content">
             <div class="grid-card">
                 @foreach($bottles as $bottle)
-                <div class="flex-row">
-                    <img src="https://{{ $bottle->image }}" alt="{{ $bottle->name }}" style="max-width:100px;">
+                <article class="card-bottle">
+                    <img src="https://{{ $bottle['image'] }}" class="card-bottle-image">
 
-                    <div>
-                        <h5 class="">{{ $bottle->name }}</h5>
-                        <p>Quantité: {{ $bottle->pivot->quantity }}</p>
-                        <p>Prix: {{ $bottle->price }}</p>
-                        <p> Couleur: {{ $bottle->identity->name }}</p>
-                        <p>Pays: {{ $bottle->country->name }}</p>
-                        <p>volume: {{ $bottle->size }} ml</p>
+                    <header class="card-bottle-header">
+                        <h4>{{ $bottle->name }}</h4>
+                        <div class="sub-header">
+                            <div 
+                                @if ($bottle->identity->name === 'Vin rouge') class="wine-color-ico red"
+                                @elseif ($bottle->identity->name === 'Vin blanc') class="wine-color-ico white"
+                                @elseif ($bottle->identity->name === 'Vin rosé') class="wine-color-ico rose"
+                                @elseif ($bottle->identity->name === 'Vin orange') class="wine-color-ico orange"
+                                @endif></div>
+                            <p>{{ $bottle->identity->name }} | @if($bottle->vintage !== null) {{ $bottle->vintage }} @else Date non connu @endif</p>
+                        </div>
+                    </header>
 
-
-                        <label for="deleteModal-{{ $bottle->id }}" class="cellar-icon" title="Supprimer">
-                            <i class="fa-solid fa-trash"></i>
-                        </label>
-
-                        <input type="checkbox" id="deleteModal-{{ $bottle->id }}" class="modalUser-toggle" hidden>
-
-                        <div class="modalUser">
-                            <div class="modalUser-box">
-                                <p>Voulez-vous supprimer cette bouteille du cellier ?</p>
-                                <div>
-                                    <form action="{{ route('cellars.removeBottle', ['cellar' => $cellar->id, 'bottle' => $bottle->id]) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="button button__danger">Supprimer</button>
-                                    </form>
-                                    <label for="deleteModal-{{ $bottle->id }}" class="button button__safe">Annuler</label>
-                                </div>
-
+                    <div class="card-bottle-content">
+                        <section>
+                            <h3 class="subtitle-wines">Détails</h3>
+                            <div class="content-details">
+                                <p>{{ $bottle->country->name }}</p>
+                                <p class="bottle-size-ml">{{ $bottle->size }} ml</p>
                             </div>
+                        </section>
+                        <section>
+                            <div class="section-price">
+                                <h5 class="price-wine">$ {{ $bottle->price }}</h5>
+                                <p>CAD</p>
+                            </div>
+                        </section>
+
+                        <form action="{{ route('cellars.updateQuantity', ['cellar' => $cellar->id, 'bottle' => $bottle->id]) }}" method="POST" class="inline-form">
+                            @csrf
+                            @method('PUT')
+                            <input type="hidden" name="bottle_id" value="{{ $bottle->id }}">
+                            <label for="quantity">Quantité Actuelle:</label>
+                            
+                            <input type="number" name="quantity" id="quantity" value="{{ old('quantity', $bottle->pivot->quantity) }}" min="0" required>
+                            <button type="submit" title="Ajouter au cellier" class="button addCellar">
+                                Changer la quantité
+                            </button>
+                        </form>
+
+                <button class=" openModalBtn modalBtn"><i class="fa-regular fa-trash-can"></i>Retirer du cellier</button>
+
+                <input type="checkbox" id="deleteModal-{{ $bottle->id }}" class="modalUser-toggle" hidden>
+
+                <div class="modalUser">
+                    <div class="modalUser-box">
+                        <p>Voulez-vous supprimer cette bouteille du cellier ?</p>
+                        <div>
+                            <form action="{{ route('cellars.removeBottle', ['cellar' => $cellar->id, 'bottle' => $bottle->id]) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="button button__danger">Supprimer</button>
+                            </form>
+                            <label for="deleteModal-{{ $bottle->id }}" class="button button__safe">Annuler</label>
                         </div>
 
                     </div>
                 </div>
+
+                    </div>
+                </article>
                 @endforeach
             </div>
         </div>
