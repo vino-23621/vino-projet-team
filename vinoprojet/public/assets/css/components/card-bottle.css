@@ -1,44 +1,78 @@
-.card-bottle-container {
-    gap: 16px;
-    justify-content: center;
-    width: 100%;
-}
-
 .card-bottle {
-    background: var(--White);
-    border: 1px solid var(--Color-200);
-    border-radius: var(--radius-super-sharp);
-    width: 250px;
-    box-shadow: 0 2px 6px var(--Primary-Purple-300);
-    overflow: hidden;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
+    border: 1px solid #ddd1ea;
+    border-radius: 20px;
+    padding: var(--spacing-thinner);
 }
-
 
 .card-bottle-image {
-    max-width: 90%;
-    height: auto;
-
+    width: 100%;
+    border-radius: 18px;
+    background-color: #e3cff0;
 }
 
+.card-bottle-header,
 .card-bottle-content {
-    padding: 10px;
-    text-align: center;
-
+    padding: var(--spacing-thinner) 0;
 }
 
-.card-bottle-title {
-    font-size: 1.1rem;
-    margin-bottom: 5px;
-    color: var(--Primary-Purple-400);
-    text-align: center;
+.card-bottle-header {
+    border-bottom: 1px solid #eee7f6;
+}
+
+.card-bottle .sub-header {
+    display: flex;
+    font-size: 16px;
+    color: #9586a8;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.card-bottle-header h4 {
+    color: #2d0c57;
+}
+
+.subtitle-wines {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-family: var(--font-content);
+    color: #472080;
+    margin-bottom: var(--spacing-pico);
+}
+
+.content-details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottle-size-ml {
+    font-weight: bold;
+    color: var(--Accent-Wine-400);
+    padding: var(--spacing-nano) var(--spacing-thinnest);
+    background-color: var(--Secondary-Amber-100);
+    border-radius: var(--radius-super-sharp);
+}
+
+.price-wine {
+    font-size: 30px;
+    font-weight: bold;
+    color: #2D0C57;
+    padding: var(--spacing-nano) 0;
+}
+
+.section-price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: var(--spacing-thinner);
+}
+
+input[type=number] {
+    width: 40px; 
+    height: 40px; 
+    border: 2px solid #8D8BA7; 
+    border-radius: 0; 
+    text-align: center; 
+    outline: none; 
 }
 
 
-.card-bottle-date {
-    font-size: 0.85rem;
-    margin-bottom: 10px;
-    color: var(--Accent-Wine-200);
-}

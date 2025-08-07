@@ -19,7 +19,7 @@
         gap: 8px;
         flex-direction: column;
 
-        & p,a{
+        & p,a, button{
             padding: 8px 6px;
         }
      }
