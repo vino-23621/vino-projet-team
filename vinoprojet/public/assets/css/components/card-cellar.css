@@ -2,6 +2,7 @@
      border: 1px solid #DDD1EA;
      border-radius: 20px;
      padding: var(--spacing-medium) var(--spacing-thin);
+     max-width: 55ch;
 
      & .card-cellar-header+form{
         margin-top: var(--spacing-thinner);
