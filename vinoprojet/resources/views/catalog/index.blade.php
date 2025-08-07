@@ -83,6 +83,9 @@
         </article>
         @endforeach
     </div>
+     <div class="dual-panel-right-footer">
+        {!! $bottles->links('vendor.pagination.default') !!}
+    </div>
 </div>
 </div>
 </div>

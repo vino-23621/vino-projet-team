@@ -94,11 +94,13 @@
                 @endforeach
             </div>
         </div>
-        <div class="dual-panel-right-footer">
-            <div class="pagination-wrapper">
-                {{ $bottles->links() }}
-            </div>
+          <div class="dual-panel-right-footer">
+            {!! $bottles->links('vendor.pagination.default') !!}
+        </div>
         </div>
     </div>
+    
+  
+
 
     @endsection
