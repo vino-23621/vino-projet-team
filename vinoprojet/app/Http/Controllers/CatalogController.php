@@ -13,33 +13,23 @@ class CatalogController extends Controller
 {
     public function addWineFromCatalog(Request $request)
     {
-
         $request->validate([
             'bottle_id' => 'required|exists:bottles,id',
             'quantity' => 'nullable|integer|min:1'
         ]);
 
         $cellarId = session('active_cellar_id') ?? auth()->user()->cellar_id;
-
         $bottleId = $request->input('bottle_id');
         $quantity = $request->input('quantity', 1);
 
-
-        $existing = Cellar_Has_Bottle::where('cellar_id', $cellarId,)
-            ->where('bottle_id', $bottleId)
-            ->first();
-
-        if ($existing) {
-            $existing->quantity += $quantity;
-            $existing->save();
-        } else {
-
-            Cellar_Has_Bottle::create([
+        Cellar_Has_Bottle::updateOrCreate(
+            [
                 'cellar_id' => $cellarId,
-                'bottle_id' => $bottleId,
-                'quantity' => $quantity,
-            ]);
-        }
+                'bottle_id' => $bottleId
+            ],
+            []
+        )->increment('quantity', $quantity);
+
         return redirect()->back()->with('success', 'Bottle added to cellar.');
     }
 }

@@ -9,15 +9,23 @@ class Cellar_Has_Bottle extends Model
 {
     use HasFactory;
 
-    public $incrementing = false;
-    protected $primaryKey = null;
+
 
     protected $table = 'cellar__has__bottles';
 
     protected $fillable = [
         'cellar_id',
         'bottle_id',
-        'notes',
         'quantity',
     ];
+
+    public function cellar()
+    {
+        return $this->belongsTo(Cellar::class);
+    }
+
+    public function bottle()
+    {
+        return $this->belongsTo(Bottle::class);
+    }
 }
