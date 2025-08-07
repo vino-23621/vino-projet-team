@@ -15,7 +15,7 @@ class BottleController extends Controller
      */
     public function index(Request $request)
     {
-        $bottles = Bottle::all();
+        $bottles = Bottle::paginate(20);
         $cellar = Cellar::where('user_id', auth()->id())->get();
         $cellarId = $request->query('cellar_id');
         return view('catalog.index', compact('bottles', 'cellar', 'cellarId'));
