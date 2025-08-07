@@ -73,6 +73,12 @@
                         <article class="card-bottle">
                             <img src="https://{{ $bottle['image'] }}" class="card-bottle-image">
 
+
+                <div>
+                    <h3>Prix</h3>
+                    <p>{{ $bottle->price }} CAD</p>
+
+
                             <header class="card-bottle-header">
                                 <h4>{{ $bottle->name }}</h4>
                                 <div class="sub-header">
@@ -80,6 +86,7 @@
                                     <p>{{ $bottle->identity->name }} | {{ $bottle->vintage }}</p>
                                 </div>
                             </header>
+
 
                             <div class="card-bottle-content">
                                 <section>
@@ -95,10 +102,24 @@
                                         <p>CAD</p>
                                     </div>
 
-                                    <form action="{{ route('cellars.addBottle') }}" method="POST" class="inline-form">
+
+                   
+
+
+                                    <form action="{{ isset($cellarId) ? route('cellars.addBottle') : route('catalog.addWineFromCatalog', ['bottle' => $bottle->id]) }}" method="POST" class="inline-form">
                                         @csrf
+                                        
+                                       
+                                        
                                         <input type="hidden" name="bottle_id" value="{{ $bottle->id }}">
                                         <input type="hidden" name="cellar_id" value="{{ $cellarId }}">
+
+
+                                        @if(isset($cellarId))
+                                        <input type="hidden" name="cellar_id" value="{{ $cellarId }}">
+                                        @endif
+
+
 
                                         <label for="quantity"></label>
                                         <input type="number" name="quantity" id="quantity" value="1" min="1">

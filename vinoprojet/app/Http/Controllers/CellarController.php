@@ -54,9 +54,15 @@ class CellarController extends Controller
      */
     public function show(Cellar $cellar)
     {
+
+        session(['active_cellar_id' => $cellar->id]);
+        $cellar->load('bottles');
+        
+
         $bottles = $cellar->bottles()->paginate(10);
 
         return view('cellar.show', compact('cellar', 'bottles'));
+
     }
 
     /**

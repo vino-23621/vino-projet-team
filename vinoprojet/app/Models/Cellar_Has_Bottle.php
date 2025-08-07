@@ -9,6 +9,8 @@ class Cellar_Has_Bottle extends Model
 {
     use HasFactory;
 
+    public $incrementing = false;
+    protected $primaryKey = null;
 
     protected $table = 'cellar__has__bottles';
 
