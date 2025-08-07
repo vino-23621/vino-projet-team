@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/import.css') }}">
     <script type="module" src="{{ asset('js/cellar-modal.js') }}"></script>
     <script type="module" src="{{ asset('js/cellar-modal-edit.js') }}"></script>
+    <script type="module" src="{{ asset('js/bottle-modal.js') }}"></script>
 
 
 
@@ -31,7 +32,7 @@
             <div>
                 @auth
                 <p>Bienvenue, {{ Auth::user()->name }}</p>
-                <p>Cellier : {{ Auth::user()->defaultCellar->name }}</p>
+                <p>Cellier : {{ Auth::user()->getActiveCellar()->name}}</p>
                 <a class="button__white" href="{{ route('user.show') }}">Mon compte</a>
                 <a class="button" href="{{ route('logout') }}">Déconnexion</a>
                 @else
@@ -50,6 +51,12 @@
         </div>
     </nav>
 
+    @if (session('success'))
+        <div class="cta-banner">
+            <span class="close-btn">&times;</span>
+            {{ session('success') }}
+        </div>
+    @endif
 
     <main>
         @yield ('content')

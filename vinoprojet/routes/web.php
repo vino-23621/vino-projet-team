@@ -5,7 +5,7 @@ use App\Http\Controllers\BottleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CellarController;
-
+use App\Http\Controllers\CatalogController;
 
 
 /*
@@ -72,4 +72,10 @@ Route::middleware('auth')->group(function () {
 
     // route catalog
     Route::get('/catalog', [BottleController::class, 'index'])->name('catalog.index');
+    Route::post('/catalog/add/{bottle}', [CatalogController::class, 'addWineFromCatalog'])->name('catalog.addWineFromCatalog');
+
+    // route cellar_bottles
+    Route::get('/cellars/{cellar}/bottles/{bottle}/edit', [CellarController::class, 'editBottle'])->name('cellars.editBottle');
+    Route::put('/cellars/{cellar}/bottles/{bottle}', [CellarController::class, 'updateQuantity'])->name('cellars.updateQuantity');
+
 });
