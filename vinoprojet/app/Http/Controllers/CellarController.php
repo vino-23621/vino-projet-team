@@ -57,12 +57,11 @@ class CellarController extends Controller
 
         session(['active_cellar_id' => $cellar->id]);
         $cellar->load('bottles');
-        
+
 
         $bottles = $cellar->bottles()->paginate(10);
 
         return view('cellar.show', compact('cellar', 'bottles'));
-
     }
 
     /**
@@ -114,11 +113,15 @@ class CellarController extends Controller
     {
 
         $user = auth()->user();
+        // dd($user->cellar_id, $cellar->id);
+
 
         if ($user->cellar_id === $cellar->id) {
+
             return redirect()->route('cellars.index')
                 ->with('error', 'Vous ne pouvez pas supprimer votre cellier par défaut.');
         }
+
 
         $target = $cellar->name;
 
