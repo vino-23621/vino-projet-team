@@ -25,7 +25,7 @@ class CatalogController extends Controller
         $quantity = $request->input('quantity', 1);
 
 
-        $existing = Cellar_Has_Bottle::where('cellar_id', $cellarId)
+        $existing = Cellar_Has_Bottle::where('cellar_id', $cellarId,)
             ->where('bottle_id', $bottleId)
             ->first();
 
