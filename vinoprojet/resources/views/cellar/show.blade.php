@@ -58,15 +58,15 @@
                             </div>
                         </section>
 
-                        <form action="{{ route('cellars.addBottle') }}" method="POST" class="inline-form">
+                        <form action="{{ route('cellars.updateQuantity', ['cellar' => $cellar->id, 'bottle' => $bottle->id]) }}" method="POST" class="inline-form">
                             @csrf
+                            @method('PUT')
                             <input type="hidden" name="bottle_id" value="{{ $bottle->id }}">
-                            <label for="quantity"></label>
+                            <label for="quantity">Quantité Actuelle:</label>
                             
-                            <input type="number" name="quantity" id="quantity" value="{{ $bottle->pivot->quantity }}">
-
+                            <input type="number" name="quantity" id="quantity" value="{{ old('quantity', $bottle->pivot->quantity) }}" min="0" required>
                             <button type="submit" title="Ajouter au cellier" class="button addCellar">
-                                + Ajouter au cellier
+                                Changer la quantité
                             </button>
                         </form>
 
