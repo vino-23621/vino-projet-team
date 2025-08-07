@@ -158,6 +158,33 @@ class CellarController extends Controller
         return redirect()->route('cellars.show', $cellar->id)->with('success', 'Bouteille ajoutée au cellier.');
     }
 
+    public function editBottle(Cellar $cellar, Bottle $bottle)
+    {
+        $cellarBottle = $cellar->bottles()
+            ->where('bottle_id', $bottle->id)
+            ->first();
+
+        if (!$cellarBottle) {
+            abort(404, 'Bouteille non trouvée dans ce cellier.');
+        }
+
+        $quantity = $cellarBottle->pivot->quantity;
+
+        return view('cellars.show', compact('cellar', 'bottle', 'quantity'));
+    }
+
+    public function updateQuantity(Request $request, Cellar $cellar, Bottle $bottle)
+    {
+        $request->validate([
+            'quantity' => 'required|integer|min:0'
+        ]);
+
+        $cellar->bottles()->updateExistingPivot($bottle->id, [
+            'quantity' => $request->quantity
+        ]);
+
+        return redirect()->route('cellars.show', $cellar->id)->with('success', 'Quantité mise à jour avec succès.');
+    }
 
     public function removeBottle(Cellar $cellar, Bottle $bottle)
     {
