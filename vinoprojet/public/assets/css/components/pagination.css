@@ -63,3 +63,18 @@
         }
     }
 }
+
+@media (max-width: 900px) {
+    .pagination li {
+        display: none;
+    }
+    .pagination li:first-child,
+    .pagination li:nth-child(2),
+    .pagination li:nth-child(3),
+    .pagination li.disabled,
+    .pagination li:nth-last-child(2),
+    .pagination li:last-child,
+    .pagination li.active {
+        display: flex;
+    }
+}
