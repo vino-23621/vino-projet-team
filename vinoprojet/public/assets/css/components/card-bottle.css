@@ -2,6 +2,7 @@
     border: 1px solid #ddd1ea;
     border-radius: 20px;
     padding: var(--spacing-thinner);
+    max-width: 300px;
 }
 .card-bottle-image {
     display: block;
