@@ -66,17 +66,16 @@
     }
 }
 
-.button.button__defaultCellar{
+.button.button__defaultCellar {
     background-color: var(--Primary-Purple-100);
     color: var(--Primary-Purple-400);
 }
 
-.button.button__chooseCellar{
+.button.button__chooseCellar {
     background-color: var(--Primary-Purple-50);
     color: var(--light-text);
 }
 .button.addCellar {
-    
     background-color: var(--White);
     color: #783197;
     transition: color, 300ms ease;
@@ -86,4 +85,3 @@
         transition-duration: 300ms;
     }
 }
-

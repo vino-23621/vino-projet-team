@@ -22,14 +22,12 @@
     transform: scale(0.95);
     transition: transform 0.5s ease;
 
-    &>div{
+    & > div {
         margin-top: 2rem;
         display: flex;
         gap: 20px;
-
     }
 }
-
 
 .close-btn {
     cursor: pointer;
@@ -52,4 +50,11 @@
     cursor: pointer;
     font-family: var(--font-content);
     font-size: medium;
+    padding-top: var(--spacing-thinnest);
+    transition: color, background-color 300ms ease;
+
+    &:hover {
+        color: var(--Secondary-Amber-400);
+        transition-duration: 300ms;
+    }
 }
