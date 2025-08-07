@@ -1,7 +1,7 @@
 .dual-panel-right-footer {
     display: flex;
     justify-content: center;
-    margin: var(--spacing-thinner) 0;
+    margin-top: var(--spacing-broad);
 
     .pagination {
         list-style: none;
