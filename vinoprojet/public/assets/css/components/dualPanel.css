@@ -1,9 +1,12 @@
 .dualPanel {
     margin-top: clamp(var(--spacing-medium), 5vw, var(--spacing-broader));
     display: flex;
-    flex-wrap: wrap;
     gap: var(--spacing-broad);
     align-items: flex-start;
+    flex-wrap: wrap;
+    @media (min-width: 820px) {
+        flex-wrap: nowrap;
+    }
 
     & .dualPanel-right {
         flex-grow: 1;
