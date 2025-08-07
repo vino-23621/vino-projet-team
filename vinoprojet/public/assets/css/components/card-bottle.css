@@ -2,21 +2,26 @@
     border: 1px solid #ddd1ea;
     border-radius: 20px;
     padding: var(--spacing-thinner);
+    max-width: 300px;
 }
-
 .card-bottle-image {
-    width: 100%;
+    display: block;
     border-radius: 18px;
     background-color: #e3cff0;
+    width: clamp(200px, 100%, 300px);
+    height: auto;
+    aspect-ratio: 2/3;
+    object-fit: contain;
 }
 
 .card-bottle-header,
 .card-bottle-content {
-    padding: var(--spacing-thinner) 0;
+    padding-top: var(--spacing-thinner);
 }
 
 .card-bottle-header {
     border-bottom: 1px solid #eee7f6;
+    padding-bottom: var(--spacing-thinner);
 }
 
 .card-bottle .sub-header {
@@ -55,7 +60,7 @@
 .price-wine {
     font-size: 30px;
     font-weight: bold;
-    color: #2D0C57;
+    color: #2d0c57;
     padding: var(--spacing-nano) 0;
 }
 
@@ -66,13 +71,11 @@
     padding-bottom: var(--spacing-thinner);
 }
 
-input[type=number] {
-    width: 40px; 
-    height: 40px; 
-    border: 2px solid #8D8BA7; 
-    border-radius: 0; 
-    text-align: center; 
-    outline: none; 
+input[type="number"] {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #8d8ba7;
+    border-radius: 0;
+    text-align: center;
+    outline: none;
 }
-
-
