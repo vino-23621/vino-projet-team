@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/import.css') }}">
     <script type="module" src="{{ asset('js/cellar-modal.js') }}"></script>
     <script type="module" src="{{ asset('js/cellar-modal-edit.js') }}"></script>
+    <script type="module" src="{{ asset('js/bottle-modal.js') }}"></script>
 
 
 

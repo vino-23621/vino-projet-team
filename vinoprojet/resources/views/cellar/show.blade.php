@@ -71,12 +71,11 @@
                             </button>
                         </form>
 
-                        <button class="openModalBtn modalBtn" data-id="{{$cellar->id}}"><i class="fa-regular fa-trash-can"></i> Retirer la bouteille</button>
+                        <button class="openModalBtn modalBtn" data-id="{{$bottle->id}}" data-cellar="{{$cellar->id}}"><i class="fa-regular fa-trash-can"></i> Retirer la bouteille</button>
 
                         <div id="customModal" class="modal">
                             <div class="modal-content">
-                                <!-- <span class="close-btn">&times;</span> -->
-                                <h5>Effacer</h5>
+                                <h5>Retirer</h5>
                                 <p>Voulez vous retirer la bouteille?</p>
                                 <div class="flex-row modal-buttons">
                                     <button class="button button__safe close-btn" id="closeModalBtn">Fermer</button>
