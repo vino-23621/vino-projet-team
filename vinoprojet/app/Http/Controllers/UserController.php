@@ -133,13 +133,13 @@ class UserController extends Controller
         }
 
         $user = Auth::user();
-        $user->cellar_id = $cellar->id;
+        $user->cellar_id = $cellar_id;
         $user->save();
 
         return redirect()->route('cellars.index');
     }
 
-   
+
 
     /**
      * Remove the specified resource from storage.

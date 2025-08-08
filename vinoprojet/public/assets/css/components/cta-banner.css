@@ -1,4 +1,4 @@
-.cta-banner{
+.cta-banner {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,29 +10,71 @@
     border: 1px solid #DDD1EA;
     border-radius: 20px;
 
-    & > :last-child{
+    &> :last-child {
         flex-grow: 1;
     }
-    
-    & .cta-banner-content{
-        & > h3{
+
+    & .cta-banner-content {
+        &>h3 {
             font: var(--Body-default);
             font-weight: 600;
         }
-        & > p{
+
+        &>p {
             color: var(--Color-400);
         }
     }
 
-    & .cta-banner-icon{
+    & .cta-banner-icon {
         background-color: var(--Success-Green-100);
         padding: 19px 22px;
         border: 1px solid transparent;
         border-radius: 3px;
 
-        & >i{
+        &>i {
             font-size: 30px;
             color: var(--Success-Green);
         }
+    }
+
+
+    .cta-success-banner {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        font: var(--Body-default);
+        background-color: var(--Success-Green-100);
+        padding: 20px 15px;
+        border: 1px solid var(--Success-Green-200);
+        border-radius: 0px;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #155724;
+
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+
+    .cta-error-banner {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        font: var(--Body-default);
+        background-color: var(--Error-Red);
+        padding: 20px 15px;
+        border: 1px solid var(--Error-Red-100);
+        border-radius: 0px;
     }
 }

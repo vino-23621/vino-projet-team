@@ -32,7 +32,13 @@
             <div>
                 @auth
                 <p>Bienvenue, {{ Auth::user()->name }}</p>
-                <p>Cellier : {{ Auth::user()->getActiveCellar()->name}}</p>
+                <p>Cellier : {{ Auth::user()->defaultCellar->name }}</p>
+
+                <!-- <p>
+                    Cellier actif:
+                    {{ Auth::user()->getActiveCellar()?->name ?? Auth::user()->defaultCellar()?->name ?? 'Aucun cellier actif' }}
+                </p> -->
+
                 <a class="button__white" href="{{ route('user.show') }}">Mon compte</a>
                 <a class="button" href="{{ route('logout') }}">Déconnexion</a>
                 @else
@@ -52,11 +58,20 @@
     </nav>
 
     @if (session('success'))
-        <div class="cta-banner">
-            <span class="close-btn">&times;</span>
-            {{ session('success') }}
-        </div>
+    <div class="cta-success-banner">
+        <span class="close-btn">&times;</span>
+        {{ session('success') }}
+    </div>
     @endif
+
+    @if (session('error'))
+    <div class="cta-error-banner">
+        <span class="close-btn">&times;</span>
+        {{ session('error') }}
+    </div>
+    @endif
+
+
 
     <main>
         @yield ('content')
