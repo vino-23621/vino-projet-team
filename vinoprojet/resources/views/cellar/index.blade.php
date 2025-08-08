@@ -109,12 +109,13 @@
                     <h5>Effacer</h5>
                     <p>Voulez vous effacer le cellier?</p>
                     <div class="flex-row modal-buttons">
-                        <button class="button button__safe close-btn" id="closeModalBtn">Fermer</button>
+
                         <form method="post" action="{{ route('cellars.destroy', $cellar->id) }}" id="deleteForm">
                             @method('delete')
                             @csrf
                             <button class="button button__danger" type="submit">Supprimer</button>
                         </form>
+                        <button class="button button__safe close-btn" id="closeModalBtn">Fermer</button>
                     </div>
                 </div>
             </div>
