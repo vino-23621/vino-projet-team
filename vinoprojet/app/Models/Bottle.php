@@ -35,6 +35,6 @@ class Bottle extends Model
 
     public function identity()
     {
-        return $this->belongsTo(identity::class);
+        return $this->belongsTo(Identity::class);
     }
 }
