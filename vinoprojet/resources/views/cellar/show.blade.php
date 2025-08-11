@@ -11,6 +11,41 @@
             <h2>{{$cellar->name}}</h2>
             <p class="profile-subtitle">Crée un ou plusieurs celliers pour organiser tes bouteilles.</p>
         </div>
+        <div class="dual-panel-left-content">
+            <form method="GET">
+                <select name="country">
+                    <option value="">Tous les pays</option>
+                    @foreach($countries as $country)
+                        <option value="{{ $country->id }}" {{ request('country') == $country->id ? 'selected' : '' }}>
+                            {{ $country->name }}
+                        </option>
+                    @endforeach
+                </select>
+
+                <select name="identity">
+                    <option value="">Toutes les variété</option>
+                    @foreach($identities as $identity)
+                        <option value="{{ $identity->id }}" {{ request('identity') == $identity->id ? 'selected' : '' }}>
+                            {{ $identity->name }}
+                        </option>
+                    @endforeach
+                </select>
+
+                <label>
+                    <input type="checkbox" name="vintage_null" value="1" {{ request('vintage_null') ? 'checked' : '' }}>
+                    Sans millésime
+                </label>
+
+                <input type="number" name="vintage_min" placeholder="Date min" value="{{ request('vintage_min') }}">
+                <input type="number" name="vintage_max" placeholder="Date max" value="{{ request('vintage_max') }}">
+
+                <input type="number" name="price_min" placeholder="Prix min" value="{{ request('price_min') }}">
+                <input type="number" name="price_max" placeholder="Prix max" value="{{ request('price_max') }}">
+
+                <button type="submit">Filtrer</button>
+            </form>
+            
+        </div>
     </div>
 
     <div class="dualPanel-right">
@@ -22,6 +57,29 @@
                     <p>Étoffe ton catalogue avec de nouveaux ajouts.</p>
                 </div>
                 <a href="{{ route('catalog.index', ['cellar_id' => $cellar->id]) }}" class="button button__safe">Ajouter</a>
+            </div>
+            <div>
+                <form method="GET">
+                    <select name="sort">
+                        <option value="">Aucun tri</option>
+                        <option value="vintage_asc" {{ request('sort') == 'vintage_asc' ? 'selected' : '' }}>Millésime (ancien → récent)</option>
+                        <option value="vintage_desc" {{ request('sort') == 'vintage_desc' ? 'selected' : '' }}>Millésime (récent → ancien)</option>
+                        <option value="price_asc" {{ request('sort') == 'price_asc' ? 'selected' : '' }}>Prix (bas → haut)</option>
+                        <option value="price_desc" {{ request('sort') == 'price_desc' ? 'selected' : '' }}>Prix (haut → bas)</option>
+                        <option value="country_asc" {{ request('sort') == 'country_asc' ? 'selected' : '' }}>Pays (A → Z)</option>
+                        <option value="country_desc" {{ request('sort') == 'country_desc' ? 'selected' : '' }}>Pays (Z → A)</option>
+                    </select>
+
+                    <input type="hidden" name="country" value="{{ request('country') }}">
+                    <input type="hidden" name="identity" value="{{ request('identity') }}">
+                    <input type="hidden" name="vintage_null" value="{{ request('vintage_null') }}">
+                    <input type="hidden" name="vintage_min" value="{{ request('vintage_min') }}">
+                    <input type="hidden" name="vintage_max" value="{{ request('vintage_max') }}">
+                    <input type="hidden" name="price_min" value="{{ request('price_min') }}">
+                    <input type="hidden" name="price_max" value="{{ request('price_max') }}">
+
+                    <button type="submit">Trier</button>
+                </form>
             </div>
         </div>
         <div class="dual-panel-right-content">
