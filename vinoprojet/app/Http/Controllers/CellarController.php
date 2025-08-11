@@ -52,17 +52,66 @@ class CellarController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Cellar $cellar)
+    public function show(Request $request, Cellar $cellar)
     {
+    $identities = Identity::all();
+    $countries = Country::all();
 
-        session(['active_cellar_id' => $cellar->id]);
-        $cellar->load('bottles');
+    session(['active_cellar_id' => $cellar->id]);
+    $cellar->load('bottles');
 
+    $query = $cellar->bottles();
 
-        $bottles = $cellar->bottles()->paginate(10);
-
-        return view('cellar.show', compact('cellar', 'bottles'));
+    if ($request->filled('country')) {
+        $query->where('country_id', $request->country);
     }
+
+    if ($request->filled('identity')) {
+        $query->where('identity_id', $request->identity);
+    }
+    if ($request->boolean('vintage_null')) {
+        $query->whereNull('vintage');
+    } else {
+        if ($request->filled('vintage_min')) {
+            $query->where('vintage', '>=', $request->vintage_min);
+        }
+        if ($request->filled('vintage_max')) {
+            $query->where('vintage', '<=', $request->vintage_max);
+        }
+    }
+    if ($request->filled('price_min')) {
+        $query->where('price', '>=', $request->price_min);
+    }
+    if ($request->filled('price_max')) {
+        $query->where('price', '<=', $request->price_max);
+    }
+    if ($request->filled('sort')) {
+        switch ($request->sort) {
+            case 'vintage_asc':
+                $query->orderBy('vintage', 'asc');
+                break;
+            case 'vintage_desc':
+                $query->orderBy('vintage', 'desc');
+                break;
+            case 'price_asc':
+                $query->orderBy('price', 'asc');
+                break;
+            case 'price_desc':
+                $query->orderBy('price', 'desc');
+                break;
+            case 'country_asc':
+                $query->orderBy('country_id', 'asc');
+                break;
+            case 'country_desc':
+                $query->orderBy('country_id', 'desc');
+                break;
+        }
+    }
+
+    $bottles = $query->paginate(10);
+
+    return view('cellar.show', compact('cellar', 'bottles', 'identities', 'countries'));
+}
 
     /**
      * Show the form for editing the specified resource.
