@@ -102,16 +102,23 @@ class CatalogController extends Controller
         $bottleId = $request->input('bottle_id');
         $quantity = $request->input('quantity', 1);
 
-        Cellar_Has_Bottle::updateOrCreate(
-            [
+        $record = Cellar_Has_Bottle::where('cellar_id', $cellarId)
+            ->where('bottle_id', $bottleId)
+            ->first();
+
+        if ($record) {
+            $record->increment('quantity', $quantity);
+        } else {
+            Cellar_Has_Bottle::create([
                 'cellar_id' => $cellarId,
-                'bottle_id' => $bottleId
-            ],
-            []
-        )->increment('quantity', $quantity);
+                'bottle_id' => $bottleId,
+                'quantity' => $quantity,
+            ]);
+        }
 
         return redirect()->back()->with('success', 'Bottle added to cellar.');
     }
+
 
 
     public function apiCatalog()
