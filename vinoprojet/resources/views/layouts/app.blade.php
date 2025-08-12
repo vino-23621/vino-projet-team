@@ -10,8 +10,7 @@
     <script type="module" src="{{ asset('js/cellar-modal-edit.js') }}"></script>
     <script type="module" src="{{ asset('js/bottle-modal.js') }}"></script>
     <script type="module" src="{{ asset('js/banner-success.js') }}"></script>
-
-
+    <script type="module" src="{{ asset('js/notification-banner.js') }}"></script>
 
     <!-- Typographie -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,11 +33,6 @@
                 @auth
                 <p>Bienvenue, {{ Auth::user()->name }}</p>
                 <p>Cellier : {{ Auth::user()->defaultCellar->name }}</p>
-
-                <!-- <p>
-                    Cellier actif:
-                    {{ Auth::user()->getActiveCellar()?->name ?? Auth::user()->defaultCellar()?->name ?? 'Aucun cellier actif' }}
-                </p> -->
 
                 <a class="button__white" href="{{ route('user.show') }}">Mon compte</a>
                 <a class="button" href="{{ route('logout') }}">Déconnexion</a>
@@ -65,32 +59,38 @@
                     <button type="submit" class="button-search">
                         <i class="fa-solid fa-magnifying-glass icon-search "></i>
                     </button>
-
                 </form>
             </div>
         </div>
-
-
-
     </nav>
 
-    @if (session('success'))
-    <div class="cta-success-banner">
-        <span class="close-btn">&times;</span>
-        {{ session('success') }}
-    </div>
-    @endif
-
-    @if (session('error'))
-    <div class="cta-error-banner">
-        <span class="close-btn">&times;</span>
-        {{ session('error') }}
-    </div>
-    @endif
-
-
-
     <main>
+        @if (session('success'))
+        <div data-js="notification-banner" class="notification-banner">
+            <div>
+                <i class="fa-solid fa-check notification-banner-icon"></i>
+                <div data-js="notification-close">
+                    <span class="notification-banner-title">Succès :</span>
+                    <span>{{ session('success') }}</span>
+                </div>
+            </div>
+            <i data-js="notification-close" class="fa-solid fa-xmark notification-banner-icon"></i>
+        </div>
+        @endif
+
+        @if (session('error'))
+        <div data-js="notification-banner" class="notification-banner fail">
+            <div>
+                <i class="fa-solid fa-triangle-exclamation notification-banner-icon"></i>
+                <div data-js="notification-close">
+                    <span class="notification-banner-title">Erreur :</span>
+                    <span>{{ session('error') }}</span>
+                </div>
+            </div>
+            <i data-js="notification-close" class="fa-solid fa-xmark notification-banner-icon"></i>
+        </div>
+        @endif
+        
         @yield ('content')
     </main>
 
