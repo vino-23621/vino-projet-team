@@ -89,6 +89,10 @@
             </div>
         </div>
         <div class="dual-panel-right-content">
+            @if($bottles->isEmpty())
+            <p>Aucune bouteille trouvée dans ce cellier.</p>
+            @else
+             
             <div class="grid-card">
                 @foreach($bottles as $bottle)
                 @if($bottle->pivot->quantity !== 0)
@@ -157,6 +161,7 @@
                 @endif
                 @endforeach
             </div>
+            @endif
         </div>
         <div class="dual-panel-right-footer">
             {!! $bottles->links('vendor.pagination.default') !!}
