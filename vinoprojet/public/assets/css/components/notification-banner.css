@@ -1,0 +1,46 @@
+.notification-banner{
+    margin-top: 2rem;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    background-color: var(--Success-Green-300);
+    display: flex;
+    padding: var(--spacing-thinnest) 8px ;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+
+    @media (min-width: 650px) {
+        justify-content: center;
+        align-items: baseline;
+        gap: 30px;      
+    }
+
+    & .notification-banner-title{
+        font-weight: bolder;
+    }
+
+    & .notification-banner-icon{
+        font-size: 24px;
+    }
+
+    & >div {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    
+    }
+
+    & :is(i,span){
+        color: var(--White);
+    }
+
+    & >i{
+        padding: 8px;
+    }
+
+    
+}
+
+.notification-banner.fail{
+    background-color: var(--Error-Red-300);
+}
