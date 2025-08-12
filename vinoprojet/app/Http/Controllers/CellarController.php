@@ -108,7 +108,7 @@ class CellarController extends Controller
         }
     }
 
-    $bottles = $query->paginate(10);
+    $bottles = $query->paginate(12);
 
     return view('cellar.show', compact('cellar', 'bottles', 'identities', 'countries'));
 }
