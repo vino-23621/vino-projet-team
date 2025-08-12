@@ -10,6 +10,7 @@
     <script type="module" src="{{ asset('js/cellar-modal-edit.js') }}"></script>
     <script type="module" src="{{ asset('js/bottle-modal.js') }}"></script>
     <script type="module" src="{{ asset('js/banner-success.js') }}"></script>
+    <script type="module" src="{{ asset('js/login_validation.js') }}"></script>
 
 
 
