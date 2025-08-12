@@ -11,6 +11,7 @@
     <script type="module" src="{{ asset('js/bottle-modal.js') }}"></script>
     <script type="module" src="{{ asset('js/banner-success.js') }}"></script>
     <script type="module" src="{{ asset('js/notification-banner.js') }}"></script>
+    <script type="module" src="{{ asset('js/login_validation.js') }}"></script>
 
     <!-- Typographie -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -90,7 +91,7 @@
             <i data-js="notification-close" class="fa-solid fa-xmark notification-banner-icon"></i>
         </div>
         @endif
-        
+
         @yield ('content')
     </main>
 

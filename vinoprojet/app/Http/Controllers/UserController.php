@@ -33,11 +33,11 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string||min:2|max:255',
+            'name' => 'required|string|min:2|max:255',
             'cellar_name' => 'required|string||min:2|max:255',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6|max:255|string|regex:/[a-z]/|regex:/[A-Z]/|regex:/[0-9]/',
-            'password_confirmation' =>  'required|min:6|max:255|string|same:password'
+            'password' => 'required|string|min:6|max:255|regex:/[a-z]/|regex:/[A-Z]/|regex:/[0-9]/|confirmed',
+
         ]);
 
 
