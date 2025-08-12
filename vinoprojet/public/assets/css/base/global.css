@@ -111,3 +111,22 @@ span {
     border-radius: 4px;
     margin-bottom: 1em;
 }
+
+.input-search {
+    width: 250px;
+    border-radius: 5px;
+    font: var(--Text-Single-50-normal);
+    border: 2px solid var(--Primary-Purple-400);
+}
+
+.icon-search {
+    color: white;
+    background-color: var(--Success-Green-200);
+    border: 2px solid var(--Success-Green-200);
+}
+
+.button-search {
+    border: 2px solid var(--Success-Green-200);
+    border-radius: 5px;
+
+}

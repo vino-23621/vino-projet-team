@@ -22,6 +22,11 @@ class CatalogController extends Controller
 
         $query = Bottle::query();
 
+        if ($request->filled('search')) {
+            $query->where('name', 'like', '%' . $request->search . '%');
+        }
+
+
         if ($request->filled('country')) {
             $query->where('country_id', $request->country);
         }
