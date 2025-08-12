@@ -53,6 +53,7 @@
                         src="{{ asset('assets/images/vinologo.png') }}"
                         alt="logovino" /></a>
                 <a href="{{route('cellars.index')}}">Mes celliers</a>
+                <a href="{{route('wishlist.index')}}">Liste d'achat</a>
                 <a href="{{route('catalog.index')}}">Catalogue des vins</a>
                 <form action="{{ route('catalog.index') }}" method="GET" class="mb-4">
                     <input

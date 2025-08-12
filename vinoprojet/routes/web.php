@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CellarController;
 use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\WishlistController;
 use Illuminate\Validation\Rules\Can;
 
 /*
@@ -82,4 +83,8 @@ Route::middleware('auth')->group(function () {
 
     //api search bar
     // Route::get('/catalog-data', [CatalogController::class, 'apiCatalog']);
+
+
+    // route wishlist
+    Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
 });
