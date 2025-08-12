@@ -1,0 +1,40 @@
+.filters-container {
+    padding: 1rem;
+    border: 1px solid var(--Color-300);
+    border-radius: 8px;
+    background-color: #FAFAFA;
+
+}
+
+.filters-header h3 {
+    margin-bottom: 1rem;
+}
+
+.filter-title {
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+}
+
+.filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    font: var(--Text-Single-200-normal);
+    color: var(--Color-400);
+}
+
+.filter-option {
+    padding: 0.25rem 0;
+}
+
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-actions {
+    margin-top: 1rem;
+}

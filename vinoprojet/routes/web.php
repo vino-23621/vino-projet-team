@@ -6,7 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CellarController;
 use App\Http\Controllers\CatalogController;
-
+use Illuminate\Validation\Rules\Can;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,9 +73,13 @@ Route::middleware('auth')->group(function () {
     // route catalog
     Route::get('/catalog', [BottleController::class, 'index'])->name('catalog.index');
     Route::post('/catalog/add/{bottle}', [CatalogController::class, 'addWineFromCatalog'])->name('catalog.addWineFromCatalog');
+    Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog.index');
+
 
     // route cellar_bottles
     Route::get('/cellars/{cellar}/bottles/{bottle}/edit', [CellarController::class, 'editBottle'])->name('cellars.editBottle');
     Route::put('/cellars/{cellar}/bottles/{bottle}', [CellarController::class, 'updateQuantity'])->name('cellars.updateQuantity');
 
+    //api search bar
+    // Route::get('/catalog-data', [CatalogController::class, 'apiCatalog']);
 });

@@ -18,18 +18,18 @@
                 <select name="country">
                     <option value="">Tous les pays</option>
                     @foreach($countries as $country)
-                        <option value="{{ $country->id }}" {{ request('country') == $country->id ? 'selected' : '' }}>
-                            {{ $country->name }}
-                        </option>
+                    <option value="{{ $country->id }}" {{ request('country') == $country->id ? 'selected' : '' }}>
+                        {{ $country->name }}
+                    </option>
                     @endforeach
                 </select>
 
                 <select name="identity">
                     <option value="">Toutes les variété</option>
                     @foreach($identities as $identity)
-                        <option value="{{ $identity->id }}" {{ request('identity') == $identity->id ? 'selected' : '' }}>
-                            {{ $identity->name }}
-                        </option>
+                    <option value="{{ $identity->id }}" {{ request('identity') == $identity->id ? 'selected' : '' }}>
+                        {{ $identity->name }}
+                    </option>
                     @endforeach
                 </select>
 
@@ -46,7 +46,7 @@
 
                 <button type="submit">Filtrer</button>
             </form>
-            
+
         </div>
 
 
