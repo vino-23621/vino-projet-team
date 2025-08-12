@@ -5,29 +5,31 @@
 @section('content')
 
 
-<div class="dualPanel">
-    <div class="dualPanel-left">
-        <div class="dual-panel-left-header">
-            <h2>{{$cellar->name}}</h2>
-            <p class="profile-subtitle">Crée un ou plusieurs celliers pour organiser tes bouteilles.</p>
+<div class="dualPanel flex-row">
+    <div class="dualPanel flex-column">
+        <div class="dualPanel-left">
+            <div class="dual-panel-left-header">
+                <h2>{{$cellar->name}}</h2>
+                <p class="profile-subtitle">Crée un ou plusieurs celliers pour organiser tes bouteilles.</p>
+            </div>
         </div>
         <div class="dual-panel-left-content">
             <form method="GET">
                 <select name="country">
                     <option value="">Tous les pays</option>
                     @foreach($countries as $country)
-                        <option value="{{ $country->id }}" {{ request('country') == $country->id ? 'selected' : '' }}>
-                            {{ $country->name }}
-                        </option>
+                    <option value="{{ $country->id }}" {{ request('country') == $country->id ? 'selected' : '' }}>
+                        {{ $country->name }}
+                    </option>
                     @endforeach
                 </select>
 
                 <select name="identity">
                     <option value="">Toutes les variété</option>
                     @foreach($identities as $identity)
-                        <option value="{{ $identity->id }}" {{ request('identity') == $identity->id ? 'selected' : '' }}>
-                            {{ $identity->name }}
-                        </option>
+                    <option value="{{ $identity->id }}" {{ request('identity') == $identity->id ? 'selected' : '' }}>
+                        {{ $identity->name }}
+                    </option>
                     @endforeach
                 </select>
 
@@ -44,9 +46,13 @@
 
                 <button type="submit">Filtrer</button>
             </form>
-            
+
         </div>
+
+
+
     </div>
+
 
     <div class="dualPanel-right">
         <div class="dual-panel-right-header">
@@ -92,7 +98,7 @@
                     <header class="card-bottle-header">
                         <h4>{{ $bottle->name }}</h4>
                         <div class="sub-header">
-                            <div 
+                            <div
                                 @if ($bottle->identity->name === 'Vin rouge') class="wine-color-ico red"
                                 @elseif ($bottle->identity->name === 'Vin blanc') class="wine-color-ico white"
                                 @elseif ($bottle->identity->name === 'Vin rosé') class="wine-color-ico rose"
@@ -122,7 +128,7 @@
                             @method('PUT')
                             <input type="hidden" name="bottle_id" value="{{ $bottle->id }}">
                             <label for="quantity"></label>
-                            
+
                             <input type="number" name="quantity" id="quantity" value="{{ old('quantity', $bottle->pivot->quantity) }}" min="0" required>
                             <button type="submit" title="Ajouter au cellier" class="button addCellar">
                                 Changer la quantité
@@ -152,13 +158,13 @@
                 @endforeach
             </div>
         </div>
-          <div class="dual-panel-right-footer">
+        <div class="dual-panel-right-footer">
             {!! $bottles->links('vendor.pagination.default') !!}
         </div>
-        </div>
     </div>
-    
-  
+</div>
 
 
-    @endsection
+
+
+@endsection

@@ -40,10 +40,9 @@ class BottleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Bottle $bottle)
-    {
-        //
-    }
+
+    public function show(Request $request, Bottle $bottle) {}
+
 
     /**
      * Show the form for editing the specified resource.
