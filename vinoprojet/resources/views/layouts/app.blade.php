@@ -53,9 +53,25 @@
                         src="{{ asset('assets/images/vinologo.png') }}"
                         alt="logovino" /></a>
                 <a href="{{route('cellars.index')}}">Mes celliers</a>
+                <a href="{{route('wishlist.index')}}">Liste d'achat</a>
                 <a href="{{route('catalog.index')}}">Catalogue des vins</a>
+                <form action="{{ route('catalog.index') }}" method="GET" class="mb-4">
+                    <input
+                        type="text"
+                        name="search"
+                        value="{{ request('search') }}"
+                        placeholder="Rechercher par nom de la bouteille"
+                        class="form-control input-search">
+                    <button type="submit" class="button-search">
+                        <i class="fa-solid fa-magnifying-glass icon-search "></i>
+                    </button>
+
+                </form>
             </div>
         </div>
+
+
+
     </nav>
 
     @if (session('success'))
