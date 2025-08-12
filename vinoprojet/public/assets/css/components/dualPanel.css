@@ -15,7 +15,8 @@
 
     & .dualPanel-left {
         max-width: 45ch;
-
+        display: flex;
+        flex-direction: column;
         h2 {
             font: var(--Heading-H3);
             color: var(--Color-800);
