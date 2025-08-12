@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: subgrid;
 
-    & > * {
+    &>* {
         grid-column: full;
     }
 
@@ -10,7 +10,7 @@
         display: grid;
         grid-template-columns: subgrid;
 
-        & > div {
+        &>div {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -18,7 +18,7 @@
             gap: 20px;
             padding: var(--spacing-micro) 0;
 
-            & > p {
+            &>p {
                 flex-shrink: 0;
 
                 @media (max-width: 768px) {
@@ -28,25 +28,32 @@
             }
         }
 
-        & > * {
+        &>* {
             grid-column: main;
         }
     }
+
     & .nav-main-links {
         display: grid;
         grid-template-columns: subgrid;
         background-color: var(--color-lien-fond-clair);
         color: var(--color-lien-fond-fonce);
 
-        & > * {
+        &>* {
             grid-column: main;
         }
-        & > div {
+
+        &>div {
             display: flex;
             align-items: center;
             justify-content: flex-start;
             gap: 20px;
             padding: var(--spacing-micro) 0;
+            flex-wrap: wrap;
+
+            @media (max-width: 768px) {
+                justify-content: center;
+                text-align: center;
+            }
         }
     }
-}

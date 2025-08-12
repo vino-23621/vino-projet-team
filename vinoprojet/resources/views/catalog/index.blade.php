@@ -4,6 +4,7 @@
 
 @section('content')
 
+
 <div class="dualPanel">
     <div class="dualPanel-left">
         <div class="dual-panel-left-header">
