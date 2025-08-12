@@ -65,6 +65,7 @@
     display: block;
     color: var(--Error-Red);
     margin-top: 8px;
+    font-size: 12px;
 
     & + input {
         margin-top: var(--spacing-thin);
