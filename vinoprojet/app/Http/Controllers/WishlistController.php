@@ -44,12 +44,13 @@ class WishlistController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Wishlist $wishlist)
-    {
-        $identities = Identity::all();
+    public function show()
+    {   $identities = Identity::all();
         $countries = Country::all();
 
-        $query = $wishlist->bottles();
+        $wishlist = Wishlist::where('users_id', Auth::id())->get();
+        // dd($wishlist);
+        $query = $wishlist->bottle();
 
         if ($request->filled('country')) {
             $query->where('country_id', $request->country);
@@ -99,8 +100,9 @@ class WishlistController extends Controller
 
         $bottles = $query->paginate(10);
 
-        return view('cellar.show', compact('wishlist', 'bottles', 'identities', 'countries'));
+        // return view('cellar.show', compact('wishlist', 'bottles', 'identities', 'countries'));
     }
+     
 
     /**
      * Show the form for editing the specified resource.

@@ -37,4 +37,9 @@ class Bottle extends Model
     {
         return $this->belongsTo(Identity::class);
     }
+
+    public function wishlist()
+    {
+        return $this->hasMany(Bottle::class);
+    }
 }
