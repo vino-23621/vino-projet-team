@@ -1,14 +1,5 @@
 .dual-panel-left-content {
-    background: linear-gradient(
-        180deg,
-        var(--Secondary-Mauve-200),
-        var(--Secondary-Mauve-100)
-    );
-    padding: var(--spacing-thin);
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(25, 25, 49, 0.06),
-        inset 0 0 0 2px var(--Primary-Purple-100);
-    max-width: 280px;
 }
 
 .dual-panel-left-content form {
@@ -17,6 +8,10 @@
     padding: var(--spacing-thin);
     display: grid;
     gap: var(--spacing-thinner);
+}
+
+.dual-panel-left-header {
+    margin-top: 0;
 }
 
 .dual-panel-left-content form,
@@ -33,7 +28,6 @@
     width: 100%;
     border: 1.5px solid var(--Color-200);
     border-radius: 12px;
-
     padding: 0 44px 0 14px;
     box-sizing: border-box;
     background-color: var(--White);
@@ -145,6 +139,9 @@
 }
 
 /*********************************************/
+.dualPanel.filter-sidebar {
+    margin-top: 0;
+}
 
 .filter-sidebar .dual-panel-left-content .filter-details {
     display: block;
@@ -189,14 +186,9 @@
     display: none;
 }
 
-.filter-sidebar .dual-panel-left-content .filter-summary h2 {
+.filter-sidebar .dual-panel-left-content .filter-summary h3 {
     margin: 0;
     font: var(--Display-400, 600 1.25rem/1.2 Arial, sans-serif);
-}
-.filter-sidebar .dual-panel-left-content .filter-summary p {
-    margin: 4px 0 0;
-    font: var(--Body-200, 400 0.92rem/1.5 Arial, sans-serif);
-    opacity: 0.95;
 }
 
 .filter-sidebar .dual-panel-left-content .filter-summary .chevron {
@@ -208,7 +200,7 @@
     transform: translateY(-50%) rotate(0deg);
     transition: transform 0.25s ease;
     background: no-repeat center/18px
-        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='white' stroke-width='2' viewBox='0 0 24 24'><polyline points='6 9 12 15 18 9'/></svg>");
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='black' stroke-width='2' viewBox='0 0 24 24'><polyline points='6 9 12 15 18 9'/></svg>");
 }
 .filter-sidebar
     .dual-panel-left-content

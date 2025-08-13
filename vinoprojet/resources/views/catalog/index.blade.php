@@ -6,51 +6,54 @@
 
 
 <div class="dualPanel">
-    <div class="dualPanel-left">
-        <div class="dual-panel-left-header">
-            <h2>Catalogue des bouteilles</h2>
-            <p class="profile-subtitle">Ajouter une bouteille dans votre cellier parmi une large gamme de produits</p>
+    <div class="dualPanel  filter-sidebar">
+        <div class="dualPanel-left">
+            <div class="dual-panel-left-header">
+                <h2>Catalogue des bouteilles</h2>
+                <p class="profile-subtitle">Ajouter une bouteille dans votre cellier parmi une large gamme de produits</p>
+            </div>
+            <div class="dual-panel-left-content">
+                <details class="filter-details" open>
+                    <summary class="filter-summary">
+                        <h3>Recherche Avancée</h3>
+                        <span class="chevron" aria-hidden="true"></span>
+                    </summary>
+
+                    <form method="GET" class="filter-form">
+                        <select name="country">
+                            <option value="">Tous les pays</option>
+                            @foreach($countries as $country)
+                            <option value="{{ $country->id }}" {{ request('country') == $country->id ? 'selected' : '' }}>
+                                {{ $country->name }}
+                            </option>
+                            @endforeach
+                        </select>
+
+                        <select name="identity">
+                            <option value="">Toutes les variétés</option>
+                            @foreach($identities as $identity)
+                            <option value="{{ $identity->id }}" {{ request('identity') == $identity->id ? 'selected' : '' }}>
+                                {{ $identity->name }}
+                            </option>
+                            @endforeach
+                        </select>
+
+                        <label>
+                            <input type="checkbox" name="vintage_null" value="1" {{ request('vintage_null') ? 'checked' : '' }}>
+                            Sans millésime
+                        </label>
+
+                        <input type="number" name="vintage_min" placeholder="Date min" value="{{ request('vintage_min') }}">
+                        <input type="number" name="vintage_max" placeholder="Date max" value="{{ request('vintage_max') }}">
+                        <input type="number" name="price_min" placeholder="Prix min" value="{{ request('price_min') }}">
+                        <input type="number" name="price_max" placeholder="Prix max" value="{{ request('price_max') }}">
+
+                        <button type="submit">Filtrer</button>
+                    </form>
+                </details>
+            </div>
         </div>
-
-        <div class="dual-panel-left-content">
-            <form method="GET">
-                <select name="country">
-                    <option value="">Tous les pays</option>
-                    @foreach($countries as $country)
-                    <option value="{{ $country->id }}" {{ request('country') == $country->id ? 'selected' : '' }}>
-                        {{ $country->name }}
-                    </option>
-                    @endforeach
-                </select>
-
-                <select name="identity">
-                    <option value="">Toutes les variété</option>
-                    @foreach($identities as $identity)
-                    <option value="{{ $identity->id }}" {{ request('identity') == $identity->id ? 'selected' : '' }}>
-                        {{ $identity->name }}
-                    </option>
-                    @endforeach
-                </select>
-
-                <label>
-                    <input type="checkbox" name="vintage_null" value="1" {{ request('vintage_null') ? 'checked' : '' }}>
-                    Sans millésime
-                </label>
-
-                <input type="number" name="vintage_min" placeholder="Date min" value="{{ request('vintage_min') }}">
-                <input type="number" name="vintage_max" placeholder="Date max" value="{{ request('vintage_max') }}">
-
-                <input type="number" name="price_min" placeholder="Prix min" value="{{ request('price_min') }}">
-                <input type="number" name="price_max" placeholder="Prix max" value="{{ request('price_max') }}">
-
-                <button type="submit">Filtrer</button>
-            </form>
-
-        </div>
-
-
     </div>
-
 
     <div class="dualPanel-right">
 
