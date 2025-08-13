@@ -77,7 +77,7 @@ class UserController extends Controller
 
         $user->update(['cellar_id' => $cellar->id]);
 
-        return redirect()->route('login')->with('success', 'Utilisateur enregistré');
+        return redirect()->route('login')->with('success', 'utilisateur enregistré.');
     }
 
     /**
@@ -161,7 +161,7 @@ class UserController extends Controller
         $user->password = $password_encrypted;
         $user->save();
 
-        return redirect()->route('user.show')->with('success', 'mot de passe modifié');
+        return redirect()->route('user.show')->with('success', 'mot de passe modifié.');
     }
 
     public function setCellarDefault(string $cellar_id)
@@ -176,7 +176,7 @@ class UserController extends Controller
         $user->cellar_id = $cellar_id;
         $user->save();
 
-        return redirect()->route('cellars.index')->with('success', 'cellier défaut modifié');
+        return redirect()->route('cellars.index')->with('success', 'cellier défaut modifié.');
     }
 
 
