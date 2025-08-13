@@ -10,7 +10,7 @@
         <div class="dualPanel-left">
             <div class="dual-panel-left-header">
                 <h2>Catalogue des bouteilles</h2>
-                <p class="profile-subtitle">Ajouter une bouteille dans votre cellier parmi une large gamme de produits</p>
+                <p class="profile-subtitle">Ajoutez une bouteille à votre cellier, parmi une large gamme de produits.</p>
             </div>
             <div class="dual-panel-left-content">
                 <details class="filter-details" open>
@@ -62,7 +62,7 @@
                 <a href="{{ route('cellars.create') }}" class="cta-banner-icon"><i class="fa-solid fa-plus"></i></a>
                 <div class="cta-banner-content">
                     <h3>Catalogue des bouteilles</h3>
-                    <p>Commence une cave pour regrouper tes bouteilles à ta façon.</p>
+                    <p>Commencez un cellier pour regrouper vos bouteilles à votre façon.</p>
                 </div>
                 <a href="{{ route('cellars.create') }}" class="button button__safe">Ajouter</a>
             </div>
@@ -109,7 +109,7 @@
                                 @elseif ($bottle->identity->name === 'Vin rosé') class="wine-color-ico rose"
                                 @elseif ($bottle->identity->name === 'Vin orange') class="wine-color-ico orange"
                                 @endif></div>
-                            <p>{{ $bottle->identity->name }} | @if($bottle->vintage !== null) {{ $bottle->vintage }} @else Date non connu @endif</p>
+                            <p>{{ $bottle->identity->name }} | @if($bottle->vintage !== null) {{ $bottle->vintage }} @else Date non connue @endif</p>
                         </div>
                     </header>
 
@@ -161,7 +161,7 @@
                                 <input type="number" name="quantity" id="quantity" value="1" min="1">
 
                                 <button type="submit" title="Ajouter à la wishlist" class="button addCellar">
-                                    + Ajouter à la wishlist
+                                    + Ajouter à la liste d’achats
                                 </button>
                             </form>
                         </section>
