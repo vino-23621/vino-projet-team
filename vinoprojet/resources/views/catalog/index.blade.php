@@ -69,9 +69,9 @@
         </div>
 
 
-        <div>
+        <div class="sort-container">
             <form method="GET">
-                <select name="sort">
+                <select name="sort" class="sort-select">
                     <option value="">Aucun tri</option>
                     <option value="vintage_asc" {{ request('sort') == 'vintage_asc' ? 'selected' : '' }}>Millésime (ancien → récent)</option>
                     <option value="vintage_desc" {{ request('sort') == 'vintage_desc' ? 'selected' : '' }}>Millésime (récent → ancien)</option>
@@ -89,7 +89,7 @@
                 <input type="hidden" name="price_min" value="{{ request('price_min') }}">
                 <input type="hidden" name="price_max" value="{{ request('price_max') }}">
 
-                <button type="submit">Trier</button>
+                <button class="sort-button" type="submit">Trier</button>
             </form>
         </div>
 

@@ -7,8 +7,7 @@ use App\Models\Cellar;
 use App\Models\Bottle;
 use App\Models\Cellar_Has_Bottle;
 use App\Models\Country;
-
-
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
@@ -91,6 +90,8 @@ class CatalogController extends Controller
         return view('catalog.index', compact('bottles', 'identities', 'countries'));
     }
 
+
+
     public function addWineFromCatalog(Request $request)
     {
         $request->validate([
@@ -100,24 +101,29 @@ class CatalogController extends Controller
 
         $cellarId = session('active_cellar_id') ?? auth()->user()->cellar_id;
         $bottleId = $request->input('bottle_id');
-        $quantity = $request->input('quantity', 1);
+        $quantity = $request->input('quantity', 1); // Default to 1 if null
 
-        $record = Cellar_Has_Bottle::where('cellar_id', $cellarId)
+        $existing = Cellar_Has_Bottle::where('cellar_id', $cellarId)
             ->where('bottle_id', $bottleId)
-            ->first();
+            ->exists();
 
-        if ($record) {
-            $record->increment('quantity', $quantity);
+        if ($existing) {
+            DB::table('cellar__has__bottles')
+                ->where('cellar_id', $cellarId)
+                ->where('bottle_id', $bottleId)
+                ->update([
+                    'quantity' => DB::raw('quantity + ' . intval($quantity))
+                ]);
         } else {
-            Cellar_Has_Bottle::create([
-                'cellar_id' => $cellarId,
-                'bottle_id' => $bottleId,
-                'quantity' => $quantity,
-            ]);
+            Cellar_Has_Bottle::updateOrCreate(
+                ['cellar_id' => $cellarId, 'bottle_id' => $bottleId],
+                ['quantity' => DB::raw("quantity + $quantity")]
+            );
         }
 
-        return redirect()->back()->with('success', 'Bottle added to cellar.');
+        return redirect()->back()->with('success', 'Bouteille ajoutée au cellier.');
     }
+
 
 
 
