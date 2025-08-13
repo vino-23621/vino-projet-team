@@ -25,7 +25,10 @@ class User extends Authenticatable
         return $this->belongsTo(Cellar::class, 'cellar_id');
     }
 
-
+    public function wishlist()
+    {
+        return $this->belongsToMany(Bottle::class, 'wishlist', 'users_id', 'bottles_id')->withPivot('quantity');
+    }
 
     /**
      * The attributes that are mass assignable.
