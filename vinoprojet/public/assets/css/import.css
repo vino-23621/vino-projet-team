@@ -28,6 +28,7 @@
 @import url("./components/catalog.css");
 @import url("./components/dualPanel.css");
 @import url("./components/cta-banner.css");
+@import url("./components/notification-banner.css");
 
 /* layout */
 @import url("./layouts/body.css");

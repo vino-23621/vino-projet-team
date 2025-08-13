@@ -7,7 +7,6 @@ img {
     max-width: 100%;
 }
 
-
 a {
     text-decoration: none;
 }
@@ -129,4 +128,32 @@ span {
     border: 2px solid var(--Success-Green-200);
     border-radius: 5px;
 
+}
+
+.password-rules {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.password-rules li {
+    position: relative;
+    margin-bottom: 8px;
+    color: #D3D3D3;
+    font-weight: 500;
+    font: var(--Text-Single-50-normal);
+    transition: all 0.2s ease;
+}
+
+.checkmark {
+    display: none;
+    color: #6ac293;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.valid-rule .checkmark {
+    display: inline;
 }

@@ -86,7 +86,7 @@ class CatalogController extends Controller
             }
         }
 
-        $bottles = $query->paginate(10)->appends($request->query());
+        $bottles = $query->paginate(12)->appends($request->query());
 
         return view('catalog.index', compact('bottles', 'identities', 'countries'));
     }
