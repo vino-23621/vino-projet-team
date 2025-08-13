@@ -25,7 +25,7 @@
 @endif
 
 <main class="form">
-    <img src="{{ asset('assets/images/img-wines.jpg') }}" alt="image bouteille vin">
+    <img src="{{ asset('assets/images/img-wines.jpg') }}" alt="Image de bouteille de vin">
     <div class="form-content">
         <h2>Se connecter</h2>
         <div>
@@ -34,7 +34,7 @@
         </div>
         <form method="POST" id="loginForm">
             @csrf
-            <input type="email" placeholder="Nom d’utilisateur ou adresse courriel" id="email" name="email" value="{{ old('email') }}">
+            <input type="email" placeholder="Adresse courriel" id="email" name="email" value="{{ old('email') }}">
             @foreach($errors->all() as $error)
             <span class="form-content-error">{{ $error }}</span>
             @endforeach
