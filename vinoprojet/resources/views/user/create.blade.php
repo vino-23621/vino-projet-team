@@ -1,31 +1,9 @@
 @extends('layouts.app')
 @section('title', 'Créer mon compte')
 @section('content')
-@if(Breadcrumbs::has())
-<div id="fil-ariane" aria-label="breadcrumb">
-    <ul class="breadcrumb">
-        @foreach (Breadcrumbs::current() as $crumbs)
-        @if ($crumbs->url() && !$loop->last)
-        <li class="breadcrumb-item">
-            <a href="{{ $crumbs->url() }}">
-                {{ $crumbs->title() }}
-            </a>
-        </li>
-        @else
-        <li class="breadcrumb-item active" aria-current="page">
-            {{ $crumbs->title() }}
-        </li>
-        @endif
-        @if (!$loop->last)
-        <span class="breadcrumb-separator">></span>
-        @endif
-        @endforeach
-    </ul>
-</div>
-@endif
 
 <div class="form">
-    <img src="{{ asset('assets/images/img-wines.jpg') }}" alt="image bouteille vin">
+    <img src="{{ asset('assets/images/img-wines.jpg') }}" alt="Bouteille de vin">
     <div class="form-content">
         <h2>Créer mon compte</h2>
         <div>
@@ -40,7 +18,7 @@
             <span class="form-content-error">{{ $errors->first('name')}}</span>
             @endif
 
-            <input type="text" id="cellar_name" name="cellar_name" value="{{ old('cellar_name') }}" placeholder="Donner un nom de cellier">
+            <input type="text" id="cellar_name" name="cellar_name" value="{{ old('cellar_name') }}" placeholder="Donne un nom au cellier">
             @if ($errors->has('cellar_name'))
             <span class="form-content-error">{{ $errors->first('cellar_name')}}</span>
             @endif
@@ -55,7 +33,7 @@
             <span class="form-content-error">{{ $errors->first('password')}}</span>
             @endif
 
-            <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Retaper mot de passe">
+            <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Confirmer le mot de passe">
             @if ($errors->has('password_confirmation'))
             <span class="form-content-error">{{ $errors->first('password_confirmation')}}</span>
             @endif
