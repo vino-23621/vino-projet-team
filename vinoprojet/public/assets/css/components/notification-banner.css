@@ -1,5 +1,4 @@
 .notification-banner{
-    margin-top: 2rem;
     border: 1px solid transparent;
     border-radius: 5px;
     background-color: var(--Success-Green-300);
@@ -8,6 +7,12 @@
     align-items: center;
     justify-content: space-between;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    transform: translateX(0);
+    opacity: 1;
+    position: absolute;
+    top: 2vh;
+    z-index: 1;
 
     @media (min-width: 650px) {
         align-items: baseline;
@@ -43,4 +48,9 @@
 
 .notification-banner.fail{
     background-color: var(--Error-Red-300);
+}
+
+.notification-banner.is-hidden {
+  transform: translateX(calc(100% + 40px));
+  opacity: 0;
 }
