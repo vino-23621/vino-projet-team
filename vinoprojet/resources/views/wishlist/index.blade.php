@@ -99,7 +99,7 @@
             <div class="grid-card">
                 @foreach($bottles as $bottle)
                 <article class="card-bottle">
-                    <img src="https://{{ $bottle['image'] }}" class="card-bottle-image">
+                    <img src="https://{{ $bottle->image }}" class="card-bottle-image">
 
                     <header class="card-bottle-header">
                         <h4>{{ $bottle->name }}</h4>

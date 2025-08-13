@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 use App\Models\Bottle;
 use App\Models\Country;
 use App\Models\Identity;
@@ -129,24 +130,23 @@ class WishlistController extends Controller
     public function addToWishList(Request $request)
     {
         $validated = $request->validate([
-            'bottle_id' => 'required|exists:bottles,id',
+            'users_id' => 'required|exists:users,id',
+            'bottles_id' => 'required|exists:bottles,id',
             'quantity' => 'required|integer|min:1'
         ]);
 
-        $bottleId = $validated['bottle_id'];
+        $bottleId = $validated['bottles_id'];
         $quantityInitial = $validated['quantity'];
+        $userId = $validated['users_id'];
 
-        $existingBottle = $cellar->bottles()->where('bottle_id', $bottleId)->exists();
+        $wishlist = Wishlist::firstOrCreate(
+            ['users_id' => $userId, 'bottles_id' => $bottleId],
+            ['quantity' => 0]
+        );
 
-        if ($existingBottle) {
+        $wishlist->quantity += $quantityInitial;
+        $wishlist->save();
 
-            $cellar->bottles()->updateExistingPivot($bottleId, [
-                'quantity' => DB::raw('quantity +' . $quantityInitial)
-            ]);
-        } else {
-            $cellar->bottles()->attach($bottleId, ['quantity' => $quantityInitial]);
-        }
-
-        return redirect()->route('wishlist.index')->with('success', 'Bouteille ajoutée au cellier.');
+        return redirect()->route('wishlist.index')->with('success', "Bouteille ajoutée à la liste d'achats.");
     }
 }
