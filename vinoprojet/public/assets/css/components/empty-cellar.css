@@ -1,0 +1,25 @@
+.empty-cellar {
+    text-align: center;
+    padding: var(--spacing-medium) 0; 
+    width: 100%; 
+}
+
+.empty-cellar p {
+    font: var(--Text-Single-100-normal);
+    color: var(--Color-500);
+    margin-bottom: var(--spacing-nano); 
+}
+
+.empty-cellar img {
+    width: 50%;
+    max-width: 200px; 
+    opacity: 0.5;
+    display: block;
+    margin: 0 auto; 
+}
+
+@media (max-width: 768px) {
+    .empty-cellar img {
+        width: 70%; 
+    }
+}

@@ -50,7 +50,7 @@ class CellarController extends Controller
             'user_id' => Auth::user()->id,
         ]);
 
-        return redirect()->route('cellars.index')->with('success', 'cellier créé avec succès');
+        return redirect()->route('cellars.index')->with('success', 'cellier créé avec succès.');
     }
 
     /**
@@ -144,7 +144,7 @@ class CellarController extends Controller
             $cellar->update($data);
         }
 
-        return redirect()->route('cellars.index')->with('success', 'Cellier modifié avec succès!');
+        return redirect()->route('cellars.index')->with('success', 'cellier modifié avec succès !');
     }
 
     /**
@@ -160,7 +160,7 @@ class CellarController extends Controller
         if ($user->cellar_id === $cellar->id) {
 
             return redirect()->route('cellars.index')
-                ->with('error', 'Vous ne pouvez pas supprimer votre cellier par défaut.');
+                ->with('error', 'vous ne pouvez pas supprimer votre cellier par défaut.');
         }
 
 
@@ -169,7 +169,7 @@ class CellarController extends Controller
         \DB::table('cellar__has__bottles')->where('cellar_id', $cellar->id)->delete();
 
         $cellar->delete();
-        return redirect()->route('cellars.index')->with('success', 'Le Cellar: ' . $target . 'a été effacé!');
+        return redirect()->route('cellars.index')->with('success', 'le cellar: ' . $target . 'a été effacé !');
     }
 
 
@@ -199,7 +199,7 @@ class CellarController extends Controller
             $cellar->bottles()->attach($bottleId, ['quantity' => $quantityInitial]);
         }
 
-        return redirect()->route('cellars.show', $cellar->id)->with('success', 'Bouteille ajoutée au cellier.');
+        return redirect()->route('cellars.show', $cellar->id)->with('success', 'bouteille ajoutée au cellier.');
     }
 
     public function editBottle(Cellar $cellar, Bottle $bottle)
@@ -209,7 +209,7 @@ class CellarController extends Controller
             ->first();
 
         if (!$cellarBottle) {
-            abort(404, 'Bouteille non trouvée dans ce cellier.');
+            abort(404, 'la bouteille n’a pas été trouvée dans ce cellier.');
         }
 
         $quantity = $cellarBottle->pivot->quantity;
@@ -227,12 +227,12 @@ class CellarController extends Controller
             'quantity' => $request->quantity
         ]);
 
-        return redirect()->route('cellars.show', $cellar->id)->with('success', 'Quantité mise à jour avec succès.');
+        return redirect()->route('cellars.show', $cellar->id)->with('success', 'quantité mise à jour avec succès.');
     }
 
     public function removeBottle(Cellar $cellar, Bottle $bottle)
     {
         $cellar->bottles()->detach($bottle->id);
-        return redirect()->back()->with('success', 'Bouteille supprimée du cellier.');
+        return redirect()->back()->with('success', 'bouteille supprimée du cellier.');
     }
 }
