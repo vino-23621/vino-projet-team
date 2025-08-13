@@ -128,8 +128,26 @@
                                 <p>CAD</p>
                             </div>
                         </section>
-
                     </div>
+
+                    <form action="{{ route('wishlist.updateQuantity', ['bottle' => $bottle->id]) }}" method="POST" class="inline-form">
+                        @csrf
+                        @method('PUT')
+                        <input type="hidden" name="bottle_id" value="{{ $bottle->id }}">
+                        <label for="quantity"></label>
+
+                        <input type="number" name="quantity" id="quantity" value="{{ old('quantity', $bottle->quantity) }}" min="0" required>
+                        <button type="submit" title="Ajouter au cellier" class="button addCellar">
+                            Changer la quantité
+                        </button>
+                    </form>
+
+                    <form action="{{ route('wishlist.removeBottle', $bottle->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="button button__danger">Retirer</button>
+                    </form>
+
                 </article>
                 @endforeach
                 
