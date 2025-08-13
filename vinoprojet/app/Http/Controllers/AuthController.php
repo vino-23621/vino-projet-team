@@ -25,6 +25,13 @@ class AuthController extends Controller
         $request->validate([
             'email' => 'required|email|exists:users,email',
             'password' => 'required|min:2|max:20'
+        ],[
+            'email.required' => 'L’email est obligatoire.',
+            'email.email'    => 'L’email doit être valide.',
+            'email.exists'   => 'Cet email n’existe pas dans notre base.',
+            'password.required' => 'Le mot de passe est obligatoire.',
+            'password.min'      => 'Le mot de passe doit avoir au moins :min caractères.',
+            'password.max'      => 'Le mot de passe ne peut pas dépasser :max caractères.'
         ]);
 
         $credentials = $request->only('email', 'password');

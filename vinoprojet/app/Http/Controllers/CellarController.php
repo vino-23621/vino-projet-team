@@ -39,6 +39,10 @@ class CellarController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:100',
+        ],[
+            'name.required' => 'Le champ nom est obligatoire.',
+            'name.string'   => 'Le nom doit être une chaîne de caractères.',
+            'name.max'      => 'Le nom ne peut pas dépasser :max caractères.'
         ]);
 
         Cellar::create([
@@ -46,7 +50,7 @@ class CellarController extends Controller
             'user_id' => Auth::user()->id,
         ]);
 
-        return redirect()->route('cellars.index')->with('success', 'Cellar créée avec succès');
+        return redirect()->route('cellars.index')->with('success', 'cellier créé avec succès');
     }
 
     /**
