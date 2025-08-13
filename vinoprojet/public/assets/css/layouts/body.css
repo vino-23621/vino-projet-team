@@ -1,6 +1,5 @@
 body {
     display: grid;
-    grid-template-rows: auto 1fr auto;
     grid-template-columns:
         [full-start] minmax(16px, 1fr)
         [main-start] minmax(0, 1400px)
@@ -8,6 +7,11 @@ body {
         [full-end];
     background-color: var(--White);
     min-height: 100vh;
+
+    grid-template-rows: 
+        [nav] auto
+        [main] 1fr
+        [footer] auto;
 }
 
 body > * {
@@ -18,4 +22,9 @@ body [id="fil-ariane"] {
 }
 body > main {
     grid-column: main;
+    grid-row: main;
+}
+
+body [id="nav-main"]{
+    grid-row: footer;
 }
