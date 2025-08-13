@@ -22,7 +22,7 @@ class Wishlist extends Model
 
     public function bottle()
     {
-        return $this->belongsTo(Bottle::class);
+        return $this->belongsTo(Wishlist::class);
     }
 
     public function user()
