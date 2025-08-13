@@ -39,7 +39,7 @@ class CellarController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:100',
-        ],[
+        ], [
             'name.required' => 'Le champ nom est obligatoire.',
             'name.string'   => 'Le nom doit être une chaîne de caractères.',
             'name.max'      => 'Le nom ne peut pas dépasser :max caractères.'
@@ -58,64 +58,64 @@ class CellarController extends Controller
      */
     public function show(Request $request, Cellar $cellar)
     {
-    $identities = Identity::all();
-    $countries = Country::all();
+        $identities = Identity::all();
+        $countries = Country::all();
 
-    session(['active_cellar_id' => $cellar->id]);
-    $cellar->load('bottles');
+        session(['active_cellar_id' => $cellar->id]);
+        $cellar->load('bottles');
 
-    $query = $cellar->bottles();
+        $query = $cellar->bottles();
 
-    if ($request->filled('country')) {
-        $query->where('country_id', $request->country);
-    }
-
-    if ($request->filled('identity')) {
-        $query->where('identity_id', $request->identity);
-    }
-    if ($request->boolean('vintage_null')) {
-        $query->whereNull('vintage');
-    } else {
-        if ($request->filled('vintage_min')) {
-            $query->where('vintage', '>=', $request->vintage_min);
+        if ($request->filled('country')) {
+            $query->where('country_id', $request->country);
         }
-        if ($request->filled('vintage_max')) {
-            $query->where('vintage', '<=', $request->vintage_max);
-        }
-    }
-    if ($request->filled('price_min')) {
-        $query->where('price', '>=', $request->price_min);
-    }
-    if ($request->filled('price_max')) {
-        $query->where('price', '<=', $request->price_max);
-    }
-    if ($request->filled('sort')) {
-        switch ($request->sort) {
-            case 'vintage_asc':
-                $query->orderBy('vintage', 'asc');
-                break;
-            case 'vintage_desc':
-                $query->orderBy('vintage', 'desc');
-                break;
-            case 'price_asc':
-                $query->orderBy('price', 'asc');
-                break;
-            case 'price_desc':
-                $query->orderBy('price', 'desc');
-                break;
-            case 'country_asc':
-                $query->orderBy('country_id', 'asc');
-                break;
-            case 'country_desc':
-                $query->orderBy('country_id', 'desc');
-                break;
-        }
-    }
 
-    $bottles = $query->paginate(12);
+        if ($request->filled('identity')) {
+            $query->where('identity_id', $request->identity);
+        }
+        if ($request->boolean('vintage_null')) {
+            $query->whereNull('vintage');
+        } else {
+            if ($request->filled('vintage_min')) {
+                $query->where('vintage', '>=', $request->vintage_min);
+            }
+            if ($request->filled('vintage_max')) {
+                $query->where('vintage', '<=', $request->vintage_max);
+            }
+        }
+        if ($request->filled('price_min')) {
+            $query->where('price', '>=', $request->price_min);
+        }
+        if ($request->filled('price_max')) {
+            $query->where('price', '<=', $request->price_max);
+        }
+        if ($request->filled('sort')) {
+            switch ($request->sort) {
+                case 'vintage_asc':
+                    $query->orderBy('vintage', 'asc');
+                    break;
+                case 'vintage_desc':
+                    $query->orderBy('vintage', 'desc');
+                    break;
+                case 'price_asc':
+                    $query->orderBy('price', 'asc');
+                    break;
+                case 'price_desc':
+                    $query->orderBy('price', 'desc');
+                    break;
+                case 'country_asc':
+                    $query->orderBy('country_id', 'asc');
+                    break;
+                case 'country_desc':
+                    $query->orderBy('country_id', 'desc');
+                    break;
+            }
+        }
 
-    return view('cellar.show', compact('cellar', 'bottles', 'identities', 'countries'));
-}
+        $bottles = $query->paginate(12);
+
+        return view('cellar.show', compact('cellar', 'bottles', 'identities', 'countries'));
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -132,24 +132,12 @@ class CellarController extends Controller
     {
         $request->validate([
             'name' => 'nullable|string|max:100',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,svg,webp|max:1048',
         ]);
 
         $data = [];
 
         if ($request->filled('name')) {
             $data['name'] = $request->name;
-        }
-
-        if ($request->hasFile('image')) {
-
-            if ($cellar->image) {
-                Storage::disk('public')->delete('cellar_images/' . $cellar->image);
-            }
-
-            $path = $request->file('image')->store('cellar_images', 'public');
-            $filename = basename($path);
-            $data['image'] = $filename;
         }
 
         if (!empty($data)) {
