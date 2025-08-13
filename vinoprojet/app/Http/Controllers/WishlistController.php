@@ -150,4 +150,37 @@ class WishlistController extends Controller
 
         return redirect()->route('wishlist.index')->with('success', "Bouteille ajoutée à la liste d'achats.");
     }
+
+        public function editBottle(Bottle $bottle)
+    {
+        $wishlistBottle = Wishlist::where('users_id', Auth::id())
+            ->where('bottles_id', $bottle->id)
+            ->first();
+
+        if (!$wishlistBottle) {
+            abort(404, 'Bouteille non trouvée dans ce cellier.');
+        }
+
+        $quantity = $wishlistBottle->quantity;
+
+        return view('wishlist.index', compact('bottle', 'quantity'));
+    }
+
+    public function updateQuantity(Request $request, Bottle $bottle)
+    {
+        $request->validate([
+            'quantity' => 'required|integer|min:0'
+        ]);
+
+        Wishlist::where('users_id', Auth::id())->where('bottles_id', $bottle->id)->update(['quantity' => $request->quantity]);
+
+        return redirect()->route('wishlist.index')->with('success', 'Quantité mise à jour avec succès.');
+    }
+
+    public function removeBottle(Bottle $bottle)
+    {
+        Auth::user()->wishlist()->detach($bottle->id);
+        return redirect()->back()->with('success', 'Bouteille retirée de la liste d’achats.');
+    }
 }
+
