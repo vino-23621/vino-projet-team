@@ -15,8 +15,7 @@
             <div class="dual-panel-left-content">
                 <details class="filter-details" open>
                     <summary class="filter-summary">
-                        <h2>Recherche Avancée</h2>
-                        <p>Utilisez les filtres ci-dessous pour affiner votre recherche</p>
+                        <h3>Recherche Avancée</h3>
                         <span class="chevron" aria-hidden="true"></span>
                     </summary>
 
@@ -95,7 +94,7 @@
             @if($bottles->isEmpty())
             <p>Aucune bouteille trouvée dans ce cellier.</p>
             @else
-             
+
             <div class="grid-card">
                 @foreach($bottles as $bottle)
                 @if($bottle->pivot->quantity !== 0)
