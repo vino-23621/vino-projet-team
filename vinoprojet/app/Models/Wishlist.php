@@ -12,6 +12,8 @@ class Wishlist extends Model
 {
     use HasFactory;
 
+    protected $table = 'wishlist';
+
     public function bottle()
     {
         return $this->belongsTo(Bottle::class);
