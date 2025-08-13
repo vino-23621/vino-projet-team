@@ -88,4 +88,7 @@ Route::middleware('auth')->group(function () {
     // route wishlist
     Route::get('/wishlist', [WishlistController::class, 'show'])->name('wishlist.index');
     Route::post('/wishlist/add-bottle', [WishlistController::class, 'addToWishList'])->name('wishlist.addToWishList');
+    Route::delete('wishlist/{bottle}', [WishlistController::class, 'removeBottle'])->name('wishlist.removeBottle');
+    Route::get('/wishlist/{bottle}/edit', [WishlistController::class, 'editBottle'])->name('wishlist.editBottle');
+    Route::put('/wishlist/{bottle}/update', [WishlistController::class, 'updateQuantity'])->name('wishlist.updateQuantity');
 });

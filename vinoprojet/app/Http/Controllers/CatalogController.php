@@ -121,7 +121,7 @@ class CatalogController extends Controller
             );
         }
 
-        return redirect()->back()->with('success', 'Bouteille ajoutée au cellier.');
+        return redirect()->back()->with('success', 'bouteille ajoutée au cellier.');
     }
 
 

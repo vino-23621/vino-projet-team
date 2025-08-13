@@ -10,8 +10,10 @@
     <div class="dualPanel filter-sidebar">
         <div class="dualPanel-left">
             <div class="dual-panel-left-header">
-                <h2>{{ $cellar->name }}</h2>
-                <p class="profile-subtitle">Crée un ou plusieurs celliers pour organiser tes bouteilles.</p>
+
+                <h2>{{$cellar->name}}</h2>
+                <p class="profile-subtitle">Ajoutez une ou plusieurs bouteilles à votre cellier.</p>
+
             </div>
             <section id="filtre-nav">
                 <input id="filtre_id" class="filtre-nav" type="checkbox">
@@ -94,8 +96,8 @@
                     <i class="fa-solid fa-plus"></i>
                 </a>
                 <div class="cta-banner-content">
-                    <h3>Ajoute une nouvelle bouteille</h3>
-                    <p>Étoffe ton catalogue avec de nouveaux ajouts.</p>
+                    <h3>Ajoutez une nouvelle bouteille</h3>
+                    <p>Étoffe votre catalogue avec de nouvelles bouteilles.</p>
                 </div>
                 <a href="{{ route('catalog.index', ['cellar_id' => $cellar->id]) }}" class="button button__safe">Ajouter</a>
             </div>
@@ -104,7 +106,10 @@
 
         <div class="dual-panel-right-content">
             @if($bottles->isEmpty())
-            <p>Aucune bouteille trouvée dans ce cellier.</p>
+            <div class="empty-cellar">
+                <p>Aucune bouteille trouvée dans ce cellier.</p>
+                <img src="{{ asset('assets/images/img-empty-cellar.png') }}" alt="Cellar vide">
+            </div>
             @else
             <div class="grid-card">
                 @foreach($bottles as $bottle)
@@ -120,11 +125,17 @@
                                 @elseif ($bottle->identity->name === 'Vin blanc') class="wine-color-ico white"
                                 @elseif ($bottle->identity->name === 'Vin rosé') class="wine-color-ico rose"
                                 @elseif ($bottle->identity->name === 'Vin orange') class="wine-color-ico orange"
-                                @endif
+
+                                <!-- @endif
                                 ></div>
                             <p>{{ $bottle->identity->name }} |
                                 @if($bottle->vintage !== null) {{ $bottle->vintage }} @else Date non connu @endif
-                            </p>
+                            </p> -->
+
+                                @endif>
+                            </div>
+                            <p>{{ $bottle->identity->name }} | @if($bottle->vintage !== null) {{ $bottle->vintage }} @else Date non connue @endif</p>
+
                         </div>
                     </header>
 
@@ -153,7 +164,7 @@
                             <input type="number" name="quantity" id="quantity"
                                 value="{{ old('quantity', $bottle->pivot->quantity) }}" min="0" required>
                             <button type="submit" title="Ajouter au cellier" class="button addCellar">
-                                Changer la quantité
+                                Modifier la quantité
                             </button>
                         </form>
 
@@ -164,13 +175,13 @@
                         <div id="customModal" class="modal">
                             <div class="modal-content">
                                 <h5>Retirer</h5>
-                                <p>Voulez vous retirer la bouteille?</p>
+                                <p>Voulez-vous retirer la bouteille ?</p>
                                 <div class="flex-row modal-buttons">
                                     <button class="button button__safe close-btn" id="closeModalBtn">Fermer</button>
                                     <form method="post" action="" id="deleteForm">
                                         @method('delete')
                                         @csrf
-                                        <button class="button button__danger" type="submit">Supprimer</button>
+                                        <button class="button button__danger" type="submit">Retirer</button>
                                     </form>
                                 </div>
                             </div>

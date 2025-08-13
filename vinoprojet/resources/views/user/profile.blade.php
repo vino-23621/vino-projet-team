@@ -1,30 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Profil Utilisateur')
+@section('title', 'Profil utilisateur')
 
 @section('content')
-@if(Breadcrumbs::has())
-    <div id="fil-ariane" aria-label="breadcrumb">
-        <ul class="breadcrumb">
-            @foreach (Breadcrumbs::current() as $crumbs)
-            @if ($crumbs->url() && !$loop->last)
-            <li class="breadcrumb-item">
-                <a href="{{ $crumbs->url() }}">
-                    {{ $crumbs->title() }}
-                </a>
-            </li>
-            @else
-            <li class="breadcrumb-item active" aria-current="page">
-                {{ $crumbs->title() }}
-            </li>
-            @endif
-            @if (!$loop->last)
-            <span class="breadcrumb-separator">></span>
-            @endif
-            @endforeach
-        </ul>
-    </div>
-    @endif
 <div class="container">
     <div class="profile">
         <div class="profile-wrapper">
@@ -34,13 +12,13 @@
             </div>
 
             <div class="profile-info">
-                <h3>Mes infos</h3>
+                <h3>Mes informations</h3>
                 <div class="profile-info-line">
                     <span class="profile-label">Nom</span>
 
                     <div class="profile-content-line">
                         <span class="profile-value">{{ Auth::user()->name }}</span>
-                    <a href="{{ route('user.edit-name', Auth::id()) }}" class="profile-edit-link">Changer</a>
+                    <a href="{{ route('user.edit-name', Auth::id()) }}" class="profile-edit-link">Modifier</a>
                     </div>
 
                 </div>
@@ -60,7 +38,7 @@
 
                     <div class="profile-content-line">
                         <span class="profile-value">••••••••</span>
-                       <a href="{{ route('user.edit-password', Auth::id()) }}" class="profile-edit-link">Changer</a>
+                       <a href="{{ route('user.edit-password', Auth::id()) }}" class="profile-edit-link">Modifier</a>
                     </div>
                 </div>
 
@@ -70,7 +48,7 @@
                 <label for="modalUser-toggle" class="button button__danger">Supprimer le compte</label>
                 <div class="modalUser">
                     <div class="modalUser-box">
-                        <p>Voulez-vous vraiment supprimer?</p>
+                        <p>Voulez-vous vraiment supprimer ce compte ?</p>
                         <div>
                             <form action="{{ route('user.destroy', Auth::user()->id) }}" method="POST">
                                 @csrf

@@ -6,7 +6,7 @@
 
 
 <div class="error-page">
-    <img src="{{ asset('assets/images/error-nico.jpg') }}" alt="Error 404">
+    <img src="{{ asset('assets/images/error-nico.png') }}" alt="Error 404">
     <div>
         <h1>Erreur 404</h1>
         <p>{{ session('message') ?? "La page que vous cherchez n'existe pas." }}</p>
