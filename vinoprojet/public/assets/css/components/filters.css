@@ -402,3 +402,94 @@
     justify-content: flex-end;
     width: fit-content;
 }
+
+#filtre-nav {
+    display: flex;
+    gap: 10px;
+    justify-content: safe center;
+    align-items: center;
+    overflow: auto;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+#filtre-nav input {
+    appearance: none;
+    position: static;
+    padding: 6px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--Primary-Purple-100);
+    background: #fff;
+    cursor: pointer;
+    height: 50px;
+    width: 100px;
+    border: 1px solid var(--Primary-Purple-400);
+    text-align: center;
+    align-content: center;
+    color: black;
+    background-color: var(--Primary-Purple-100);
+    font: var(--Body-small);
+    border-radius: 50px;
+}
+
+#filtre_id::before {
+    content: "Filtres ≡";
+}
+#filtre_id:checked::before {
+    content: "Fermer";
+}
+
+#trier_id::before {
+    content: "Trier ≡";
+}
+#trier_id:checked::before {
+    content: "Fermer";
+}
+
+#filtre-nav input:hover {
+    background-color: var(--Primary-Purple-400);
+    color: #fff;
+}
+
+@media (max-width: 700px) {
+    .filter-summary {
+        display: none;
+    }
+    .filter-details {
+        display: none;
+    }
+    .dualPanel .sort-container {
+        display: none;
+    }
+
+    .dualPanel:has(#filtre_id:checked) .filter-details {
+        display: block;
+    }
+
+    .dualPanel:has(#trier_id:checked) .sort-container {
+        display: block;
+    }
+
+    #filtre-nav {
+        display: flex;
+    }
+}
+
+@media (min-width: 701px) {
+    #filtre-nav {
+        display: none;
+    }
+    .filter-details {
+        display: block;
+    }
+    .dualPanel .sort-container {
+        display: block;
+    }
+}
+
+@media (max-width: 700px) {
+    .dual-panel-left-content {
+        appearance: none;
+        display: none;
+    }
+}
