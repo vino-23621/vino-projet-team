@@ -12,6 +12,14 @@ class Wishlist extends Model
 {
     use HasFactory;
 
+    protected $table = 'wishlist';
+
+    protected $fillable = [
+        'users_id',
+        'bottles_id',
+        'quantity',
+    ];
+
     public function bottle()
     {
         return $this->belongsTo(Bottle::class);
@@ -19,6 +27,6 @@ class Wishlist extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'users_id');
     }
 }

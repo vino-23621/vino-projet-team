@@ -142,6 +142,24 @@
                                 <button type="submit" title="Ajouter au cellier" class="button addCellar">
                                     + Ajouter au cellier
                                 </button>
+
+                            </form>
+
+                            <!-- Formulaire ajout à la wishlist -->
+
+                            <form action="{{ route('wishlist.addToWishList', ['bottle' => $bottle->id]) }}" method="POST" class="inline-form">
+                                @csrf
+
+                                <input type="hidden" name="users_id" value="{{ auth()->id() }}">
+
+                                <input type="hidden" name="bottles_id" value="{{ $bottle->id }}">
+
+                                <label for="quantity"></label>
+                                <input type="number" name="quantity" id="quantity" value="1" min="1">
+
+                                <button type="submit" title="Ajouter à la wishlist" class="button addCellar">
+                                    + Ajouter à la wishlist
+                                </button>
                             </form>
                         </section>
                     </div>
