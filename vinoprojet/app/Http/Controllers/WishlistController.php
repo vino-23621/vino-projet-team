@@ -45,10 +45,16 @@ class WishlistController extends Controller
      * Display the specified resource.
      */
     public function show(Request $request)
-    {   $identities = Identity::all();
+    {
+        $identities = Identity::all();
         $countries = Country::all();
 
         $query = Bottle::whereIn('id', Wishlist::where('users_id', Auth::id())->pluck('bottles_id'));
+
+        if ($request->filled('search')) {
+            $query->where('name', 'like', '%' . $request->search . '%');
+        }
+
 
 
         if ($request->filled('country')) {
@@ -101,7 +107,7 @@ class WishlistController extends Controller
 
         return view('wishlist.index', compact('bottles', 'identities', 'countries'));
     }
-     
+
 
     /**
      * Show the form for editing the specified resource.
@@ -151,7 +157,7 @@ class WishlistController extends Controller
         return redirect()->route('wishlist.index')->with('success', "Bouteille ajoutée à la liste d'achats.");
     }
 
-        public function editBottle(Bottle $bottle)
+    public function editBottle(Bottle $bottle)
     {
         $wishlistBottle = Wishlist::where('users_id', Auth::id())
             ->where('bottles_id', $bottle->id)
@@ -183,4 +189,3 @@ class WishlistController extends Controller
         return redirect()->back()->with('success', 'Bouteille retirée de la liste d’achats.');
     }
 }
-
