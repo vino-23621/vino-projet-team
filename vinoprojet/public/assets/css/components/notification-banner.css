@@ -52,6 +52,6 @@
 }
 
 .notification-banner.is-hidden {
-  transform: translateX(calc(100% + 40px));
+  transform: translateX(-120vw);
   opacity: 0;
 }
