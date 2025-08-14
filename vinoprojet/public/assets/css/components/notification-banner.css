@@ -3,6 +3,7 @@
     border-radius: 5px;
     background-color: var(--Success-Green-300);
     display: flex;
+    gap: 12px;
     padding: var(--spacing-thinnest) 8px ;
     align-items: center;
     justify-content: space-between;
@@ -49,6 +50,9 @@
 
 .notification-banner.fail{
     background-color: var(--Error-Red-300);
+}
+.notification-banner.information{
+    background-color: var(--Info-Blue-400);
 }
 
 .notification-banner.is-hidden {
