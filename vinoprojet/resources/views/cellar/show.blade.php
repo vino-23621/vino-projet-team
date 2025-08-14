@@ -91,18 +91,6 @@
 
 
         <div class="dual-panel-right-header">
-            <div class="cta-banner">
-                <a href="{{ route('catalog.index', ['cellar_id' => $cellar->id]) }}" class="cta-banner-icon">
-                    <i class="fa-solid fa-plus"></i>
-                </a>
-                <div class="cta-banner-content">
-                    <h3>Ajoutez une nouvelle bouteille</h3>
-                    <p>Étoffe votre catalogue avec de nouvelles bouteilles.</p>
-                </div>
-                <a href="{{ route('catalog.index', ['cellar_id' => $cellar->id]) }}" class="button button__safe">Ajouter</a>
-            </div>
-
-
             <div class="sort-container">
                 <form method="GET">
                     <div class="sort-flex-container">
@@ -225,6 +213,14 @@
 
         <div class="dual-panel-right-footer">
             {!! $bottles->links('vendor.pagination.default') !!}
+            <div class="cta-banner">
+                <a href="{{ route('catalog.index', ['cellar_id' => $cellar->id]) }}" class="cta-banner-icon"><i class="fa-solid fa-plus"></i></a>
+                <div class="cta-banner-content">
+                    <h3>Ajoutez une nouvelle bouteille</h3>
+                    <p>Étoffe votre catalogue avec de nouvelles bouteilles.</p>
+                </div>
+                <a href="{{ route('catalog.index', ['cellar_id' => $cellar->id]) }}" class="button button__safe">Ajouter</a>
+            </div>
         </div>
 
     </div>

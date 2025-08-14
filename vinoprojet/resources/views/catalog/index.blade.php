@@ -58,17 +58,6 @@
     <div class="dualPanel-right">
 
         <div class="dual-panel-right-header">
-            <div class="cta-banner">
-                <a href="{{ route('cellars.create') }}" class="cta-banner-icon"><i class="fa-solid fa-plus"></i></a>
-                <div class="cta-banner-content">
-                    <h3>Catalogue des bouteilles</h3>
-                    <p>Commencez un cellier pour regrouper vos bouteilles à votre façon.</p>
-                </div>
-                <a href="{{ route('cellars.create') }}" class="button button__safe">Ajouter</a>
-            </div>
-        </div>
-
-
         <div class="sort-container">
             <form method="GET">
                 <div class="sort-flex-container">
@@ -171,8 +160,16 @@
                 </article>
                 @endforeach
             </div>
-            <div class="dual-panel-right-footer">
-                {!! $bottles->links('vendor.pagination.default') !!}
+        </div>
+        <div class="dual-panel-right-footer">
+            {!! $bottles->links('vendor.pagination.default') !!}
+            <div class="cta-banner">
+                <a href="{{ route('cellars.create') }}" class="cta-banner-icon"><i class="fa-solid fa-plus"></i></a>
+                <div class="cta-banner-content">
+                    <h3>Catalogue des bouteilles</h3>
+                    <p>Commencez un cellier pour regrouper vos bouteilles à votre façon.</p>
+                </div>
+                <a href="{{ route('cellars.create') }}" class="button button__safe">Ajouter</a>
             </div>
         </div>
     </div>

@@ -43,4 +43,12 @@
             padding-left: calc(var(--spacing-nano) + 5px);
         }
     }
+
+    .dual-panel-right-footer{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
 }
