@@ -61,10 +61,26 @@ class CellarController extends Controller
         $identities = Identity::all();
         $countries = Country::all();
 
-        session(['active_cellar_id' => $cellar->id]);
-        $cellar->load('bottles');
+
+        /**
+         * Query for the cellar search.
+         */
 
         $query = $cellar->bottles();
+
+        if ($request->filled('search')) {
+            $query->where('name', 'like', '%' . $request->search . '%');
+        }
+
+
+
+        /**
+         * End Query for the cellar search.
+         */
+
+
+        session(['active_cellar_id' => $cellar->id]);
+        $cellar->load('bottles');
 
         if ($request->filled('country')) {
             $query->where('country_id', $request->country);
@@ -130,9 +146,16 @@ class CellarController extends Controller
      */
     public function update(Request $request, Cellar $cellar)
     {
-        $request->validate([
-            'name' => 'nullable|string|max:100',
-        ]);
+        $request->validate(
+            [
+                'name' => 'nullable|string|max:100',
+            ],
+            [
+                'name.required' => 'Le champ nom est obligatoire.',
+                'name.string'   => 'Le nom doit être une chaîne de caractères.',
+                'name.max'      => 'Le nom ne peut pas dépasser :max caractères.'
+            ]
+        );
 
         $data = [];
 

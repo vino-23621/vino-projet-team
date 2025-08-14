@@ -19,6 +19,17 @@
                         <span class="chevron" aria-hidden="true"></span>
                     </summary>
 
+                    <form action="{{ route('wishlist.index') }}" method="GET">
+                        <input
+                            type="text"
+                            name="search"
+                            value="{{ request('search') }}"
+                            placeholder="Rechercher par nom de la bouteille"
+                            class="form-control input-search">
+                        <button type="submit">
+                        </button>
+                    </form>
+
                     <form method="GET" class="filter-form">
                         <select name="country">
                             <option value="">Tous les pays</option>
@@ -158,8 +169,6 @@
         </div>
     </div>
 </div>
-
-
 
 
 @endsection
