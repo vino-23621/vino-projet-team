@@ -27,7 +27,7 @@
 </head>
 
 <body>
-
+    @auth
     <nav id="nav-main">
         <div id="nav-main-menu">
             <a class="nav-main-menu-links {{ request()->routeIs('cellars.index') ? 'active' : '' }}"  href="{{route('cellars.index')}}">
@@ -72,28 +72,16 @@
 
                 <span>Compte</span>
             </a>
-            <label class="nav-main-trigger-panel">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 6C4 5.44772 4.44772 5 5 5H19C19.5523 5 20 5.44772 20 6C20 6.55228 19.5523 7 19 7H5C4.44772 7 4 6.55228 4 6ZM4 10C4 9.44772 4.44772 9 5 9H19C19.5523 9 20 9.44772 20 10C20 10.5523 19.5523 11 19 11H5C4.44772 11 4 10.5523 4 10ZM4 14C4 13.4477 4.44772 13 5 13H19C19.5523 13 20 13.4477 20 14C20 14.5523 19.5523 15 19 15H5C4.44772 15 4 14.5523 4 14ZM4 18C4 17.4477 4.44772 17 5 17H19C19.5523 17 20 17.4477 20 18C20 18.5523 19.5523 19 19 19H5C4.44772 19 4 18.5523 4 18Z"
-                    fill="currentColor"/>
-            </svg>
-                <span>Menu</span>
-                <input type="checkbox">
-            </label>
-        </div>
-        <div id="nav-main-panel">
-            <a href="#"><img class="logo" src="{{ asset('assets/images/vinologo.png') }}" alt="logovino" /></a>
-            @auth
-            <p>Bienvenue, {{ Auth::user()->name }}</p>
-            <p>Cellier : {{ Auth::user()->defaultCellar->name }}</p>
-            <a class="button" href="{{ route('logout') }}">Déconnexion</a>
-            @else
-            <a class="button" href="{{ route('login') }}">Connexion</a>
-            @endauth
+            <a class="nav-main-menu-links" href="{{ route('logout') }}">
+               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M11 20C11 19.4477 10.5523 19 10 19H5V5H10C10.5523 5 11 4.55228 11 4C11 3.44771 10.5523 3 10 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H10C10.5523 21 11 20.5523 11 20Z" fill="currentColor"/>
+                <path d="M21.7136 12.7005C21.8063 12.6062 21.8764 12.498 21.9241 12.3828C21.9727 12.2657 21.9996 12.1375 22 12.003L22 12L22 11.997C21.9992 11.7421 21.9016 11.4874 21.7071 11.2929L17.7071 7.29289C17.3166 6.90237 16.6834 6.90237 16.2929 7.29289C15.9024 7.68342 15.9024 8.31658 16.2929 8.70711L18.5858 11H9C8.44771 11 8 11.4477 8 12C8 12.5523 8.44771 13 9 13H18.5858L16.2929 15.2929C15.9024 15.6834 15.9024 16.3166 16.2929 16.7071C16.6834 17.0976 17.3166 17.0976 17.7071 16.7071L21.7064 12.7078L21.7136 12.7005Z" fill="currentColor"/>
+                </svg>
+                <span>Déconnexion</span>
+            </a>
         </div>
     </nav>
-    
+    @endauth
 
     <main>
         @if (session('success'))
@@ -116,6 +104,18 @@
                 <div data-js="notification-close">
                     <span class="notification-banner-title">Erreur :</span>
                     <span>{{ session('error') }}</span>
+                </div>
+            </div>
+            <i data-js="notification-close" class="fa-solid fa-xmark notification-banner-icon"></i>
+        </div>
+        @endif
+        @if (session('information'))
+        <div data-js="notification-banner" class="notification-banner information">
+            <div>
+                <i class="fa-solid fa-circle-info notification-banner-icon"></i>
+                <div data-js="notification-close">
+                    <span class="notification-banner-title">Bienvenu</span>
+                    <span>{{ session('information') }}</span>
                 </div>
             </div>
             <i data-js="notification-close" class="fa-solid fa-xmark notification-banner-icon"></i>
