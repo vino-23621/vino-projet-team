@@ -57,27 +57,29 @@
     </div>
     <div class="dualPanel-right">
         <div class="dual-panel-right-header">
-            <div>
+            <div class="sort-container">
                 <form method="GET">
-                    <select name="sort">
-                        <option value="">Aucun tri</option>
-                        <option value="vintage_asc" {{ request('sort') == 'vintage_asc' ? 'selected' : '' }}>Millésime (ancien → récent)</option>
-                        <option value="vintage_desc" {{ request('sort') == 'vintage_desc' ? 'selected' : '' }}>Millésime (récent → ancien)</option>
-                        <option value="price_asc" {{ request('sort') == 'price_asc' ? 'selected' : '' }}>Prix (bas → haut)</option>
-                        <option value="price_desc" {{ request('sort') == 'price_desc' ? 'selected' : '' }}>Prix (haut → bas)</option>
-                        <option value="country_asc" {{ request('sort') == 'country_asc' ? 'selected' : '' }}>Pays (A → Z)</option>
-                        <option value="country_desc" {{ request('sort') == 'country_desc' ? 'selected' : '' }}>Pays (Z → A)</option>
-                    </select>
+                    <div class="sort-flex-container">
+                        <select name="sort" class="sort-select">
+                            <option value="">Aucun tri</option>
+                            <option value="vintage_asc" {{ request('sort') == 'vintage_asc' ? 'selected' : '' }}>Millésime (ancien → récent)</option>
+                            <option value="vintage_desc" {{ request('sort') == 'vintage_desc' ? 'selected' : '' }}>Millésime (récent → ancien)</option>
+                            <option value="price_asc" {{ request('sort') == 'price_asc' ? 'selected' : '' }}>Prix (bas → haut)</option>
+                            <option value="price_desc" {{ request('sort') == 'price_desc' ? 'selected' : '' }}>Prix (haut → bas)</option>
+                            <option value="country_asc" {{ request('sort') == 'country_asc' ? 'selected' : '' }}>Pays (A → Z)</option>
+                            <option value="country_desc" {{ request('sort') == 'country_desc' ? 'selected' : '' }}>Pays (Z → A)</option>
+                        </select>
 
-                    <input type="hidden" name="country" value="{{ request('country') }}">
-                    <input type="hidden" name="identity" value="{{ request('identity') }}">
-                    <input type="hidden" name="vintage_null" value="{{ request('vintage_null') }}">
-                    <input type="hidden" name="vintage_min" value="{{ request('vintage_min') }}">
-                    <input type="hidden" name="vintage_max" value="{{ request('vintage_max') }}">
-                    <input type="hidden" name="price_min" value="{{ request('price_min') }}">
-                    <input type="hidden" name="price_max" value="{{ request('price_max') }}">
+                        <input type="hidden" name="country" value="{{ request('country') }}">
+                        <input type="hidden" name="identity" value="{{ request('identity') }}">
+                        <input type="hidden" name="vintage_null" value="{{ request('vintage_null') }}">
+                        <input type="hidden" name="vintage_min" value="{{ request('vintage_min') }}">
+                        <input type="hidden" name="vintage_max" value="{{ request('vintage_max') }}">
+                        <input type="hidden" name="price_min" value="{{ request('price_min') }}">
+                        <input type="hidden" name="price_max" value="{{ request('price_max') }}">
 
-                    <button type="submit">Trier</button>
+                        <button class="sort-button" type="submit">Trier</button>
+                    </div>
                 </form>
             </div>
         </div>
