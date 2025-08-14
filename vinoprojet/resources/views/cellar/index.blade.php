@@ -14,16 +14,7 @@
     </div>
 
     <div class="dualPanel-right">
-        <div class="dual-panel-right-header">
-            <div class="cta-banner">
-                <a href="{{ route('cellars.create') }}" class="cta-banner-icon"><i class="fa-solid fa-plus"></i></a>
-                <div class="cta-banner-content">
-                    <h3>Ajout un nouveau cellier</h3>
-                    <p>Commencez un cellier pour regrouper vos bouteilles à votre manière.</p>
-                </div>
-                <a href="{{ route('cellars.create') }}" class="button button__safe">Ajouter</a>
-            </div>
-        </div>
+        
         <div class="dual-panel-right-content">
             <div class="grid-card">
                 @foreach($cellars as $cellar)
@@ -116,6 +107,16 @@
                         <button class="button button__safe close-btn" id="closeModalBtn">Fermer</button>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="dual-panel-right-footer">
+            <div class="cta-banner">
+                <a href="{{ route('cellars.create') }}" class="cta-banner-icon"><i class="fa-solid fa-plus"></i></a>
+                <div class="cta-banner-content">
+                    <h3>Ajout un nouveau cellier</h3>
+                    <p>Commencez un cellier pour regrouper vos bouteilles à votre manière.</p>
+                </div>
+                <a href="{{ route('cellars.create') }}" class="button button__safe">Ajouter</a>
             </div>
         </div>
     </div>

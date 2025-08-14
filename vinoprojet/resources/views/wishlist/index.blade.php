@@ -57,14 +57,6 @@
     </div>
     <div class="dualPanel-right">
         <div class="dual-panel-right-header">
-            <div class="cta-banner">
-                <a href="{{ route('catalog.index') }}" class="cta-banner-icon"><i class="fa-solid fa-plus"></i></a>
-                <div class="cta-banner-content">
-                    <h3>Ajoute une nouvelle bouteille</h3>
-                    <p>Étoffe ton catalogue avec de nouveaux ajouts.</p>
-                </div>
-                <a href="{{ route('catalog.index') }}" class="button button__safe">Ajouter</a>
-            </div>
             <div>
                 <form method="GET">
                     <select name="sort">
@@ -151,6 +143,16 @@
 
             </div>
             @endif
+        </div>
+        <div class="dual-panel-right-footer">
+            <div class="cta-banner">
+                <a href="{{ route('catalog.index') }}" class="cta-banner-icon"><i class="fa-solid fa-plus"></i></a>
+                <div class="cta-banner-content">
+                    <h3>Ajoute une nouvelle bouteille</h3>
+                    <p>Étoffe ton catalogue avec de nouveaux ajouts.</p>
+                </div>
+                <a href="{{ route('catalog.index') }}" class="button button__safe">Ajouter</a>
+            </div>
         </div>
     </div>
 </div>
