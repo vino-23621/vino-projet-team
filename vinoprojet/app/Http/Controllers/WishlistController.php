@@ -136,11 +136,22 @@ class WishlistController extends Controller
     /** Store bottles into the wishlist. */
     public function addToWishList(Request $request)
     {
-        $validated = $request->validate([
-            'users_id' => 'required|exists:users,id',
-            'bottles_id' => 'required|exists:bottles,id',
-            'quantity' => 'required|integer|min:1'
-        ]);
+        $validated = $request->validate(
+            [
+                'users_id' => 'required|exists:users,id',
+                'bottles_id' => 'required|exists:bottles,id',
+                'quantity' => 'required|integer|min:1'
+            ],
+            [
+                'users_id.required'   => "L'utilisateur est requis.",
+                'users_id.exists'     => "Utilisateur invalide.",
+                'bottles_id.required' => "La bouteille est requise.",
+                'bottles_id.exists'   => "Bouteille introuvable.",
+                'quantity.required'   => "La quantité est requise.",
+                'quantity.integer'    => "La quantité doit être un nombre entier.",
+                'quantity.min'        => "La quantité doit être au moins :min."
+            ]
+        );
 
         $bottleId = $validated['bottles_id'];
         $quantityInitial = $validated['quantity'];
@@ -154,7 +165,7 @@ class WishlistController extends Controller
         $wishlist->quantity += $quantityInitial;
         $wishlist->save();
 
-        return redirect()->route('wishlist.index')->with('success', "Bouteille ajoutée à la liste d'achats.");
+        return redirect()->route('wishlist.index')->with('success', "bouteille ajoutée à la liste d'achats.");
     }
 
     public function editBottle(Bottle $bottle)
