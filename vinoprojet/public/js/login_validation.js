@@ -1,9 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     const loginForm = document.getElementById("loginForm");
     const registerForm = document.getElementById("loginForm2");
+    const validationForm = document.getElementById("loginForm3");
 
 
-    const form = loginForm || registerForm;
+    const form = loginForm || registerForm || validationForm;
 
     const passwordInput = form.querySelector('input[name="password"]');
 
