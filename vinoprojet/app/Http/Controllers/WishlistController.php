@@ -45,7 +45,8 @@ class WishlistController extends Controller
      * Display the specified resource.
      */
     public function show(Request $request)
-    {   $identities = Identity::all();
+    {
+        $identities = Identity::all();
         $countries = Country::all();
 
         $query = Bottle::whereIn('id', Wishlist::where('users_id', Auth::id())->pluck('bottles_id'));
@@ -101,7 +102,7 @@ class WishlistController extends Controller
 
         return view('wishlist.index', compact('bottles', 'identities', 'countries'));
     }
-     
+
 
     /**
      * Show the form for editing the specified resource.
@@ -130,11 +131,22 @@ class WishlistController extends Controller
     /** Store bottles into the wishlist. */
     public function addToWishList(Request $request)
     {
-        $validated = $request->validate([
-            'users_id' => 'required|exists:users,id',
-            'bottles_id' => 'required|exists:bottles,id',
-            'quantity' => 'required|integer|min:1'
-        ]);
+        $validated = $request->validate(
+            [
+                'users_id' => 'required|exists:users,id',
+                'bottles_id' => 'required|exists:bottles,id',
+                'quantity' => 'required|integer|min:1'
+            ],
+            [
+                'users_id.required'   => "L'utilisateur est requis.",
+                'users_id.exists'     => "Utilisateur invalide.",
+                'bottles_id.required' => "La bouteille est requise.",
+                'bottles_id.exists'   => "Bouteille introuvable.",
+                'quantity.required'   => "La quantité est requise.",
+                'quantity.integer'    => "La quantité doit être un nombre entier.",
+                'quantity.min'        => "La quantité doit être au moins :min."
+            ]
+        );
 
         $bottleId = $validated['bottles_id'];
         $quantityInitial = $validated['quantity'];
@@ -148,10 +160,10 @@ class WishlistController extends Controller
         $wishlist->quantity += $quantityInitial;
         $wishlist->save();
 
-        return redirect()->route('wishlist.index')->with('success', "Bouteille ajoutée à la liste d'achats.");
+        return redirect()->route('wishlist.index')->with('success', "bouteille ajoutée à la liste d'achats.");
     }
 
-        public function editBottle(Bottle $bottle)
+    public function editBottle(Bottle $bottle)
     {
         $wishlistBottle = Wishlist::where('users_id', Auth::id())
             ->where('bottles_id', $bottle->id)
@@ -183,4 +195,3 @@ class WishlistController extends Controller
         return redirect()->back()->with('success', 'Bouteille retirée de la liste d’achats.');
     }
 }
-
