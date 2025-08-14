@@ -130,9 +130,16 @@ class CellarController extends Controller
      */
     public function update(Request $request, Cellar $cellar)
     {
-        $request->validate([
-            'name' => 'nullable|string|max:100',
-        ]);
+        $request->validate(
+            [
+                'name' => 'nullable|string|max:100',
+            ],
+            [
+                'name.required' => 'Le champ nom est obligatoire.',
+                'name.string'   => 'Le nom doit être une chaîne de caractères.',
+                'name.max'      => 'Le nom ne peut pas dépasser :max caractères.'
+            ]
+        );
 
         $data = [];
 
