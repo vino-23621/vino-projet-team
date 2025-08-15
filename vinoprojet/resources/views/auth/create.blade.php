@@ -2,7 +2,7 @@
 @section('title', 'Connexion')
 @section('content')
 
-<main class="form">
+<div class="form">
     <img src="{{ asset('assets/images/img-wines.jpg') }}" alt="Image de bouteille de vin">
     <div class="form-content">
         <h2>Se connecter</h2>
@@ -29,5 +29,5 @@
             <button class="button" type="submit">Se connecter</button>
         </form>
     </div>
-</main>
+</div>
 @endsection

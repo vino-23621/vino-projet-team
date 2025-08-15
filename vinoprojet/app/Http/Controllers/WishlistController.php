@@ -51,6 +51,11 @@ class WishlistController extends Controller
 
         $query = Bottle::whereIn('id', Wishlist::where('users_id', Auth::id())->pluck('bottles_id'));
 
+        if ($request->filled('search')) {
+            $query->where('name', 'like', '%' . $request->search . '%');
+        }
+
+
 
         if ($request->filled('country')) {
             $query->where('country_id', $request->country);

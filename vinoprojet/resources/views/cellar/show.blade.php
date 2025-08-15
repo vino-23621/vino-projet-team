@@ -13,11 +13,25 @@
                 <p class="profile-subtitle">Ajoutez une ou plusieurs bouteilles à votre cellier.</p>
             </div>
             <div class="dual-panel-left-content">
+
+
                 <details class="filter-details" open>
                     <summary class="filter-summary">
                         <h3>Recherche Avancée</h3>
                         <span class="chevron" aria-hidden="true"></span>
                     </summary>
+
+                    <form action="{{ route('cellars.show', $cellar->id) }}" method="GET">
+                        <input
+                            type="text"
+                            name="search"
+                            value="{{ request('search') }}"
+                            placeholder="Rechercher par nom de la bouteille"
+                            class="form-control input-search">
+                        <button type="submit">
+                        </button>
+                    </form>
+
 
                     <form method="GET" class="filter-form">
                         <select name="country">
@@ -86,7 +100,7 @@
             @if($bottles->isEmpty())
             <div class="empty-cellar">
                 <p>Aucune bouteille trouvée dans ce cellier.</p>
-            <img src="{{ asset('assets/images/img-empty-cellar.png') }}" alt="Cellar vide">
+                <img src="{{ asset('assets/images/img-empty-cellar.png') }}" alt="Cellar vide">
             </div>
             @else
 

@@ -11,7 +11,7 @@
      & form+.card-cellar-content{
         margin-top: var(--spacing-thin);
         border-top: 2px solid var(--Color-200);
-        padding-top: var(--spacing-thinner);
+        /* padding-top: var(--spacing-thinner); */
      }
 
      & .card-cellar-content>div{
@@ -22,6 +22,28 @@
 
         & p,a, button{
             padding: 8px 6px;
+            color: var(--Color-800);
         }
+
+        & .suppBtn{
+            color: var(--Color-400);
+        }
+     }
+
+     & .card-cellar-header>.card-cellar-title{
+         display: flex;
+         align-items: center;
+         gap: 12px; 
+
+         & button {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            color: inherit;
+            font-size: 1em;
+            line-height: 1;
+
+         }
      }
 }

@@ -37,8 +37,8 @@ Route::get('/registration', [UserController::class, 'create'])->name('user.creat
 Route::post('/registration', [UserController::class, 'store'])->name('user.store');
 
 // route auth
-Route::get('/login', [AuthController::class, 'create'])->name('login');
-Route::post('/login', [AuthController::class, 'store'])->name('login.store');
+Route::get('/', [AuthController::class, 'create'])->name('login');
+Route::post('/', [AuthController::class, 'store'])->name('login.store');
 
 
 // authentified route
