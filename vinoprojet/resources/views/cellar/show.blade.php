@@ -17,7 +17,7 @@
 
                 <details class="filter-details" open>
                     <summary class="filter-summary">
-                        <h3>Recherche Avancée</h3>
+                        <h3><i class="fa-solid fa-magnifying-glass"></i> Recherche Avancée</h3>
                         <span class="chevron" aria-hidden="true"></span>
                     </summary>
 
@@ -28,7 +28,8 @@
                             value="{{ request('search') }}"
                             placeholder="Rechercher par nom de la bouteille"
                             class="form-control input-search">
-                        <button type="submit">
+                        <button class="button button__defaultCellar" type="submit">Rechercher
+                            
                         </button>
                     </form>
 
@@ -62,7 +63,7 @@
                         <input type="number" name="price_min" placeholder="Prix min" value="{{ request('price_min') }}">
                         <input type="number" name="price_max" placeholder="Prix max" value="{{ request('price_max') }}">
 
-                        <button type="submit">Filtrer</button>
+                        <button class="button button__defaultCellar" type="submit">Filtrer</button>
                     </form>
                 </details>
             </div>
@@ -92,7 +93,7 @@
                     <input type="hidden" name="price_min" value="{{ request('price_min') }}">
                     <input type="hidden" name="price_max" value="{{ request('price_max') }}">
 
-                    <button class="sort-button" type="submit">Trier</button>
+                    <button class="button button__defaultCellar" type="submit">Trier</button>
                 </form>
             </div>
         </div>
