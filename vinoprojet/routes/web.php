@@ -75,6 +75,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/catalog', [BottleController::class, 'index'])->name('catalog.index');
     Route::post('/catalog/add/{bottle}', [CatalogController::class, 'addWineFromCatalog'])->name('catalog.addWineFromCatalog');
     Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog.index');
+    Route::get('/catalog/{bottle}', [BottleController::class, 'show'])->name('catalog.show');
 
 
     // route cellar_bottles
