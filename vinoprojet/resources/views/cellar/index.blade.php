@@ -33,17 +33,19 @@
                         <button type="submit" class="button button__defaultCellar"><i class="fa-solid fa-check"></i> Ce cellier est actif</button>
                     </form>
                     <div class="card-cellar-content">
-                        <h5>Gère ton cellier</h5>
-                            <div>
-                                <a href="{{ route('cellars.show', $cellar->id) }}"><i class="fa-regular fa-eye"></i> Consulter les bouteilles</a>
-                                <button class="openModalBtn modalBtn" data-id="{{$cellar->id}}"><i class="fa-regular fa-trash-can"></i> Supprimer ce cellier</button>
-                            </div>
+                        <div>
+                            <a href="{{ route('cellars.show', $cellar->id) }}"><i class="fa-regular fa-eye"></i> Consulter les bouteilles</a>
+                            <button class="openModalBtn modalBtn suppBtn" data-id="{{$cellar->id}}"><i class="fa-regular fa-trash-can"></i> Supprimer ce cellier</button>
+                        </div>
                     </div>
                 </div>
                 @else
                 <div class="card-cellar">
                     <div class="card-cellar-header">
-                        <h4>{{ $cellar->name }}</h4>
+                        <div class="card-cellar-title">
+                            <h4>{{ $cellar->name }}</h4>
+                            <button class="openModalBtnEdit modalBtn"><i class="fa-solid fa-pencil"></i></button>
+                        </div>
                         <p>Crée le : {{ $cellar->created_at->format('Y-m-d') }}</p>
                     </div>
                     <form action="{{ route('user.cellar-default', $cellar->id) }}" method="POST">
@@ -52,12 +54,10 @@
                         <button type="submit" class="button button__chooseCellar"><i class="fa-solid fa-check"></i>Définir par défaut</button>
                     </form>
                     <div class="card-cellar-content">
-                        <h5>Gère ton cellier</h5>
-                            <div>
-                                <button class="openModalBtnEdit modalBtn" data-name="{{$cellar->name}}" data-id="{{$cellar->id}}"><i class="fa-solid fa-pencil"></i> Modifier le nom</button>
-                                <a href="{{ route('cellars.show', $cellar->id) }}"><i class="fa-regular fa-eye"></i> Consulter les bouteilles</a>
-                                <button class="openModalBtn modalBtn" data-id="{{$cellar->id}}"><i class="fa-regular fa-trash-can"></i> Supprimer ce cellier</button>
-                            </div>
+                        <div>
+                            <a href="{{ route('cellars.show', $cellar->id) }}"><i class="fa-regular fa-eye"></i> Consulter les bouteilles</a>
+                            <button class="openModalBtn modalBtn suppBtn" data-id="{{$cellar->id}}"><i class="fa-regular fa-trash-can"></i> Supprimer ce cellier</button>
+                        </div>
                     </div>
                 </div>
                 @endif
@@ -83,8 +83,6 @@
                         @endif
 
                         <div class="flex-row modal-buttons">
-
-
                             <button type="button" class="button button__safe close-btn-edit" id="closeModalBtnEdit">Fermer</button>
                             <button class="button button__defaultCellar" type="submit">Modifier</button>
                         </div>

@@ -11,7 +11,7 @@
      & form+.card-cellar-content{
         margin-top: var(--spacing-thin);
         border-top: 2px solid var(--Color-200);
-        padding-top: var(--spacing-thinner);
+        /* padding-top: var(--spacing-thinner); */
      }
 
      & .card-cellar-content>div{
@@ -22,6 +22,11 @@
 
         & p,a, button{
             padding: 8px 6px;
+            color: var(--Color-800);
+        }
+
+        & .suppBtn{
+            color: var(--Color-400);
         }
      }
 
