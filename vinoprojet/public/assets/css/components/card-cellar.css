@@ -24,4 +24,21 @@
             padding: 8px 6px;
         }
      }
+
+     & .card-cellar-header>.card-cellar-title{
+         display: flex;
+         align-items: center;
+         gap: 12px; 
+
+         & button {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            color: inherit;
+            font-size: 1em;
+            line-height: 1;
+
+         }
+     }
 }
