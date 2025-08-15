@@ -21,7 +21,10 @@
                 @if (Auth::user()->cellar_id === $cellar->id)
                 <div class="card-cellar">
                     <div class="card-cellar-header">
-                        <h4>{{ $cellar->name }}</h4>
+                        <div class="card-cellar-title">
+                            <h4>{{ $cellar->name }}</h4>
+                            <button class="openModalBtnEdit modalBtn"><i class="fa-solid fa-pencil"></i></button>
+                        </div>
                         <p>Créé le : {{ $cellar->created_at->format('Y-m-d') }}</p>
                     </div>
                     <form action="{{ route('user.cellar-default', $cellar->id) }}" method="POST">
@@ -32,7 +35,6 @@
                     <div class="card-cellar-content">
                         <h5>Gère ton cellier</h5>
                             <div>
-                                <button class="openModalBtnEdit modalBtn"><i class="fa-solid fa-pencil"></i> Modifier le nom</button>
                                 <a href="{{ route('cellars.show', $cellar->id) }}"><i class="fa-regular fa-eye"></i> Consulter les bouteilles</a>
                                 <button class="openModalBtn modalBtn" data-id="{{$cellar->id}}"><i class="fa-regular fa-trash-can"></i> Supprimer ce cellier</button>
                             </div>
