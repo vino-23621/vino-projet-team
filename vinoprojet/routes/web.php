@@ -92,4 +92,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('wishlist/{bottle}', [WishlistController::class, 'removeBottle'])->name('wishlist.removeBottle');
     Route::get('/wishlist/{bottle}/edit', [WishlistController::class, 'editBottle'])->name('wishlist.editBottle');
     Route::put('/wishlist/{bottle}/update', [WishlistController::class, 'updateQuantity'])->name('wishlist.updateQuantity');
+    //api cellar filtres
+    Route::get('/cellar-data/{cellar_id}', [CellarController::class, 'apiCellar']);
 });

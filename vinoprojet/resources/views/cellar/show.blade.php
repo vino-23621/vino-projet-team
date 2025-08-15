@@ -67,6 +67,12 @@
                     </form>
                 </details>
             </div>
+
+<div class="dualPanel">
+    <div class="dualPanel-left">
+        <div class="dual-panel-left-header">
+            <h2>{{$cellar->name}}</h2>
+            <p class="profile-subtitle">Crée un ou plusieurs celliers pour organiser tes bouteilles.</p>
         </div>
 
     </div>
@@ -97,6 +103,11 @@
                 </form>
             </div>
         </div>
+        <section class="" id="mainCellarBootles">
+
+        </section>
+
+        <!-- 
         <div class="dual-panel-right-content">
             @if($bottles->isEmpty())
             <div class="empty-cellar">
@@ -188,5 +199,17 @@
         </div>
     </div>
 </div>
+
+        </div> -->
+
+    </div>
+    <div class="dual-panel-right-footer">
+        {!! $bottles->links('vendor.pagination.default') !!}
+    </div>
+</div>
+
+
+
+
 
 @endsection
