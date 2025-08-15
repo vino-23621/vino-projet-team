@@ -41,7 +41,12 @@ class BottleController extends Controller
      * Display the specified resource.
      */
 
-    public function show(Request $request, Bottle $bottle) {}
+    public function show(Request $request, Bottle $bottle)
+    {
+        // $bottle->load(['identity', 'country']);
+
+        // return view('catalog.show', compact('bottle'));
+    }
 
 
     /**
