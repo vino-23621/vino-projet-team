@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('bottle_id');
             $table->unsignedBigInteger('comment_id');
-            $table->longText('comment');
+            $table->text('comment');
+            $table->unsignedTinyInteger('notation')->default(0);
             $table->timestamps();
 
             $table->foreign('bottle_id')->references('id')->on('bottles')->onDelete('cascade');

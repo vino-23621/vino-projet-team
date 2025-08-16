@@ -106,8 +106,6 @@
         <section class="" id="mainCellarBootles">
 
         </section>
-
-        <!-- 
         <div class="dual-panel-right-content">
             @if($bottles->isEmpty())
             <div class="empty-cellar">
@@ -137,7 +135,9 @@
 
                     <div class="card-bottle-content">
                         <section>
-                            <h3 class="subtitle-wines">Détails</h3>
+                            <a href="{{ route('bottle.show', $bottle->id) }}">
+                                <h3 class="subtitle-wines">Détails</h3>
+                            </a>
                             <div class="content-details">
                                 <p>{{ $bottle->country->name }}</p>
                                 <p class="bottle-size-ml">{{ $bottle->size }} ml</p>
@@ -200,7 +200,7 @@
     </div>
 </div>
 
-        </div> -->
+        </div>
 
     </div>
     <div class="dual-panel-right-footer">

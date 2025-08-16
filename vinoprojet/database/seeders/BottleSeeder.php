@@ -38,7 +38,7 @@ class BottleSeeder extends Seeder
                     'alcohol_percentage' => (float) $item['alcohol_percentage'],
                     'sugar' => (float) $item['sugar'],
                     'size' => (int) $item['size'],
-                    'vintage' => (int) $item['vintage'],
+                    'vintage' => $item['vintage'] ? (int) $item['vintage'] : null,
                     'identity_id' => $identity->id,
                     'country_id' => $country->id,
                 ]
