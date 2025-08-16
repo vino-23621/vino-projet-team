@@ -72,6 +72,7 @@ Route::middleware('auth')->group(function () {
 
 
     // route catalog
+    // IL FAUT CHOISIR UNE DES DEUX ROUTE INDEX
     Route::get('/catalog', [BottleController::class, 'index'])->name('catalog.index');
     Route::post('/catalog/add/{bottle}', [CatalogController::class, 'addWineFromCatalog'])->name('catalog.addWineFromCatalog');
     Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog.index');
