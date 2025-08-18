@@ -53,7 +53,8 @@
                             @endforeach
                         </select>
 
-                        <label>
+                        <label> 
+                            {{-- regler le probleme de recherche vintage --}}
                             <input type="checkbox" name="vintage_null" value="1" {{ request('vintage_null') ? 'checked' : '' }}>
                             Sans millésime
                         </label>
