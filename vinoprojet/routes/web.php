@@ -72,10 +72,13 @@ Route::middleware('auth')->group(function () {
 
 
     // route catalog
+    // IL FAUT CHOISIR UNE DES DEUX ROUTE INDEX
     Route::get('/catalog', [BottleController::class, 'index'])->name('catalog.index');
     Route::post('/catalog/add/{bottle}', [CatalogController::class, 'addWineFromCatalog'])->name('catalog.addWineFromCatalog');
     Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog.index');
-    Route::get('/catalog/{bottle}', [BottleController::class, 'show'])->name('catalog.show');
+
+    // route bottle
+    Route::get('/bottle/{bottle}', [BottleController::class, 'show'])->name('bottle.show');
 
 
     // route cellar_bottles
@@ -92,4 +95,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('wishlist/{bottle}', [WishlistController::class, 'removeBottle'])->name('wishlist.removeBottle');
     Route::get('/wishlist/{bottle}/edit', [WishlistController::class, 'editBottle'])->name('wishlist.editBottle');
     Route::put('/wishlist/{bottle}/update', [WishlistController::class, 'updateQuantity'])->name('wishlist.updateQuantity');
+    //api cellar filtres
+    Route::get('/cellar-data/{cellar_id}', [CellarController::class, 'apiCellar']);
 });

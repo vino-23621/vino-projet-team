@@ -67,4 +67,9 @@ class User extends Authenticatable
         $cellarId = session('active_cellar_id') ?? $this->cellar_id;
         return $cellarId ? \App\Models\Cellar::find($cellarId) : null;
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

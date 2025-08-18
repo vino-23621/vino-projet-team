@@ -16,7 +16,17 @@ class Bottle extends Model
         'size',
         'vintage',
         'identity_id',
-        'country_id'
+        'country_id',
+        'grape_variety',
+        'appellation',
+        'alcohol_percentage',
+        'sugar'
+    ];
+
+    protected $casts = [
+        'grape_variety' => 'array',
+        'alcohol_percentage' => 'float',
+        'sugar' => 'float',
     ];
 
     /**
@@ -41,5 +51,13 @@ class Bottle extends Model
     public function wishlist()
     {
         return $this->hasMany(Bottle::class);
+    }
+
+
+    public function comments()
+    {
+        return $this->belongsToMany(Comment::class, 'bottles_has_comments')
+            ->withPivot('comment')
+            ->withTimestamps();
     }
 }

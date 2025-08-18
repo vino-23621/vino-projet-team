@@ -16,6 +16,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('image')->nullable();
             $table->decimal('price', 10, 2)->nullable();
+            $table->json('grape_variety')->nullable();
+            $table->string('appellation')->nullable();
+            $table->float('alcohol_percentage', 4, 2)->nullable();
+            $table->float('sugar', 4, 1)->nullable();
             $table->integer('size')->nullable();
 
             $table->unsignedBigInteger('identity_id');
@@ -25,6 +29,7 @@ return new class extends Migration
 
             $table->unsignedBigInteger('country_id');
             $table->foreign('country_id')->references('id')->on('countries');
+            
             $table->timestamps();
         });
     }

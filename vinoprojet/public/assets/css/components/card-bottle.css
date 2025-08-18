@@ -4,6 +4,7 @@
     padding: var(--spacing-thinner);
     max-width: 400px;
 }
+
 .card-bottle-image {
     margin-inline: auto;
     display: block;
@@ -45,9 +46,26 @@
     margin-bottom: var(--spacing-pico);
 }
 
+.subsubtitle-wines {
+    font-size: 16px;
+    font-family: var(--font-content);
+    color: #472080;
+    margin-bottom: var(--spacing-pico);
+}
+
 .content-details {
     display: flex;
     justify-content: space-between;
+}
+
+.details-card-content {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.container-rate-wine {
+    margin-bottom: 15px
 }
 
 .bottle-size-ml {
@@ -79,4 +97,13 @@ input[type="number"] {
     border-radius: 0;
     text-align: center;
     outline: none;
+}
+
+
+.container-win-details {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+
 }
