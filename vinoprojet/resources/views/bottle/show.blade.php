@@ -88,8 +88,15 @@
                                     {{ is_array($bottle->grape_variety) ? implode(', ', $bottle->grape_variety) : $bottle->grape_variety }}
                                 </p>
 
-
                             </div>
+
+                            <button class="button-comments">
+                                <a href="{{ route('comment.form', $bottle->id) }}"><i class="fa-solid fa-comments"></i> Ajouter une note</a>
+                            </button>
+
+
+
+
 
                         </div>
 
