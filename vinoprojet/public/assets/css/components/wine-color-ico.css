@@ -7,19 +7,59 @@
     display: inline-block;
     position: relative;
 }
+
 .wine-color-ico.red {
     background-color: #e63946;
     border-color: #b81d30;
 }
+
 .wine-color-ico.white {
     background-color: #f1faee;
     border-color: #a8dadc;
 }
+
 .wine-color-ico.rose {
     background-color: #f5c6d0;
     border-color: #ff6f61;
 }
+
 .wine-color-ico.orange {
     background-color: #ffb74d;
     border-color: #e98d02;
+}
+
+.wine-color-ico.sparking {
+    background-color: #8E5C6E;
+    border-color: #8e5c6e;
+}
+
+.wine-color-ico.champagne {
+    background-color: #F7E7CE;
+    border-color: #C2A377;
+}
+
+.wine-color-ico.champagneRose {
+    background-color: #E8B7B7;
+    border-color: #D99CA6;
+}
+
+.wine-color-ico.sparkingRose {
+    background-color: #E7A6A1;
+    border-color: #D95C63;
+}
+
+.wine-color-ico.sparkingRed {
+    background-color: #8B1A1A;
+    border-color: #8B1A1A;
+}
+
+.wine-color-ico.dessert {
+    background-color: #C48E2E;
+    border-color: #C48E2E;
+}
+
+
+.wine-color-ico.tomate {
+    background-color: #E34234;
+    border-color: #E34234;
 }

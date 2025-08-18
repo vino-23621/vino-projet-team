@@ -112,6 +112,14 @@
                                 @elseif ($bottle->identity->name === 'Vin blanc') class="wine-color-ico white"
                                 @elseif ($bottle->identity->name === 'Vin rosé') class="wine-color-ico rose"
                                 @elseif ($bottle->identity->name === 'Vin orange') class="wine-color-ico orange"
+                                @elseif ($bottle->identity->name === 'Vin mousseux') class="wine-color-ico sparkling"
+                                @elseif ($bottle->identity->name === 'Champagne') class="wine-color-ico champagne"
+                                @elseif ($bottle->identity->name === 'Champagne rosé') class="wine-color-ico champagneRose"
+                                @elseif ($bottle->identity->name === 'Vin mousseux rosé') class="wine-color-ico sparkingRose"
+                                @elseif ($bottle->identity->name === 'Vin de dessert') class="wine-color-ico dessert"
+                                @elseif ($bottle->identity->name === 'Vin de tomate') class="wine-color-ico tomate"
+
+
                                 @endif></div>
                             <p>{{ $bottle->identity->name }} | @if($bottle->vintage !== null) {{ $bottle->vintage }} @else Date non connu @endif</p>
                         </div>
@@ -148,7 +156,7 @@
                     <form action="{{ route('wishlist.removeBottle', $bottle->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="button button__danger">Retirer</button>
+                        <button class="modalBtn"><i class="fa-regular fa-trash-can"></i>Retirer de la liste d'achat</button>
                     </form>
 
                 </article>
