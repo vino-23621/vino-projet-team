@@ -68,6 +68,7 @@ class User extends Authenticatable
         return $cellarId ? \App\Models\Cellar::find($cellarId) : null;
     }
 
+
     public function comments()
     {
         return $this->hasMany(Comment::class);
