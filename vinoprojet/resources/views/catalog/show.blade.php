@@ -1,4 +1,4 @@
-@extends('layouts.app')
+<!-- @extends('layouts.app')
 
 @section('title', $bottle->name)
 
@@ -77,4 +77,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection -->
