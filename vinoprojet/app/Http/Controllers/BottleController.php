@@ -6,7 +6,9 @@ use App\Models\Bottle;
 use App\Models\Identity;
 use App\Models\Country;
 use App\Models\Cellar;
+use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BottleController extends Controller
 {
@@ -43,7 +45,7 @@ class BottleController extends Controller
 
     public function show(Bottle $bottle)
     {
-        
+
         return view('bottle.show', compact('bottle'));
     }
 
@@ -64,10 +66,37 @@ class BottleController extends Controller
         //
     }
 
+
+
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Bottle $bottle)
+
+
+    public function comment(Bottle $bottle)
+    {
+
+        return view('comment.form', compact('bottle'));
+    }
+
+
+
+
+    public function addcomment(Request $request, Bottle $bottle)
+    {
+
+        $request->validate(['comment' => 'required|string|max:500']);
+
+        $user = Auth::user();
+
+        $comment = Comment::create(['user_id' => $user->id,]);
+
+        $bottle->comments()->attach($comment->id, ['comment' => $request->input('comment'),]);
+
+        return redirect()->route('bottle.show', $bottle->id)->with('success', 'Commentaire ajouté');
+    }
+
+    public function destroyComment(Bottle $bottle)
     {
         //
     }

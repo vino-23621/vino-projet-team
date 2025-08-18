@@ -22,8 +22,13 @@
                             @elseif ($bottle->identity->name === 'Vin blanc') class="wine-color-ico white"
                             @elseif ($bottle->identity->name === 'Vin rosé') class="wine-color-ico rose"
                             @elseif ($bottle->identity->name === 'Vin orange') class="wine-color-ico orange"
-                            @endif
-                            ></div>
+                            @elseif ($bottle->identity->name === 'Vin mousseux') class="wine-color-ico sparkling"
+                            @elseif ($bottle->identity->name === 'Champagne') class="wine-color-ico champagne"
+                            @elseif ($bottle->identity->name === 'Champagne rosé') class="wine-color-ico champagneRose"
+                            @elseif ($bottle->identity->name === 'Vin mousseux rosé') class="wine-color-ico sparkingRose"
+                            @elseif ($bottle->identity->name === 'Vin de dessert') class="wine-color-ico dessert"
+                            @elseif ($bottle->identity->name === 'Vin de tomate') class="wine-color-ico tomate"
+                            @endif></div>
 
                         <p>
                             {{ $bottle->identity->name }}
@@ -46,6 +51,53 @@
                         <div class="section-price">
                             <h5 class="price-wine">$ {{ number_format($bottle->price, 2) }}</h5>
                             <p>CAD</p>
+                        </div>
+
+                        <div class="container-rate-wine">
+
+                            <div class="details-card-content">
+                                <p class="subsubtitle-wines">Taux de sucre: </p>
+                                <p> {{$bottle->sugar}} g/L</p>
+
+                            </div>
+
+                            <div class="details-card-content">
+                                <p class="subsubtitle-wines">
+                                    Taux d'alcool: </p>
+                                <p>{{$bottle->alcohol_percentage}} %
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="container-rate-wine">
+
+                            <div class="details-card-content">
+                                <p class="subsubtitle-wines">Appellation:</p>
+                                <p>{{$bottle->appellation}}</p>
+
+                            </div>
+
+                            <div class="details-card-content">
+                                <p class="subsubtitle-wines">
+                                    Cépages:</p>
+
+                                <p>
+                                    {{ is_array($bottle->grape_variety) ? implode(', ', $bottle->grape_variety) : $bottle->grape_variety }}
+                                </p>
+
+                            </div>
+
+                            <button class="button-comments">
+                                <a href="{{ route('comment.form', $bottle->id) }}"><i class="fa-solid fa-comments"></i> Ajouter une note</a>
+                            </button>
+
+
+
+
+
                         </div>
 
                         <form action="{{ route('catalog.addWineFromCatalog', ['bottle' => $bottle->id]) }}" method="POST" class="inline-form">

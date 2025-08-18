@@ -55,6 +55,21 @@
     }
 }
 
+.button.button__danger_petit {
+    color: var(--Error-Red);
+    background-color: var(--Error-Red-100);
+    border-radius: var(--radius-super-sharp);
+    border: 1px solid var(--Error-Red-200);
+    transition: color, background-color, 300ms ease;
+    font-size: var(--Text-Single-50-normal);
+
+    &:hover {
+        background-color: var(--Error-Red);
+        color: var(--White);
+        transition-duration: 300ms;
+    }
+}
+
 .button.button__safe {
     background-color: var(--Success-Green-300);
     transition: color, background-color, 300ms ease;
@@ -75,6 +90,7 @@
     background-color: var(--Primary-Purple-50);
     color: var(--light-text);
 }
+
 .button.addCellar {
     background-color: var(--White);
     color: #783197;

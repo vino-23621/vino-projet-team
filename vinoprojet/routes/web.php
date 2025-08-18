@@ -79,11 +79,17 @@ Route::middleware('auth')->group(function () {
 
     // route bottle
     Route::get('/bottle/{bottle}', [BottleController::class, 'show'])->name('bottle.show');
+    Route::get('/bottle/{bottle}/comment', [BottleController::class, 'comment'])->name('comment.form');
+    Route::post('/bottle/{bottle}/comment', [BottleController::class, 'addcomment'])->name('comment.addcomment');
+
+    Route::delete('/comments/{comment}/bottle/{bottle}', [UserController::class, 'destroyComment'])->name('comments.destroy');
+
 
 
     // route cellar_bottles
     Route::get('/cellars/{cellar}/bottles/{bottle}/edit', [CellarController::class, 'editBottle'])->name('cellars.editBottle');
     Route::put('/cellars/{cellar}/bottles/{bottle}', [CellarController::class, 'updateQuantity'])->name('cellars.updateQuantity');
+
 
     //api search bar
     // Route::get('/catalog-data', [CatalogController::class, 'apiCatalog']);

@@ -18,6 +18,17 @@
                         <h3>Recherche Avancée</h3>
                         <span class="chevron" aria-hidden="true"></span>
                     </summary>
+                    <form action="{{ route('cellars.show', $cellar->id) }}" method="GET">
+                        <input
+                            type="text"
+                            name="search"
+                            value="{{ request('search') }}"
+                            placeholder="Rechercher par nom de la bouteille"
+                            class="form-control input-search">
+                        <button class="button button__defaultCellar" type="submit">Rechercher
+
+                        </button>
+                    </form>
 
                     <form method="GET" class="filter-form">
                         <select name="country">
