@@ -6,33 +6,18 @@
 
 
 <div class="dualPanel ">
-    <div class="dualPanel  filter-sidebar">
         <div class="dualPanel-left">
             <div class="dual-panel-left-header">
                 <h2>{{$cellar->name}}</h2>
                 <p class="profile-subtitle">Ajoutez une ou plusieurs bouteilles à votre cellier.</p>
             </div>
             <div class="dual-panel-left-content">
-
-
-                <details class="filter-details" open>
+                <div class="filter-sidebar">
+                    <details class="filter-details">
                     <summary class="filter-summary">
-                        <h3><i class="fa-solid fa-magnifying-glass"></i> Recherche Avancée</h3>
+                        <h3>Recherche Avancée</h3>
                         <span class="chevron" aria-hidden="true"></span>
                     </summary>
-
-                    <form action="{{ route('cellars.show', $cellar->id) }}" method="GET">
-                        <input
-                            type="text"
-                            name="search"
-                            value="{{ request('search') }}"
-                            placeholder="Rechercher par nom de la bouteille"
-                            class="form-control input-search">
-                        <button class="button button__defaultCellar" type="submit">Rechercher
-                            
-                        </button>
-                    </form>
-
 
                     <form method="GET" class="filter-form">
                         <select name="country">
@@ -53,8 +38,7 @@
                             @endforeach
                         </select>
 
-                        <label> 
-                            {{-- regler le probleme de recherche vintage --}}
+                        <label>
                             <input type="checkbox" name="vintage_null" value="1" {{ request('vintage_null') ? 'checked' : '' }}>
                             Sans millésime
                         </label>
@@ -64,19 +48,13 @@
                         <input type="number" name="price_min" placeholder="Prix min" value="{{ request('price_min') }}">
                         <input type="number" name="price_max" placeholder="Prix max" value="{{ request('price_max') }}">
 
-                        <button class="button button__defaultCellar" type="submit">Filtrer</button>
+                        <button type="submit">Filtrer</button>
                     </form>
                 </details>
+                </div>
+    
             </div>
-
-<div class="dualPanel">
-    <div class="dualPanel-left">
-        <div class="dual-panel-left-header">
-            <h2>{{$cellar->name}}</h2>
-            <p class="profile-subtitle">Crée un ou plusieurs celliers pour organiser tes bouteilles.</p>
         </div>
-
-    </div>
 
     <div class="dualPanel-right">
         <div class="dual-panel-right-header">
@@ -100,19 +78,13 @@
                     <input type="hidden" name="price_min" value="{{ request('price_min') }}">
                     <input type="hidden" name="price_max" value="{{ request('price_max') }}">
 
-                    <button class="button button__defaultCellar" type="submit">Trier</button>
+                    <button class="sort-button" type="submit">Trier</button>
                 </form>
             </div>
         </div>
-        <section class="" id="mainCellarBootles">
-
-        </section>
         <div class="dual-panel-right-content">
             @if($bottles->isEmpty())
-            <div class="empty-cellar">
-                <p>Aucune bouteille trouvée dans ce cellier.</p>
-                <img src="{{ asset('assets/images/img-empty-cellar.png') }}" alt="Cellar vide">
-            </div>
+            <p>Aucune bouteille trouvée dans ce cellier.</p>
             @else
 
             <div class="grid-card">
@@ -136,9 +108,7 @@
 
                     <div class="card-bottle-content">
                         <section>
-                            <a href="{{ route('bottle.show', $bottle->id) }}">
-                                <h3 class="subtitle-wines">Détails</h3>
-                            </a>
+                            <h3 class="subtitle-wines">Détails</h3>
                             <div class="content-details">
                                 <p>{{ $bottle->country->name }}</p>
                                 <p class="bottle-size-ml">{{ $bottle->size }} ml</p>
@@ -200,17 +170,5 @@
         </div>
     </div>
 </div>
-
-        </div>
-
-    </div>
-    <div class="dual-panel-right-footer">
-        {!! $bottles->links('vendor.pagination.default') !!}
-    </div>
-</div>
-
-
-
-
 
 @endsection
