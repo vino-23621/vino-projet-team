@@ -90,9 +90,7 @@
 
                             </div>
 
-                            <button class="button-comments">
-                                <a href="{{ route('comment.form', $bottle->id) }}"><i class="fa-solid fa-comments"></i> Ajouter une note</a>
-                            </button>
+
 
 
 

@@ -11,7 +11,7 @@
         </div>
 
 
-        <form action="{{route('comment.addcomment', $bottle->id)}}" method="POST" id="loginForm">
+        <form action="{{route('comment.addcomment', ['cellar' => $cellar->id, 'bottle' => $bottle->id])  }}" method="POST" id="loginForm">
             @csrf
             <input type="text" placeholder="Exprimez votre opinion" id="comment" name="comment">
             @foreach($errors->all() as $error)
