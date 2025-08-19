@@ -85,7 +85,9 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show() {}
+    public function show() {
+        return view('user.profile');
+    }
 
     /**
      * Show the form for editing the specified resource.
