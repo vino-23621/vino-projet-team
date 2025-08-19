@@ -92,13 +92,16 @@
             & .profile-info-line {
                 border-bottom: 1px transparent;
             }
+
             & button[type="submit"] {
                 margin-top: 20px;
             }
+
             & form {
                 margin-top: var(--spacing-thinnest);
             }
-            & input + input {
+
+            & input+input {
                 margin-top: var(--spacing-micro);
             }
         }
@@ -110,11 +113,13 @@
         display: flex;
         gap: var(--spacing-thin);
         align-items: flex-start;
+        margin-top: 30px;
     }
 
     @media (max-width: 350px) {
         .profile-wrapper {
             flex-direction: column;
+            margin-top: 30px;
 
             .profile-greeting {
                 order: -1;
