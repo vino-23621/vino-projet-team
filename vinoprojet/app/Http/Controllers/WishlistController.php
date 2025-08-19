@@ -49,63 +49,84 @@ class WishlistController extends Controller
         $identities = Identity::all();
         $countries = Country::all();
 
-        $query = Bottle::whereIn('id', Wishlist::where('users_id', Auth::id())->pluck('bottles_id'));
+        $query = Wishlist::with('bottle.identity', 'bottle.country')->where('users_id', Auth::id());
 
         if ($request->filled('search')) {
-            $query->where('name', 'like', '%' . $request->search . '%');
+            $query->whereHas('bottle', function ($q) use ($request) {
+                $q->where('name', 'like', '%' . $request->search . '%');
+            });
         }
 
-
-
         if ($request->filled('country')) {
-            $query->where('country_id', $request->country);
+            $query->whereHas('bottle', function ($q) use ($request) {
+                $q->where('country_id', $request->country);
+            });
         }
 
         if ($request->filled('identity')) {
-            $query->where('identity_id', $request->identity);
+            $query->whereHas('bottle', function ($q) use ($request) {
+                $q->where('identity_id', $request->identity);
+            });
         }
+
         if ($request->boolean('vintage_null')) {
-            $query->whereNull('vintage');
+            $query->whereHas('bottle', function ($q) {
+                $q->whereNull('vintage');
+            });
         } else {
             if ($request->filled('vintage_min')) {
-                $query->where('vintage', '>=', $request->vintage_min);
+                $query->whereHas('bottle', function ($q) use ($request) {
+                    $q->where('vintage', '>=', $request->vintage_min);
+                });
             }
             if ($request->filled('vintage_max')) {
-                $query->where('vintage', '<=', $request->vintage_max);
+                $query->whereHas('bottle', function ($q) use ($request) {
+                    $q->where('vintage', '<=', $request->vintage_max);
+                });
             }
         }
+
+
         if ($request->filled('price_min')) {
-            $query->where('price', '>=', $request->price_min);
+            $query->whereHas('bottle', function ($q) use ($request) {
+                $q->where('price', '>=', $request->price_min);
+            });
         }
         if ($request->filled('price_max')) {
-            $query->where('price', '<=', $request->price_max);
+            $query->whereHas('bottle', function ($q) use ($request) {
+                $q->where('price', '<=', $request->price_max);
+            });
         }
+
         if ($request->filled('sort')) {
+            $query->join('bottles', 'wishlist.bottles_id', '=', 'bottles.id')
+                ->select('wishlist.*');
+
             switch ($request->sort) {
                 case 'vintage_asc':
-                    $query->orderBy('vintage', 'asc');
+                    $query->orderBy('bottles.vintage', 'asc');
                     break;
                 case 'vintage_desc':
-                    $query->orderBy('vintage', 'desc');
+                    $query->orderBy('bottles.vintage', 'desc');
                     break;
                 case 'price_asc':
-                    $query->orderBy('price', 'asc');
+                    $query->orderBy('bottles.price', 'asc');
                     break;
                 case 'price_desc':
-                    $query->orderBy('price', 'desc');
+                    $query->orderBy('bottles.price', 'desc');
                     break;
                 case 'country_asc':
-                    $query->orderBy('country_id', 'asc');
+                    $query->orderBy('bottles.country_id', 'asc');
                     break;
                 case 'country_desc':
-                    $query->orderBy('country_id', 'desc');
+                    $query->orderBy('bottles.country_id', 'desc');
                     break;
             }
         }
 
-        $bottles = $query->paginate(10);
+        $wishlists = $query->paginate(10);
 
-        return view('wishlist.index', compact('bottles', 'identities', 'countries'));
+        return view('wishlist.index', compact('wishlists', 'identities', 'countries'));
     }
 
 
