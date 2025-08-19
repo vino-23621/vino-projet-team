@@ -24,7 +24,7 @@
     cursor: pointer;
     text-align: center;
     color: var(--Primary-Purple-300);
-    background: white;
+    background: #fff;
     border: 2px solid var(--Primary-Purple-200);
     position: relative;
     border-radius: 16px;
@@ -55,6 +55,7 @@
         color-mix(in srgb, var(--Primary-Purple-100) 80%, transparent);
     outline-offset: 2px;
 }
+
 .filter-form {
     padding: clamp(var(--spacing-thinner), 2vw, var(--spacing-thin));
     display: flex;
@@ -79,13 +80,10 @@
     font-size: 16px;
 }
 .filter-form select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     background: no-repeat right 14px center/18px
         url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%239458af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
 }
-
 .filter-form label {
     display: flex;
     align-items: center;
@@ -108,120 +106,13 @@
         color-mix(in srgb, var(--Primary-Purple-100) 65%, transparent);
     outline: 0;
 }
-.filter-form ::placeholder {
-    color: var(--Color-400);
-}
-.filter-actions {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-    margin-top: 4px;
-}
-.btn-primary {
-    height: 48px;
-    padding: 0 16px;
-    border-radius: 12px;
-    border: 0;
-    color: #fff;
-    cursor: pointer;
-    background: linear-gradient(
-        145deg,
-        var(--Primary-Purple-400),
-        var(--Secondary-Rose-300)
-    );
-    font: var(--Single-Uppercase-200-bold);
-    box-shadow: 0 8px 20px rgba(120, 49, 151, 0.22),
-        inset 0 -2px 0 rgba(0, 0, 0, 0.06);
-    transition: transform 0.06s ease, box-shadow 0.2s ease, filter 0.2s ease;
-}
-.btn-primary:hover {
-    filter: saturate(1.05);
-    box-shadow: 0 10px 26px rgba(120, 49, 151, 0.26),
-        inset 0 -2px 0 rgba(0, 0, 0, 0.08);
-}
-.btn-primary:active {
-    transform: translateY(1px);
-}
-.btn-ghost {
-    height: 48px;
-    padding: 0 14px;
-    border-radius: 12px;
-    border: 1.5px solid var(--Color-200);
-    background: transparent;
-    color: var(--Color-700);
-    display: inline-grid;
-    place-items: center;
-    text-decoration: none;
-    transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
-}
-.btn-ghost:hover {
-    border-color: var(--Primary-Purple-300);
-    background: color-mix(in srgb, var(--Primary-Purple-100) 16%, transparent);
-}
-.filter-searchBar {
-    display: flex;
-    justify-content: center;
-    padding: clamp(var(--spacing-thinner), 2vw, var(--spacing-thin));
-}
-.button__defaultCellar {
-    padding: 10px;
 
-    cursor: pointer;
-    font: var(--Single-Uppercase-200-bold);
-    color: white;
-    letter-spacing: 0.5px;
-    background: linear-gradient(
-        145deg,
-        var(--Primary-Purple-400),
-        var(--Secondary-Rose-300)
-    );
-    box-shadow: 0 8px 20px rgba(120, 49, 151, 0.25),
-        inset 0 -2px 0 rgba(0, 0, 0, 0.08);
-    transition: transform 0.06s ease, box-shadow 0.2s ease, filter 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-.button.button__defaultCellar {
-    color: white;
-    border-radius: 0 14px 14px 0;
-}
-.filter-searchBar-input {
-    height: 50px;
-    width: 100%;
-    border: 1.5px solid var(--Color-200);
-    border-radius: 14px 0 0 14px;
-    padding: 0 44px 0 14px;
-    background: #fff;
-    text-align: center;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease,
-        transform 0.02s ease;
-    box-sizing: border-box;
-    box-shadow: 0 1px 0 rgba(25, 25, 49, 0.02);
-    font-size: 16px;
-}
-
-.filter-searchBar-input:is(select, input[type="text"]):hover {
-    border-color: var(--Primary-Purple-200);
-}
-.filter-searchBar-input:is(select, input[type="text"]):focus {
-    border-color: var(--Primary-Purple-400);
-    box-shadow: 0 0 0 4px
-        color-mix(in srgb, var(--Primary-Purple-100) 65%, transparent);
-    outline: 0;
-}
+.filter-form ::placeholder,
 .filter-searchBar-input::placeholder {
     color: var(--Color-400);
 }
 
-.filter-form.error :is(input:focus, select:focus) {
-    border-color: var(--Error-Red);
-    box-shadow: 0 0 0 4px
-        color-mix(in srgb, var(--Error-Red-100) 70%, transparent);
-}
-.filter-form button[type="submit"],
-.filter-actions .btn-primary {
+.filter-form button[type="submit"] {
     height: 52px;
     border-radius: 14px;
     border: none;
@@ -242,14 +133,60 @@
     justify-content: center;
     gap: 0.6rem;
 }
-
-.filter-form button[type="submit"]:hover,
-.filter-actions .btn-primary:hover {
+.filter-form button[type="submit"]:hover {
     filter: saturate(1.05);
     box-shadow: 0 10px 26px rgba(120, 49, 151, 0.28),
         inset 0 -2px 0 rgba(0, 0, 0, 0.08);
 }
-.filter-form button[type="submit"]:active,
-.filter-actions .btn-primary:active {
+.filter-form button[type="submit"]:active {
     transform: translateY(1px);
+}
+
+.filter-searchBar {
+    display: flex;
+    justify-content: center;
+    padding: clamp(var(--spacing-thinner), 2vw, var(--spacing-thin));
+}
+.filter-searchBar-input {
+    height: 50px;
+    width: 100%;
+    border: 1.5px solid var(--Color-200);
+    border-radius: 14px 0 0 14px;
+    padding: 0 44px 0 14px;
+    background: #fff;
+    text-align: center;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease,
+        transform 0.02s ease;
+    box-sizing: border-box;
+    box-shadow: 0 1px 0 rgba(25, 25, 49, 0.02);
+    font-size: 16px;
+}
+.filter-searchBar-input:hover {
+    border-color: var(--Primary-Purple-200);
+}
+.filter-searchBar-input:focus {
+    border-color: var(--Primary-Purple-400);
+    box-shadow: 0 0 0 4px
+        color-mix(in srgb, var(--Primary-Purple-100) 65%, transparent);
+    outline: 0;
+}
+
+.button.button__filtersearch {
+    padding: 10px;
+    cursor: pointer;
+    font: var(--Single-Uppercase-200-bold);
+    color: #fff;
+    letter-spacing: 0.5px;
+    background: linear-gradient(
+        145deg,
+        var(--Primary-Purple-400),
+        var(--Secondary-Rose-300)
+    );
+    box-shadow: 0 8px 20px rgba(120, 49, 151, 0.25),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.08);
+    transition: transform 0.06s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 14px 14px 0;
 }
