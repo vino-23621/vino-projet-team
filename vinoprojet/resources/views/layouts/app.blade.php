@@ -93,7 +93,7 @@
         <div data-js="notification-banner" class="notification-banner">
             <div>
                 <i class="fa-solid fa-check notification-banner-icon"></i>
-                <div data-js="notification-close">
+                <div>
                     <span class="notification-banner-title">Succès :</span>
                     <span>{{ session('success') }}</span>
                 </div>
@@ -106,7 +106,7 @@
         <div data-js="notification-banner" class="notification-banner fail">
             <div>
                 <i class="fa-solid fa-triangle-exclamation notification-banner-icon"></i>
-                <div data-js="notification-close">
+                <div>
                     <span class="notification-banner-title">Erreur :</span>
                     <span>{{ session('error') }}</span>
                 </div>
@@ -118,7 +118,7 @@
         <div data-js="notification-banner" class="notification-banner information">
             <div>
                 <i class="fa-solid fa-circle-info notification-banner-icon"></i>
-                <div data-js="notification-close">
+                <div>
                     <span class="notification-banner-title">Bienvenu</span>
                     <span>{{ session('information') }}</span>
                 </div>
