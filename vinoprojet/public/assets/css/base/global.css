@@ -23,6 +23,7 @@ h5,
 h6 {
     font-family: var(--font-heading);
     font-weight: bold;
+    color: var(--Color-800);
 }
 
 h1 {
@@ -61,7 +62,6 @@ span {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-
 }
 
 .flex-row {
@@ -84,7 +84,6 @@ span {
     justify-content: start;
 }
 
-
 .justify-center {
     justify-content: center;
 }
@@ -100,7 +99,6 @@ span {
 .text-align-center {
     text-align: center;
 }
-
 
 .success-message {
     background-color: var(--Success-Green);
@@ -127,7 +125,6 @@ span {
 .button-search {
     border: 2px solid var(--Success-Green-200);
     border-radius: 5px;
-
 }
 
 .password-rules {
@@ -141,7 +138,7 @@ span {
 .password-rules li {
     position: relative;
     margin-bottom: 8px;
-    color: #D3D3D3;
+    color: #d3d3d3;
     font-weight: 500;
     font: var(--Text-Single-50-normal);
     transition: all 0.2s ease;
