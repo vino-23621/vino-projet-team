@@ -98,7 +98,7 @@
 
                         </div>
 
-                        <form action="{{ route('catalog.addWineFromCatalog', ['bottle' => $bottle->id]) }}" method="POST" class="inline-form">
+                        <form class="card-bottle-add" action="{{ route('catalog.addWineFromCatalog', ['bottle' => $bottle->id]) }}" method="POST" class="inline-form">
                             @csrf
                             <input type="hidden" name="bottle_id" value="{{ $bottle->id }}">
 
@@ -112,7 +112,7 @@
                         </form>
 
 
-                        <form action="{{ route('wishlist.addToWishList', ['bottle' => $bottle->id]) }}" method="POST" class="inline-form">
+                        <form class="card-bottle-add" action="{{ route('wishlist.addToWishList', ['bottle' => $bottle->id]) }}" method="POST" class="inline-form">
                             @csrf
                             <input type="hidden" name="users_id" value="{{ auth()->id() }}">
                             <input type="hidden" name="bottles_id" value="{{ $bottle->id }}">
