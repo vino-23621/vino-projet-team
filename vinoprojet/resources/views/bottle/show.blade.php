@@ -7,7 +7,7 @@
     <div class="dualPanel-right">
 
         <div class="dual-panel-right-header">
-            <a href="{{ url()->previous() }}">&larr; Retour à la navigation précédente</a>
+            <a href="{{ url()->previous() }}">&larr; Retour en arrière</a>
         </div>
 
         <div class="dual-panel-right-content">
@@ -15,7 +15,7 @@
                 <img src="https://{{ $bottle['image'] }}" class="card-bottle-show-image" alt="{{ $bottle->name }}">
 
                 <header class="card-bottle-show-header">
-                    <h2>{{ $bottle->name }}</h2>
+                    <h3>{{ $bottle->name }}</h3>
                     <div class="sub-header">
                         <div
                             @if ($bottle->identity->name === 'Vin rouge') class="wine-color-ico red"
@@ -54,19 +54,19 @@
                         </div>
                         <div class="card-bottle-show-details">
                             <div class="card-bottle-show-details-content">
-                                <p>Taux de sucre : </p>
+                                <p>Taux de sucre: </p>
                                 <p>{{$bottle->sugar}} g/L</p>
                             </div>
                             <div class="card-bottle-show-details-content">
-                                <p>Taux d'alcool : </p>
+                                <p>Taux d'alcool: </p>
                                 <p>{{$bottle->alcohol_percentage}} %</p>
                             </div>
                             <div class="card-bottle-show-details-content">
-                                <p>Appellation : </p>
+                                <p>Appellation: </p>
                                 <p>{{$bottle->appellation}}</p>
                             </div>
                             <div class="card-bottle-show-details-content">
-                                <p>Cépages : </p>
+                                <p>Cépages: </p>
                                 <p>{{ is_array($bottle->grape_variety) ? implode(', ', $bottle->grape_variety) : $bottle->grape_variety }}</p>
                             </div>
                         </div>
