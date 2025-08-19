@@ -35,5 +35,10 @@
     gap: 10px;
     align-items: baseline;
     justify-content: space-between;
+    color: black;
 
+}
+
+.comments-gray {
+    color: var(--Color-300)
 }
