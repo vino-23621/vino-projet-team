@@ -21,6 +21,9 @@ class CellarController extends Controller
      */
     public function index()
     {
+
+
+
         $cellars = Cellar::where('user_id', Auth::id())->get();
         return view('cellar.index', compact('cellars'));
     }
@@ -59,6 +62,10 @@ class CellarController extends Controller
      */
     public function show(Request $request, Cellar $cellar)
     {
+        if ($cellar->user_id != Auth::id()) {
+            return redirect()->route('403.custom')->with('message', 'il vaut mieux prendre un verre de vin plutôt que de fouiller dans les celliers de ses amis.');
+        }
+
         $user = Auth::user();
         $identities = Identity::all();
         $countries = Country::all();
