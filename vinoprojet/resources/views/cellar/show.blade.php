@@ -93,7 +93,7 @@
             @if($bottles->isEmpty())
             <div class="empty-cellar">
                 <p>Aucune bouteille trouvée dans ce cellier.</p>
-            <img src="{{ asset('assets/images/img-empty-cellar.png') }}" alt="Cellar vide">
+                <img src="{{ asset('assets/images/img-empty-cellar.png') }}" alt="Cellar vide">
             </div>
             @else
 
@@ -168,23 +168,24 @@
                     </div>
                     <div class="card-bottle-footer">
                         <button class="button-comments">
-                                <a href="{{ route('comment.form', ['cellar' => $cellar->id, 'bottle' => $bottle->id]) }}"><i class="fa-solid fa-comments"></i> Ajouter une note</a>
+                            <a href="{{ route('comment.form', ['cellar' => $cellar->id, 'bottle' => $bottle->id]) }}"><i class="fa-solid fa-comments"></i> Ajouter une note</a>
                         </button>
-                        <h5 class="comments-title">Commentaires:</h5>
+                        <h5 class="comments-title">Notes:</h5>
 
                         @if($comments)
                         @foreach ($comments as $comment)
                         @foreach ($comment->bottles as $commentedBottle)
                         @if ($commentedBottle->id === $bottle->id)
                         <div class="container_comments">
-                            <p>{{ $comment->created_at->format('d/m/Y') }}</p>
-
+                            <div class="comments-gray">
+                                <p>{{ $comment->created_at->format('d/m/Y') }}</p>
+                            </div>
                             <div class="comments-flex">
                                 <p>{{ $commentedBottle->pivot->comment }}</p>
                                 <form action="{{ route('comments.destroy', ['comment' => $comment->id, 'bottle' => $commentedBottle->id]) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="modalBtn suppBtn" type="submit"><i class="fa-regular fa-trash-can"></i></button>
+                                    <button class="modalBtn suppBtn comments-gray" type="submit"><i class="fa-regular fa-trash-can"></i></button>
                                 </form>
 
 
