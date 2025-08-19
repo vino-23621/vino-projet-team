@@ -1,0 +1,33 @@
+.button-comments {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    padding: 3px;
+}
+
+.input_comment {
+    margin-top: 15px;
+}
+
+.container_comments {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    border: 1px solid var(--Primary-Purple-100);
+    align-items: center;
+    padding: 5px;
+    border-radius: 10px;
+
+
+}
+
+.comments-title {
+    color: var(--Primary-Purple-400);
+
+}
+
+.comments-flex {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+}

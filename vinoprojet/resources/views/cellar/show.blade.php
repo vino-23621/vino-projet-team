@@ -6,33 +6,29 @@
 
 
 <div class="dualPanel ">
-    <div class="dualPanel  filter-sidebar">
-        <div class="dualPanel-left">
-            <div class="dual-panel-left-header">
-                <h2>{{$cellar->name}}</h2>
-                <p class="profile-subtitle">Ajoutez une ou plusieurs bouteilles à votre cellier.</p>
-            </div>
-            <div class="dual-panel-left-content">
-
-
-                <details class="filter-details" open>
+    <div class="dualPanel-left">
+        <div class="dual-panel-left-header">
+            <h2>{{$cellar->name}}</h2>
+            <p class="profile-subtitle">Ajoutez une ou plusieurs bouteilles à votre cellier.</p>
+        </div>
+        <div class="dual-panel-left-content">
+            <div class="filter-sidebar">
+                <details class="filter-details">
                     <summary class="filter-summary">
                         <h3>Recherche Avancée</h3>
                         <span class="chevron" aria-hidden="true"></span>
                     </summary>
 
-                    <form action="{{ route('cellars.show', $cellar->id) }}" method="GET">
+                    <form class="filter-searchBar" action="{{ route('cellars.show', $cellar->id) }}" method="GET">
                         <input
                             type="text"
                             name="search"
                             value="{{ request('search') }}"
-                            placeholder="Rechercher par nom de la bouteille"
-                            class="form-control input-search">
-                        <button type="submit">
+                            placeholder="Rechercher par nom"
+                            class="filter-searchBar-input">
+                        <button class="button button__defaultCellar" type="submit">Rechercher
                         </button>
                     </form>
-
-
                     <form method="GET" class="filter-form">
                         <select name="country">
                             <option value="">Tous les pays</option>
@@ -42,7 +38,6 @@
                             </option>
                             @endforeach
                         </select>
-
                         <select name="identity">
                             <option value="">Toutes les variétés</option>
                             @foreach($identities as $identity)
@@ -51,23 +46,21 @@
                             </option>
                             @endforeach
                         </select>
-
                         <label>
                             <input type="checkbox" name="vintage_null" value="1" {{ request('vintage_null') ? 'checked' : '' }}>
                             Sans millésime
                         </label>
-
-                        <input type="number" name="vintage_min" placeholder="Date min" value="{{ request('vintage_min') }}">
-                        <input type="number" name="vintage_max" placeholder="Date max" value="{{ request('vintage_max') }}">
-                        <input type="number" name="price_min" placeholder="Prix min" value="{{ request('price_min') }}">
-                        <input type="number" name="price_max" placeholder="Prix max" value="{{ request('price_max') }}">
-
+                        <input type="number" name="vintage_min" placeholder="Année minimum" value="{{ request('vintage_min') }}">
+                        <input type="number" name="vintage_max" placeholder="Année maximum" value="{{ request('vintage_max') }}">
+                        <input type="number" name="price_min" placeholder="Prix minimum" value="{{ request('price_min') }}">
+                        <input type="number" name="price_max" placeholder="Prix maximum" value="{{ request('price_max') }}">
                         <button type="submit">Filtrer</button>
                     </form>
+
                 </details>
             </div>
-        </div>
 
+        </div>
     </div>
 
     <div class="dualPanel-right">
@@ -98,10 +91,7 @@
         </div>
         <div class="dual-panel-right-content">
             @if($bottles->isEmpty())
-            <div class="empty-cellar">
-                <p>Aucune bouteille trouvée dans ce cellier.</p>
-                <img src="{{ asset('assets/images/img-empty-cellar.png') }}" alt="Cellar vide">
-            </div>
+            <p>Aucune bouteille trouvée dans ce cellier.</p>
             @else
 
             <div class="grid-card">

@@ -115,7 +115,7 @@ span {
     width: 250px;
     border-radius: 5px;
     font: var(--Text-Single-50-normal);
-    border: 2px solid var(--Primary-Purple-400);
+    border: 2px solid var(--Primary-Purple-200);
 }
 
 .icon-search {

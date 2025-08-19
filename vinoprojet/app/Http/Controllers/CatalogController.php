@@ -152,4 +152,6 @@ class CatalogController extends Controller
             'cellar_has_bottles' => $cellarHasBottles
         ]);
     }
+
+   
 }

@@ -12,56 +12,56 @@
                 <h2>Ma Liste d'Achats</h2>
                 <p class="profile-subtitle">Savoir les bouteilles qui vous manquent à vos celliers.</p>
             </div>
+
             <div class="dual-panel-left-content">
-                <details class="filter-details" open>
-                    <summary class="filter-summary">
-                        <h3>Recherche Avancée</h3>
-                        <span class="chevron" aria-hidden="true"></span>
-                    </summary>
+                <div class="filter-sidebar">
+                    <details class="filter-details">
+                        <summary class="filter-summary">
+                            <h3>Recherche Avancée</h3>
+                            <span class="chevron" aria-hidden="true"></span>
+                        </summary>
 
-                    <form action="{{ route('wishlist.index') }}" method="GET">
-                        <input
-                            type="text"
-                            name="search"
-                            value="{{ request('search') }}"
-                            placeholder="Rechercher par nom de la bouteille"
-                            class="form-control input-search">
-                        <button type="submit">
-                        </button>
-                    </form>
+                        <form class="filter-searchBar" action="{{ route('wishlist.index') }}" method="GET">
+                            <input
+                                type="text"
+                                name="search"
+                                value="{{ request('search') }}"
+                                placeholder="Rechercher par nom"
+                                class="filter-searchBar-input">
+                            <button class="button button__defaultCellar" type="submit">Rechercher
+                            </button>
+                        </form>
+                        <form method="GET" class="filter-form">
+                            <select name="country">
+                                <option value="">Tous les pays</option>
+                                @foreach($countries as $country)
+                                <option value="{{ $country->id }}" {{ request('country') == $country->id ? 'selected' : '' }}>
+                                    {{ $country->name }}
+                                </option>
+                                @endforeach
+                            </select>
+                            <select name="identity">
+                                <option value="">Toutes les variétés</option>
+                                @foreach($identities as $identity)
+                                <option value="{{ $identity->id }}" {{ request('identity') == $identity->id ? 'selected' : '' }}>
+                                    {{ $identity->name }}
+                                </option>
+                                @endforeach
+                            </select>
+                            <label>
+                                <input type="checkbox" name="vintage_null" value="1" {{ request('vintage_null') ? 'checked' : '' }}>
+                                Sans millésime
+                            </label>
+                            <input type="number" name="vintage_min" placeholder="Année minimum" value="{{ request('vintage_min') }}">
+                            <input type="number" name="vintage_max" placeholder="Année maximum" value="{{ request('vintage_max') }}">
+                            <input type="number" name="price_min" placeholder="Prix minimum" value="{{ request('price_min') }}">
+                            <input type="number" name="price_max" placeholder="Prix maximum" value="{{ request('price_max') }}">
+                            <button type="submit">Filtrer</button>
+                        </form>
 
-                    <form method="GET" class="filter-form">
-                        <select name="country">
-                            <option value="">Tous les pays</option>
-                            @foreach($countries as $country)
-                            <option value="{{ $country->id }}" {{ request('country') == $country->id ? 'selected' : '' }}>
-                                {{ $country->name }}
-                            </option>
-                            @endforeach
-                        </select>
+                    </details>
+                </div>
 
-                        <select name="identity">
-                            <option value="">Toutes les variétés</option>
-                            @foreach($identities as $identity)
-                            <option value="{{ $identity->id }}" {{ request('identity') == $identity->id ? 'selected' : '' }}>
-                                {{ $identity->name }}
-                            </option>
-                            @endforeach
-                        </select>
-
-                        <label>
-                            <input type="checkbox" name="vintage_null" value="1" {{ request('vintage_null') ? 'checked' : '' }}>
-                            Sans millésime
-                        </label>
-
-                        <input type="number" name="vintage_min" placeholder="Date min" value="{{ request('vintage_min') }}">
-                        <input type="number" name="vintage_max" placeholder="Date max" value="{{ request('vintage_max') }}">
-                        <input type="number" name="price_min" placeholder="Prix min" value="{{ request('price_min') }}">
-                        <input type="number" name="price_max" placeholder="Prix max" value="{{ request('price_max') }}">
-
-                        <button type="submit">Filtrer</button>
-                    </form>
-                </details>
             </div>
         </div>
 
@@ -105,18 +105,25 @@
                     <article class="card-bottle">
                         <img src="https://{{ $bottle->image }}" class="card-bottle-image">
 
-                        <header class="card-bottle-header">
-                            <h4>{{ $bottle->name }}</h4>
-                            <div class="sub-header">
-                                <div
-                                    @if ($bottle->identity->name === 'Vin rouge') class="wine-color-ico red"
-                                    @elseif ($bottle->identity->name === 'Vin blanc') class="wine-color-ico white"
-                                    @elseif ($bottle->identity->name === 'Vin rosé') class="wine-color-ico rose"
-                                    @elseif ($bottle->identity->name === 'Vin orange') class="wine-color-ico orange"
-                                    @endif></div>
-                                <p>{{ $bottle->identity->name }} | @if($bottle->vintage !== null) {{ $bottle->vintage }} @else Date non connue @endif</p>
-                            </div>
-                        </header>
+                    <header class="card-bottle-header">
+                        <h4>{{ $bottle->name }}</h4>
+                        <div class="sub-header">
+                            <div
+                                @if ($bottle->identity->name === 'Vin rouge') class="wine-color-ico red"
+                                @elseif ($bottle->identity->name === 'Vin blanc') class="wine-color-ico white"
+                                @elseif ($bottle->identity->name === 'Vin rosé') class="wine-color-ico rose"
+                                @elseif ($bottle->identity->name === 'Vin orange') class="wine-color-ico orange"
+                                @elseif ($bottle->identity->name === 'Vin mousseux') class="wine-color-ico sparkling"
+                                @elseif ($bottle->identity->name === 'Champagne') class="wine-color-ico champagne"
+                                @elseif ($bottle->identity->name === 'Champagne rosé') class="wine-color-ico champagneRose"
+                                @elseif ($bottle->identity->name === 'Vin mousseux rosé') class="wine-color-ico sparkingRose"
+                                @elseif ($bottle->identity->name === 'Vin de dessert') class="wine-color-ico dessert"
+                                @elseif ($bottle->identity->name === 'Vin de tomate') class="wine-color-ico tomate"
+
+                                @endif></div>
+                            <p>{{ $bottle->identity->name }} | @if($bottle->vintage !== null) {{ $bottle->vintage }} @else Date non connu @endif</p>
+                        </div>
+                    </header>
 
                         <div class="card-bottle-content">
                             <section>
@@ -143,12 +150,13 @@
                             <button type="submit" class="button addCellar">Changer la quantité</button>
                         </form>
 
-                        <form action="{{ route('wishlist.removeBottle', $bottle->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="button button__danger">Retirer</button>
-                        </form>
-                    </article>
+                    <form action="{{ route('wishlist.removeBottle', $bottle->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="button button__danger">Retirer</button>
+                    </form>
+
+                </article>
                 @endforeach
 
             </div>

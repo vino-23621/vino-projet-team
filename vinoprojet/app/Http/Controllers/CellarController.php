@@ -258,4 +258,32 @@ class CellarController extends Controller
         $cellar->bottles()->detach($bottle->id);
         return redirect()->back()->with('success', 'bouteille supprimée du cellier.');
     }
+
+
+    public function apiCellar($cellar_id)
+    {
+
+        $cellarHasBottles = \DB::table('cellar__has__bottles')
+            ->join('bottles', 'cellar__has__bottles.bottle_id', '=', 'bottles.id')
+            ->where('cellar__has__bottles.cellar_id', $cellar_id)
+            ->select(
+
+                'cellar__has__bottles.id as pivot_id',
+                'cellar__has__bottles.quantity',
+                'bottles.name',
+                'bottles.image',
+                'bottles.price',
+                'bottles.size',
+                'bottles.identity_id',
+                'bottles.vintage',
+                'bottles.country_id'
+
+            )
+
+            ->get();
+
+        return response()->json([
+            'cellar_has_bottles' => $cellarHasBottles
+        ]);
+    }
 }
