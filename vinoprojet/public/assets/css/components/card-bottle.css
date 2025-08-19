@@ -99,14 +99,17 @@ input[type="number"] {
     text-align: center;
     outline: none;
 }
-.card-bottle-add+.card-bottle-add{
+
+.card-bottle-add+.card-bottle-add {
     margin-top: var(--spacing-micro);
 }
 
-.card-bottle-wishtlist-variation{
+.card-bottle-wishtlist-variation {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .container-win-details {
