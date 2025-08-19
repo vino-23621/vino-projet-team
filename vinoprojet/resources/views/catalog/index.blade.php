@@ -27,7 +27,7 @@
                             value="{{ request('search') }}"
                             placeholder="Rechercher par nom"
                             class="filter-searchBar-input">
-                        <button class="button button__defaultCellar" type="submit">Rechercher
+                        <button class="button button__filtersearch" type="submit">Rechercher
                         </button>
                     </form>
                     <form method="GET" class="filter-form">
