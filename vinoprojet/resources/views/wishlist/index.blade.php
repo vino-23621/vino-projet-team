@@ -91,7 +91,7 @@
             </div>
         </div>
         <div class="dual-panel-right-content">
-            @if($bottles->isEmpty())
+            @if($wishlists->isEmpty())
             <div class="empty-cellar">
                 <p>Aucune bouteille trouvée dans ce cellier.</p>
             <img src="{{ asset('assets/images/img-empty-cellar.png') }}" alt="Cellar vide">
@@ -126,7 +126,9 @@
 
                         <div class="card-bottle-content">
                             <section>
-                                <h3 class="subtitle-wines">Détails</h3>
+                                <a href="{{ route('bottle.show', $bottle->id) }}">
+                                    <h3 class="subtitle-wines">Détails</h3>
+                                </a>
                                 <div class="content-details">
                                     <p>{{ $bottle->country->name }}</p>
                                     <p class="bottle-size-ml">{{ $bottle->size }} ml</p>
@@ -152,7 +154,7 @@
                     <form action="{{ route('wishlist.removeBottle', $bottle->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="button button__danger">Retirer</button>
+                        <button type="submit" class="modalBtn suppBtn"><i class="fa-regular fa-trash-can"></i> Supprimer ce cellier</button>
                     </form>
 
                 </article>
