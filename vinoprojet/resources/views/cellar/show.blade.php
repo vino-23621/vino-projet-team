@@ -167,9 +167,10 @@
                         </div>
                     </div>
                     <div class="card-bottle-footer">
-                        <button class="button-comments">
-                            <a href="{{ route('comment.form', ['cellar' => $cellar->id, 'bottle' => $bottle->id]) }}"><i class="fa-solid fa-comments"></i> Ajouter une note</a>
-                        </button>
+                        <div class="comments">
+                        
+                            <a class="button-comments" href="{{ route('comment.form', ['cellar' => $cellar->id, 'bottle' => $bottle->id]) }}"><i class="fa-solid fa-comments"></i> Ajouter une note</a>
+                        
                         <h5 class="comments-title">Notes:</h5>
 
                         @if($comments)
@@ -191,6 +192,7 @@
 
                             </div>
 
+                        </div>
                         </div>
                         @endif
                         @endforeach
