@@ -85,13 +85,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show()
-    {
-        $user = Auth::user();
-        $comments = Comment::where('user_id', $user->id)->with('bottles')->get();
-
-        return view('user.profile', compact('user', 'comments'));
-    }
+    public function show() {}
 
     /**
      * Show the form for editing the specified resource.
@@ -208,13 +202,5 @@ class UserController extends Controller
         }
     }
 
-    public function destroyComment($commentId, $bottleId)
-    {
-        $comment = Comment::findOrFail($commentId);
-
-        $comment->bottles()->detach($bottleId);
-        $comment->delete();
-
-        return redirect()->back()->with('success', 'Commentaire supprimé.');
-    }
+    
 }

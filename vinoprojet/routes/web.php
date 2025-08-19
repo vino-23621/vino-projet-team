@@ -7,7 +7,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CellarController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\WishlistController;
+use App\Models\Bottle;
 use Illuminate\Validation\Rules\Can;
+use PhpParser\Node\Expr\Cast\Bool_;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,24 +74,21 @@ Route::middleware('auth')->group(function () {
 
 
     // route catalog
-    // IL FAUT CHOISIR UNE DES DEUX ROUTE INDEX
-    Route::get('/catalog', [BottleController::class, 'index'])->name('catalog.index');
     Route::post('/catalog/add/{bottle}', [CatalogController::class, 'addWineFromCatalog'])->name('catalog.addWineFromCatalog');
     Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog.index');
 
     // route bottle
     Route::get('/bottle/{bottle}', [BottleController::class, 'show'])->name('bottle.show');
-    Route::get('/bottle/{bottle}/comment', [BottleController::class, 'comment'])->name('comment.form');
-    Route::post('/bottle/{bottle}/comment', [BottleController::class, 'addcomment'])->name('comment.addcomment');
-
-    Route::delete('/comments/{comment}/bottle/{bottle}', [UserController::class, 'destroyComment'])->name('comments.destroy');
 
 
 
     // route cellar_bottles
     Route::get('/cellars/{cellar}/bottles/{bottle}/edit', [CellarController::class, 'editBottle'])->name('cellars.editBottle');
     Route::put('/cellars/{cellar}/bottles/{bottle}', [CellarController::class, 'updateQuantity'])->name('cellars.updateQuantity');
+    Route::get('/cellars/{cellar}/bottles/{bottle}/comment', [BottleController::class, 'comment'])->name('comment.form');
+    Route::post('/cellars/{cellar}/bottles/{bottle}/comment', [BottleController::class, 'addcomment'])->name('comment.addcomment');
 
+    Route::delete('/comments/{comment}/bottle/{bottle}', [BottleController::class, 'destroyComment'])->name('comments.destroy');
 
     //api search bar
     // Route::get('/catalog-data', [CatalogController::class, 'apiCatalog']);
@@ -102,5 +101,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/wishlist/{bottle}/edit', [WishlistController::class, 'editBottle'])->name('wishlist.editBottle');
     Route::put('/wishlist/{bottle}/update', [WishlistController::class, 'updateQuantity'])->name('wishlist.updateQuantity');
     //api cellar filtres
-    Route::get('/cellar-data/{cellar_id}', [CellarController::class, 'apiCellar']);
+    // Route::get('/cellar-data/{cellar_id}', [CellarController::class, 'apiCellar']);
+
+
+
+
+
+
+
 });

@@ -73,31 +73,42 @@ class BottleController extends Controller
      */
 
 
-    public function comment(Bottle $bottle)
+    public function comment(Cellar $cellar, Bottle $bottle)
     {
 
-        return view('comment.form', compact('bottle'));
+        return view('comment.form', compact('cellar', 'bottle'));
     }
 
 
-
-
-    public function addcomment(Request $request, Bottle $bottle)
+    public function addcomment(Cellar $cellar, Request $request, Bottle $bottle)
     {
-
-        $request->validate(['comment' => 'required|string|max:500']);
+        $request->validate([
+            'comment' => 'required|string|max:500',
+            'notation' => 'nullable|integer|min:0|max:5',
+        ]);
 
         $user = Auth::user();
 
-        $comment = Comment::create(['user_id' => $user->id,]);
 
-        $bottle->comments()->attach($comment->id, ['comment' => $request->input('comment'),]);
+        $comment = Comment::create([
+            'user_id' => $user->id,
+        ]);
 
-        return redirect()->route('bottle.show', $bottle->id)->with('success', 'Commentaire ajouté');
+        $bottle->comments()->attach($comment->id, [
+            'comment' => $request->input('comment'),
+            'notation' => $request->input('notation', 0),
+        ]);
+
+        return redirect()->route('cellars.show', $cellar->id)->with('success', 'Commentaire ajouté');
     }
 
-    public function destroyComment(Bottle $bottle)
+    public function destroyComment($commentId, $bottleId)
     {
-        //
+        $comment = Comment::findOrFail($commentId);
+
+        $comment->bottles()->detach($bottleId);
+        $comment->delete();
+
+        return redirect()->back()->with('success', 'Commentaire supprimé.');
     }
 }
