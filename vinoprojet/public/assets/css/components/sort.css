@@ -1,8 +1,7 @@
 .sort-container form {
     display: flex;
     align-items: center;
-    gap: 5%;
-    flex: 1 1 auto;
+    justify-content: space-between;
 }
 .sort-select {
     height: 50px;
@@ -63,10 +62,7 @@
 .sort-button:active {
     transform: translateY(1px);
 }
-.sort-container form::after {
-    content: "";
-    flex: 0 0 5%;
-}
+
 .filter-details[open] .filter-form {
     animation: filter-fade-in 0.18s ease both;
 }

@@ -7,14 +7,14 @@
     <div class="dualPanel-right">
 
         <div class="dual-panel-right-header">
-            <a href="{{ url()->previous() }}" class="button button__soft">&larr; Retour</a>
+            <a href="{{ url()->previous() }}">&larr; Retour à la navigation précédente</a>
         </div>
 
         <div class="dual-panel-right-content">
-            <article class="card-bottle card-bottle--single">
-                <img src="https://{{ $bottle['image'] }}" class="card-bottle-image" alt="{{ $bottle->name }}">
+            <article class="card-bottle-show">
+                <img src="https://{{ $bottle['image'] }}" class="card-bottle-show-image" alt="{{ $bottle->name }}">
 
-                <header class="card-bottle-header">
+                <header class="card-bottle-show-header">
                     <h2>{{ $bottle->name }}</h2>
                     <div class="sub-header">
                         <div
@@ -38,7 +38,7 @@
                     </div>
                 </header>
 
-                <div class="card-bottle-content">
+                <div class="card-bottle-show-content">
                     <section>
                         <h3 class="subtitle-wines">Détails</h3>
                         <div class="content-details">
@@ -52,53 +52,27 @@
                             <h5 class="price-wine">$ {{ number_format($bottle->price, 2) }}</h5>
                             <p>CAD</p>
                         </div>
-
-                        <div class="container-rate-wine">
-
-                            <div class="details-card-content">
-                                <p class="subsubtitle-wines">Taux de sucre: </p>
-                                <p> {{$bottle->sugar}} g/L</p>
-
+                        <div class="card-bottle-show-details">
+                            <div class="card-bottle-show-details-content">
+                                <p>Taux de sucre : </p>
+                                <p>{{$bottle->sugar}} g/L</p>
                             </div>
-
-                            <div class="details-card-content">
-                                <p class="subsubtitle-wines">
-                                    Taux d'alcool: </p>
-                                <p>{{$bottle->alcohol_percentage}} %
-                                </p>
-
+                            <div class="card-bottle-show-details-content">
+                                <p>Taux d'alcool : </p>
+                                <p>{{$bottle->alcohol_percentage}} %</p>
                             </div>
-
-                        </div>
-
-
-                        <div class="container-rate-wine">
-
-                            <div class="details-card-content">
-                                <p class="subsubtitle-wines">Appellation:</p>
+                            <div class="card-bottle-show-details-content">
+                                <p>Appellation : </p>
                                 <p>{{$bottle->appellation}}</p>
-
                             </div>
-
-                            <div class="details-card-content">
-                                <p class="subsubtitle-wines">
-                                    Cépages:</p>
-
-                                <p>
-                                    {{ is_array($bottle->grape_variety) ? implode(', ', $bottle->grape_variety) : $bottle->grape_variety }}
-                                </p>
-
+                            <div class="card-bottle-show-details-content">
+                                <p>Cépages : </p>
+                                <p>{{ is_array($bottle->grape_variety) ? implode(', ', $bottle->grape_variety) : $bottle->grape_variety }}</p>
                             </div>
-
-
-
-
-
-
-
                         </div>
 
-                        <form action="{{ route('catalog.addWineFromCatalog', ['bottle' => $bottle->id]) }}" method="POST" class="inline-form">
+
+                        <form class="card-bottle-show-add" action="{{ route('catalog.addWineFromCatalog', ['bottle' => $bottle->id]) }}" method="POST" class="inline-form">
                             @csrf
                             <input type="hidden" name="bottle_id" value="{{ $bottle->id }}">
 
@@ -112,7 +86,7 @@
                         </form>
 
 
-                        <form action="{{ route('wishlist.addToWishList', ['bottle' => $bottle->id]) }}" method="POST" class="inline-form">
+                        <form class="card-bottle-show-add" action="{{ route('wishlist.addToWishList', ['bottle' => $bottle->id]) }}" method="POST" class="inline-form">
                             @csrf
                             <input type="hidden" name="users_id" value="{{ auth()->id() }}">
                             <input type="hidden" name="bottles_id" value="{{ $bottle->id }}">

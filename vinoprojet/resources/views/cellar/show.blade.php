@@ -137,19 +137,19 @@
                             </div>
                         </section>
 
-                        <form action="{{ route('cellars.updateQuantity', ['cellar' => $cellar->id, 'bottle' => $bottle->id]) }}" method="POST" class="inline-form">
-                            @csrf
-                            @method('PUT')
-                            <input type="hidden" name="bottle_id" value="{{ $bottle->id }}">
-                            <label for="quantity"></label>
-
-                            <input type="number" name="quantity" id="quantity" value="{{ old('quantity', $bottle->pivot->quantity) }}" min="0" required>
-                            <button type="submit" title="Ajouter au cellier" class="button addCellar">
-                                Modifier la quantité
-                            </button>
-                        </form>
-
-                        <button class="openModalBtnBottle modalBtn" data-id="{{$bottle->id}}" data-cellar="{{$cellar->id}}"><i class="fa-regular fa-trash-can"></i> Retirer la bouteille</button>
+                        <div class="card-bottle-wishtlist-variation">
+                            <form action="{{ route('cellars.updateQuantity', ['cellar' => $cellar->id, 'bottle' => $bottle->id]) }}" method="POST" class="inline-form">
+                                @csrf
+                                @method('PUT')
+                                <input type="hidden" name="bottle_id" value="{{ $bottle->id }}">
+                                <label for="quantity"></label>
+                                <input type="number" name="quantity" id="quantity" value="{{ old('quantity', $bottle->pivot->quantity) }}" min="0" required>
+                                <button type="submit" title="Ajouter au cellier" class="button addCellar">
+                                    Modifier la quantité
+                                </button>
+                            </form>
+                            <button class="openModalBtnBottle modalBtn button button__danger"" data-id="{{$bottle->id}}" data-cellar="{{$cellar->id}}">Retirer</button>
+                        </div>
 
                         <div id="customModal" class="modal">
                             <div class="modal-content">

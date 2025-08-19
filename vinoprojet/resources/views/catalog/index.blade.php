@@ -27,7 +27,7 @@
                             value="{{ request('search') }}"
                             placeholder="Rechercher par nom"
                             class="filter-searchBar-input">
-                        <button class="button button__filtersearch" type="submit">Rechercher
+                        <button class="button button__defaultCellar" type="submit">Rechercher
                         </button>
                     </form>
                     <form method="GET" class="filter-form">
@@ -132,7 +132,7 @@
                                 <p>CAD</p>
                             </div>
 
-                            <form action="{{ isset($cellarId) ? route('cellars.addBottle') : route('catalog.addWineFromCatalog', ['bottle' => $bottle->id]) }}" method="POST" class="inline-form">
+                            <form class="card-bottle-add" action="{{ isset($cellarId) ? route('cellars.addBottle') : route('catalog.addWineFromCatalog', ['bottle' => $bottle->id]) }}" method="POST" class="inline-form">
                                 @csrf
 
 
@@ -155,7 +155,7 @@
 
                             <!-- Formulaire ajout à la wishlist -->
 
-                            <form action="{{ route('wishlist.addToWishList', ['bottle' => $bottle->id]) }}" method="POST" class="inline-form">
+                            <form class="card-bottle-add" action="{{ route('wishlist.addToWishList', ['bottle' => $bottle->id]) }}" method="POST" class="inline-form">
                                 @csrf
 
                                 <input type="hidden" name="users_id" value="{{ auth()->id() }}">

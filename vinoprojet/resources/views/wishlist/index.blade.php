@@ -140,20 +140,21 @@
                         </section>
                     </div>
 
-                    <form action="{{ route('wishlist.updateQuantity', ['bottle' => $bottle->id]) }}" method="POST" class="inline-form">
-                        @csrf
-                        @method('PUT')
-                        <label for="quantity"></label>
-                        <input type="number" name="quantity" id="quantity"
-                            value="{{ old('quantity', $wishlist->quantity) }}" min="0" required>
-                        <button type="submit" class="button addCellar">Changer la quantité</button>
-                    </form>
-
-                    <form action="{{ route('wishlist.removeBottle', $bottle->id) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="button button__danger">Retirer</button>
-                    </form>
+                    <div class="card-bottle-wishtlist-variation">
+                        <form action="{{ route('wishlist.updateQuantity', ['bottle' => $bottle->id]) }}" method="POST" class="inline-form">
+                            @csrf
+                            @method('PUT')
+                            <label for="quantity"></label>
+                            <input type="number" name="quantity" id="quantity"
+                                value="{{ old('quantity', $wishlist->quantity) }}" min="0" required>
+                            <button type="submit" class="button addCellar">Changer la quantité</button>
+                        </form>
+                        <form action="{{ route('wishlist.removeBottle', $bottle->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="button button__danger">Retirer</button>
+                        </form>
+                    </div>
 
                 </article>
                 @endforeach
