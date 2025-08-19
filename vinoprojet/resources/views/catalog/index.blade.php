@@ -119,7 +119,7 @@
                             <section>
                                 <div class="container-win-details">
                                     <h3 class="subtitle-wines">Détails</h3>
-                                    <a href="{{ route('bottle.show', $bottle->id) }}"><i class="fa-regular fa-eye"></i> Plus</a>
+                                    <a href="{{ route('bottle.show', $bottle->id) }}"><i class="fa-regular fa-eye"></i> Voir les détails</a>
                                 </div>
                                 <div class="content-details">
                                     <p>{{ $bottle->country->name }}</p>
