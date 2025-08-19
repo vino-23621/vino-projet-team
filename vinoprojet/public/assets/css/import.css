@@ -32,6 +32,7 @@
 @import url("./components/dualPanel.css");
 @import url("./components/cta-banner.css");
 @import url("./components/notification-banner.css");
+@import url("./components/card-bottle-show.css");
 
 /* layout */
 @import url("./layouts/body.css");
