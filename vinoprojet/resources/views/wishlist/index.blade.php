@@ -124,21 +124,21 @@
                         </div>
                     </header>
 
-                    <div class="card-bottle-content">
-                        <section>
-                            <h3 class="subtitle-wines">Détails</h3>
-                            <div class="content-details">
-                                <p>{{ $bottle->country->name }}</p>
-                                <p class="bottle-size-ml">{{ $bottle->size }} ml</p>
-                            </div>
-                        </section>
-                        <section>
-                            <div class="section-price">
-                                <h5 class="price-wine">$ {{ $bottle->price }}</h5>
-                                <p>CAD</p>
-                            </div>
-                        </section>
-                    </div>
+                        <div class="card-bottle-content">
+                            <section>
+                                <h3 class="subtitle-wines">Détails</h3>
+                                <div class="content-details">
+                                    <p>{{ $bottle->country->name }}</p>
+                                    <p class="bottle-size-ml">{{ $bottle->size }} ml</p>
+                                </div>
+                            </section>
+                            <section>
+                                <div class="section-price">
+                                    <h5 class="price-wine">$ {{ $bottle->price }}</h5>
+                                    <p>CAD</p>
+                                </div>
+                            </section>
+                        </div>
 
                     <div class="card-bottle-wishtlist-variation">
                         <form action="{{ route('wishlist.updateQuantity', ['bottle' => $bottle->id]) }}" method="POST" class="inline-form">
@@ -149,12 +149,12 @@
                                 value="{{ old('quantity', $wishlist->quantity) }}" min="0" required>
                             <button type="submit" class="button addCellar">Changer la quantité</button>
                         </form>
-                        <form action="{{ route('wishlist.removeBottle', $bottle->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="button button__danger">Retirer</button>
-                        </form>
-                    </div>
+
+                    <form action="{{ route('wishlist.removeBottle', $bottle->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="button button__danger">Retirer</button>
+                    </form>
 
                 </article>
                 @endforeach
