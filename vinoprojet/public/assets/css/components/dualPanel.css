@@ -2,8 +2,7 @@
     margin-top: clamp(var(--spacing-medium), 5vw, var(--spacing-broader));
     display: flex;
     gap: var(--spacing-broad);
-    align-items: flex-start;
-    flex-wrap: wrap;
+    flex-direction: column;
 
     & .dualPanel-right {
         flex-grow: 1;
@@ -48,7 +47,6 @@
         display: flex;
         flex-direction: column;
         gap: 30px;
-        align-items: center;
         margin-bottom: 1rem;
     }
 }
