@@ -46,6 +46,7 @@ class WishlistController extends Controller
      */
     public function show(Request $request)
     {
+
         $identities = Identity::all();
         $countries = Country::all();
 

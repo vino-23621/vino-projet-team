@@ -28,7 +28,7 @@ closeModalBtn.addEventListener("click", () => {
 });
 
 window.addEventListener("click", (e) => {
-    if (e.target === modal) {
+    if (e.target === editModal) {
         editModal.style.display = "none";
     }
 });
