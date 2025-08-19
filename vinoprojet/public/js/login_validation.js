@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const li = form.querySelector("#consigne2");
         if (IncludeCapsLock === true) {
             li.classList.add("valid-rule");
-            li.style.cssText = "color: #9adbb3; font-weight : 900";
+            li.style.cssText = "color: #9adbb3";
         } else {
             li.style.cssText = "color: #D3D3D3; font-weight : 500";
             li.classList.remove("valid-rule");
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const li = form.querySelector("#consigne1");
         if (IncludeLowerCase === true) {
             li.classList.add("valid-rule");
-            li.style.cssText = "color: #9adbb3; font-weight : 900";
+            li.style.cssText = "color: #9adbb3";
         } else {
             li.style.cssText = "color: #D3D3D3; font-weight : 500";
             li.classList.remove("valid-rule");
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const li = form.querySelector("#consigne3");
         if (IncludeNumber === true) {
             li.classList.add("valid-rule");
-            li.style.cssText = "color: #9adbb3; font-weight : 900";
+            li.style.cssText = "color: #9adbb3";
         } else {
             li.style.cssText = "color: #D3D3D3; font-weight : 500";
             li.classList.remove("valid-rule");
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const li = form.querySelector("#consigne4");
         if (IncludeLongueur === true) {
             li.classList.add("valid-rule");
-            li.style.cssText = "color: #9adbb3; font-weight : 900";
+            li.style.cssText = "color: #9adbb3";
         } else {
             li.style.cssText = "color: #D3D3D3; font-weight : 500";
             li.classList.remove("valid-rule");

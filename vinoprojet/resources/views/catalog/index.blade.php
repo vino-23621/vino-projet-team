@@ -19,14 +19,14 @@
                         <h3>Recherche Avancée</h3>
                         <span class="chevron" aria-hidden="true"></span>
                     </summary>
-                    
+
                     <form class="filter-searchBar" action="{{ route('catalog.index') }}" method="GET">
                         <input
-                        type="text"
-                        name="search"
-                        value="{{ request('search') }}"
-                        placeholder="Rechercher par nom"
-                        class="filter-searchBar-input">
+                            type="text"
+                            name="search"
+                            value="{{ request('search') }}"
+                            placeholder="Rechercher par nom"
+                            class="filter-searchBar-input">
                         <button class="button button__defaultCellar" type="submit">Rechercher
                         </button>
                     </form>
@@ -57,13 +57,13 @@
                         <input type="number" name="price_max" placeholder="Prix maximum" value="{{ request('price_max') }}">
                         <button type="submit">Filtrer</button>
                     </form>
-                    
+
                 </details>
             </div>
         </div>
     </div>
     <div class="dualPanel-right">
-        
+
         <div class="dual-panel-right-header">
             <div class="sort-container">
                 <form method="GET">
@@ -89,17 +89,17 @@
                 </form>
             </div>
         </div>
-            <div class="dual-panel-right-content">
-                <div class="grid-card">
-                    @foreach($bottles as $bottle)
-                    
-                    <article class="card-bottle">
-                        <img src="https://{{ $bottle['image'] }}" class="card-bottle-image">
-                        
-                        <header class="card-bottle-header">
-                            <h4>{{ $bottle->name }}</h4>
-                            <div class="sub-header">
-                                <div
+        <div class="dual-panel-right-content">
+            <div class="grid-card">
+                @foreach($bottles as $bottle)
+
+                <article class="card-bottle">
+                    <img src="https://{{ $bottle['image'] }}" class="card-bottle-image">
+
+                    <header class="card-bottle-header">
+                        <h4>{{ $bottle->name }}</h4>
+                        <div class="sub-header">
+                            <div
                                 @if ($bottle->identity->name === 'Vin rouge') class="wine-color-ico red"
                                 @elseif ($bottle->identity->name === 'Vin blanc') class="wine-color-ico white"
                                 @elseif ($bottle->identity->name === 'Vin rosé') class="wine-color-ico rose"
@@ -111,81 +111,81 @@
                                 @elseif ($bottle->identity->name === 'Vin de dessert') class="wine-color-ico dessert"
                                 @elseif ($bottle->identity->name === 'Vin de tomate') class="wine-color-ico tomate"
                                 @endif></div>
-                                <p>{{ $bottle->identity->name }} | @if($bottle->vintage !== null) {{ $bottle->vintage }} @else Date non connue @endif</p>
-                            </div>
-                        </header>
-                        
-                        <div class="card-bottle-content">
-                            <section>
-                                <div class="container-win-details">
-                                    <h3 class="subtitle-wines">Détails</h3>
-                                    <a href="{{ route('bottle.show', $bottle->id) }}"><i class="fa-regular fa-eye"></i> Plus</a>
-                                </div>
-                                <div class="content-details">
-                                    <p>{{ $bottle->country->name }}</p>
-                                    <p class="bottle-size-ml">{{ $bottle->size }} ml</p>
-                                </div>
-                            </section>
-                            <section>
-                                <div class="section-price">
-                                    <h5 class="price-wine">$ {{ $bottle->price }}</h5>
-                                    <p>CAD</p>
-                                </div>
-                                
-                                <form action="{{ isset($cellarId) ? route('cellars.addBottle') : route('catalog.addWineFromCatalog', ['bottle' => $bottle->id]) }}" method="POST" class="inline-form">
-                                    @csrf
-                                    
-                                    
-                                    <input type="hidden" name="bottle_id" value="{{ $bottle->id }}">
-                                    
-                                    
-                                    
-                                    @if(isset($cellarId))
-                                    <input type="hidden" name="cellar_id" value="{{ $cellarId }}">
-                                    @endif
-                                    
-                                    <label for="quantity"></label>
-                                    <input type="number" name="quantity" id="quantity" value="1" min="1">
-                                    
-                                    <button type="submit" title="Ajouter au cellier" class="button addCellar">
-                                        + Ajouter au cellier
-                                    </button>
-                                    
-                                </form>
-                                
-                                <!-- Formulaire ajout à la wishlist -->
-                                
-                                <form action="{{ route('wishlist.addToWishList', ['bottle' => $bottle->id]) }}" method="POST" class="inline-form">
-                                    @csrf
-                                    
-                                    <input type="hidden" name="users_id" value="{{ auth()->id() }}">
-                                    
-                                    <input type="hidden" name="bottles_id" value="{{ $bottle->id }}">
-                                    
-                                    <label for="quantity"></label>
-                                    <input type="number" name="quantity" id="quantity" value="1" min="1">
-                                    
-                                    <button type="submit" title="Ajouter à la wishlist" class="button addCellar">
-                                        + Ajouter à la liste d’achats
-                                    </button>
-                                </form>
-                            </section>
+                            <p>{{ $bottle->identity->name }} | @if($bottle->vintage !== null) {{ $bottle->vintage }} @else Date non connue @endif</p>
                         </div>
-                    </article>
-                    @endforeach
-                </div>
-            </div>
-            <div class="dual-panel-right-footer">
-                {!! $bottles->links('vendor.pagination.default') !!}
-                <div class="cta-banner">
-                    <a href="{{ route('cellars.create') }}" class="cta-banner-icon"><i class="fa-solid fa-plus"></i></a>
-                    <div class="cta-banner-content">
-                        <h3>Catalogue des bouteilles</h3>
-                        <p>Commencez un cellier pour regrouper vos bouteilles à votre façon.</p>
+                    </header>
+
+                    <div class="card-bottle-content">
+                        <section>
+                            <div class="container-win-details">
+                                <h3 class="subtitle-wines">Détails</h3>
+                                <a href="{{ route('bottle.show', $bottle->id) }}"><i class="fa-regular fa-eye"></i> Plus</a>
+                            </div>
+                            <div class="content-details">
+                                <p>{{ $bottle->country->name }}</p>
+                                <p class="bottle-size-ml">{{ $bottle->size }} ml</p>
+                            </div>
+                        </section>
+                        <section>
+                            <div class="section-price">
+                                <h5 class="price-wine">$ {{ $bottle->price }}</h5>
+                                <p>CAD</p>
+                            </div>
+
+                            <form class="card-bottle-add" action="{{ isset($cellarId) ? route('cellars.addBottle') : route('catalog.addWineFromCatalog', ['bottle' => $bottle->id]) }}" method="POST" class="inline-form">
+                                @csrf
+
+
+                                <input type="hidden" name="bottle_id" value="{{ $bottle->id }}">
+
+
+
+                                @if(isset($cellarId))
+                                <input type="hidden" name="cellar_id" value="{{ $cellarId }}">
+                                @endif
+
+                                <label for="quantity"></label>
+                                <input type="number" name="quantity" id="quantity" value="1" min="1">
+
+                                <button type="submit" title="Ajouter au cellier" class="button addCellar">
+                                    + Ajouter au cellier
+                                </button>
+
+                            </form>
+
+                            <!-- Formulaire ajout à la wishlist -->
+
+                            <form class="card-bottle-add" action="{{ route('wishlist.addToWishList', ['bottle' => $bottle->id]) }}" method="POST" class="inline-form">
+                                @csrf
+
+                                <input type="hidden" name="users_id" value="{{ auth()->id() }}">
+
+                                <input type="hidden" name="bottles_id" value="{{ $bottle->id }}">
+
+                                <label for="quantity"></label>
+                                <input type="number" name="quantity" id="quantity" value="1" min="1">
+
+                                <button type="submit" title="Ajouter à la wishlist" class="button addCellar">
+                                    + Ajouter à la liste d’achats
+                                </button>
+                            </form>
+                        </section>
                     </div>
-                    <a href="{{ route('cellars.create') }}" class="button button__safe">Ajouter</a>
-                </div>
+                </article>
+                @endforeach
             </div>
+        </div>
+        <div class="dual-panel-right-footer">
+            {!! $bottles->links('vendor.pagination.default') !!}
+            <div class="cta-banner">
+                <a href="{{ route('cellars.create') }}" class="cta-banner-icon"><i class="fa-solid fa-plus"></i></a>
+                <div class="cta-banner-content">
+                    <h3>Catalogue des bouteilles</h3>
+                    <p>Commencez un cellier pour regrouper vos bouteilles à votre façon.</p>
+                </div>
+                <a href="{{ route('cellars.create') }}" class="button button__safe">Ajouter</a>
+            </div>
+        </div>
     </div>
-    
+
     @endsection

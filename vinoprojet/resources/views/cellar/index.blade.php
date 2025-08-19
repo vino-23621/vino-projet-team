@@ -14,7 +14,7 @@
     </div>
 
     <div class="dualPanel-right">
-        
+
         <div class="dual-panel-right-content">
             <div class="grid-card">
                 @foreach($cellars as $cellar)
@@ -23,7 +23,8 @@
                     <div class="card-cellar-header">
                         <div class="card-cellar-title">
                             <h4>{{ $cellar->name }}</h4>
-                            <button class="openModalBtnEdit modalBtn"><i class="fa-solid fa-pencil"></i></button>
+                            <button class="openModalBtnEdit modalBtn" data-id="{{ $cellar->id }}"
+                                data-name="{{ $cellar->name }}"><i class="fa-solid fa-pencil"></i></button>
                         </div>
                         <p>Créé le : {{ $cellar->created_at->format('Y-m-d') }}</p>
                     </div>
@@ -44,7 +45,8 @@
                     <div class="card-cellar-header">
                         <div class="card-cellar-title">
                             <h4>{{ $cellar->name }}</h4>
-                            <button class="openModalBtnEdit modalBtn"><i class="fa-solid fa-pencil"></i></button>
+                            <button class="openModalBtnEdit modalBtn" data-id="{{ $cellar->id }}"
+                                data-name="{{ $cellar->name }}"><i class="fa-solid fa-pencil"></i></button>
                         </div>
                         <p>Crée le : {{ $cellar->created_at->format('Y-m-d') }}</p>
                     </div>
@@ -77,7 +79,7 @@
 
 
                         <label for="cellar_name" class="modal-label">Nom du cellier</label>
-                        <input type="text" class="modal-input" id="cellar_name" name="name" value="{{$cellar->name}}">
+                        <input type="text" class="modal-input" id="cellar_name" name="name" value="">
                         @if($errors->has('name'))
                         <span class="form-content-error">{{ $errors->first('name') }}</span>
                         @endif

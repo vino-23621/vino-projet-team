@@ -1,8 +1,29 @@
+.comments {
+    border-top: 1px solid #eee7f6;
+    margin-top: 1rem;
+    padding-top: 1rem;
+}
+
 .button-comments {
     margin-top: 15px;
     margin-bottom: 10px;
     padding: 3px;
+    color: #783197;
+    transition: color, 300ms ease;
+    font-size: 14px;
+    background: none;      
+  border: none;          
+    
+        
+  cursor: pointer;       
+
+    &:hover {
+        color: #3e1251;
+        transition-duration: 300ms;
+    }
 }
+
+
 
 .input_comment {
     margin-top: 15px;
@@ -35,5 +56,10 @@
     gap: 10px;
     align-items: baseline;
     justify-content: space-between;
+    color: black;
 
+}
+
+.comments-gray {
+    color: var(--Color-300)
 }

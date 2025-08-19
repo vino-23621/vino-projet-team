@@ -1,0 +1,50 @@
+.card-bottle-show-image {
+    margin-inline: auto;
+    display: block;
+    border-radius: 18px;
+    background-color: #e3cff0;
+}
+
+.card-bottle-show-header,
+.card-bottle-show-content {
+    padding-top: var(--spacing-thinner);
+}
+
+.card-bottle-show-header {
+    border-bottom: 1px solid #eee7f6;
+    padding-bottom: var(--spacing-thinner);
+}
+
+.card-bottle-show .sub-header {
+    display: flex;
+    font-size: 16px;
+    color: #9586a8;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.card-bottle-show-header h4 {
+    color: #2d0c57;
+}
+
+.card-bottle-show-details {
+    border-top: 1px solid #eee7f6;
+    padding-top: var(--spacing-thinner);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: #5d5a88;
+
+    & + .card-bottle-show-add {
+        margin-top: 2rem;
+    }
+}
+
+.card-bottle-show-add + .card-bottle-show-add {
+    margin-top: var(--spacing-micro);
+}
+
+.card-bottle-show-details-content {
+    display: flex;
+    gap: 8px;
+}
