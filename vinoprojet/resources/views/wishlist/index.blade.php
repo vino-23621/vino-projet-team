@@ -91,7 +91,7 @@
             </div>
         </div>
         <div class="dual-panel-right-content">
-            @if($bottles->isEmpty())
+            @if($wishlists->isEmpty())
             <div class="empty-cellar">
                 <p>Aucune bouteille trouvée dans ce cellier.</p>
             <img src="{{ asset('assets/images/img-empty-cellar.png') }}" alt="Cellar vide">
