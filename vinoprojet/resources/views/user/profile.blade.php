@@ -47,38 +47,7 @@
 
                 <label for="modalUser-toggle" class="button button__danger">Supprimer le compte</label>
 
-                <h3>Mes Commentaires</h3>
-
-                @forelse ($comments as $comment)
-                @foreach ($comment->bottles as $bottle)
-                <div class="container_comments">
-                    <img src="https://{{ $bottle['image'] }}" alt="bottle" width="70">
-                    <div>
-                        <div class="comments-flex">
-                            <p class="comments-title"> Nom: </p>
-                            <p> {{ $bottle->name }}</p>
-                        </div>
-
-                        <div class="comments-flex">
-                            <p class="comments-title"> Commentaire: </p>
-                            <p> {{ $bottle->pivot->comment }}</p>
-                        </div>
-
-                        <form action="{{ route('comments.destroy', ['comment' => $comment->id, 'bottle' => $bottle->id]) }}"
-                            method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button class="modalBtn suppBtn" type="submit"><i class="fa-regular fa-trash-can"></i> Supprimer</button>
-                        </form>
-
-                    </div>
-
-                </div>
-
-                @endforeach
-                @empty
-                <p>Pas des commentaires</p>
-                @endforelse
+           
 
 
                 <div class="modalUser">

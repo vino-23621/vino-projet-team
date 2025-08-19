@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Bottle;
 use App\Models\Identity;
 use App\Models\Country;
+use App\Models\Comment;
 use App\Models\Cellar;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
@@ -58,6 +59,7 @@ class CellarController extends Controller
      */
     public function show(Request $request, Cellar $cellar)
     {
+        $user = Auth::user();
         $identities = Identity::all();
         $countries = Country::all();
 
@@ -130,7 +132,9 @@ class CellarController extends Controller
 
         $bottles = $query->paginate(12);
 
-        return view('cellar.show', compact('cellar', 'bottles', 'identities', 'countries'));
+        $comments = Comment::where('user_id', $user->id)->with('bottles')->get();
+
+        return view('cellar.show', compact('cellar', 'bottles', 'identities', 'countries', 'comments'));
     }
 
     /**
