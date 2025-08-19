@@ -95,14 +95,15 @@
             </div>
         </div>
         <div class="dual-panel-right-content">
-            @if($bottles->isEmpty())
+            @if($wishlists->isEmpty())
             <p>Aucune bouteille trouvée dans ce cellier.</p>
             @else
 
             <div class="grid-card">
-                @foreach($bottles as $bottle)
-                <article class="card-bottle">
-                    <img src="https://{{ $bottle['image'] }}" class="card-bottle-image">
+                @foreach($wishlists as $wishlist)
+                    @php $bottle = $wishlist->bottle; @endphp
+                    <article class="card-bottle">
+                        <img src="https://{{ $bottle->image }}" class="card-bottle-image">
 
                     <header class="card-bottle-header">
                         <h4>{{ $bottle->name }}</h4>
@@ -119,44 +120,40 @@
                                 @elseif ($bottle->identity->name === 'Vin de dessert') class="wine-color-ico dessert"
                                 @elseif ($bottle->identity->name === 'Vin de tomate') class="wine-color-ico tomate"
 
-
                                 @endif></div>
                             <p>{{ $bottle->identity->name }} | @if($bottle->vintage !== null) {{ $bottle->vintage }} @else Date non connu @endif</p>
                         </div>
                     </header>
 
-                    <div class="card-bottle-content">
-                        <section>
-                            <h3 class="subtitle-wines">Détails</h3>
-                            <div class="content-details">
-                                <p>{{ $bottle->country->name }}</p>
-                                <p class="bottle-size-ml">{{ $bottle->size }} ml</p>
-                            </div>
-                        </section>
-                        <section>
-                            <div class="section-price">
-                                <h5 class="price-wine">$ {{ $bottle->price }}</h5>
-                                <p>CAD</p>
-                            </div>
-                        </section>
-                    </div>
+                        <div class="card-bottle-content">
+                            <section>
+                                <h3 class="subtitle-wines">Détails</h3>
+                                <div class="content-details">
+                                    <p>{{ $bottle->country->name }}</p>
+                                    <p class="bottle-size-ml">{{ $bottle->size }} ml</p>
+                                </div>
+                            </section>
+                            <section>
+                                <div class="section-price">
+                                    <h5 class="price-wine">$ {{ $bottle->price }}</h5>
+                                    <p>CAD</p>
+                                </div>
+                            </section>
+                        </div>
 
-                    <form action="{{ route('wishlist.updateQuantity', ['bottle' => $bottle->id]) }}" method="POST" class="inline-form">
-                        @csrf
-                        @method('PUT')
-                        <input type="hidden" name="bottle_id" value="{{ $bottle->id }}">
-                        <label for="quantity"></label>
-
-                        <input type="number" name="quantity" id="quantity" value="{{ old('quantity', $bottle->quantity) }}" min="0" required>
-                        <button type="submit" title="Ajouter au cellier" class="button addCellar">
-                            Changer la quantité
-                        </button>
-                    </form>
+                        <form action="{{ route('wishlist.updateQuantity', ['bottle' => $bottle->id]) }}" method="POST" class="inline-form">
+                            @csrf
+                            @method('PUT')
+                            <label for="quantity"></label>
+                            <input type="number" name="quantity" id="quantity"
+                                value="{{ old('quantity', $wishlist->quantity) }}" min="0" required>
+                            <button type="submit" class="button addCellar">Changer la quantité</button>
+                        </form>
 
                     <form action="{{ route('wishlist.removeBottle', $bottle->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button class="modalBtn"><i class="fa-regular fa-trash-can"></i>Retirer de la liste d'achat</button>
+                        <button type="submit" class="button button__danger">Retirer</button>
                     </form>
 
                 </article>
