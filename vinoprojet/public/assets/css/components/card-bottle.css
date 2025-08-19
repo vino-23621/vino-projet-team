@@ -93,12 +93,21 @@
 input[type="number"] {
     width: 40px;
     height: 40px;
-    border: 2px solid #8d8ba7;
-    border-radius: 0;
+    border: 2px solid var(--light-text);
+    border-radius: 5px;
+    padding-left: 8px;
     text-align: center;
     outline: none;
 }
+.card-bottle-add+.card-bottle-add{
+    margin-top: var(--spacing-micro);
+}
 
+.card-bottle-wishtlist-variation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .container-win-details {
     display: flex;
