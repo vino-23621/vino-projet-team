@@ -95,6 +95,7 @@
     background-color: var(--White);
     color: #783197;
     transition: color, 300ms ease;
+    font-size: 14px;
 
     &:hover {
         color: #3e1251;

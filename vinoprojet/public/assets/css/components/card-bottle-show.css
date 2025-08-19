@@ -1,4 +1,3 @@
-
 .card-bottle-show-image {
     margin-inline: auto;
     display: block;
@@ -28,24 +27,24 @@
     color: #2d0c57;
 }
 
-.card-bottle-show-details{
+.card-bottle-show-details {
     border-top: 1px solid #eee7f6;
     padding-top: var(--spacing-thinner);
     display: flex;
     flex-direction: column;
     gap: 8px;
+    color: #5d5a88;
 
-
-    & +.card-bottle-show-add{
+    & + .card-bottle-show-add {
         margin-top: 2rem;
     }
 }
 
-.card-bottle-show-add+.card-bottle-show-add{
+.card-bottle-show-add + .card-bottle-show-add {
     margin-top: var(--spacing-micro);
 }
 
-.card-bottle-show-details-content{
+.card-bottle-show-details-content {
     display: flex;
     gap: 8px;
 }
