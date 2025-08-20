@@ -76,11 +76,11 @@ class CatalogController extends Controller
                 case 'price_desc':
                     $query->orderBy('price', 'desc');
                     break;
-                case 'country_asc':
-                    $query->orderBy('country_id', 'asc');
+                case 'name_asc': 
+                    $query->orderBy('name', 'asc');
                     break;
-                case 'country_desc':
-                    $query->orderBy('country_id', 'desc');
+                case 'name_desc':
+                    $query->orderBy('name', 'desc');
                     break;
             }
         }
