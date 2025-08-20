@@ -3,6 +3,7 @@
     align-items: center;
     justify-content: space-between;
 }
+
 .sort-select {
     height: 50px;
     border: 1.5px solid var(--Color-200);
@@ -21,29 +22,28 @@
     flex: 0 0 70%;
     min-width: 0;
 }
+
 .sort-select:hover {
     border-color: var(--Primary-Purple-200);
 }
+
 .sort-select:focus {
     border-color: var(--Primary-Purple-400);
-    box-shadow: 0 0 0 4px
-        color-mix(in srgb, var(--Primary-Purple-100) 65%, transparent);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--Primary-Purple-100) 65%, transparent);
     outline: 0;
 }
+
 .sort-button {
     height: 52px;
     padding: 0 18px;
     border-radius: 14px;
     border: 0;
     cursor: pointer;
-    font: var(--Single-Uppercase-200-bold);
+    font: var(--Single-Uppercase-100-bold);
     letter-spacing: 0.5px;
-    text-transform: uppercase;
-    background: linear-gradient(
-        145deg,
-        var(--Primary-Purple-400),
-        var(--Secondary-Rose-300)
-    );
+    background: linear-gradient(145deg,
+            var(--Primary-Purple-400),
+            var(--Secondary-Rose-300));
     color: #fff;
     box-shadow: 0 8px 20px rgba(120, 49, 151, 0.25),
         inset 0 -2px 0 rgba(0, 0, 0, 0.08);
@@ -54,11 +54,13 @@
     white-space: nowrap;
     flex: 0 0 25%;
 }
+
 .sort-button:hover {
     filter: saturate(1.05);
     box-shadow: 0 10px 26px rgba(120, 49, 151, 0.28),
         inset 0 -2px 0 rgba(0, 0, 0, 0.08);
 }
+
 .sort-button:active {
     transform: translateY(1px);
 }
@@ -66,10 +68,12 @@
 .filter-details[open] .filter-form {
     animation: filter-fade-in 0.18s ease both;
 }
+
 @keyframes filter-fade-in {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }

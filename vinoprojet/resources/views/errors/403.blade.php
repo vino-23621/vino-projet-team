@@ -10,7 +10,7 @@
     <div>
         <h1>Erreur 403</h1>
         <p>{{ session('message') ?? "Vos droits d'accès ne permettent pas de consulter cette page." }}</p>
-        <a href="{{ route('index') }}" class="btn">Retour à l'accueil</a>
+        <a href="{{ route('cellars.index') }}" class="btn">Retour à l'accueil</a>
     </div>
 </div>
 @endsection

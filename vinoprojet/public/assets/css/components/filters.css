@@ -3,18 +3,16 @@
     border-radius: 17px;
     overflow: hidden;
     background: #fff;
-    border: 1px solid
-        color-mix(in srgb, var(--Primary-Purple-100) 45%, transparent);
+    border: 1px solid color-mix(in srgb, var(--Primary-Purple-100) 45%, transparent);
     box-shadow: 0 8px 24px rgba(16, 24, 40, 0.08);
     transition: box-shadow 0.25s ease, border-color 0.25s ease,
         opacity 0.18s ease;
 }
+
 .filter-details:is(:hover, :focus-within) {
-    border-color: color-mix(
-        in srgb,
-        var(--Primary-Purple-100) 75%,
-        transparent
-    );
+    border-color: color-mix(in srgb,
+            var(--Primary-Purple-100) 75%,
+            transparent);
     box-shadow: 0 12px 32px rgba(16, 24, 40, 0.12);
 }
 
@@ -24,18 +22,21 @@
     cursor: pointer;
     text-align: center;
     color: var(--Primary-Purple-300);
-    background: white;
+    background: #fff;
     border: 2px solid var(--Primary-Purple-200);
     position: relative;
     border-radius: 16px;
 }
+
 .filter-summary::-webkit-details-marker {
     display: none;
 }
+
 .filter-summary h3 {
     margin: 0;
-    font: var(--Display-400, 600 1.25rem/1.2 Arial, sans-serif);
+    font: var(--Display-400, 600 1rem/1.2 Arial, sans-serif);
 }
+
 .filter-summary .chevron {
     position: absolute;
     right: 16px;
@@ -44,17 +45,18 @@
     height: 18px;
     transform: translateY(-50%) rotate(0deg);
     transition: transform 0.25s ease;
-    background: no-repeat center/18px
-        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='black' stroke-width='2' viewBox='0 0 24 24'><polyline points='6 9 12 15 18 9'/></svg>");
+    background: no-repeat center/18px url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='black' stroke-width='2' viewBox='0 0 24 24'><polyline points='6 9 12 15 18 9'/></svg>");
 }
+
 .filter-details[open] .filter-summary .chevron {
     transform: translateY(-50%) rotate(180deg);
 }
+
 .filter-summary:focus-visible {
-    outline: 3px solid
-        color-mix(in srgb, var(--Primary-Purple-100) 80%, transparent);
+    outline: 3px solid color-mix(in srgb, var(--Primary-Purple-100) 80%, transparent);
     outline-offset: 2px;
 }
+
 .filter-form {
     padding: clamp(var(--spacing-thinner), 2vw, var(--spacing-thin));
     display: flex;
@@ -63,6 +65,7 @@
     background: #fff;
     font-size: 16px;
 }
+
 .filter-form select,
 .filter-form input[type="number"] {
     height: 50px;
@@ -78,12 +81,10 @@
     box-shadow: 0 1px 0 rgba(25, 25, 49, 0.02);
     font-size: 16px;
 }
+
 .filter-form select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
-    background: no-repeat right 14px center/18px
-        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%239458af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+    background: no-repeat right 14px center/18px url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%239458af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
 }
 
 .filter-form label {
@@ -91,102 +92,67 @@
     align-items: center;
     gap: 0.6rem;
     color: var(--Text-Gray);
-    font: var(--Body-default);
+    font: var(--Body-small);
 }
+
 .filter-form input[type="checkbox"] {
     width: 18px;
     height: 18px;
     border-radius: 4px;
     accent-color: var(--Primary-Purple-400);
 }
+
 .filter-form :is(select, input[type="number"]):hover {
     border-color: var(--Primary-Purple-200);
 }
+
 .filter-form :is(select, input[type="number"]):focus {
     border-color: var(--Primary-Purple-400);
-    box-shadow: 0 0 0 4px
-        color-mix(in srgb, var(--Primary-Purple-100) 65%, transparent);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--Primary-Purple-100) 65%, transparent);
     outline: 0;
 }
-.filter-form ::placeholder {
+
+.filter-form ::placeholder,
+.filter-searchBar-input::placeholder {
     color: var(--Color-400);
 }
-.filter-actions {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-    margin-top: 4px;
-}
-.btn-primary {
-    height: 48px;
-    padding: 0 16px;
-    border-radius: 12px;
-    border: 0;
-    color: #fff;
-    cursor: pointer;
-    background: linear-gradient(
-        145deg,
-        var(--Primary-Purple-400),
-        var(--Secondary-Rose-300)
-    );
-    font: var(--Single-Uppercase-200-bold);
-    box-shadow: 0 8px 20px rgba(120, 49, 151, 0.22),
-        inset 0 -2px 0 rgba(0, 0, 0, 0.06);
-    transition: transform 0.06s ease, box-shadow 0.2s ease, filter 0.2s ease;
-}
-.btn-primary:hover {
-    filter: saturate(1.05);
-    box-shadow: 0 10px 26px rgba(120, 49, 151, 0.26),
-        inset 0 -2px 0 rgba(0, 0, 0, 0.08);
-}
-.btn-primary:active {
-    transform: translateY(1px);
-}
-.btn-ghost {
-    height: 48px;
-    padding: 0 14px;
-    border-radius: 12px;
-    border: 1.5px solid var(--Color-200);
-    background: transparent;
-    color: var(--Color-700);
-    display: inline-grid;
-    place-items: center;
-    text-decoration: none;
-    transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
-}
-.btn-ghost:hover {
-    border-color: var(--Primary-Purple-300);
-    background: color-mix(in srgb, var(--Primary-Purple-100) 16%, transparent);
-}
-.filter-searchBar {
-    display: flex;
-    justify-content: center;
-    padding: clamp(var(--spacing-thinner), 2vw, var(--spacing-thin));
-}
-.button__defaultCellar {
-    padding: 10px;
 
+.filter-form button[type="submit"] {
+    height: 52px;
+    border-radius: 14px;
+    border: none;
     cursor: pointer;
-    font: var(--Single-Uppercase-200-bold);
-    color: white;
+    font: var(--Single-Uppercase-100-bold);
     letter-spacing: 0.5px;
-    background: linear-gradient(
-        145deg,
-        var(--Primary-Purple-400),
-        var(--Secondary-Rose-300)
-    );
+    background: linear-gradient(145deg,
+            var(--Primary-Purple-400),
+            var(--Secondary-Rose-300));
+    color: #fff;
     box-shadow: 0 8px 20px rgba(120, 49, 151, 0.25),
         inset 0 -2px 0 rgba(0, 0, 0, 0.08);
     transition: transform 0.06s ease, box-shadow 0.2s ease, filter 0.2s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 0.6rem;
 }
-.button.button__defaultCellar {
-    color: white;
-    border-radius: 0 14px 14px 0;
+
+.filter-form button[type="submit"]:hover {
+    filter: saturate(1.05);
+    box-shadow: 0 10px 26px rgba(120, 49, 151, 0.28),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.08);
 }
+
+.filter-form button[type="submit"]:active {
+    transform: translateY(1px);
+}
+
+.filter-searchBar {
+    display: flex;
+    justify-content: center;
+    padding: clamp(var(--spacing-thinner), 2vw, var(--spacing-thin));
+}
+
 .filter-searchBar-input {
     height: 50px;
     width: 100%;
@@ -202,54 +168,30 @@
     font-size: 16px;
 }
 
-.filter-searchBar-input:is(select, input[type="text"]):hover {
+.filter-searchBar-input:hover {
     border-color: var(--Primary-Purple-200);
 }
-.filter-searchBar-input:is(select, input[type="text"]):focus {
+
+.filter-searchBar-input:focus {
     border-color: var(--Primary-Purple-400);
-    box-shadow: 0 0 0 4px
-        color-mix(in srgb, var(--Primary-Purple-100) 65%, transparent);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--Primary-Purple-100) 65%, transparent);
     outline: 0;
 }
-.filter-searchBar-input::placeholder {
-    color: var(--Color-400);
-}
 
-.filter-form.error :is(input:focus, select:focus) {
-    border-color: var(--Error-Red);
-    box-shadow: 0 0 0 4px
-        color-mix(in srgb, var(--Error-Red-100) 70%, transparent);
-}
-.filter-form button[type="submit"],
-.filter-actions .btn-primary {
-    height: 52px;
-    border-radius: 14px;
-    border: none;
+.button.button__filtersearch {
+    padding: 10px;
     cursor: pointer;
-    font: var(--Single-Uppercase-200-bold);
-    letter-spacing: 0.5px;
-    background: linear-gradient(
-        145deg,
-        var(--Primary-Purple-400),
-        var(--Secondary-Rose-300)
-    );
+    font: var(--Single-Uppercase-100-bold);
     color: #fff;
+    letter-spacing: 0.5px;
+    background: linear-gradient(145deg,
+            var(--Primary-Purple-400),
+            var(--Secondary-Rose-300));
     box-shadow: 0 8px 20px rgba(120, 49, 151, 0.25),
         inset 0 -2px 0 rgba(0, 0, 0, 0.08);
     transition: transform 0.06s ease, box-shadow 0.2s ease, filter 0.2s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.6rem;
-}
-
-.filter-form button[type="submit"]:hover,
-.filter-actions .btn-primary:hover {
-    filter: saturate(1.05);
-    box-shadow: 0 10px 26px rgba(120, 49, 151, 0.28),
-        inset 0 -2px 0 rgba(0, 0, 0, 0.08);
-}
-.filter-form button[type="submit"]:active,
-.filter-actions .btn-primary:active {
-    transform: translateY(1px);
+    border-radius: 0 14px 14px 0;
 }

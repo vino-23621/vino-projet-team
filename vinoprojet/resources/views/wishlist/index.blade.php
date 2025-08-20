@@ -26,7 +26,7 @@
                             value="{{ request('search') }}"
                             placeholder="Rechercher par nom"
                             class="filter-searchBar-input">
-                        <button class="button button__defaultCellar" type="submit">Rechercher
+                        <button class="button button__filtersearch" type="submit">Rechercher
                         </button>
                     </form>
                     <form method="GET" class="filter-form">
@@ -94,15 +94,15 @@
             @if($wishlists->isEmpty())
             <div class="empty-cellar">
                 <p>Aucune bouteille trouvée dans ce cellier.</p>
-            <img src="{{ asset('assets/images/img-empty-cellar.png') }}" alt="Cellar vide">
+                <img src="{{ asset('assets/images/img-empty-cellar.png') }}" alt="Cellar vide">
             </div>
             @else
 
             <div class="grid-card">
                 @foreach($wishlists as $wishlist)
-                    @php $bottle = $wishlist->bottle; @endphp
-                    <article class="card-bottle">
-                        <img src="https://{{ $bottle->image }}" class="card-bottle-image">
+                @php $bottle = $wishlist->bottle; @endphp
+                <article class="card-bottle">
+                    <img src="https://{{ $bottle->image }}" class="card-bottle-image">
 
                     <header class="card-bottle-header">
                         <h4>{{ $bottle->name }}</h4>
@@ -140,21 +140,21 @@
                             </section>
                         </div>
 
-                        <div class="card-bottle-wishtlist-variation">
-                            <form action="{{ route('wishlist.updateQuantity', ['bottle' => $bottle->id]) }}" method="POST" class="inline-form">
-                                @csrf
-                                @method('PUT')
-                                <label for="quantity"></label>
-                                <input type="number" name="quantity" id="quantity"
-                                    value="{{ old('quantity', $wishlist->quantity) }}" min="0" required>
-                                <button type="submit" class="button addCellar">Changer la quantité</button>
-                            </form>
-                            <form action="{{ route('wishlist.removeBottle', $bottle->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="button button__danger">Retirer</button>
-                            </form>
-                        </div>
+                    <div class="card-bottle-wishtlist-variation">
+                        <form action="{{ route('wishlist.updateQuantity', ['bottle' => $bottle->id]) }}" method="POST" class="inline-form">
+                            @csrf
+                            @method('PUT')
+                            <label for="quantity"></label>
+                            <input type="number" name="quantity" id="quantity"
+                                value="{{ old('quantity', $wishlist->quantity) }}" min="0" required>
+                            <button type="submit" class="button addCellar">Changer la quantité</button>
+                        </form>
+
+                    <form action="{{ route('wishlist.removeBottle', $bottle->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="button button__danger">Retirer</button>
+                    </form>
 
                 </article>
                 @endforeach
@@ -163,6 +163,8 @@
             @endif
         </div>
         <div class="dual-panel-right-footer">
+            {!! $wishlists->links('vendor.pagination.default') !!}
+
             <div class="cta-banner">
                 <a href="{{ route('catalog.index') }}" class="cta-banner-icon"><i class="fa-solid fa-plus"></i></a>
                 <div class="cta-banner-content">
