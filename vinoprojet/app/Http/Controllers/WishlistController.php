@@ -116,11 +116,11 @@ class WishlistController extends Controller
                 case 'price_desc':
                     $query->orderBy('bottles.price', 'desc');
                     break;
-                case 'country_asc':
-                    $query->orderBy('bottles.country_id', 'asc');
+                case 'name_asc': 
+                    $query->orderBy('name', 'asc');
                     break;
-                case 'country_desc':
-                    $query->orderBy('bottles.country_id', 'desc');
+                case 'name_desc':
+                    $query->orderBy('name', 'desc');
                     break;
             }
         }
@@ -171,7 +171,7 @@ class WishlistController extends Controller
                 'bottles_id.exists'   => "Bouteille introuvable.",
                 'quantity.required'   => "La quantité est requise.",
                 'quantity.integer'    => "La quantité doit être un nombre entier.",
-                'quantity.min'        => "La quantité doit être au moins :min."
+                'quantity.min'        => "La quantité doit être au moins 1 bouteille."
             ]
         );
 
@@ -187,7 +187,7 @@ class WishlistController extends Controller
         $wishlist->quantity += $quantityInitial;
         $wishlist->save();
 
-        return redirect()->route('wishlist.index')->with('success', "bouteille ajoutée à la liste d'achats.");
+        return redirect()->route('wishlist.index')->with('success', "Bouteille ajoutée à la liste d'achats.");
     }
 
     public function editBottle(Bottle $bottle)
@@ -197,7 +197,7 @@ class WishlistController extends Controller
             ->first();
 
         if (!$wishlistBottle) {
-            abort(404, 'Bouteille non trouvée dans ce cellier.');
+            abort(404, 'Bouteille introuvable dans ce cellier.');
         }
 
         $quantity = $wishlistBottle->quantity;
@@ -219,6 +219,6 @@ class WishlistController extends Controller
     public function removeBottle(Bottle $bottle)
     {
         Auth::user()->wishlist()->detach($bottle->id);
-        return redirect()->back()->with('success', 'Bouteille retirée de la liste d’achats.');
+        return redirect()->back()->with('success', "Bouteille retirée de la liste d’achats.");
     }
 }
